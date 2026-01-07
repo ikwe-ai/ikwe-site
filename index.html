@@ -498,6 +498,60 @@
         }
 
         /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--purple-soft);
+            transform: translateY(-4px);
+        }
+
+        .service-name {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .service-for {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 0;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: var(--mint);
+            font-weight: 600;
+        }
+
         .services-inquiry {
             margin-top: 60px;
             display: flex;
@@ -958,6 +1012,7 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
+            .services-grid,
             .demos-grid {
                 grid-template-columns: 1fr;
             }
@@ -1192,10 +1247,47 @@
                 Evaluation scope and methodology can be tailored based on your system and objectives.
             </p>
 
-            <div class="services-inquiry">
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3 class="service-name">Core Scenario Evaluation</h3>
+                    <p class="service-for">Essential safety assessment</p>
+                    <ul class="service-features">
+                        <li>Core emotional scenario testing</li>
+                        <li>Safety Gate violation analysis</li>
+                        <li>Risk identification and prioritization</li>
+                        <li>Summary findings report</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3 class="service-name">Comprehensive Benchmark</h3>
+                    <p class="service-for">Full evaluation suite</p>
+                    <ul class="service-features">
+                        <li>Complete scenario evaluation</li>
+                        <li>All Safety Gate dimensions</li>
+                        <li>Comparative analysis</li>
+                        <li>Detailed remediation guidance</li>
+                        <li>Documentation and reporting</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3 class="service-name">Custom Framework</h3>
+                    <p class="service-for">Tailored evaluation approach</p>
+                    <ul class="service-features">
+                        <li>Custom scenario development</li>
+                        <li>Ongoing monitoring options</li>
+                        <li>Team training and workshops</li>
+                        <li>Integration support</li>
+                        <li>Periodic re-evaluation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="services-inquiry" style="margin-top: 60px;">
                 <div class="services-inquiry-content">
-                    <h3>Evaluation Services</h3>
-                    <p>We offer evaluations tailored to your AI system's needs. Share details about your system and we can discuss evaluation options.</p>
+                    <h3>Evaluation Options</h3>
+                    <p>Evaluations are tailored to your AI system's specific needs and objectives. Components can be combined or customized based on your requirements.</p>
                     <a href="https://form.jotform.com/253607150614047" class="btn btn-primary" target="_blank">Request Information</a>
                 </div>
             </div>
@@ -1491,7 +1583,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.demo-card, .how-step, .services-inquiry-content').forEach(el => {
+        document.querySelectorAll('.service-card, .demo-card, .how-step, .services-inquiry-content').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
