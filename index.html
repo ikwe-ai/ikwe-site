@@ -1319,25 +1319,6 @@
                     <a href="https://form.jotform.com/253607150614047" class="btn btn-primary" target="_blank" style="margin-top: 24px;">Receive benchmark updates</a>
                 </div>
             </div>
-
-            <!-- Proof Strip -->
-            <div class="proof-strip" style="margin-top: 40px; padding: 32px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; align-items: center;">
-                <div style="text-align: center;">
-                    <div style="font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; color: var(--purple-soft);">Benchmark v0.9 complete</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; color: var(--purple-soft);">79-scenario evaluation suite</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; color: var(--purple-soft);">12 AI systems evaluated</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; color: var(--purple-soft);">948 responses analyzed</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 0.95rem; color: var(--text-muted);">Public results: releasing in stages</div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -1569,10 +1550,33 @@
                 <div class="demos-signup-content">
                     <h3>Stay Updated</h3>
                     <p>Get notified when we release new research and tools.</p>
-                    <form class="signup-form" onsubmit="handleSignup(event)">
-                        <input type="email" placeholder="Your email" required>
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    
+                    <!-- Research Updates (Jotform) -->
+                    <form class="signup-form"
+                          id="researchUpdatesForm"
+                          action="https://submit.jotform.com/submit/260065325053145"
+                          method="post"
+                          target="jotform_iframe"
+                          onsubmit="return submitResearchUpdates(event)">
+
+                      <!-- Jotform Email Field -->
+                      <input type="email"
+                             name="q3_email1"
+                             placeholder="Your email"
+                             required>
+
+                      <!-- Tracking fields -->
+                      <input type="hidden" name="source" value="ikwe.ai_research_updates">
+                      <input type="hidden" name="page" id="researchUpdatesPage" value="">
+
+                      <button type="submit" class="btn btn-primary">Subscribe</button>
                     </form>
+
+                    <iframe name="jotform_iframe" id="jotform_iframe" style="display:none;"></iframe>
+
+                    <p class="signup-success" id="researchUpdatesSuccess" style="display:none;">
+                      ✓ You're on the list.
+                    </p>
                 </div>
             </div>
         </div>
@@ -1678,35 +1682,24 @@
             mobileNav.classList.remove('active');
         }
 
-        // Handle optional email signup
-        function handleSignup(event) {
-            event.preventDefault();
-            const email = event.target.querySelector('input[type="email"]').value;
-            
-            // Store the lead - REPLACE WITH YOUR INTEGRATION
-            storeEmail(email, 'newsletter');
-            
-            // Show success
-            event.target.classList.add('submitted');
-            const successMsg = document.createElement('p');
-            successMsg.className = 'signup-success';
-            successMsg.textContent = '✓ Thanks! We\'ll keep you updated.';
-            successMsg.style.display = 'block';
-            event.target.parentNode.appendChild(successMsg);
-        }
+        // Jotform Research Updates submission
+        function submitResearchUpdates(event) {
+            // Populate page URL if hidden field exists
+            const pageField = document.getElementById("researchUpdatesPage");
+            if (pageField) {
+                pageField.value = window.location.href;
+            }
 
-        // Store email - REPLACE THIS WITH YOUR ACTUAL INTEGRATION
-        function storeEmail(email, source) {
-            console.log('Lead captured:', { email, source, timestamp: new Date().toISOString() });
-            
-            // INTEGRATION PLACEHOLDER:
-            // To connect to Notion, Jotform, or another service:
-            //
-            // fetch('YOUR_WEBHOOK_URL', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ email, source })
-            // });
+            // Quiet success UI (no redirect)
+            setTimeout(() => {
+                const form = document.getElementById("researchUpdatesForm");
+                const success = document.getElementById("researchUpdatesSuccess");
+
+                if (form) form.style.display = "none";
+                if (success) success.style.display = "block";
+            }, 150);
+
+            return true; // allow form submit to hidden iframe
         }
 
         // Smooth scroll for anchor links
