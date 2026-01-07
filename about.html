@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | ikwe.ai — Visible Healing Inc.</title>
+    <meta name="description" content="Visible Healing Inc. is an AI safety evaluation company. We build tools and frameworks to measure how AI systems behave when humans are vulnerable.">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Visible Healing Inc. | ikwe.ai">
+    <meta property="og:description" content="AI safety evaluation company based in Des Moines, Iowa. We measure what others miss.">
+    <meta property="og:url" content="https://ikwe.ai/about">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-deep: #0d0d14;
+            --bg-card: #161622;
+            --bg-card-hover: #1c1c2e;
+            --purple-soft: #b794f6;
+            --purple-bright: #9f7aea;
+            --purple-glow: rgba(183, 148, 246, 0.15);
+            --lavender: #e9d5ff;
+            --text-primary: #f4f4f6;
+            --text-secondary: #a0a0b0;
+            --text-muted: #6b6b7b;
+            --coral: #f6a192;
+            --gold: #f6d992;
+            --mint: #92f6d9;
+            --border: rgba(255,255,255,0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Fraunces', serif; font-weight: 600; line-height: 1.2; }
+        a { color: var(--purple-soft); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 20px 0;
+            background: rgba(13, 13, 20, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .logo-icon { width: 40px; height: 40px; }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            margin-left: 32px;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover { color: var(--text-primary); text-decoration: none; }
+
+        /* Page Content */
+        .page-content { padding: 140px 0 80px; }
+
+        .page-header { margin-bottom: 48px; }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .breadcrumb a { color: var(--text-muted); }
+
+        h1 { font-size: 2.5rem; margin-bottom: 16px; }
+
+        .page-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+        }
+
+        /* Sections */
+        section { margin-bottom: 56px; }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--purple-soft);
+        }
+
+        p { margin-bottom: 16px; color: var(--text-secondary); }
+        p strong { color: var(--text-primary); }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 { margin-bottom: 8px; }
+        .card p { margin-bottom: 0; font-size: 0.95rem; }
+
+        /* Approach Grid */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 32px 0;
+        }
+
+        .approach-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .approach-item h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--purple-soft);
+            margin-bottom: 8px;
+        }
+
+        .approach-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Clients List */
+        .clients-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .clients-list span {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Details Table */
+        .details-table {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+
+        .details-row {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .details-row:last-child { border-bottom: none; }
+
+        .details-label {
+            width: 140px;
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.02);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .details-value {
+            flex: 1;
+            padding: 16px 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .details-value a { color: var(--purple-soft); }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 24px 0;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            border-color: var(--purple-soft);
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .social-link-name { font-weight: 500; }
+        .social-link-desc { font-size: 0.85rem; color: var(--text-muted); margin-left: auto; }
+
+        /* CTA */
+        .cta-block {
+            background: var(--bg-card);
+            border: 1px solid var(--purple-soft);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .cta-block p { margin-bottom: 20px; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--purple-soft);
+            color: var(--bg-deep);
+        }
+
+        .btn-primary:hover {
+            background: var(--lavender);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding: 32px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            margin-left: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .approach-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .footer-content { flex-direction: column; gap: 16px; text-align: center; }
+            .footer-links a { margin: 0 12px; }
+            .details-row { flex-direction: column; }
+            .details-label { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="19" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+                    <path d="M20 1 A19 19 0 0 1 39 20 L20 20 Z" fill="#e85d4c"/>
+                    <path d="M39 20 A19 19 0 0 1 20 39 L20 20 Z" fill="#f6d992"/>
+                    <path d="M20 39 A19 19 0 0 1 1 20 L20 20 Z" fill="#b794f6"/>
+                    <path d="M1 20 A19 19 0 0 1 20 1 L20 20 Z" fill="#f4f4f6"/>
+                </svg>
+                ikwe.ai
+            </a>
+            <div class="nav-links">
+                <a href="/#problem">The Problem</a>
+                <a href="/#benchmark">Benchmark</a>
+                <a href="/#services">Engagements</a>
+                <a href="/research">Research</a>
+                <a href="https://form.jotform.com/253607150614047" target="_blank">Inquire</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-content">
+        <div class="container">
+            <header class="page-header">
+                <div class="breadcrumb">
+                    <a href="/">ikwe.ai</a> / About
+                </div>
+                <h1>About Visible Healing Inc.</h1>
+                <p class="page-subtitle">The company behind ikwe.ai</p>
+            </header>
+
+            <section>
+                <p>
+                    <strong>Visible Healing Inc.</strong> is an AI safety evaluation company based in Des Moines, Iowa. 
+                    We build tools and frameworks to measure what others miss: how AI systems behave when humans are vulnerable.
+                </p>
+                <p>
+                    Our flagship product, the <strong>EQ Safety Benchmark</strong>, evaluates behavioral safety in emotionally 
+                    responsive AI—testing not whether systems can recognize emotions, but whether they respond safely under 
+                    real-world vulnerability.
+                </p>
+            </section>
+
+            <section>
+                <h2>What We Do</h2>
+                
+                <div class="card">
+                    <h3>Emotional AI Safety Evaluation</h3>
+                    <p>
+                        We test AI systems against scenarios involving distress, crisis, interpersonal conflict, and vulnerable states. 
+                        Our evaluation measures regulation timing, repair behavior, and safety gate violations.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Benchmark Development</h3>
+                    <p>
+                        The EQ Safety Benchmark is an evolving framework for measuring behavioral safety. It currently includes 
+                        74 scenarios across 14 emotional categories, with ongoing expansion.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Advisory & Research</h3>
+                    <p>
+                        We work with AI teams building products that touch human vulnerability—mental health apps, companion systems, 
+                        customer support AI, and educational platforms.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Our Approach</h2>
+                <p>We believe emotional safety in AI requires more than good intentions. It requires:</p>
+                
+                <div class="approach-grid">
+                    <div class="approach-item">
+                        <h4>Measurement over assumption</h4>
+                        <p>If you can't measure safety behavior, you can't improve it.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h4>Behavior over recognition</h4>
+                        <p>Detecting emotion is not the same as responding safely.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h4>Restraint over engagement</h4>
+                        <p>Sometimes the safest response is knowing when not to respond.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h4>Repair over perfection</h4>
+                        <p>Errors are inevitable. What matters is what happens next.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Who We Work With</h2>
+                <div class="clients-list">
+                    <span>AI Product Teams</span>
+                    <span>Mental Health Apps</span>
+                    <span>EdTech Platforms</span>
+                    <span>Enterprise AI</span>
+                    <span>Policy & Safety Researchers</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>Company Details</h2>
+                <div class="details-table">
+                    <div class="details-row">
+                        <div class="details-label">Legal Name</div>
+                        <div class="details-value">Visible Healing Inc.</div>
+                    </div>
+                    <div class="details-row">
+                        <div class="details-label">DBA</div>
+                        <div class="details-value">ikwe.ai</div>
+                    </div>
+                    <div class="details-row">
+                        <div class="details-label">Founded</div>
+                        <div class="details-value">2024</div>
+                    </div>
+                    <div class="details-row">
+                        <div class="details-label">Location</div>
+                        <div class="details-value">Des Moines, Iowa, USA</div>
+                    </div>
+                    <div class="details-row">
+                        <div class="details-label">Contact</div>
+                        <div class="details-value"><a href="https://form.jotform.com/253607150614047" target="_blank">Inquiry Form</a></div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Connect</h2>
+                <div class="social-links">
+                    <a href="https://ladyinvsible.medium.com" target="_blank" class="social-link">
+                        <span class="social-link-name">Medium</span>
+                        <span class="social-link-desc">Research and writing</span>
+                    </a>
+                    <a href="https://linkedin.com/in/stephaniestranko" target="_blank" class="social-link">
+                        <span class="social-link-name">LinkedIn</span>
+                        <span class="social-link-desc">Professional updates</span>
+                    </a>
+                    <a href="https://twitter.com/Ladyinvisible" target="_blank" class="social-link">
+                        <span class="social-link-name">Twitter / X</span>
+                        <span class="social-link-desc">Short-form insights</span>
+                    </a>
+                </div>
+            </section>
+
+            <section>
+                <h2>Note on the Name</h2>
+                <div class="card" style="border-left: 3px solid var(--purple-soft);">
+                    <p style="margin: 0;">
+                        The name <strong>ikwe</strong> carries Indigenous significance. We use it with care and intent, 
+                        as a reminder that the work must stay grounded in human dignity and the protection of vulnerable 
+                        people—not just technical achievement.
+                    </p>
+                </div>
+            </section>
+
+            <div class="cta-block">
+                <p>Questions about our work or interested in an evaluation?</p>
+                <a href="https://form.jotform.com/253607150614047" class="btn btn-primary" target="_blank">
+                    Submit an inquiry →
+                </a>
+            </div>
+
+            <footer>
+                <div class="footer-content">
+                    <p>© 2026 Visible Healing Inc. · Des Moines, Iowa</p>
+                    <div class="footer-links">
+                        <a href="/">Home</a>
+                        <a href="/research">Research</a>
+                        <a href="/privacy">Privacy</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
