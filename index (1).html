@@ -853,6 +853,11 @@
             display: block;
         }
 
+        .writing-card:hover {
+            border-color: var(--purple-soft);
+            transform: translateY(-4px);
+        }
+
         /* Clients Section */
         .clients-section {
             padding: 60px 0;
@@ -1324,6 +1329,40 @@
 
     <!-- What You Get Section -->
     <section class="what-you-get" style="background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-card) 100%);">
+
+    <!-- Featured Writing Section -->
+    <section class="writing-section" style="padding: 80px 0; border-bottom: 1px solid var(--border);">
+        <div class="container">
+            <div class="section-label">Research & Writing</div>
+            <h2 class="section-title">From the Founder</h2>
+            <p class="section-description">
+                Exploring the gap between emotional recognition and emotional safety in AI systems.
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 40px;">
+                <a href="https://ladyinvsible.medium.com/ai-can-recognize-emotions-that-doesnt-mean-it-knows-how-to-respond-5e66de4115ab" target="_blank" class="writing-card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 32px; text-decoration: none; transition: all 0.3s ease; display: block;">
+                    <div style="font-size: 0.8rem; color: var(--purple-soft); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">Featured Article</div>
+                    <h3 style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 12px; line-height: 1.4;">AI Can Recognize Emotions. That Doesn't Mean It Knows How to Respond.</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 16px;">Why emotion recognition benchmarks miss what matters most: timing, containment, and safety in moments of distress.</p>
+                    <span style="color: var(--purple-soft); font-size: 0.9rem;">Read on Medium →</span>
+                </a>
+                
+                <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 32px; display: flex; flex-direction: column; justify-content: center;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">Coming Soon</div>
+                    <h3 style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 12px;">EQ Safety Benchmark: Full Methodology</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 16px;">The complete framework for evaluating emotional safety in AI systems.</p>
+                    <a href="https://form.jotform.com/260065325053145" target="_blank" style="color: var(--purple-soft); font-size: 0.9rem; text-decoration: none;">Get notified when it drops →</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 32px;">
+                <a href="https://medium.com/@ladyinvsible" target="_blank" class="btn btn-secondary">View all writing on Medium</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get Section -->
+    <section class="what-you-get-content" style="background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-card) 100%);">
         <div class="container">
             <div class="section-label">What You Get</div>
             <h2 class="section-title">Deliverables That Drive Action</h2>
