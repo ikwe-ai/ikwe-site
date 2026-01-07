@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | ikwe.ai — Visible Healing Inc.</title>
-    <meta name="description" content="Visible Healing Inc. is an AI safety evaluation company. We build tools and frameworks to measure how AI systems behave when humans are vulnerable.">
+    <meta name="description" content="Visible Healing Inc. is an AI safety evaluation company based in Des Moines, Iowa. We measure what others miss: how AI systems behave when humans are vulnerable.">
     
     <meta property="og:type" content="website">
     <meta property="og:title" content="About Visible Healing Inc. | ikwe.ai">
-    <meta property="og:description" content="AI safety evaluation company based in Des Moines, Iowa. We measure what others miss.">
+    <meta property="og:description" content="AI safety evaluation company. We measure what others miss.">
     <meta property="og:url" content="https://ikwe.ai/about">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -254,6 +254,26 @@
         .social-link-name { font-weight: 500; }
         .social-link-desc { font-size: 0.85rem; color: var(--text-muted); margin-left: auto; }
 
+        /* Name Note */
+        .name-note {
+            background: rgba(183, 148, 246, 0.05);
+            border: 1px solid rgba(183, 148, 246, 0.2);
+            border-left: 3px solid var(--purple-soft);
+            border-radius: 0 12px 12px 0;
+            padding: 24px 28px;
+            margin: 32px 0;
+        }
+
+        .name-note h3 {
+            color: var(--purple-soft);
+            margin-bottom: 12px;
+        }
+
+        .name-note p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
         /* CTA */
         .cta-block {
             background: var(--bg-card);
@@ -476,16 +496,14 @@
                 </div>
             </section>
 
-            <section>
-                <h2>Note on the Name</h2>
-                <div class="card" style="border-left: 3px solid var(--purple-soft);">
-                    <p style="margin: 0;">
-                        The name <strong>ikwe</strong> carries Indigenous significance. We use it with care and intent, 
-                        as a reminder that the work must stay grounded in human dignity and the protection of vulnerable 
-                        people—not just technical achievement.
-                    </p>
-                </div>
-            </section>
+            <div class="name-note">
+                <h3>Note on the name "ikwe"</h3>
+                <p>
+                    The name <strong>ikwe</strong> carries Indigenous significance. We use it with care and intent, 
+                    as a reminder that the work must stay grounded in human dignity and the protection of vulnerable 
+                    people—not just technical achievement.
+                </p>
+            </div>
 
             <div class="cta-block">
                 <p>Questions about our work or interested in an evaluation?</p>
