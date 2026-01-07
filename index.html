@@ -9,14 +9,14 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="ikwe.ai - Cybersecurity for the Human Mind">
-    <meta property="og:description" content="Emotional AI safety evaluation and benchmarking. 43% of AI systems show zero repair behavior after causing harm. Get your AI audited.">
+    <meta property="og:description" content="Emotional AI safety evaluation and benchmarking by Visible Healing Inc. We measure what others miss.">
     <meta property="og:url" content="https://ikwe.ai">
     <meta property="og:site_name" content="ikwe.ai by Visible Healing Inc.">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ikwe.ai - Cybersecurity for the Human Mind">
-    <meta name="twitter:description" content="Emotional AI safety evaluation. 43% of AI systems show zero repair behavior after causing harm.">
+    <meta name="twitter:description" content="Emotional AI safety evaluation and benchmarking. We measure what others miss.">
     
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
@@ -497,6 +497,38 @@
             text-decoration: underline;
         }
 
+        .benchmark-headline {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .benchmark-list {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .benchmark-list li {
+            padding: 12px 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+            font-size: 1.05rem;
+        }
+
+        .benchmark-list li:last-child {
+            border-bottom: none;
+        }
+
+        .benchmark-list strong {
+            color: var(--purple-soft);
+        }
+
+        .benchmark-note {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
         /* Services */
         .services-grid {
             display: grid;
@@ -521,6 +553,32 @@
             transform: translateY(-4px);
         }
 
+        .service-card.featured {
+            border-color: var(--purple-soft);
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(183, 148, 246, 0.08) 100%);
+        }
+
+        .service-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 6px 12px;
+            background: var(--purple-soft);
+            color: var(--bg-deep);
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 100px;
+        }
+
+        .service-tier {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
         .service-name {
             font-size: 1.5rem;
             margin-bottom: 8px;
@@ -532,9 +590,23 @@
             margin-bottom: 16px;
         }
 
+        .service-price {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--purple-soft);
+            margin-bottom: 24px;
+        }
+
+        .service-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
         .service-features {
             list-style: none;
-            margin-bottom: 0;
+            margin-bottom: 32px;
         }
 
         .service-features li {
@@ -550,54 +622,6 @@
             content: '✓';
             color: var(--mint);
             font-weight: 600;
-        }
-
-        .services-inquiry {
-            margin-top: 60px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .services-inquiry-content {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 60px;
-            max-width: 600px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .services-inquiry-content::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--purple-glow) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .services-inquiry-content h3 {
-            font-size: 1.75rem;
-            margin-bottom: 16px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .services-inquiry-content p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .services-inquiry-content .btn {
-            position: relative;
-            z-index: 1;
         }
 
         /* Demos Section */
@@ -971,6 +995,7 @@
             font-size: 1.5rem;
             cursor: pointer;
             padding: 8px;
+            aria-label: "Open menu";
         }
 
         .mobile-nav {
@@ -1061,10 +1086,6 @@
                 gap: 20px;
             }
 
-            .services-inquiry-content {
-                padding: 40px 24px;
-            }
-
             .how-grid {
                 grid-template-columns: 1fr 1fr;
             }
@@ -1110,8 +1131,8 @@
                 <a href="#problem">The Problem</a>
                 <a href="#benchmark">Benchmark</a>
                 <a href="#services">Services</a>
-                <a href="#demos">Demos</a>
-                <a href="https://form.jotform.com/253607150614047" class="btn btn-primary" target="_blank">Request Information</a>
+                <a href="#demos">Try It</a>
+                <a href="https://form.jotform.com/253607150614047" class="btn btn-primary" target="_blank">Get Started</a>
             </div>
             <button class="mobile-menu-btn" aria-label="Open menu" onclick="toggleMobileMenu()">☰</button>
         </div>
@@ -1119,8 +1140,8 @@
             <a href="#problem" onclick="closeMobileMenu()">The Problem</a>
             <a href="#benchmark" onclick="closeMobileMenu()">Benchmark</a>
             <a href="#services" onclick="closeMobileMenu()">Services</a>
-            <a href="#demos" onclick="closeMobileMenu()">Demos</a>
-            <a href="https://form.jotform.com/253607150614047" class="btn btn-primary" target="_blank">Request Information</a>
+            <a href="#demos" onclick="closeMobileMenu()">Try It</a>
+            <a href="https://form.jotform.com/253607150614047" class="btn btn-primary" target="_blank">Get Started</a>
         </div>
     </nav>
 
@@ -1128,7 +1149,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">New Research Available</div>
+                <div class="hero-badge">Emotional AI Safety Evaluation</div>
                 <h1>Cybersecurity for the <em>Human Mind</em></h1>
                 <p class="hero-sub">Emotional safety audits and benchmarking for AI products.</p>
                 <p class="hero-description">
@@ -1136,22 +1157,8 @@
                     Our EQ Safety Benchmark reveals the emotional blind spots putting your users at risk.
                 </p>
                 <div class="hero-ctas">
-                    <a href="https://form.jotform.com/253607150614047" class="btn btn-primary" target="_blank">Request Information</a>
-                    <a href="#demos" class="btn btn-secondary">View Demos</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-value">43%</div>
-                        <div class="stat-label">of AI systems show zero repair behavior</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">948</div>
-                        <div class="stat-label">AI responses analyzed</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">79</div>
-                        <div class="stat-label">emotional scenarios tested</div>
-                    </div>
+                    <a href="https://form.jotform.com/253607150614047" class="btn btn-primary" target="_blank">Request an Audit</a>
+                    <a href="#demos" class="btn btn-secondary">Try the Demos</a>
                 </div>
             </div>
         </div>
@@ -1207,31 +1214,15 @@
 
             <div class="benchmark-highlight">
                 <div class="benchmark-content">
-                    <div class="benchmark-stat">
-                        <span class="benchmark-stat-value">43%</span>
-                        <span class="benchmark-stat-context">of AI systems show no repair behavior after causing emotional harm</span>
-                    </div>
-                    <p class="benchmark-explanation">
-                        Most safety frameworks test whether AI can identify emotions. 
-                        We test what happens next—when the AI gets it wrong, causes harm, or encounters someone in crisis.
-                    </p>
-                    <div class="benchmark-meta">
-                        <div class="benchmark-meta-item">
-                            <span class="benchmark-meta-value">948</span>
-                            <span class="benchmark-meta-label">AI responses analyzed</span>
-                        </div>
-                        <div class="benchmark-meta-item">
-                            <span class="benchmark-meta-value">79</span>
-                            <span class="benchmark-meta-label">Emotional scenarios</span>
-                        </div>
-                        <div class="benchmark-meta-item">
-                            <span class="benchmark-meta-value">12</span>
-                            <span class="benchmark-meta-label">AI systems evaluated</span>
-                        </div>
-                    </div>
-                    <div class="benchmark-methodology">
-                        <p><strong>Methodology:</strong> EQ Safety Benchmark v1.0 evaluates AI responses across 79 emotional scenarios including crisis states, relationship conflict, and identity distress. "Repair behavior" is defined as acknowledging potential harm and adjusting approach. Sample: 948 responses from 12 commercial AI systems (2024-2025). Results are benchmark findings, not clinical outcomes. <a href="#" class="methodology-link">Full methodology →</a></p>
-                    </div>
+                    <h3 class="benchmark-headline">What we measure that others don't:</h3>
+                    <ul class="benchmark-list">
+                        <li><strong>Repair behavior</strong> — Does the AI course-correct after causing distress?</li>
+                        <li><strong>Crisis de-escalation</strong> — Does it stabilize or escalate volatile states?</li>
+                        <li><strong>Dependency patterns</strong> — Does it foster autonomy or unhealthy attachment?</li>
+                        <li><strong>Safety gate violations</strong> — Does it cross lines that harm vulnerable users?</li>
+                    </ul>
+                    <p class="benchmark-note">Full methodology and public benchmark results coming soon.</p>
+                    <a href="https://form.jotform.com/253607150614047" class="btn btn-primary" target="_blank" style="margin-top: 24px;">Get Early Access to Results</a>
                 </div>
             </div>
         </div>
@@ -1243,52 +1234,53 @@
             <div class="section-label">Services</div>
             <h2 class="section-title">Evaluate Your AI's Emotional Safety</h2>
             <p class="section-description">
-                We provide evaluation services to help understand how AI systems handle vulnerable users. 
-                Evaluation scope and methodology can be tailored based on your system and objectives.
+                From quick assessments to comprehensive audits, we help you understand and improve 
+                how your AI handles vulnerable users.
             </p>
 
             <div class="services-grid">
                 <div class="service-card">
-                    <h3 class="service-name">Core Scenario Evaluation</h3>
-                    <p class="service-for">Essential safety assessment</p>
+                    <div class="service-tier">Starter</div>
+                    <h3 class="service-name">Safety Snapshot</h3>
+                    <p class="service-for">For startups shipping fast</p>
                     <ul class="service-features">
-                        <li>Core emotional scenario testing</li>
-                        <li>Safety Gate violation analysis</li>
-                        <li>Risk identification and prioritization</li>
-                        <li>Summary findings report</li>
+                        <li>15 core scenario evaluation</li>
+                        <li>Safety Gate violation check</li>
+                        <li>Executive summary report</li>
+                        <li>Risk priority matrix</li>
+                        <li>30-minute debrief call</li>
                     </ul>
+                    <a href="https://form.jotform.com/253607150614047" class="btn btn-secondary" target="_blank">Inquire</a>
                 </div>
 
-                <div class="service-card">
-                    <h3 class="service-name">Comprehensive Benchmark</h3>
-                    <p class="service-for">Full evaluation suite</p>
+                <div class="service-card featured">
+                    <div class="service-tier">Professional</div>
+                    <h3 class="service-name">Full Benchmark Audit</h3>
+                    <p class="service-for">For teams with user exposure</p>
                     <ul class="service-features">
-                        <li>Complete scenario evaluation</li>
+                        <li>Complete 79-scenario evaluation</li>
                         <li>All Safety Gate dimensions</li>
-                        <li>Comparative analysis</li>
-                        <li>Detailed remediation guidance</li>
-                        <li>Documentation and reporting</li>
+                        <li>Competitive analysis (3 systems)</li>
+                        <li>Detailed remediation roadmap</li>
+                        <li>Policy-grade documentation</li>
+                        <li>2-hour strategy session</li>
                     </ul>
+                    <a href="https://form.jotform.com/253607150614047" class="btn btn-primary" target="_blank">Request Audit</a>
                 </div>
 
                 <div class="service-card">
+                    <div class="service-tier">Enterprise</div>
                     <h3 class="service-name">Custom Framework</h3>
-                    <p class="service-for">Tailored evaluation approach</p>
+                    <p class="service-for">For regulated industries & platforms</p>
                     <ul class="service-features">
                         <li>Custom scenario development</li>
-                        <li>Ongoing monitoring options</li>
-                        <li>Team training and workshops</li>
+                        <li>Ongoing monitoring</li>
+                        <li>Team training workshops</li>
                         <li>Integration support</li>
-                        <li>Periodic re-evaluation</li>
+                        <li>Quarterly re-evaluation</li>
+                        <li>Priority support channel</li>
                     </ul>
-                </div>
-            </div>
-
-            <div class="services-inquiry" style="margin-top: 60px;">
-                <div class="services-inquiry-content">
-                    <h3>Evaluation Options</h3>
-                    <p>Evaluations are tailored to your AI system's specific needs and objectives. Components can be combined or customized based on your requirements.</p>
-                    <a href="https://form.jotform.com/253607150614047" class="btn btn-primary" target="_blank">Request Information</a>
+                    <a href="https://form.jotform.com/253607150614047" class="btn btn-secondary" target="_blank">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -1334,10 +1326,10 @@
     <section class="demos" id="demos">
         <div class="container">
             <div class="demos-intro">
-                <div class="section-label">Prototypes</div>
-                <h2 class="section-title">Research Demonstrations</h2>
+                <div class="section-label">Experience It</div>
+                <h2 class="section-title">Try Our Prototypes</h2>
                 <p class="section-description" style="margin: 0 auto;">
-                    Examples of emotional AI safety principles in practice. These are public research demonstrations.
+                    See emotional AI safety principles in action. Enter your email to unlock free access to all demos.
                 </p>
             </div>
 
@@ -1358,10 +1350,10 @@
                     </div>
                     <div class="demo-actions">
                         <a href="https://chatgpt.com/g/g-694183c88b9481918ba846bc66458e5c-emotional-infrastructure-engine-by-ikwe-ai" target="_blank" class="btn btn-primary">
-                            View Demo →
+                            Try It Free →
                         </a>
                     </div>
-                    <p class="demo-disclaimer">Public demo — no sensitive data. For private evaluation, <a href="https://form.jotform.com/253607150614047" target="_blank">request information</a>.</p>
+                    <p class="demo-disclaimer">Public demo — no sensitive data. For private evaluation, <a href="https://form.jotform.com/253607150614047" target="_blank">request an audit</a>.</p>
                 </div>
 
                 <div class="demo-card">
@@ -1380,10 +1372,10 @@
                     </div>
                     <div class="demo-actions">
                         <a href="https://chatgpt.com/g/g-68143314d68081918e8be46ae754044f-he-said-she-said-relationship-translator" target="_blank" class="btn btn-primary">
-                            View Demo →
+                            Try It Free →
                         </a>
                     </div>
-                    <p class="demo-disclaimer">Public demo — no sensitive data. For private evaluation, <a href="https://form.jotform.com/253607150614047" target="_blank">request information</a>.</p>
+                    <p class="demo-disclaimer">Public demo — no sensitive data. For private evaluation, <a href="https://form.jotform.com/253607150614047" target="_blank">request an audit</a>.</p>
                 </div>
 
                 <div class="demo-card">
@@ -1402,18 +1394,18 @@
                     </div>
                     <div class="demo-actions">
                         <a href="https://chatgpt.com/g/g-67e44fe099b88191847a64e287b34622-lady-s-lady" target="_blank" class="btn btn-primary">
-                            View Demo →
+                            Try It Free →
                         </a>
                     </div>
-                    <p class="demo-disclaimer">Public demo — no sensitive data. For private evaluation, <a href="https://form.jotform.com/253607150614047" target="_blank">request information</a>.</p>
+                    <p class="demo-disclaimer">Public demo — no sensitive data. For private evaluation, <a href="https://form.jotform.com/253607150614047" target="_blank">request an audit</a>.</p>
                 </div>
             </div>
 
             <!-- Optional Email Signup -->
             <div class="demos-signup">
                 <div class="demos-signup-content">
-                    <h3>Research Updates</h3>
-                    <p>Receive updates on new research findings and methodology publications.</p>
+                    <h3>Stay Updated</h3>
+                    <p>Get notified when we release new research and tools.</p>
                     <form class="signup-form" onsubmit="handleSignup(event)">
                         <input type="email" placeholder="Your email" required>
                         <button type="submit" class="btn btn-primary">Subscribe</button>
@@ -1440,14 +1432,14 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Learn More About Evaluation</h2>
+            <h2>Ready to evaluate your AI?</h2>
             <p>
-                If you'd like to discuss evaluation options for your AI system, 
-                we can provide more information about our methodology and approach.
+                Join the companies taking emotional safety seriously. 
+                Start with an inquiry—we'll scope the right evaluation for your needs.
             </p>
             <div class="cta-buttons">
-                <a href="https://form.jotform.com/253607150614047" class="btn btn-primary" target="_blank">Request Information</a>
-                <a href="#benchmark" class="btn btn-secondary">View Research</a>
+                <a href="https://form.jotform.com/253607150614047" class="btn btn-primary" target="_blank">Submit Inquiry</a>
+                <a href="#benchmark" class="btn btn-secondary">Learn More</a>
             </div>
         </div>
     </section>
@@ -1475,9 +1467,9 @@
                 <div class="footer-column">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#services">Evaluation Services</a></li>
-                        <li><a href="#services">Request Information</a></li>
-                        <li><a href="#benchmark">Research</a></li>
+                        <li><a href="#services">Safety Snapshot</a></li>
+                        <li><a href="#services">Full Benchmark Audit</a></li>
+                        <li><a href="#services">Custom Framework</a></li>
                     </ul>
                 </div>
 
@@ -1583,7 +1575,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.service-card, .demo-card, .how-step, .services-inquiry-content').forEach(el => {
+        document.querySelectorAll('.service-card, .demo-card, .how-step').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
