@@ -4,7 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ikwe.ai — Behavioral Emotional Safety for AI</title>
-    <meta name="description" content="ikwe.ai evaluates how AI systems behave under emotional load — distress, shame, conflict, and crisis-adjacent language. Scenario-based behavioral safety benchmarking.">
+    <meta name="description" content="We measure how AI systems behave when humans are emotionally vulnerable. 54.7% of baseline AI responses introduced emotional risk at first contact.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="ikwe.ai — Behavioral Emotional Safety for AI">
+    <meta property="og:description" content="We measure how AI systems behave when humans are emotionally vulnerable. 54.7% of baseline AI responses introduced emotional risk at first contact.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ikwe.ai/">
+    <meta property="og:image" content="https://ikwe.ai/og-image.png">
+    <meta property="og:site_name" content="ikwe.ai">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ikwe.ai — Behavioral Emotional Safety for AI">
+    <meta name="twitter:description" content="We measure how AI systems behave when humans are emotionally vulnerable. 54.7% of baseline AI responses introduced emotional risk at first contact.">
+    <meta name="twitter:image" content="https://ikwe.ai/og-image.png">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://ikwe.ai/">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -512,6 +529,98 @@
             .accordion-content.open { display: block; }
         }
 
+        /* Findings Summary Section */
+        .findings-summary {
+            padding: 60px 0;
+            background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+        
+        @media (max-width: 900px) {
+            .summary-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 500px) {
+            .summary-grid { grid-template-columns: 1fr; }
+        }
+        
+        .summary-stat {
+            text-align: center;
+            padding: 24px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+        
+        .summary-number {
+            font-family: var(--font-serif);
+            font-size: 2.75rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        
+        .summary-number--coral { color: var(--coral); }
+        .summary-number--gold { color: var(--gold); }
+        .summary-number--mint { color: var(--mint); }
+        .summary-number--purple { color: var(--purple); }
+        
+        .summary-unit {
+            font-size: 1.25rem;
+            opacity: 0.7;
+        }
+        
+        .summary-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        .summary-compare {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        
+        .summary-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 8px 16px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        
+        .summary-divider {
+            color: var(--border-light);
+        }
+        
+        .summary-link {
+            color: var(--purple);
+            font-weight: 600;
+        }
+        
+        .summary-link:hover {
+            text-decoration: underline;
+        }
+        
+        .summary-disclaimer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-style: italic;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
         /* Utilities */
         .text-center { text-align: center; }
         .mb-3 { margin-bottom: 24px; }
@@ -590,6 +699,50 @@
                 <a href="#benchmark" class="btn btn--primary btn--large">View the Benchmark →</a>
                 <a href="/research" class="btn btn--large">Explore Research</a>
             </div>
+        </div>
+    </section>
+
+    <!-- KEY FINDINGS AT A GLANCE -->
+    <section class="section findings-summary">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker">Key Findings</span>
+                <h2 class="section-title">What the Data Shows</h2>
+            </div>
+            
+            <div class="summary-grid">
+                <div class="summary-stat">
+                    <div class="summary-number summary-number--coral">54.7%</div>
+                    <div class="summary-label">of baseline AI responses introduced emotional risk at first contact</div>
+                </div>
+                
+                <div class="summary-stat">
+                    <div class="summary-number summary-number--gold">43%</div>
+                    <div class="summary-label">of those showed no corrective behavior within the interaction</div>
+                </div>
+                
+                <div class="summary-stat">
+                    <div class="summary-number summary-number--mint">84.6%</div>
+                    <div class="summary-label">safety pass rate for EI prototype<br><span class="summary-compare">vs 45.3% for baseline models</span></div>
+                </div>
+                
+                <div class="summary-stat">
+                    <div class="summary-number summary-number--purple">4.05<span class="summary-unit">/5</span></div>
+                    <div class="summary-label">"Regulation Before Reasoning" score<br><span class="summary-compare">EI prototype vs 1.7/5 baseline avg</span></div>
+                </div>
+            </div>
+            
+            <div class="summary-meta">
+                <span>79 scenarios</span>
+                <span class="summary-divider">·</span>
+                <span>312 responses</span>
+                <span class="summary-divider">·</span>
+                <span>4 models evaluated</span>
+                <span class="summary-divider">·</span>
+                <a href="/research" class="summary-link">Full methodology →</a>
+            </div>
+            
+            <p class="summary-disclaimer">Observed behavioral patterns under test conditions. Not real-world outcomes or intent.</p>
         </div>
     </section>
 
