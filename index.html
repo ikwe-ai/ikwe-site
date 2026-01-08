@@ -162,6 +162,119 @@
         .mb-3 { margin-bottom: 24px; }
         .mb-4 { margin-bottom: 32px; }
         .mt-3 { margin-top: 24px; }
+
+        /* TL;DR Box */
+        .tldr-box {
+            background: var(--purple-dim);
+            border: 1px solid rgba(183,148,246,.3);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 32px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .tldr-box p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .tldr-box p:last-child { margin-bottom: 0; }
+        .tldr-box strong { color: var(--text-primary); }
+
+        /* Two Column */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+        .subsection-title { font-size: 1.2rem; margin-bottom: 12px; }
+        .body-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
+        .body-text strong { color: var(--text-primary); }
+        .body-text em { color: var(--text-muted); }
+
+        /* Two Questions */
+        .two-questions { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        @media (max-width: 700px) { .two-questions { grid-template-columns: 1fr; } }
+        .question-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            position: relative;
+        }
+        .question-number {
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            width: 32px;
+            height: 32px;
+            background: var(--purple);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .question-card h4 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+        .question-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Comparison Table */
+        .comparison-table-wrapper { overflow-x: auto; }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .comparison-table th {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: var(--bg-secondary);
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .badge--high { background: var(--mint-dim); color: var(--mint); }
+        .badge--mid { background: var(--gold-dim); color: var(--gold); }
+        .badge--low { background: var(--coral-dim); color: var(--coral); }
+
+        /* Gap Grid */
+        .gap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        @media (max-width: 800px) { .gap-grid { grid-template-columns: 1fr; } }
+        .gap-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        .gap-card-header { margin-bottom: 12px; }
+        .gap-card-title { font-weight: 600; font-size: 1rem; color: var(--coral); }
+        .gap-card-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -238,32 +351,33 @@
     <section class="section section--elevated" id="benchmark">
         <div class="container">
             <div class="section-header">
-                <span class="kicker">Benchmark Overview · v1</span>
-                <h2 class="section-title">EQ Safety Benchmark</h2>
-                <p class="section-subtitle">Scenario-based evaluation of behavioral emotional safety in conversational AI</p>
+                <span class="kicker">EQ Safety Benchmark</span>
+                <h2 class="section-title">Why Standard AI Benchmarks and Ikwe Measure Different Things</h2>
+            </div>
+            
+            <!-- TL;DR Box -->
+            <div class="tldr-box">
+                <p><strong>In summary:</strong> Frontier AI systems often appear emotionally capable by existing measures. Ikwe's benchmark shows that this capability does not always translate into sustained emotional safety over time.</p>
+                <p>The EI prototype closes this gap by maintaining regulation, boundaries, and escalation awareness more consistently across emotionally vulnerable interactions.</p>
             </div>
             
             <div class="stat-grid mb-4">
                 <div class="stat-tile">
                     <div class="stat-value stat-value--purple">74</div>
-                    <div class="stat-label">Emotionally sensitive scenarios</div>
+                    <div class="stat-label">Vulnerability scenarios</div>
                 </div>
                 <div class="stat-tile">
                     <div class="stat-value stat-value--purple">12</div>
-                    <div class="stat-label">Vulnerability categories</div>
+                    <div class="stat-label">Risk categories</div>
                 </div>
                 <div class="stat-tile">
                     <div class="stat-value stat-value--purple">4</div>
-                    <div class="stat-label">Frontier models tested</div>
+                    <div class="stat-label">Models tested</div>
                 </div>
                 <div class="stat-tile">
                     <div class="stat-value stat-value--purple">3</div>
-                    <div class="stat-label">Behavioral dimensions scored</div>
+                    <div class="stat-label">Behavioral dimensions</div>
                 </div>
-            </div>
-
-            <div class="disclaimer">
-                Scores reflect observable response behavior in controlled scenarios — not internal model intent or overall model quality.
             </div>
             
             <div class="btn-group btn-group--center">
@@ -273,85 +387,115 @@
         </div>
     </section>
 
-    <!-- WHAT THE SCORES MEAN -->
+    <!-- WHAT BIG AI DOES WELL -->
     <section class="section">
         <div class="container">
-            <div class="percent-header">
-                <h3>What the Scores Represent</h3>
-                <p>These scores reflect <strong>how often</strong> a model demonstrated the behavior being measured across repeated vulnerable scenarios. In plain terms: <strong>how reliably it responds appropriately when a human is not okay.</strong></p>
-            </div>
-
-            <div class="percent-grid">
-                <div class="percent-card">
-                    <div class="percent-card-header">
-                        <span class="percent-card-title">Emotional Regulation</span>
-                        <span class="percent-card-value">71%</span>
-                    </div>
-                    <div class="percent-card-plain">About 7 out of 10 times</div>
-                    <p class="percent-card-desc">Responses reduced emotional intensity rather than reinforcing it. The remaining cases tended to sustain rumination, intensify shame, or mirror escalation.</p>
+            <div class="two-col">
+                <div>
+                    <h3 class="subsection-title">What Frontier AI Does Well</h3>
+                    <p class="body-text">Frontier AI models perform strongly on existing emotional intelligence benchmarks. They reliably identify emotional tone, acknowledge distress, produce socially appropriate language, and avoid explicit policy violations.</p>
+                    <p class="body-text">This is valuable. And it is necessary. <strong>But it is not sufficient.</strong></p>
                 </div>
-                <div class="percent-card">
-                    <div class="percent-card-header">
-                        <span class="percent-card-title">Boundary Integrity</span>
-                        <span class="percent-card-value">63%</span>
-                    </div>
-                    <div class="percent-card-plain">About 6 out of 10 times</div>
-                    <p class="percent-card-desc">Responses stayed supportive without sliding into emotional overreach. The remainder contained subtle reliance-building cues, role confusion, or dependency patterns.</p>
-                </div>
-                <div class="percent-card">
-                    <div class="percent-card-header">
-                        <span class="percent-card-title">Escalation Awareness</span>
-                        <span class="percent-card-value">54%</span>
-                    </div>
-                    <div class="percent-card-plain">About 5 out of 10 times</div>
-                    <p class="percent-card-desc">Responses clearly signaled when outside human support might be appropriate. This matters because escalation is most needed when language is ambiguous — not explicit.</p>
+                <div>
+                    <h3 class="subsection-title">Where Standard Benchmarks Stop</h3>
+                    <p class="body-text">Most EQ and safety benchmarks evaluate single-turn responses or static emotional recognition. They ask: <em>Did the model identify the emotion? Did it respond politely?</em></p>
+                    <p class="body-text">They rarely ask: <em>Did safety improve or degrade over time? Did it hold boundaries as vulnerability increased?</em></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- THREE BEHAVIORAL DIMENSIONS -->
+    <!-- WHAT IKWE MEASURES -->
     <section class="section section--alt">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Three Behavioral Dimensions</h2>
-                <p class="section-subtitle">Each response is evaluated across these safety-critical behaviors</p>
+                <h2 class="section-title">What Ikwe Measures Instead</h2>
+                <p class="section-subtitle">Behavioral emotional safety — how AI systems respond across a trajectory, not a single moment.</p>
             </div>
-
-            <div class="dim-grid">
-                <div class="dim-tile">
-                    <div class="dim-tile-header">
-                        <span class="dim-tile-icon">🎚️</span>
-                        <span class="dim-tile-name">Emotional Regulation</span>
-                    </div>
-                    <p class="dim-tile-desc">Does the response reduce emotional intensity, or does it reinforce distress? Measures whether the system helps stabilize or inadvertently amplifies.</p>
+            
+            <div class="two-questions">
+                <div class="question-card">
+                    <div class="question-number">1</div>
+                    <h4>Is the initial response emotionally safe?</h4>
+                    <p>Does the first response validate, stabilize, and avoid immediate harm?</p>
                 </div>
-                <div class="dim-tile">
-                    <div class="dim-tile-header">
-                        <span class="dim-tile-icon">🛡️</span>
-                        <span class="dim-tile-name">Boundary Integrity</span>
-                    </div>
-                    <p class="dim-tile-desc">Does the response stay supportive without sliding into emotional overreach? Measures role clarity vs dependency-building patterns.</p>
+                <div class="question-card">
+                    <div class="question-number">2</div>
+                    <h4>If it starts safe, does it remain safe as vulnerability deepens?</h4>
+                    <p>Does safety hold as emotional intensity, dependence cues, or crisis-adjacent language increase?</p>
                 </div>
-                <div class="dim-tile">
-                    <div class="dim-tile-header">
-                        <span class="dim-tile-icon">🧭</span>
-                        <span class="dim-tile-name">Escalation Awareness</span>
-                    </div>
-                    <p class="dim-tile-desc">Does the response recognize when a conversation needs human support? Measures appropriate routing, especially in ambiguous risk scenarios.</p>
-                </div>
+            </div>
+            
+            <div class="insight-box insight-box--coral" style="margin-top: 32px;">
+                <p class="insight-box-text">This distinction reveals failure modes that standard benchmarks cannot detect.</p>
             </div>
         </div>
     </section>
 
-    <!-- WHY CONSISTENCY MATTERS -->
+    <!-- THE GAP -->
     <section class="section">
         <div class="container">
-            <div class="insight-box insight-box--coral">
-                <h3 class="insight-box-title">Why Behavioral Consistency Matters</h3>
-                <p class="insight-box-text">
-                    In emotionally sensitive contexts, inconsistency becomes a risk in itself. A single validating response builds trust. A later miscalibrated response can amplify harm. ikwe.ai exists to make those inconsistencies measurable — so they can be addressed deliberately, not discovered through damage.
-                </p>
+            <div class="section-header">
+                <h2 class="section-title">The Gap We Found</h2>
+            </div>
+            
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>System</th>
+                            <th>Initial Response Safety</th>
+                            <th>Sustained Safety Over Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Frontier AI models</strong></td>
+                            <td><span class="badge badge--mid">Often adequate</span></td>
+                            <td><span class="badge badge--low">Inconsistent</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>EI Prototype (Ikwe)</strong></td>
+                            <td><span class="badge badge--high">High</span></td>
+                            <td><span class="badge badge--high">Consistent</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p class="body-text" style="margin-top: 24px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Frontier models often respond appropriately at first, but show measurable degradation as emotional intensity, dependence cues, or crisis-adjacent language increase. The EI prototype maintained safer behavior across extended interaction — not by being more expressive, but by regulating escalation, boundaries, and pacing more consistently.
+            </p>
+        </div>
+    </section>
+
+    <!-- WHERE THE GAPS APPEAR -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Where the Largest Gaps Appear</h2>
+                <p class="section-subtitle">The biggest performance differences between frontier AI and the EI prototype</p>
+            </div>
+
+            <div class="gap-grid">
+                <div class="gap-card">
+                    <div class="gap-card-header">
+                        <span class="gap-card-title">Boundary Integrity Over Time</span>
+                    </div>
+                    <p class="gap-card-desc">Frontier models showed higher variance in maintaining appropriate boundaries as conversations extended. The EI prototype maintained consistent boundaries even as user dependence cues increased.</p>
+                </div>
+                <div class="gap-card">
+                    <div class="gap-card-header">
+                        <span class="gap-card-title">Escalation Awareness After Trust</span>
+                    </div>
+                    <p class="gap-card-desc">Once initial trust was formed, frontier models were less likely to recognize when human support was needed. The EI prototype maintained escalation awareness throughout.</p>
+                </div>
+                <div class="gap-card">
+                    <div class="gap-card-header">
+                        <span class="gap-card-title">Late-Stage Failures</span>
+                    </div>
+                    <p class="gap-card-desc">The EI prototype showed significantly fewer failures in extended interactions — the moments when users are most vulnerable and most trusting.</p>
+                </div>
             </div>
         </div>
     </section>
