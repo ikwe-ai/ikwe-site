@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
     
     <style>
         :root {
@@ -420,11 +421,11 @@
     </style>
 </head>
 <body>
-    <nav>
+    <nav class="nav">
         <div class="container">
-            <a href="/" class="logo">
-                <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
-                    <circle cx="20" cy="20" r="19" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+            <a href="/" class="nav-logo">
+                <svg class="logo-svg" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="19" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
                     <path d="M20 1 A19 19 0 0 1 39 20 L20 20 Z" fill="#f6a192"/>
                     <path d="M39 20 A19 19 0 0 1 20 39 L20 20 Z" fill="#f6d992"/>
                     <path d="M20 39 A19 19 0 0 1 1 20 L20 20 Z" fill="#b794f6"/>
@@ -432,11 +433,18 @@
                 </svg>
                 ikwe.ai
             </a>
-            <div class="nav-links">
-                <a href="/research">Research</a>
-                <a href="/explorer">Explorer</a>
-                <a href="/#engagements">Engagements</a>
-                <a href="/about">About</a>
+            
+            <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/research" class="nav-link">Research</a>
+                <a href="/explorer" class="nav-link active">Explorer</a>
+                <a href="/#engagements" class="nav-link">Engagements</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/inquiry" class="nav-cta">Work With Us</a>
             </div>
         </div>
     </nav>
@@ -468,16 +476,21 @@
         </div>
     </div>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="footer-brand">Visible Healing Inc. · ikwe.ai</div>
-            <div class="footer-links">
-                <a href="/">Home</a>
-                <a href="/research">Research</a>
-                <a href="/about">About</a>
-                <a href="/privacy">Privacy</a>
+            <div class="footer-content">
+                <div class="footer-brand">Visible Healing Inc. · ikwe.ai</div>
+                <p class="footer-tagline">An emotionally intelligent AI safety company building evaluation frameworks for systems that interact with human vulnerability.</p>
+                <div class="footer-links">
+                    <a href="/" class="footer-link">Home</a>
+                    <a href="/research" class="footer-link">Research</a>
+                    <a href="/explorer" class="footer-link">Explorer</a>
+                    <a href="/about" class="footer-link">About</a>
+                    <a href="/privacy" class="footer-link">Privacy</a>
+                    <a href="mailto:stephanie@ikwe.ai" class="footer-link">Contact</a>
+                </div>
+                <p class="footer-copy">© 2026 Visible Healing Inc. All rights reserved.</p>
             </div>
-            <div class="footer-copy">© 2026 Visible Healing Inc. All rights reserved.</div>
         </div>
     </footer>
 
@@ -824,6 +837,11 @@
         // Initial render
         renderTabs();
         renderScenario();
+        
+        // Mobile nav toggle
+        function toggleNav() {
+            document.getElementById('navLinks').classList.toggle('open');
+        }
     </script>
 </body>
 </html>

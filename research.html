@@ -98,6 +98,15 @@
         }
 
         .nav-links a:hover { color: var(--text-primary); text-decoration: none; }
+        .nav-cta {
+            margin-left: 8px;
+            padding: 8px 16px;
+            background: var(--purple-soft);
+            color: var(--bg-deep) !important;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .nav-cta:hover { background: #c9a8ff; }
 
         /* HERO - The Big Number */
         .hero {
@@ -627,7 +636,7 @@
             <a href="/" class="logo">
                 <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
                     <circle cx="20" cy="20" r="19" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
-                    <path d="M20 1 A19 19 0 0 1 39 20 L20 20 Z" fill="#e85d4c"/>
+                    <path d="M20 1 A19 19 0 0 1 39 20 L20 20 Z" fill="#f6a192"/>
                     <path d="M39 20 A19 19 0 0 1 20 39 L20 20 Z" fill="#f6d992"/>
                     <path d="M20 39 A19 19 0 0 1 1 20 L20 20 Z" fill="#b794f6"/>
                     <path d="M1 20 A19 19 0 0 1 20 1 L20 20 Z" fill="#f4f4f6"/>
@@ -635,10 +644,12 @@
                 ikwe.ai
             </a>
             <div class="nav-links">
+                <a href="/">Home</a>
                 <a href="/research">Research</a>
                 <a href="/explorer">Explorer</a>
                 <a href="/#engagements">Engagements</a>
                 <a href="/about">About</a>
+                <a href="/inquiry" class="nav-cta">Work With Us</a>
             </div>
         </div>
     </nav>
@@ -881,11 +892,12 @@
     <section class="cta-section">
         <div class="container-narrow">
             <h2 class="section-title">Ready to evaluate your system?</h2>
-            <p class="section-subtitle">Download the executive summary or request full research access.</p>
+            <p class="section-subtitle">Download the executive summary, explore scenarios, or start a conversation.</p>
             
             <div class="cta-buttons">
                 <a href="/EQ_Safety_Benchmark_Validation.pdf" class="btn btn-secondary" download>Download PDF</a>
-                <a href="https://form.jotform.com/253607150614047" class="btn btn-primary" target="_blank">Request Access →</a>
+                <a href="/explorer" class="btn btn-secondary">Explore Scenarios</a>
+                <a href="/inquiry" class="btn btn-primary">Work With Us →</a>
             </div>
         </div>
     </section>
@@ -894,12 +906,18 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-copy">© 2026 Visible Healing Inc. All rights reserved.</div>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 16px; max-width: 480px; margin-left: auto; margin-right: auto;">
+                    ikwe.ai is an emotionally intelligent AI safety company building evaluation frameworks for systems that interact with human vulnerability.
+                </p>
                 <div class="footer-links">
                     <a href="/">Home</a>
+                    <a href="/research">Research</a>
+                    <a href="/explorer">Explorer</a>
                     <a href="/about">About</a>
                     <a href="/privacy">Privacy</a>
+                    <a href="mailto:stephanie@ikwe.ai">Contact</a>
                 </div>
+                <div class="footer-copy">© 2026 Visible Healing Inc. All rights reserved. · Des Moines, Iowa</div>
             </div>
         </div>
     </footer>
