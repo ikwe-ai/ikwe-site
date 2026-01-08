@@ -1,0 +1,8 @@
+{
+  "name": "ikwe-netlify-functions",
+  "version": "1.0.0",
+  "description": "Netlify functions for ikwe.ai form submissions",
+  "dependencies": {
+    "@notionhq/client": "^2.2.14"
+  }
+}

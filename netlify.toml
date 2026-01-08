@@ -1,0 +1,16 @@
+[build]
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Redirect API calls to functions
+[[redirects]]
+  from = "/api/access-request"
+  to = "/.netlify/functions/access-request"
+  status = 200
+
+[[redirects]]
+  from = "/api/inquiry"
+  to = "/.netlify/functions/inquiry"
+  status = 200
