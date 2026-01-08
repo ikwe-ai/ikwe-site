@@ -41,8 +41,24 @@
         a { color: inherit; text-decoration: none; }
         .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
 
-        /* Nav */
-        .nav { position: sticky; top: 0; z-index: 100; background: rgba(10,11,15,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); height: 72px; display: flex; align-items: center; }
+        /* Nav with scroll shadow */
+        .nav { 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            background: rgba(10,11,15,0.95); 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid var(--border); 
+            transition: box-shadow 0.2s ease;
+        }
+        .nav.scrolled {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .nav-inner {
+            height: 72px;
+            display: flex;
+            align-items: center;
+        }
         .nav .container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
         .nav-logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-serif); font-size: 1.35rem; font-weight: 700; }
         .nav-logo svg { width: 32px; height: 32px; }
@@ -54,16 +70,27 @@
         .nav-cta:hover { background: #c9a8ff; }
         .nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 8px; background: none; border: none; cursor: pointer; }
         .nav-toggle span { width: 20px; height: 2px; background: var(--text-primary); border-radius: 2px; }
+        
+        /* Nav micro-copy disclaimer */
+        .nav-disclaimer {
+            background: var(--bg-secondary);
+            padding: 6px 0;
+            text-align: center;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+        }
+        
         @media (max-width: 768px) {
             .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px; }
             .nav-links.open { display: flex; }
-            .nav-link { width: 100%; padding: 12px 16px; }
-            .nav-cta { margin: 8px 0 0 0; width: 100%; text-align: center; }
+            .nav-link { width: 100%; padding: 12px 16px; min-height: 44px; }
+            .nav-cta { margin: 8px 0 0 0; width: 100%; text-align: center; min-height: 44px; }
             .nav-toggle { display: flex; }
         }
 
         /* Sections */
-        .section { padding: 80px 0; }
+        .section { padding: 80px 0; scroll-margin-top: 100px; }
         .section--alt { background: var(--bg-secondary); }
         .section--elevated { background: var(--bg-elevated); }
         .section-header { text-align: center; margin-bottom: 48px; }
@@ -71,19 +98,49 @@
         .section-subtitle { font-size: 1.05rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
         .kicker { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 12px; }
 
-        /* Hero */
-        .hero { padding: 100px 0 80px; text-align: center; }
-        .hero-title { font-size: clamp(2rem, 5vw, 2.75rem); max-width: 800px; margin: 0 auto 20px; letter-spacing: -0.02em; }
-        .hero-subtitle { font-size: 1.15rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 12px; line-height: 1.7; }
-        .hero-emphasis { font-size: 1.05rem; color: var(--text-primary); max-width: 600px; margin: 0 auto 32px; }
-        .hero-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 32px; }
+        /* Hero - improved */
+        .hero { padding: 80px 0 70px; text-align: center; }
+        .hero-title { font-size: clamp(1.85rem, 4.5vw, 2.5rem); max-width: 850px; margin: 0 auto 20px; letter-spacing: -0.02em; line-height: 1.15; }
+        .hero-subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 680px; margin: 0 auto 16px; line-height: 1.7; }
+        .hero-caveat { font-size: 0.85rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 28px; font-style: italic; }
+        
+        /* Hero stats badges */
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .hero-stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+        }
+        .hero-stat-value {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            color: var(--purple);
+        }
+        .hero-stat-label {
+            color: var(--text-muted);
+        }
+        
+        .hero-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 28px; }
         .hero-pill { font-size: 0.8rem; color: var(--text-muted); padding: 6px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; }
 
         /* Buttons */
-        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; border-radius: 10px; border: 1px solid var(--border-light); background: var(--bg-card); color: var(--text-primary); cursor: pointer; transition: all 0.15s; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; border-radius: 10px; border: 1px solid var(--border-light); background: var(--bg-card); color: var(--text-primary); cursor: pointer; transition: all 0.15s; min-height: 44px; }
         .btn:hover { background: rgba(255,255,255,.06); transform: translateY(-1px); }
         .btn--primary { background: var(--purple); border-color: var(--purple); color: var(--bg-primary); }
         .btn--primary:hover { background: #c9a8ff; }
+        .btn--secondary { background: transparent; border-color: var(--purple); color: var(--purple); }
+        .btn--secondary:hover { background: var(--purple-dim); }
         .btn--large { padding: 14px 28px; font-size: 1rem; }
         .btn-group { display: flex; flex-wrap: wrap; gap: 12px; }
         .btn-group--center { justify-content: center; }
@@ -95,11 +152,13 @@
         .card-grid { display: grid; gap: 16px; }
         .card-grid--2 { grid-template-columns: repeat(2, 1fr); }
         .card-grid--3 { grid-template-columns: repeat(3, 1fr); }
-        @media (max-width: 700px) { .card-grid--2, .card-grid--3 { grid-template-columns: 1fr; } }
+        .card-grid--4 { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 900px) { .card-grid--4 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 700px) { .card-grid--2, .card-grid--3, .card-grid--4 { grid-template-columns: 1fr; } }
 
         /* Stats */
         .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-        .stat-tile { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; position: relative; }
+        .stat-tile { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; position: relative; cursor: help; }
         .stat-tile[data-tooltip]:hover::after {
             content: attr(data-tooltip);
             position: absolute;
@@ -112,16 +171,18 @@
             border-radius: 8px;
             font-size: 0.8rem;
             color: var(--text-secondary);
-            width: 220px;
+            width: 240px;
             white-space: normal;
             z-index: 50;
             margin-bottom: 8px;
             text-align: left;
             line-height: 1.5;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
         }
         .stat-value { font-family: var(--font-serif); font-size: 2rem; font-weight: 700; line-height: 1; }
         .stat-value--coral { color: var(--coral); }
         .stat-value--purple { color: var(--purple); }
+        .stat-value--mint { color: var(--mint); }
         .stat-label { font-size: 0.85rem; color: var(--text-secondary); margin-top: 6px; }
         .stat-hint { font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; }
         @media (max-width: 600px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -135,7 +196,6 @@
         .finding-stat--gold { color: var(--gold); }
         .finding-label { font-size: 1rem; font-weight: 600; margin-bottom: 16px; color: var(--text-primary); }
         .finding-label .tooltip-trigger { border-bottom: 1px dotted var(--text-muted); cursor: help; }
-        /* FIX 1: Added population line style */
         .finding-population { font-size: 0.8rem; color: var(--text-muted); font-style: italic; margin-bottom: 12px; }
         .finding-definition { background: var(--bg-secondary); border-radius: 10px; padding: 16px; margin-bottom: 16px; }
         .finding-definition-title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 8px; }
@@ -145,7 +205,7 @@
         .finding-calc { font-size: 0.8rem; color: var(--text-muted); padding: 10px 14px; background: var(--bg-primary); border-radius: 6px; margin-bottom: 12px; font-family: 'DM Sans', monospace; }
         .finding-plain { font-size: 0.9rem; color: var(--mint); line-height: 1.5; padding-left: 12px; border-left: 2px solid var(--mint-dim); }
 
-        /* FIX 4: Risk pattern bucket styles */
+        /* Risk pattern bucket styles */
         .risk-bucket { margin-bottom: 12px; }
         .risk-bucket-label { font-size: 0.75rem; font-weight: 600; color: var(--coral); margin-bottom: 4px; }
         .risk-bucket-items { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
@@ -164,27 +224,97 @@
         .insight-box--mint .insight-box-title { color: var(--mint); }
         .insight-box-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
 
+        /* Deliverable cards - icon + headline + microdesc */
+        .deliverable-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        @media (max-width: 900px) { .deliverable-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 550px) { .deliverable-grid { grid-template-columns: 1fr; } }
+        .deliverable-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .deliverable-card:hover {
+            border-color: var(--border-light);
+            transform: translateY(-2px);
+        }
+        .deliverable-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .deliverable-title {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .deliverable-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
         /* Engagement cards */
         .engage-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; transition: all 0.2s; }
         .engage-card:hover { border-color: var(--border-light); transform: translateY(-2px); }
         .engage-card-title { font-size: 1.1rem; color: var(--purple); margin-bottom: 10px; }
         .engage-card-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
 
-        /* Footer */
-        .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 48px 0 32px; }
+        /* Two-tier CTA section */
+        .cta-tier {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        @media (max-width: 600px) { .cta-tier { grid-template-columns: 1fr; } }
+        .cta-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+        }
+        .cta-box-title {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .cta-box-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        /* Footer - enhanced */
+        .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 48px 0 24px; }
         .footer-content { text-align: center; }
         .footer-brand { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; }
         .footer-tagline { font-size: 0.85rem; color: var(--text-secondary); max-width: 480px; margin: 0 auto 20px; line-height: 1.6; }
         .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; margin-bottom: 24px; }
         .footer-link { font-size: 0.9rem; color: var(--text-secondary); }
         .footer-link:hover { color: var(--text-primary); }
-        .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
-
-        /* Utilities */
-        .text-center { text-align: center; }
-        .mb-3 { margin-bottom: 24px; }
-        .mb-4 { margin-bottom: 32px; }
-        .mt-3 { margin-top: 24px; }
+        .footer-copy { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 16px; }
+        
+        /* Footer legal row */
+        .footer-legal {
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 24px;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+        .footer-legal a { color: var(--text-muted); text-decoration: underline; }
+        .footer-legal a:hover { color: var(--text-secondary); }
 
         /* TL;DR Box */
         .tldr-box {
@@ -211,7 +341,7 @@
         .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
         @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
         .subsection-title { font-size: 1.2rem; margin-bottom: 12px; }
-        .body-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
+        .body-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; max-width: 680px; }
         .body-text strong { color: var(--text-primary); }
         .body-text em { color: var(--text-muted); }
 
@@ -258,7 +388,6 @@
             color: var(--purple);
             margin-bottom: 8px;
         }
-        /* FIX 3: Example style for Safety Gate */
         .question-card .example {
             margin-top: 12px;
             padding: 10px 12px;
@@ -272,63 +401,7 @@
             color: var(--coral);
         }
 
-        /* Comparison Table */
-        .comparison-table-wrapper { overflow-x: auto; }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
-            background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .comparison-table th, .comparison-table td {
-            padding: 16px 20px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-        .comparison-table th {
-            font-weight: 600;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            background: var(--bg-secondary);
-        }
-        .comparison-table tr:last-child td { border-bottom: none; }
-        .badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        .badge--high { background: var(--mint-dim); color: var(--mint); }
-        .badge--mid { background: var(--gold-dim); color: var(--gold); }
-        .badge--low { background: var(--coral-dim); color: var(--coral); }
-
-        /* Gap Grid */
-        .gap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        @media (max-width: 800px) { .gap-grid { grid-template-columns: 1fr; } }
-        .gap-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px;
-        }
-        .gap-card-header { margin-bottom: 12px; }
-        .gap-card-title { font-weight: 600; font-size: 1rem; color: var(--coral); }
-        .gap-card-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
-
-        /* Origin Section */
-        .origin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
-        @media (max-width: 700px) { .origin-grid { grid-template-columns: 1fr; } }
-        .origin-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
-        .origin-card h3 { font-size: 1.1rem; margin-bottom: 12px; }
-        .origin-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
-        .origin-card em { color: var(--purple); font-style: normal; }
-
-        /* Model Results Table */
+        /* Results Table */
         .results-table {
             width: 100%;
             border-collapse: collapse;
@@ -368,7 +441,7 @@
         .results-table .score--mid { color: var(--gold); }
         .results-table .score--low { color: var(--coral); }
 
-        /* FIX 6: Causal note style */
+        /* Causal note */
         .causal-note {
             font-size: 0.85rem;
             color: var(--text-muted);
@@ -382,12 +455,79 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        /* Gap Grid */
+        .gap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        @media (max-width: 800px) { .gap-grid { grid-template-columns: 1fr; } }
+        .gap-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        .gap-card-header { margin-bottom: 12px; }
+        .gap-card-title { font-weight: 600; font-size: 1rem; color: var(--coral); }
+        .gap-card-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+
+        /* Origin Section */
+        .origin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+        @media (max-width: 700px) { .origin-grid { grid-template-columns: 1fr; } }
+        .origin-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+        .origin-card h3 { font-size: 1.1rem; margin-bottom: 12px; }
+        .origin-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+        .origin-card em { color: var(--purple); font-style: normal; }
+
+        /* Accordion for mobile */
+        .accordion { margin-bottom: 16px; }
+        .accordion-header {
+            display: none;
+            width: 100%;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: left;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .accordion-header::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: var(--purple);
+        }
+        .accordion-header.open::after {
+            content: '−';
+        }
+        .accordion-content {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .accordion-header { display: flex; }
+            .accordion-content { display: none; padding-top: 16px; }
+            .accordion-content.open { display: block; }
+        }
+
+        /* Utilities */
+        .text-center { text-align: center; }
+        .mb-3 { margin-bottom: 24px; }
+        .mb-4 { margin-bottom: 32px; }
+        .mt-3 { margin-top: 24px; }
     </style>
 </head>
 <body>
+    <!-- NAV DISCLAIMER -->
+    <div class="nav-disclaimer">
+        Research & evaluation only — not a crisis support service
+    </div>
+    
     <!-- NAVIGATION -->
-    <nav class="nav">
-        <div class="container">
+    <nav class="nav" id="mainNav">
+        <div class="container nav-inner">
             <a href="/" class="nav-logo">
                 <svg viewBox="0 0 40 40" fill="none">
                     <circle cx="20" cy="20" r="19" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
@@ -398,16 +538,16 @@
                 </svg>
                 ikwe.ai
             </a>
-            <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+            <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle navigation">
                 <span></span><span></span><span></span>
             </button>
             <div class="nav-links" id="navLinks">
                 <a href="/" class="nav-link active">Home</a>
                 <a href="/research" class="nav-link">Research</a>
-                <a href="/explorer" class="nav-link">Explorer</a>
-                <a href="#engagements" class="nav-link">Engagements</a>
+                <a href="/explorer" class="nav-link">Explore Findings</a>
+                <a href="#engagements" class="nav-link">Services</a>
                 <a href="/about" class="nav-link">About</a>
-                <a href="https://form.jotform.com/253607150614047" class="nav-cta" target="_blank">Work With Us</a>
+                <a href="https://form.jotform.com/253607150614047" class="nav-cta" target="_blank">Request Evaluation</a>
             </div>
         </div>
     </nav>
@@ -416,62 +556,92 @@
     <section class="hero">
         <div class="container">
             <span class="kicker">Behavioral Emotional Safety</span>
-            <h1 class="hero-title">Ikwe Builds Emotionally Intelligent AI — and the Benchmarks to Make It Safe</h1>
+            <h1 class="hero-title">What Conventional AI Benchmarks Miss — Behavioral Safety Under Emotional Load</h1>
             <p class="hero-subtitle">
-                We evaluate how AI systems behave under emotional load — distress, shame, conflict, dependency, and crisis-adjacent language.
+                We measure how AI systems behave when humans are emotionally vulnerable — whether responses stabilize or risk increases over time.
             </p>
-            <p class="hero-emphasis">
-                Not whether they respond… <strong>but whether they regulate, hold boundaries, and recognize risk.</strong>
+            <p class="hero-caveat">
+                Observed patterns indicate behavioral risk under test conditions, not real-world harm or intent.
             </p>
+            
+            <!-- Hero stats badges -->
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-value">79</span>
+                    <span class="hero-stat-label">scenarios tested</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">4</span>
+                    <span class="hero-stat-label">models evaluated</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">54.7%</span>
+                    <span class="hero-stat-label">showed risk patterns</span>
+                </div>
+            </div>
+            
             <div class="hero-pills">
                 <span class="hero-pill">Applied EI systems</span>
                 <span class="hero-pill">Behavioral safety research</span>
                 <span class="hero-pill">Scenario-based evaluation</span>
             </div>
+            
             <div class="btn-group btn-group--center">
                 <a href="#benchmark" class="btn btn--primary btn--large">View the Benchmark →</a>
-                <a href="https://form.jotform.com/253607150614047" class="btn btn--large" target="_blank">Request Full Research</a>
+                <a href="/research" class="btn btn--large">Explore Research</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY EMOTIONAL VULNERABILITY MATTERS -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker">The Problem</span>
+                <h2 class="section-title">Why Emotional Vulnerability Matters in AI Interactions</h2>
+            </div>
+            
+            <div class="card-grid card-grid--3">
+                <div class="card">
+                    <h3 class="card-title">Users bring emotional weight</h3>
+                    <p class="card-text">People frequently bring stress, loss, conflict, regret, and identity tension to AI conversations. This is normal human behavior — not edge cases.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Recognition ≠ Safe behavior</h3>
+                    <p class="card-text">Standard benchmarks test whether AI recognizes emotion — not how it behaves once vulnerability is present. These are different capabilities.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Behavioral risk patterns emerge</h3>
+                    <p class="card-text">Behavior that amplifies distress or reinforces unhelpful cycles reflects increased <strong>risk patterns</strong> under test conditions, not intent.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ORIGIN -->
-    <section class="section section--alt">
-        <div class="container">
-            <div class="section-header">
-                <span class="kicker">Origin</span>
-                <h2 class="section-title">How Ikwe Started</h2>
-                <p class="section-subtitle">Ikwe did not begin as a benchmark. It began with applied systems.</p>
-            </div>
-            
-            <div class="origin-grid">
-                <div class="origin-card">
-                    <h3>Applied Systems First</h3>
-                    <p><em>Lady's Lady</em> and <em>He Said / She Said</em> — early emotionally intelligent AI prototypes designed to support humans during moments of vulnerability, conflict, and emotional complexity.</p>
-                </div>
-                <div class="origin-card">
-                    <h3>Measurement Became Necessary</h3>
-                    <p>As these systems were tested, a pattern became clear: existing AI safety and EQ benchmarks could not explain — or detect — the risks we were encountering. So we built the infrastructure to measure them.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHAT WE MEASURE -->
     <section class="section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">What ikwe.ai Measures</h2>
-            </div>
-            <div class="card-grid card-grid--2">
-                <div class="card">
-                    <h3 class="card-title">The gap in current benchmarks</h3>
-                    <p class="card-text">Most benchmarks measure capability under neutral conditions. They test for toxicity, bias, and refusal behavior — but not for what happens when a user is actually hurting.</p>
-                </div>
-                <div class="card">
-                    <h3 class="card-title">Behavior under emotional pressure</h3>
-                    <!-- FIX: Changed "worsen harm" to "increase risk" -->
-                    <p class="card-text">ikwe.ai measures <strong>observable behavior under emotional load</strong> — the moments where conversational AI can stabilize a user… or unintentionally increase risk. Timing, tone calibration, boundary clarity, and escalation recognition.</p>
+            <div class="accordion">
+                <button class="accordion-header" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
+                    How Ikwe Started
+                </button>
+                <div class="accordion-content">
+                    <div class="section-header" style="margin-bottom: 24px;">
+                        <span class="kicker">Origin</span>
+                        <h2 class="section-title">How Ikwe Started</h2>
+                        <p class="section-subtitle">Ikwe did not begin as a benchmark. It began with applied systems.</p>
+                    </div>
+                    
+                    <div class="origin-grid">
+                        <div class="origin-card">
+                            <h3>Applied Systems First</h3>
+                            <p><em>Lady's Lady</em> and <em>He Said / She Said</em> — early emotionally intelligent AI prototypes designed to support humans during moments of vulnerability, conflict, and emotional complexity.</p>
+                        </div>
+                        <div class="origin-card">
+                            <h3>Measurement Became Necessary</h3>
+                            <p>As these systems were tested, a pattern became clear: existing AI safety and EQ benchmarks could not explain — or detect — the risks we were encountering. So we built the infrastructure to measure them.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -486,14 +656,12 @@
             </div>
             
             <!-- TL;DR Box -->
-            <!-- FIX 2: Added baseline model definition here -->
             <div class="tldr-box">
                 <p><strong>In summary:</strong> Frontier AI systems often appear emotionally capable by existing measures. Ikwe's benchmark shows that this capability does not always translate into sustained emotional safety over time.</p>
                 <p>The EI prototype maintains regulation, boundaries, and escalation awareness more consistently across emotionally vulnerable interactions.</p>
                 <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 16px;"><em>Baseline models</em> refers to the frontier general-purpose conversational AI systems evaluated in this benchmark (GPT-4o, Claude 3.5 Sonnet, Grok) — excluding the Ikwe EI prototype.</p>
             </div>
             
-            <!-- FIX 5: Updated tooltips to explain denominators -->
             <div class="stat-grid mb-4">
                 <div class="stat-tile" data-tooltip="79 unique emotionally-charged user messages drawn from 8 public datasets including CounselChat and MentalChat16K">
                     <div class="stat-value stat-value--purple">79</div>
@@ -519,7 +687,7 @@
             
             <div class="btn-group btn-group--center">
                 <a href="/research" class="btn btn--primary">View Full Research →</a>
-                <a href="/explorer" class="btn">Explore Scenarios →</a>
+                <a href="/explorer" class="btn">Explore Findings →</a>
             </div>
         </div>
     </section>
@@ -527,33 +695,38 @@
     <!-- TWO-STAGE MODEL -->
     <section class="section section--alt">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">This Benchmark Separates Two Distinct Questions</h2>
-                <p class="section-subtitle">Traditional benchmarks collapse these into a single score. We do not.</p>
-            </div>
-            
-            <div class="two-questions">
-                <div class="question-card">
-                    <div class="question-number">1</div>
-                    <div class="stage-label">Stage 1 — Safety Gate (Binary)</div>
-                    <h4>Does the response meet baseline emotional safety criteria?</h4>
-                    <p>A binary check for 10 behavioral risk patterns. Any trigger = response introduces emotional risk. This determines whether dimension scoring applies.</p>
-                    <!-- FIX 3: Added concrete example -->
-                    <div class="example">
-                        <strong>Example:</strong> A response that begins analyzing a user's thought patterns while the user is expressing acute distress would trigger the Safety Gate due to premature cognitive processing.
+            <div class="accordion">
+                <button class="accordion-header" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
+                    How the Benchmark Works
+                </button>
+                <div class="accordion-content">
+                    <div class="section-header">
+                        <h2 class="section-title">This Benchmark Separates Two Distinct Questions</h2>
+                        <p class="section-subtitle">Traditional benchmarks collapse these into a single score. We do not.</p>
+                    </div>
+                    
+                    <div class="two-questions">
+                        <div class="question-card">
+                            <div class="question-number">1</div>
+                            <div class="stage-label">Stage 1 — Safety Gate (Binary)</div>
+                            <h4>Does the response meet baseline emotional safety criteria?</h4>
+                            <p>A binary check for 10 behavioral risk patterns. Any trigger = response introduces emotional risk. This determines whether dimension scoring applies.</p>
+                            <div class="example">
+                                <strong>Example:</strong> A response that begins analyzing a user's thought patterns while the user is expressing acute distress would trigger the Safety Gate due to premature cognitive processing.
+                            </div>
+                        </div>
+                        <div class="question-card">
+                            <div class="question-number">2</div>
+                            <div class="stage-label">Stage 2 — Dimension Scoring (Conditional)</div>
+                            <h4>If it starts safe, does it remain safe as vulnerability deepens?</h4>
+                            <p>Applied only if Stage 1 passes. Measures regulation, validation, agency, containment, and escalation awareness across 8 weighted dimensions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="insight-box insight-box--coral" style="margin-top: 32px;">
+                        <p class="insight-box-text">This distinction reveals behavioral risk patterns that standard benchmarks cannot detect.</p>
                     </div>
                 </div>
-                <div class="question-card">
-                    <div class="question-number">2</div>
-                    <div class="stage-label">Stage 2 — Dimension Scoring (Conditional)</div>
-                    <h4>If it starts safe, does it remain safe as vulnerability deepens?</h4>
-                    <p>Applied only if Stage 1 passes. Measures regulation, validation, agency, containment, and escalation awareness across 8 weighted dimensions.</p>
-                </div>
-            </div>
-            
-            <!-- FIX: Changed "failure modes" to "risk patterns" -->
-            <div class="insight-box insight-box--coral" style="margin-top: 32px;">
-                <p class="insight-box-text">This distinction reveals behavioral risk patterns that standard benchmarks cannot detect.</p>
             </div>
         </div>
     </section>
@@ -572,12 +745,10 @@
                 <div class="finding-card">
                     <div class="finding-stat finding-stat--coral">54.7%</div>
                     <div class="finding-label">of baseline model responses <span class="tooltip-trigger">introduced emotional risk</span></div>
-                    <!-- FIX 1: Added explicit population line -->
                     <div class="finding-population">Population: baseline models only (n = 234 responses across GPT-4o, Claude, Grok)</div>
                     
                     <div class="finding-definition">
                         <div class="finding-definition-title">What "introduced emotional risk" means</div>
-                        <!-- FIX 4: Reorganized 10 patterns into 3 labeled buckets -->
                         <div class="risk-bucket">
                             <div class="risk-bucket-label">Escalation & Amplification</div>
                             <div class="risk-bucket-items">Cognitive analysis during distress • Emotional mirroring/amplification • Encouraging rumination • Demanding questions during dysregulation</div>
@@ -593,7 +764,6 @@
                         <p style="margin-top: 12px;"><em>This does NOT mean harm occurred — it means the response increased risk relative to behavioral safety criteria.</em></p>
                     </div>
                     
-                    <!-- FIX 5: Calculation now explains denominator origin -->
                     <div class="finding-calc">
                         <strong>Calculation:</strong> 128 responses with Safety Gate triggers ÷ 234 baseline responses (79 scenarios × 3 baseline models) = 54.7%
                     </div>
@@ -605,7 +775,6 @@
                 <div class="finding-card">
                     <div class="finding-stat finding-stat--gold">1.7/5</div>
                     <div class="finding-label">average <span class="tooltip-trigger">Regulation Before Reasoning</span> score for baseline models</div>
-                    <!-- FIX 1: Added explicit population line -->
                     <div class="finding-population">Population: baseline model responses that passed the Safety Gate</div>
                     
                     <div class="finding-definition">
@@ -674,12 +843,10 @@
                 </tbody>
             </table>
             
-            <!-- FIX 6: Added causal sentence -->
             <div class="causal-note">
                 The EI prototype's advantage reflects lower variance after passing the Safety Gate, not higher expressiveness or verbosity.
             </div>
             
-            <!-- CORRECTED: Prompt format description per methodology requirements -->
             <p class="body-text text-center" style="margin-top: 24px; max-width: 750px; margin-left: auto; margin-right: auto;">
                 Scenarios were presented using each platform's default interaction structure. No custom system prompts or behavioral guidance were added. API-based models used standard system context; manually tested models were run in fresh, no-history sessions. All responses evaluated post-hoc using the same rubric.
             </p>
@@ -692,35 +859,41 @@
     <!-- THE PARADOX -->
     <section class="section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">The Recognition ≠ Safety Paradox</h2>
-                <!-- FIX: Changed "score worst" to variance-based language -->
-                <p class="section-subtitle">Models optimized for emotional articulation often show greater variance on emotional safety.</p>
-            </div>
-            
-            <div class="two-col">
-                <div>
-                    <h3 class="subsection-title" style="color: var(--coral);">High-articulation responses tend to:</h3>
-                    <ul style="list-style: none; font-size: 0.95rem; color: var(--text-secondary); line-height: 2;">
-                        <li>→ Explain emotions rather than contain them</li>
-                        <li>→ Reflect distress in ways that intensify focus</li>
-                        <li>→ Continue engagement when stabilization was indicated</li>
-                        <li>→ Produce relational positioning cues</li>
-                    </ul>
+            <div class="accordion">
+                <button class="accordion-header" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
+                    The Recognition ≠ Safety Paradox
+                </button>
+                <div class="accordion-content">
+                    <div class="section-header">
+                        <h2 class="section-title">The Recognition ≠ Safety Paradox</h2>
+                        <p class="section-subtitle">Models optimized for emotional articulation often show greater variance on emotional safety.</p>
+                    </div>
+                    
+                    <div class="two-col">
+                        <div>
+                            <h3 class="subsection-title" style="color: var(--coral);">High-articulation responses tend to:</h3>
+                            <ul style="list-style: none; font-size: 0.95rem; color: var(--text-secondary); line-height: 2;">
+                                <li>→ Explain emotions rather than contain them</li>
+                                <li>→ Reflect distress in ways that intensify focus</li>
+                                <li>→ Continue engagement when stabilization was indicated</li>
+                                <li>→ Produce relational positioning cues</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="subsection-title" style="color: var(--mint);">Safer responses were often:</h3>
+                            <ul style="list-style: none; font-size: 0.95rem; color: var(--text-secondary); line-height: 2;">
+                                <li>→ Shorter</li>
+                                <li>→ Less emotionally verbose</li>
+                                <li>→ More grounding-oriented</li>
+                                <li>→ More willing to pause or redirect</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="insight-box insight-box--purple" style="margin-top: 32px; text-align: center;">
+                        <p class="insight-box-text"><strong>Fluency masks behavioral risk.</strong> The EI prototype maintains safer behavior not by being more expressive, but by regulating timing, boundaries, and escalation awareness.</p>
+                    </div>
                 </div>
-                <div>
-                    <h3 class="subsection-title" style="color: var(--mint);">Safer responses were often:</h3>
-                    <ul style="list-style: none; font-size: 0.95rem; color: var(--text-secondary); line-height: 2;">
-                        <li>→ Shorter</li>
-                        <li>→ Less emotionally verbose</li>
-                        <li>→ More grounding-oriented</li>
-                        <li>→ More willing to pause or redirect</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="insight-box insight-box--purple" style="margin-top: 32px; text-align: center;">
-                <p class="insight-box-text"><strong>Fluency masks behavioral risk.</strong> The EI prototype maintains safer behavior not by being more expressive, but by regulating timing, boundaries, and escalation awareness.</p>
             </div>
         </div>
     </section>
@@ -738,7 +911,6 @@
                     <div class="gap-card-header">
                         <span class="gap-card-title">Boundary Integrity Over Time</span>
                     </div>
-                    <!-- FIX: Changed "showed" to variance language -->
                     <p class="gap-card-desc">Baseline models showed higher variance in maintaining appropriate boundaries as conversations extended. The EI prototype maintained consistent boundaries even as user dependence cues increased.</p>
                 </div>
                 <div class="gap-card">
@@ -757,8 +929,42 @@
         </div>
     </section>
 
+    <!-- WHAT YOU GET - DELIVERABLES -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker">Deliverables</span>
+                <h2 class="section-title">What an Evaluation Includes</h2>
+                <p class="section-subtitle">Structured outputs designed for product teams and safety reviewers</p>
+            </div>
+            
+            <div class="deliverable-grid">
+                <div class="deliverable-card">
+                    <span class="deliverable-icon">📄</span>
+                    <h3 class="deliverable-title">Executive Summary</h3>
+                    <p class="deliverable-desc">1-2 page overview of key risk patterns and priority areas</p>
+                </div>
+                <div class="deliverable-card">
+                    <span class="deliverable-icon">📊</span>
+                    <h3 class="deliverable-title">Risk Priority Matrix</h3>
+                    <p class="deliverable-desc">Visual map of vulnerabilities by dimension and scenario type</p>
+                </div>
+                <div class="deliverable-card">
+                    <span class="deliverable-icon">🔁</span>
+                    <h3 class="deliverable-title">Corrective Patterns</h3>
+                    <p class="deliverable-desc">Where models did or didn't show corrective safety responses</p>
+                </div>
+                <div class="deliverable-card">
+                    <span class="deliverable-icon">🛠</span>
+                    <h3 class="deliverable-title">Remediation Roadmap</h3>
+                    <p class="deliverable-desc">Scenario-aligned guidance for behavioral improvement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ENGAGEMENTS -->
-    <section class="section" id="engagements">
+    <section class="section section--alt" id="engagements">
         <div class="container">
             <div class="section-header">
                 <span class="kicker">Services</span>
@@ -781,15 +987,24 @@
                 </div>
             </div>
             
-            <div class="btn-group btn-group--center">
-                <a href="https://form.jotform.com/253607150614047" class="btn btn--primary" target="_blank">Start a Conversation →</a>
-                <a href="/research" class="btn">View Research First</a>
+            <!-- Two-tier CTA -->
+            <div class="cta-tier">
+                <div class="cta-box">
+                    <h3 class="cta-box-title">For Product Teams</h3>
+                    <p class="cta-box-desc">Request an evaluation for your AI system</p>
+                    <a href="https://form.jotform.com/253607150614047" class="btn btn--primary" target="_blank">Request Evaluation →</a>
+                </div>
+                <div class="cta-box">
+                    <h3 class="cta-box-title">For Researchers & Press</h3>
+                    <p class="cta-box-desc">Get updates on our research findings</p>
+                    <a href="https://form.jotform.com/253607150614047" class="btn btn--secondary" target="_blank">Get Research Updates →</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ACCESS THE RESEARCH -->
-    <section class="section section--alt">
+    <section class="section">
         <div class="container text-center">
             <h2 class="section-title">Access the Full Research</h2>
             <p class="section-subtitle mb-4">Request access to the full methodology, taxonomy, scoring framework, and results.</p>
@@ -811,11 +1026,32 @@
                     <a href="/research" class="footer-link">Research</a>
                     <a href="/explorer" class="footer-link">Explorer</a>
                     <a href="/about" class="footer-link">About</a>
-                    <a href="mailto:stephanie@ikwe.ai" class="footer-link">Contact</a>
+                    <a href="mailto:research@ikwe.ai" class="footer-link">Contact</a>
                 </div>
                 <p class="footer-copy">© 2026 Visible Healing Inc. All rights reserved. · Des Moines, Iowa</p>
+                
+                <!-- Enhanced footer legal row -->
+                <div class="footer-legal">
+                    <span>Research & evaluation only — not a crisis support service</span>
+                    <span>•</span>
+                    <a href="/privacy">Privacy Policy</a>
+                    <span>•</span>
+                    <span>Data used for research purposes only</span>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Scroll shadow script -->
+    <script>
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
