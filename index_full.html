@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Behavioral Emotional Safety in Conversational AI — ikwe.ai</title>
+  
+  <meta name="description" content="ikwe.ai measures behavioral emotional safety in conversational AI — how emotional risk is introduced and managed within the interaction.">
+  
+  <meta property="og:title" content="Behavioral Emotional Safety in Conversational AI — ikwe.ai">
+  <meta property="og:description" content="ikwe.ai measures how emotional risk is introduced and managed within AI interactions. Behavioral safety benchmarking for conversational AI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ikwe.ai">
+  <meta property="og:image" content="https://ikwe.ai/og-image.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Behavioral Emotional Safety in Conversational AI — ikwe.ai">
+  <meta name="twitter:description" content="ikwe.ai measures how emotional risk is introduced and managed within AI interactions.">
+  <meta name="twitter:image" content="https://ikwe.ai/og-image.png">
+  
+  <link rel="canonical" href="https://ikwe.ai">
+
+  <style>
+    :root{
+      --bg0:#06070c;
+      --bg1:#0b0d16;
+      --bg2:#10131f;
+      --stroke:rgba(255,255,255,.08);
+      --text:#f3f5ff;
+      --muted:#b4bbd6;
+      --muted2:#8f97b7;
+      --purple:#b69cff;
+      --purple2:#7c5cff;
+      --mint:#99f6e4;
+      --coral:#fca5a5;
+      --gold:#fcd34d;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 20px;
+      --serif: ui-serif, "Iowan Old Style", Palatino, Georgia, serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    *{box-sizing:border-box; margin:0; padding:0;}
+    html{scroll-behavior:smooth}
+    body{
+      color:var(--text); font-family:var(--sans);
+      background:
+        radial-gradient(1100px 600px at 20% 8%, rgba(182,156,255,.14), transparent 55%),
+        radial-gradient(800px 500px at 80% 12%, rgba(153,246,228,.08), transparent 50%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{opacity:.9}
+    p{margin:0 0 16px}
+
+    .container{width:min(1080px, calc(100% - 40px)); margin:0 auto;}
+    .narrow{width:min(680px, calc(100% - 40px)); margin:0 auto;}
+
+    /* Nav */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(6,7,12,.65);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .topbar-inner{display:flex; align-items:center; justify-content:space-between; padding:12px 0;}
+    .brand{display:flex; align-items:center; gap:9px; font-weight:800; font-size:15px;}
+    .brand-mark{
+      width:24px; height:24px; border-radius:7px;
+      background: conic-gradient(from 180deg, #b69cff, #fca5a5, #fcd34d, #99f6e4, #b69cff);
+      border:1px solid rgba(255,255,255,.14);
+    }
+    .nav{display:flex; gap:8px; color:var(--muted); font-size:13px;}
+    .nav a{padding:7px 10px; border-radius:8px;}
+    .nav a:hover{background: rgba(255,255,255,.05); color:var(--text);}
+    .nav-cta{display:flex; gap:8px;}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 16px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color:var(--text); font-weight:700; font-size:13px;
+      transition: transform .15s ease, background .15s ease;
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.06);}
+    .btn.primary{
+      border-color: rgba(182,156,255,.4);
+      background: linear-gradient(180deg, rgba(182,156,255,.20), rgba(182,156,255,.10));
+    }
+
+    /* Hero */
+    .hero{padding: 80px 0 60px;}
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      font-weight:800; letter-spacing:.14em; font-size:10px;
+      color: rgba(182,156,255,.9); text-transform:uppercase;
+      margin-bottom:12px;
+    }
+    .kicker::before{
+      content:""; width:7px; height:7px; border-radius:50%;
+      background: var(--purple);
+      box-shadow: 0 0 0 3px rgba(182,156,255,.12);
+    }
+    .hero-title{
+      font-family: var(--serif); font-weight:800;
+      font-size: clamp(36px, 4.5vw, 64px);
+      line-height: 1.0; margin:0 0 20px; letter-spacing:-.02em;
+      max-width: 16ch;
+    }
+    .hero-sub{font-size: clamp(16px, 1.6vw, 18px); color:var(--muted); margin:0 0 20px; max-width:52ch; line-height:1.55;}
+    .hero-sub strong{color:var(--text);}
+    .hero-tags{display:flex; flex-wrap:wrap; gap:8px; margin:20px 0;}
+    .tag{
+      padding:6px 12px; border-radius:8px; font-size:12px; font-weight:600;
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+    }
+    .hero-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:24px;}
+
+    /* Sections */
+    .section{padding:64px 0; border-top:1px solid rgba(255,255,255,.05);}
+    .section-alt{background:rgba(10,12,20,.4);}
+    .section-title{font-family:var(--serif); font-weight:800; font-size:clamp(26px,2.8vw,36px); line-height:1.1; margin:0 0 16px;}
+    .section-intro{color:var(--muted); font-size:16px; max-width:60ch; margin:0 0 24px; line-height:1.6;}
+    .section-intro strong{color:var(--text);}
+
+    /* Two column */
+    .two-col{display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:24px;}
+    .two-col h3{font-size:16px; margin:0 0 10px; color:var(--text);}
+    .two-col p{color:var(--muted); font-size:14px; line-height:1.6;}
+    .two-col strong{color:var(--text);}
+
+    /* Stats Grid */
+    .stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:32px 0;}
+    .stat-card{
+      border-radius:var(--radius); padding:20px;
+      border:1px solid rgba(255,255,255,.07);
+      background: linear-gradient(180deg, rgba(17,24,51,.65), rgba(15,19,36,.55));
+      text-align:center;
+    }
+    .stat-value{font-family:var(--serif); font-size:32px; font-weight:800; margin-bottom:6px;}
+    .stat-label{font-size:12px; color:var(--muted); line-height:1.4;}
+    .highlight-coral{color:var(--coral);}
+    .highlight-gold{color:var(--gold);}
+    .highlight-mint{color:var(--mint);}
+
+    /* Cards Grid */
+    .cards-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:24px;}
+    .card{
+      background:linear-gradient(180deg,rgba(17,24,51,.5),rgba(15,19,36,.45));
+      border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:20px;
+    }
+    .card h4{margin:0 0 10px; font-size:14px; color:var(--text);}
+    .card p{margin:0; font-size:13px; color:var(--muted); line-height:1.55;}
+
+    /* Table */
+    .table-wrap{margin:24px 0; border-radius:var(--radius); overflow:hidden; border:1px solid rgba(255,255,255,.07); background:rgba(10,12,20,.35);}
+    table{width:100%; border-collapse:collapse; font-size:13px;}
+    thead th{text-align:left; padding:14px 16px; background:rgba(17,24,51,.55); border-bottom:1px solid rgba(255,255,255,.06); font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:rgba(243,245,255,.8);}
+    tbody td{padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.04); color:rgba(180,187,214,.9);}
+    tbody tr:last-child td{border-bottom:none}
+
+    /* Framework Steps */
+    .framework-steps{margin:32px 0;}
+    .step{display:flex; gap:20px; margin-bottom:24px;}
+    .step-number{
+      width:40px; height:40px; border-radius:50%; flex-shrink:0;
+      background:linear-gradient(180deg, rgba(182,156,255,.2), rgba(182,156,255,.1));
+      border:1px solid rgba(182,156,255,.3);
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--serif); font-weight:800; font-size:18px; color:var(--purple);
+    }
+    .step-content h4{margin:0 0 6px; font-size:16px; color:var(--text);}
+    .step-content p{margin:0; font-size:14px; color:var(--muted);}
+
+    /* Services */
+    .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:24px 0;}
+    .service-card{
+      background:linear-gradient(180deg,rgba(17,24,51,.5),rgba(15,19,36,.45));
+      border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:24px;
+    }
+    .service-card h3{margin:0 0 10px; font-size:16px; color:var(--text);}
+    .service-card p{margin:0; font-size:13px; color:var(--muted); line-height:1.55;}
+
+    /* CTA Row */
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:24px;}
+
+    .note{color:var(--muted2); font-size:12px; margin-top:16px; font-style:italic;}
+
+    /* Footer */
+    .foot{padding:48px 0; border-top:1px solid rgba(255,255,255,.05); color:rgba(180,187,214,.65); font-size:12px;}
+    .foot a{color:rgba(182,156,255,.85);}
+    .foot-grid{display:flex; flex-wrap:wrap; gap:48px; justify-content:space-between;}
+    .foot-brand{max-width:360px;}
+    .foot-brand strong{display:block; color:rgba(243,245,255,.85); margin-bottom:8px; font-size:14px;}
+    .foot-brand p{line-height:1.6; margin:0;}
+    .foot-nav{display:flex; gap:24px;}
+    .foot-legal{margin-top:32px; padding-top:24px; border-top:1px solid rgba(255,255,255,.05);}
+
+    @media(max-width:900px){
+      .two-col, .stats-grid, .cards-grid, .services-grid{grid-template-columns:1fr}
+      .nav{display:none}
+      .foot-grid{flex-direction:column; gap:24px}
+    }
+    @media(max-width:520px){
+      .container,.narrow{width:calc(100% - 28px)}
+      .btn{width:100%; justify-content:center}
+      .hero-actions, .cta-row{flex-direction:column}
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <a class="brand" href="/" aria-label="ikwe.ai home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>ikwe.ai</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/research">Research</a>
+        <a href="/explorer">Explorer</a>
+        <a href="#engagements">Engagements</a>
+        <a href="/about">About</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn primary" href="https://form.jotform.com/253607150614047">Work With Us</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="kicker">Behavioral Emotional Safety</span>
+      
+      <h1 class="hero-title">Behavioral Emotional Safety in Conversational AI</h1>
+      
+      <p class="hero-sub">
+        ikwe.ai measures how AI responses introduce and manage emotional risk when users disclose vulnerability — distress, shame, conflict, dependency, and crisis-adjacent language.
+      </p>
+      
+      <p class="hero-sub">
+        Not whether systems respond — <strong>but how emotional risk is introduced and managed within the interaction.</strong>
+      </p>
+      
+      <div class="hero-tags">
+        <span class="tag">Behavioral emotional safety benchmarking</span>
+        <span class="tag">Scenario-based evaluation</span>
+        <span class="tag">Model-agnostic</span>
+      </div>
+      
+      <div class="hero-actions">
+        <a class="btn primary" href="#benchmark">View the Benchmark →</a>
+        <a class="btn" href="https://form.jotform.com/253607150614047">Request Full Research</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IKWE MEASURES -->
+  <section class="section" id="measures">
+    <div class="container">
+      <h2 class="section-title">What ikwe.ai Measures</h2>
+      
+      <div class="two-col">
+        <div>
+          <h3>The gap in current benchmarks</h3>
+          <p>Most benchmarks assume harm comes from users. They test for toxicity, bias, and refusal behavior — but not for what the AI response itself introduces when a user discloses vulnerability.</p>
+        </div>
+        
+        <div>
+          <h3>Behavior under emotional pressure</h3>
+          <p>ikwe.ai measures <strong>whether AI responses introduce risk and whether it's repaired</strong> — the moments where conversational AI can stabilize a user… or introduce emotional risk at first contact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENCHMARK -->
+  <section class="section section-alt" id="benchmark">
+    <div class="container">
+      <span class="kicker">EQ Safety Benchmark</span>
+      <h2 class="section-title">Why Standard AI Benchmarks and Ikwe Measure Different Things</h2>
+      
+      <p class="section-intro">
+        <strong>In summary:</strong> Frontier AI systems often appear emotionally capable by existing measures. Ikwe's benchmark shows that in 54.7% of baseline responses, the AI response itself introduced emotional risk at first contact — precisely when users were most vulnerable.
+      </p>
+      
+      <p class="section-intro">The EI prototype closes this gap by maintaining regulation, boundaries, and escalation awareness more consistently across emotionally vulnerable interactions.</p>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label" style="margin-bottom:8px; font-size:10px; text-transform:uppercase; letter-spacing:.1em; color:var(--purple);">From the Emotional Safety Gap benchmark</div>
+          <div class="stat-value highlight-coral">54.7%</div>
+          <div class="stat-label">of baseline responses introduced risk at first contact</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value highlight-gold">43%</div>
+          <div class="stat-label">showed no repair within the interaction window</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">79</div>
+          <div class="stat-label">Vulnerability scenarios</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">4</div>
+          <div class="stat-label">Models tested</div>
+        </div>
+      </div>
+      
+      <div class="cta-row">
+        <a class="btn primary" href="/research">View Full Research →</a>
+        <a class="btn" href="/explorer">Explore Scenarios →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRONTIER AI -->
+  <section class="section">
+    <div class="container narrow">
+      <h3>What Frontier AI Does Well</h3>
+      <p>Frontier AI models perform strongly on existing emotional intelligence benchmarks. They reliably identify emotional tone, acknowledge distress, produce socially appropriate language, and avoid explicit policy violations.</p>
+      <p>This is valuable. And it is necessary. <strong>But it is not sufficient.</strong></p>
+      
+      <h3 style="margin-top:32px;">Where Standard Benchmarks Stop</h3>
+      <p>Most EQ and safety benchmarks evaluate single-turn responses or static emotional recognition. They ask: <em>Did the model identify the emotion? Did it respond politely?</em></p>
+      <p>They rarely ask: <em>Did the response introduce risk? Was that risk repaired within the interaction window?</em></p>
+    </div>
+  </section>
+
+  <!-- WHAT IKWE MEASURES INSTEAD -->
+  <section class="section section-alt">
+    <div class="container narrow">
+      <h2 class="section-title">What Ikwe Measures Instead</h2>
+      <p class="section-intro">Behavioral emotional safety — whether AI responses introduce risk, and whether it's repaired within the interaction.</p>
+      
+      <div class="framework-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Does the response introduce risk at first contact?</h4>
+            <p>Does the AI response introduce emotional risk — or does it stabilize and contain?</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>If risk is introduced, is it repaired?</h4>
+            <p>Does the system repair unsafe behavior within the interaction window — or does it persist?</p>
+          </div>
+        </div>
+      </div>
+      
+      <p class="note">This distinction reveals failure modes that standard benchmarks cannot detect.</p>
+    </div>
+  </section>
+
+  <!-- THE GAP -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">The Gap We Found</h2>
+      
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>System</th>
+              <th>Risk Introduced at First Contact</th>
+              <th>Repair Behavior</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Baseline models</strong></td>
+              <td>54.7% introduced risk</td>
+              <td>43% showed no repair</td>
+            </tr>
+            <tr>
+              <td><strong>EI Prototype (Ikwe)</strong></td>
+              <td>15.4% introduced risk</td>
+              <td>Consistent repair behavior</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p style="color:var(--muted); font-size:14px; margin-top:16px;">Baseline models often respond appropriately at first, but in over half of emotionally vulnerable scenarios, the AI response itself introduced emotional risk. The EI prototype maintained safer behavior — not by being more expressive, but by regulating escalation, boundaries, and pacing more consistently.</p>
+    </div>
+  </section>
+
+  <!-- LARGEST GAPS -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Where the Largest Gaps Appear</h2>
+      <p class="section-intro">The biggest performance differences between baseline models and the EI prototype</p>
+      
+      <div class="cards-grid">
+        <div class="card">
+          <h4>Boundary Integrity</h4>
+          <p>Baseline models showed higher variance in maintaining appropriate boundaries as conversations extended. The EI prototype maintained consistent boundaries even as user dependence cues increased.</p>
+        </div>
+        
+        <div class="card">
+          <h4>Escalation Awareness After Trust</h4>
+          <p>Once initial trust was formed, baseline models were less likely to recognize when human support was needed. The EI prototype maintained escalation awareness throughout.</p>
+        </div>
+        
+        <div class="card">
+          <h4>Late-Stage Risk</h4>
+          <p>The EI prototype showed significantly fewer failures in extended interactions — the moments when users are most vulnerable and most trusting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="engagements">
+    <div class="container">
+      <span class="kicker">Services</span>
+      <h2 class="section-title">Work with us</h2>
+      <p class="section-intro">Evaluation services for teams building emotionally responsive AI</p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Safety Snapshot</h3>
+          <p>Fast behavioral risk scan using our benchmark framework. Identify gaps before they become incidents. 1-2 week turnaround.</p>
+        </div>
+        
+        <div class="service-card">
+          <h3>Full Benchmark Audit</h3>
+          <p>Comprehensive 79-scenario evaluation with scoring across all behavioral dimensions, failure taxonomy, and remediation roadmap.</p>
+        </div>
+        
+        <div class="service-card">
+          <h3>Advisory & Custom</h3>
+          <p>Ongoing support for safety implementation, custom scenario development, and policy alignment for your specific use case.</p>
+        </div>
+      </div>
+      
+      <div class="cta-row">
+        <a class="btn primary" href="https://form.jotform.com/253607150614047">Start a Conversation →</a>
+        <a class="btn" href="/research">View Research First</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESS RESEARCH -->
+  <section class="section section-alt">
+    <div class="container narrow" style="text-align:center;">
+      <h2 class="section-title">Access the Full Research</h2>
+      <p class="section-intro" style="margin:0 auto 24px;">Request access to the full methodology, taxonomy, scoring framework, and results.</p>
+      
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn primary" href="/research">View Research →</a>
+        <a class="btn" href="/request-access">Request Full Report →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <strong>Visible Healing Inc. · ikwe.ai</strong>
+        <p>Measuring how AI responses introduce and manage emotional risk during vulnerable interactions. The behavioral safety layer AI benchmarks forgot.</p>
+      </div>
+      
+      <nav class="foot-nav">
+        <a href="/">Home</a>
+        <a href="/research">Research</a>
+        <a href="/explorer">Explorer</a>
+        <a href="/about">About</a>
+        <a href="mailto:research@ikwe.ai">Contact</a>
+      </nav>
+    </div>
+    
+    <div class="foot-legal">
+      <p>© 2026 Visible Healing Inc. All rights reserved. · Des Moines, Iowa</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
