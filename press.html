@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Press — ikwe.ai</title>
+  
+  <meta name="description" content="Press resources for ikwe.ai. 54.7% of baseline AI responses introduced emotional risk at first contact.">
+  
+  <meta property="og:title" content="Press — ikwe.ai">
+  <meta property="og:description" content="Press resources for ikwe.ai behavioral emotional safety research.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ikwe.ai/press">
+  <meta property="og:image" content="https://ikwe.ai/og-image.png">
+  
+  <link rel="canonical" href="https://ikwe.ai/press">
+
+  <style>
+    :root{
+      --bg0:#06070c;--bg1:#0b0d16;--bg2:#0f1219;--text:#f3f5ff;--muted:#b4bbd6;--muted2:#8f97b7;
+      --purple:#b69cff;--coral:#fca5a5;--gold:#fcd34d;
+      --radius:20px;
+      --serif:ui-serif,"Iowan Old Style",Palatino,Georgia,serif;
+      --sans:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      color:var(--text);font-family:var(--sans);
+      background:
+        radial-gradient(ellipse 800px 500px at 30% 10%,rgba(182,156,255,.12),transparent),
+        linear-gradient(180deg,var(--bg0),var(--bg1));
+      background-attachment:fixed;-webkit-font-smoothing:antialiased;line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}a:hover{opacity:.9}
+    .container{width:min(1080px,calc(100% - 40px));margin:0 auto}
+    .narrow{width:min(640px,calc(100% - 40px));margin:0 auto}
+
+    .topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(6,7,12,.75);border-bottom:1px solid rgba(255,255,255,.06)}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:15px}
+    .brand-mark{width:24px;height:24px;border-radius:7px;background:conic-gradient(from 180deg,#b69cff,#fca5a5,#fcd34d,#99f6e4,#b69cff);border:1px solid rgba(255,255,255,.14)}
+    .nav{display:flex;gap:8px;color:var(--muted);font-size:13px}
+    .nav a{padding:7px 10px;border-radius:8px}
+    .nav a:hover,.nav a.active{background:rgba(255,255,255,.05);color:var(--text)}
+    .nav-cta{display:flex;gap:8px}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--text);font-weight:700;font-size:13px;cursor:pointer;transition:all .15s}
+    .btn:hover{background:rgba(255,255,255,.07)}
+    .btn.primary{border-color:rgba(182,156,255,.4);background:linear-gradient(180deg,rgba(182,156,255,.22),rgba(182,156,255,.12))}
+
+    .hero{padding:72px 0 48px}
+    .hero-title{font-family:var(--serif);font-weight:800;font-size:clamp(36px,4vw,48px);line-height:1.05;margin:0 0 14px}
+    .hero-sub{font-size:17px;color:var(--muted);margin:0}
+
+    .section{padding:48px 0;border-top:1px solid rgba(255,255,255,.06)}
+    .section-title{font-family:var(--serif);font-weight:800;font-size:20px;margin:0 0 16px}
+    p{color:var(--muted);margin:0 0 14px;font-size:15px;line-height:1.65}
+    p strong{color:var(--text)}
+
+    .highlight-stat{font-family:var(--serif);font-size:28px;font-weight:800;color:var(--coral)}
+
+    .quote-block{
+      background:linear-gradient(135deg,rgba(17,24,51,.6),rgba(15,19,36,.5));
+      border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);
+      padding:28px 32px;margin:24px 0;border-left:4px solid var(--purple);
+    }
+    .quote-block p{font-size:17px;color:var(--text);font-style:italic;margin:0 0 12px;line-height:1.55}
+    .quote-block cite{font-size:13px;color:var(--muted);font-style:normal}
+
+    .downloads{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:24px 0}
+    .dl-card{display:block;background:linear-gradient(180deg,rgba(17,24,51,.5),rgba(15,19,36,.4));border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px;transition:all .2s}
+    .dl-card:hover{border-color:rgba(182,156,255,.3);transform:translateY(-2px)}
+    .dl-card h4{margin:0 0 6px;font-size:14px;color:var(--text)}
+    .dl-card p{margin:0;font-size:12px;color:var(--muted)}
+
+    .study-stats{display:flex;gap:32px;flex-wrap:wrap;margin:20px 0}
+    .study-stat{text-align:center}
+    .study-stat .val{font-family:var(--serif);font-size:24px;font-weight:800;color:var(--text)}
+    .study-stat .lbl{font-size:11px;color:var(--muted);margin-top:2px}
+
+    .contact-box{background:linear-gradient(135deg,rgba(182,156,255,.1),rgba(153,246,228,.05));border:1px solid rgba(182,156,255,.2);border-radius:var(--radius);padding:32px;text-align:center;margin-top:24px}
+    .contact-box h3{font-size:18px;margin:0 0 10px;color:var(--text)}
+    .contact-box a{color:var(--purple);font-size:20px;font-weight:700}
+
+    .foot{padding:40px 0;border-top:1px solid rgba(255,255,255,.06);color:rgba(180,187,214,.6);font-size:12px}
+    .foot a{color:rgba(182,156,255,.8)}
+    .foot-inner{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:center}
+    .foot-brand{font-weight:700;color:rgba(243,245,255,.8)}
+    .foot-nav{display:flex;gap:20px}
+
+    @media(max-width:900px){.nav{display:none}.downloads{grid-template-columns:1fr}.study-stats{justify-content:center}}
+    @media(max-width:520px){.container,.narrow{width:calc(100% - 28px)}.quote-block{padding:20px 24px}}
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <a class="brand" href="/"><span class="brand-mark"></span><span>ikwe.ai</span></a>
+      <nav class="nav">
+        <a href="/emotional-safety-gap">Findings</a>
+        <a href="/press" class="active">Press</a>
+        <a href="/about">About</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn primary" href="/request-access">Work With Us</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="narrow">
+      <h1 class="hero-title">Press Resources</h1>
+      <p class="hero-sub">For journalists, researchers, and policymakers covering AI safety.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="narrow">
+      <h2 class="section-title">One-Liner</h2>
+      <p><strong>Ikwe.ai</strong> is an independent research initiative measuring how AI responses introduce and manage emotional risk during vulnerable interactions.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="narrow">
+      <h2 class="section-title">Key Finding</h2>
+      <p><span class="highlight-stat">54.7%</span> of baseline AI responses introduced emotional risk at first contact — the moment users disclosed vulnerability.</p>
+      <p>43% never repaired it. Models with the highest emotional fluency performed worst on behavioral safety.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="narrow">
+      <h2 class="section-title">Quotable</h2>
+      <div class="quote-block">
+        <p>"The AI safety debate assumes harm comes from users. Our data shows something else: emotional risk is often introduced by the AI response at first contact — precisely when users are most vulnerable."</p>
+        <cite>— ikwe.ai research</cite>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="narrow">
+      <h2 class="section-title">Study Details</h2>
+      <div class="study-stats">
+        <div class="study-stat"><div class="val">79</div><div class="lbl">scenarios</div></div>
+        <div class="study-stat"><div class="val">312</div><div class="lbl">responses</div></div>
+        <div class="study-stat"><div class="val">4</div><div class="lbl">systems</div></div>
+        <div class="study-stat"><div class="val">8</div><div class="lbl">public datasets</div></div>
+      </div>
+      <p>Systems evaluated: GPT-4o, Claude 3.5 Sonnet, Grok, Ikwe EI Prototype.<br>Scores reflect observed behavior under test conditions.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="narrow">
+      <h2 class="section-title">Downloads</h2>
+      <div class="downloads">
+        <a href="/05_Ikwe_Research_Summary.pdf" class="dl-card" target="_blank">
+          <h4>Public Research Summary</h4>
+          <p>Methodology, findings & framework (PDF)</p>
+        </a>
+        <a href="/01_Ikwe_Press_Overview.pdf" class="dl-card" target="_blank">
+          <h4>Press Brief</h4>
+          <p>One-page overview (PDF)</p>
+        </a>
+        <a href="/04_Ikwe_Citation_Guide.pdf" class="dl-card" target="_blank">
+          <h4>Citation Guide</h4>
+          <p>How to cite accurately (PDF)</p>
+        </a>
+        <a href="/request-access" class="dl-card">
+          <h4>Full Report</h4>
+          <p>Request access (gated)</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="narrow">
+      <div class="contact-box">
+        <h3>Press & Interview Requests</h3>
+        <a href="mailto:research@ikwe.ai">research@ikwe.ai</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <div class="foot-inner">
+      <div class="foot-brand">ikwe.ai · Visible Healing Inc.</div>
+      <nav class="foot-nav">
+        <a href="/">Home</a>
+        <a href="/emotional-safety-gap">Findings</a>
+        <a href="/about">About</a>
+        <a href="mailto:research@ikwe.ai">Contact</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
