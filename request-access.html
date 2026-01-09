@@ -1,16 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request Access | ikwe.ai</title>
-    <meta http-equiv="refresh" content="0;url=https://form.jotform.com/253607150614047">
-    <style>
-        body { background: #0a0b0f; color: #e9eefc; font-family: system-ui, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
-        a { color: #b794f6; }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Request Full Research Report — ikwe.ai</title>
+  
+  <meta name="description" content="Request access to the full Ikwe.ai research report including detailed scoring rubrics and evaluation mechanics.">
+  
+  <meta property="og:title" content="Request Full Research Report — ikwe.ai">
+  <meta property="og:description" content="Request access to the full behavioral emotional safety evaluation report.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ikwe.ai/request-access">
+  <meta property="og:image" content="https://ikwe.ai/og-image.png">
+  
+  <link rel="canonical" href="https://ikwe.ai/request-access">
+
+  <style>
+    :root{
+      --bg0:#06070c;
+      --bg1:#0b0d16;
+      --bg2:#10131f;
+      --stroke:rgba(255,255,255,.08);
+      --text:#f3f5ff;
+      --muted:#b4bbd6;
+      --muted2:#8f97b7;
+      --purple:#b69cff;
+      --purple2:#7c5cff;
+      --mint:#99f6e4;
+      --coral:#fca5a5;
+      --gold:#fcd34d;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 20px;
+      --serif: ui-serif, "Iowan Old Style", Palatino, Georgia, serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    *{box-sizing:border-box; margin:0; padding:0;}
+    html{scroll-behavior:smooth}
+    body{
+      color:var(--text); font-family:var(--sans);
+      background:
+        radial-gradient(1100px 600px at 20% 8%, rgba(182,156,255,.14), transparent 55%),
+        radial-gradient(800px 500px at 80% 12%, rgba(153,246,228,.08), transparent 50%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{opacity:.9}
+    p{margin:0 0 16px}
+    ul{margin:0 0 16px; padding-left:20px;}
+    li{margin-bottom:6px; color:var(--muted); font-size:14px;}
+
+    .container{width:min(1080px, calc(100% - 40px)); margin:0 auto;}
+    .narrow{width:min(580px, calc(100% - 40px)); margin:0 auto;}
+
+    /* Nav */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(6,7,12,.65);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .topbar-inner{display:flex; align-items:center; justify-content:space-between; padding:12px 0;}
+    .brand{display:flex; align-items:center; gap:9px; font-weight:800; font-size:15px;}
+    .brand-mark{
+      width:24px; height:24px; border-radius:7px;
+      background: conic-gradient(from 180deg, #b69cff, #fca5a5, #fcd34d, #99f6e4, #b69cff);
+      border:1px solid rgba(255,255,255,.14);
+    }
+    .nav{display:flex; gap:8px; color:var(--muted); font-size:13px;}
+    .nav a{padding:7px 10px; border-radius:8px;}
+    .nav a:hover{background: rgba(255,255,255,.05); color:var(--text);}
+    .nav-cta{display:flex; gap:8px;}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 16px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color:var(--text); font-weight:700; font-size:13px;
+      transition: transform .15s ease, background .15s ease;
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.06);}
+    .btn.primary{
+      border-color: rgba(182,156,255,.4);
+      background: linear-gradient(180deg, rgba(182,156,255,.20), rgba(182,156,255,.10));
+    }
+
+    /* Hero */
+    .hero{padding: 80px 0 40px;}
+    .hero-title{
+      font-family: var(--serif); font-weight:800;
+      font-size: clamp(30px, 3.5vw, 42px);
+      line-height: 1.1; margin:0 0 16px; letter-spacing:-.02em;
+    }
+    .hero-sub{font-size: 16px; color:var(--muted); margin:0 0 24px; line-height:1.6;}
+
+    /* Form Card */
+    .form-card{
+      background:linear-gradient(180deg,rgba(17,24,51,.6),rgba(15,19,36,.5));
+      border:1px solid rgba(255,255,255,.08); border-radius:var(--radius);
+      padding:32px; margin-top:32px;
+    }
+    .form-card h3{font-size:18px; margin:0 0 8px; color:var(--text);}
+    .form-card > p{font-size:14px; color:var(--muted); margin:0 0 24px;}
+
+    .includes-list{
+      background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06);
+      border-radius:12px; padding:16px 16px 16px 20px; margin:24px 0;
+    }
+    .includes-list p{font-size:13px; font-weight:700; color:var(--text); margin:0 0 10px;}
+    .includes-list ul{margin:0; padding-left:18px;}
+    .includes-list li{font-size:13px; margin-bottom:4px;}
+
+    .note{color:var(--muted2); font-size:12px; margin-top:20px; line-height:1.5;}
+    .note a{color:var(--purple);}
+
+    /* Jotform embed container */
+    .jotform-container{
+      margin-top:24px;
+      border-radius:12px;
+      overflow:hidden;
+    }
+    .jotform-container iframe{
+      width:100%;
+      min-height:500px;
+      border:none;
+    }
+
+    /* Alternative: Simple form styling if not using Jotform */
+    .simple-form{margin-top:24px;}
+    .form-group{margin-bottom:20px;}
+    .form-group label{display:block; font-size:13px; font-weight:600; color:var(--text); margin-bottom:8px;}
+    .form-group input, .form-group select, .form-group textarea{
+      width:100%; padding:12px 14px; border-radius:10px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      color:var(--text); font-size:14px; font-family:inherit;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus{
+      outline:none; border-color:rgba(182,156,255,.5);
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder{color:var(--muted2);}
+    .form-group select{cursor:pointer;}
+    .form-group select option{background:var(--bg1); color:var(--text);}
+
+    .checkbox-group{display:flex; gap:10px; align-items:flex-start; margin:24px 0;}
+    .checkbox-group input[type="checkbox"]{
+      width:18px; height:18px; margin-top:2px; flex-shrink:0;
+      accent-color:var(--purple);
+    }
+    .checkbox-group label{font-size:13px; color:var(--muted); line-height:1.5;}
+
+    .submit-btn{
+      width:100%; padding:14px 20px; border-radius:12px;
+      border:1px solid rgba(182,156,255,.4);
+      background: linear-gradient(180deg, rgba(182,156,255,.25), rgba(182,156,255,.15));
+      color:var(--text); font-weight:700; font-size:14px;
+      cursor:pointer; transition: transform .15s ease, background .15s ease;
+    }
+    .submit-btn:hover{transform: translateY(-1px); background: linear-gradient(180deg, rgba(182,156,255,.35), rgba(182,156,255,.25));}
+
+    /* Footer */
+    .foot{padding:48px 0; border-top:1px solid rgba(255,255,255,.05); color:rgba(180,187,214,.65); font-size:12px; margin-top:64px;}
+    .foot a{color:rgba(182,156,255,.85);}
+    .foot-grid{display:flex; flex-wrap:wrap; gap:48px; justify-content:space-between;}
+    .foot-brand{max-width:360px;}
+    .foot-brand strong{display:block; color:rgba(243,245,255,.85); margin-bottom:8px; font-size:14px;}
+    .foot-brand p{line-height:1.6; margin:0;}
+    .foot-nav{display:flex; gap:24px;}
+    .foot-legal{margin-top:32px; padding-top:24px; border-top:1px solid rgba(255,255,255,.05);}
+
+    @media(max-width:900px){
+      .nav{display:none}
+      .foot-grid{flex-direction:column; gap:24px}
+    }
+    @media(max-width:520px){
+      .container,.narrow{width:calc(100% - 28px)}
+      .btn{width:100%; justify-content:center}
+      .form-card{padding:24px;}
+    }
+  </style>
 </head>
+
 <body>
-    <p>Redirecting to form... <a href="https://form.jotform.com/253607150614047">Click here if not redirected</a></p>
+
+<header class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <a class="brand" href="/" aria-label="ikwe.ai home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>ikwe.ai</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/research">Research</a>
+        <a href="/explorer">Explorer</a>
+        <a href="/about">About</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn" href="/research">View Research</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container narrow">
+      <h1 class="hero-title">Access the Full Research Report</h1>
+      <p class="hero-sub">
+        The full research report includes detailed scoring rubrics, weighting logic, and evaluation mechanics. To prevent misuse or reverse-engineering, access is provided upon request.
+      </p>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section>
+    <div class="container narrow">
+      <div class="form-card">
+        <h3>Request Access</h3>
+        <p>For researchers, journalists, regulators, and practitioners reviewing the work in good faith.</p>
+        
+        <div class="includes-list">
+          <p>This report includes:</p>
+          <ul>
+            <li>Full Safety Gate definitions and trigger patterns</li>
+            <li>Dimension weights and scoring logic</li>
+            <li>Repair and escalation evaluation mechanics</li>
+            <li>Methodological edge cases and limitations</li>
+          </ul>
+        </div>
+
+        <!-- OPTION 1: Embed your existing Jotform -->
+        <!-- Uncomment and add your Jotform embed code here:
+        <div class="jotform-container">
+          <iframe src="https://form.jotform.com/YOUR_FORM_ID" frameborder="0" scrolling="no"></iframe>
+        </div>
+        -->
+
+        <!-- OPTION 2: Simple HTML form (replace action with your endpoint) -->
+        <form class="simple-form" action="https://form.jotform.com/253607150614047" method="GET">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com">
+          </div>
+          
+          <div class="form-group">
+            <label for="affiliation">Affiliation / Organization *</label>
+            <input type="text" id="affiliation" name="affiliation" required placeholder="Company, university, publication, etc.">
+          </div>
+          
+          <div class="form-group">
+            <label for="role">Role</label>
+            <select id="role" name="role">
+              <option value="">Select your role...</option>
+              <option value="researcher">Researcher / Academic</option>
+              <option value="journalist">Journalist / Press</option>
+              <option value="policy">Policy / Regulator</option>
+              <option value="product">Product / Engineering</option>
+              <option value="investor">Investor / VC</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="purpose">Intended Use (optional)</label>
+            <textarea id="purpose" name="purpose" rows="3" placeholder="Brief description of how you plan to use this research..."></textarea>
+          </div>
+          
+          <div class="checkbox-group">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">I understand this material is provided for review and research purposes and may not be used to train, optimize, or reverse-engineer AI systems.</label>
+          </div>
+          
+          <button type="submit" class="submit-btn">Request Access</button>
+        </form>
+        
+        <p class="note">
+          Requests are reviewed manually. You'll receive a response within 1-2 business days.<br><br>
+          Public findings, headline statistics, and methodology overview remain freely accessible at <a href="/research">/research</a> and in the <a href="/05_Ikwe_Research_Summary.pdf" target="_blank">2-page summary</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <strong>Visible Healing Inc. · ikwe.ai</strong>
+        <p>Measuring how AI responses introduce and manage emotional risk during vulnerable interactions. The behavioral safety layer AI benchmarks forgot.</p>
+      </div>
+      
+      <nav class="foot-nav">
+        <a href="/">Home</a>
+        <a href="/research">Research</a>
+        <a href="/explorer">Explorer</a>
+        <a href="/about">About</a>
+        <a href="mailto:research@ikwe.ai">Contact</a>
+      </nav>
+    </div>
+    
+    <div class="foot-legal">
+      <p>© 2026 Visible Healing Inc. All rights reserved. · Des Moines, Iowa</p>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
