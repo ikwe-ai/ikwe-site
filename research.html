@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
     
     <style>
         :root {
@@ -112,26 +113,10 @@
         .context-box p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
         .context-box em { color: var(--purple); font-style: normal; }
 
-        /* Sections */
-        .section { padding: 80px 0; }
-        .section--alt { background: var(--bg-secondary); }
-        .section-header { margin-bottom: 32px; }
-        .section-title { font-size: clamp(1.5rem, 3vw, 1.85rem); margin-bottom: 12px; }
-        .section-subtitle { font-size: 1rem; color: var(--text-secondary); }
-        .kicker { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 12px; }
-
         /* Body Text */
         .body-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; }
         .body-text strong { color: var(--text-primary); }
         .body-text em { color: var(--text-muted); }
-
-        /* Cards */
-        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-bottom: 20px; }
-        .card-title { font-size: 1.1rem; margin-bottom: 12px; }
-        .card-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
-        .card-grid { display: grid; gap: 20px; }
-        .card-grid--2 { grid-template-columns: repeat(2, 1fr); }
-        @media (max-width: 700px) { .card-grid--2 { grid-template-columns: 1fr; } }
 
         /* Tables */
         .data-table {
@@ -339,12 +324,6 @@
         .dimension-weight { font-family: 'DM Sans', monospace; font-size: 0.85rem; color: var(--purple); font-weight: 600; }
         .dimension-desc { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
         .dimension-highlight { background: var(--purple-dim); margin: 0 -16px; padding: 12px 16px; border-radius: 8px; }
-
-        /* Utilities */
-        .text-center { text-align: center; }
-        .mb-3 { margin-bottom: 24px; }
-        .mb-4 { margin-bottom: 32px; }
-        .mt-3 { margin-top: 24px; }
 
         /* At a Glance Summary */
         .glance-section {
@@ -890,6 +869,22 @@ If Safety Gate triggered → Score capped at maximum 40</div>
         </section>
     </main>
 
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">Visible Healing Inc. · ikwe.ai</div>
+                <p class="footer-tagline">Building the behavioral safety layer AI benchmarks forgot.</p>
+                <div class="footer-links">
+                    <a href="/" class="footer-link">Home</a>
+                    <a href="/research" class="footer-link">Research</a>
+                    <a href="/explorer" class="footer-link">Explorer</a>
+                    <a href="/about" class="footer-link">About</a>
+                    <a href="/cdn-cgi/l/email-protection#5a292e3f2a323b34333f1a33312d3f743b33" class="footer-link">Contact</a>
+                </div>
+                <p class="footer-copy">© 2026 Visible Healing Inc. All rights reserved. · Des Moines, Iowa</p>
+            </div>
+     
     <div id="site-footer"></div>
 
     <script src="/includes/nav.js" defer></script>
