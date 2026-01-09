@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ikwe.ai — Behavioral Emotional Safety Research</title>
+  <meta name="description" content="We measure how AI systems behave when users are emotionally vulnerable. 54.7% of baseline responses introduced risk at first contact.">
+  <meta property="og:title" content="ikwe.ai — Behavioral Emotional Safety Research">
+  <meta property="og:description" content="54.7% of AI responses introduced emotional risk at first contact. We measured it.">
+  <meta property="og:image" content="https://ikwe.ai/assets/ikwe-press-og.png">
+  <meta property="og:url" content="https://ikwe.ai">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/assets/ikwe_logo_dark.png">
+  <style>
+    :root {
+      --bg: #0a0b10; --bg2: #0e1017; --text: #f4f5fb; --muted: #a8b0c5; --muted2: #6b7280;
+      --purple: #c4b5fd; --coral: #f0a8a8; --gold: #e8d5a3; --navy: #1e1b4b;
+      --shadow: 0 8px 32px rgba(0,0,0,.3);
+      --serif: ui-serif, Georgia, serif; --sans: system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: var(--sans); font-size: 15px; line-height: 1.6;
+      color: var(--text); background: var(--bg);
+      background-image: radial-gradient(ellipse 800px 500px at 20% 10%, rgba(196,181,253,.1), transparent),
+                        radial-gradient(ellipse 600px 400px at 80% 20%, rgba(240,168,168,.05), transparent);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; } a:hover { opacity: .85; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    .narrow { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(10,11,16,.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.06); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 15px; }
+    .brand img { width: 32px; height: 32px; border-radius: 50%; }
+    .nav-links { display: flex; gap: 6px; }
+    .nav-links a { padding: 8px 12px; border-radius: 8px; font-size: 13px; color: var(--muted); transition: all .15s; }
+    .nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,.05); color: var(--text); }
+    .btn { display: inline-flex; align-items: center; padding: 10px 18px; border-radius: 10px; font-weight: 700; font-size: 13px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03); transition: all .15s; cursor: pointer; }
+    .btn:hover { transform: translateY(-1px); background: rgba(255,255,255,.06); }
+    .btn.primary { border-color: rgba(196,181,253,.35); background: linear-gradient(180deg, rgba(196,181,253,.18), rgba(196,181,253,.08)); }
+
+    /* HERO */
+    .hero { padding: 72px 0 48px; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items: start; }
+    .kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--purple); margin-bottom: 12px; }
+    .kicker::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 0 3px rgba(196,181,253,.15); }
+    h1 { font-family: var(--serif); font-size: clamp(36px, 4.5vw, 54px); font-weight: 700; line-height: 1.05; letter-spacing: -.02em; margin: 0 0 16px; }
+    .hero-sub { font-size: 17px; color: var(--muted); max-width: 48ch; line-height: 1.6; margin-bottom: 24px; }
+    .hero-sub strong { color: var(--text); }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .version { font-size: 12px; color: var(--muted2); margin-top: 20px; }
+
+    /* SIGNAL CARD */
+    .signal-card { background: linear-gradient(145deg, rgba(20,22,35,.7), rgba(14,16,23,.6)); border: 1px solid rgba(255,255,255,.06); border-radius: 20px; padding: 22px; box-shadow: var(--shadow); }
+    .signal-title { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted2); margin-bottom: 16px; }
+    .signal-row { display: flex; align-items: baseline; gap: 14px; padding: 14px 0; border-top: 1px solid rgba(255,255,255,.05); }
+    .signal-row:first-of-type { border-top: none; padding-top: 0; }
+    .signal-num { font-family: var(--serif); font-size: 2rem; font-weight: 700; line-height: 1; min-width: 80px; }
+    .signal-num .unit { font-size: .55em; opacity: .6; }
+    .signal-txt { font-size: 14px; color: var(--muted); line-height: 1.5; }
+    .signal-txt strong { color: var(--text); }
+    .s-coral { color: var(--coral); } .s-gold { color: var(--gold); } .s-purple { color: var(--purple); }
+
+    /* SECTIONS */
+    .section { padding: 56px 0; border-top: 1px solid rgba(255,255,255,.04); }
+    h2 { font-family: var(--serif); font-size: clamp(24px, 2.5vw, 32px); font-weight: 700; margin: 8px 0 14px; }
+    .section-sub { color: var(--muted); font-size: 15px; max-width: 56ch; line-height: 1.65; }
+
+    /* CALLOUT */
+    .callout { border-left: 4px solid rgba(196,181,253,.45); background: rgba(196,181,253,.04); padding: 16px 18px; border-radius: 0 12px 12px 0; margin-top: 20px; font-size: 14px; color: var(--muted); }
+    .callout strong { color: var(--text); }
+
+    /* FIGURE CARDS */
+    .figure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    .figure-card { display: block; padding: 22px; border-radius: 16px; border: 1px solid rgba(255,255,255,.06); background: linear-gradient(145deg, rgba(20,22,35,.5), rgba(14,16,23,.4)); transition: all .15s; }
+    .figure-card:hover { transform: translateY(-2px); border-color: rgba(196,181,253,.2); background: linear-gradient(145deg, rgba(196,181,253,.06), rgba(14,16,23,.5)); }
+    .figure-chip { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--purple); margin-bottom: 10px; }
+    .figure-title { font-family: var(--serif); font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .figure-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* CARDS */
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px; }
+    .card { background: rgba(20,22,35,.4); border: 1px solid rgba(255,255,255,.05); border-radius: 16px; padding: 20px; }
+    .card h3 { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--purple); margin-bottom: 10px; }
+    .card p { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0; }
+    .card p strong { color: var(--text); }
+
+    /* CTA */
+    .cta { text-align: center; padding: 64px 0; }
+    .cta p { color: var(--muted); max-width: 40ch; margin: 0 auto 24px; }
+    .cta-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    /* FOOTER */
+    .footer { padding: 32px 0 48px; border-top: 1px solid rgba(255,255,255,.04); font-size: 12px; color: var(--muted2); }
+    .footer a { color: var(--purple); }
+    .footer-grid { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; }
+    .footer-title { font-weight: 700; color: var(--text); margin-bottom: 6px; }
+
+    .note { font-size: 12px; color: var(--muted2); margin-top: 14px; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .figure-grid, .card-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 520px) {
+      .btn { width: 100%; justify-content: center; }
+      .cta-btns { flex-direction: column; }
+      .footer-grid { flex-direction: column; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="brand" href="/"><img src="data:image/webp;base64,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" alt="ikwe.ai"><span>ikwe.ai</span></a>
+      <div class="nav-links">
+        <a href="/emotional-safety-gap.html">Findings</a>
+        <a href="/press.html">Press</a>
+        <a href="/about.html">About</a>
+      </div>
+      <a class="btn primary" href="/request-access.html">Work With Us</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="kicker">Behavioral Emotional Safety</span>
+          <h1>Measuring What AI Safety Benchmarks Miss</h1>
+          <p class="hero-sub">
+            We evaluate how conversational AI behaves once emotional vulnerability appears — <strong>not whether systems respond, but how risk is introduced and managed within the interaction.</strong>
+          </p>
+          <div class="hero-btns">
+            <a class="btn primary" href="/emotional-safety-gap.html">See the Findings →</a>
+            <a class="btn" href="/request-access.html">Request Briefing</a>
+          </div>
+          <p class="version">Ikwe.ai Research · Version 1.0 · January 2026</p>
+        </div>
+
+        <aside class="signal-card">
+          <div class="signal-title">Signal</div>
+          <div class="signal-row">
+            <div class="signal-num s-coral">54.7%</div>
+            <div class="signal-txt">of <strong>baseline</strong> responses introduced emotional risk <strong>at first contact</strong></div>
+          </div>
+          <div class="signal-row">
+            <div class="signal-num s-gold">43%</div>
+            <div class="signal-txt">showed <strong>no repair behavior</strong> within the interaction window</div>
+          </div>
+          <div class="signal-row">
+            <div class="signal-num s-purple">79</div>
+            <div class="signal-txt">scenarios · 312 responses · 4 systems tested</div>
+          </div>
+          <p class="note">Observed behavioral patterns under test conditions. Not clinical claims or deployment guidance.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="narrow">
+      <span class="kicker">The Problem</span>
+      <h2>Current benchmarks miss what matters most</h2>
+      <p class="section-sub">
+        Most AI safety benchmarks evaluate content compliance or emotional recognition under neutral conditions. They don't measure how systems behave once emotional vulnerability is present — or whether safety holds as interactions deepen.
+      </p>
+      <div class="callout">
+        <strong>Recognition ≠ Safety.</strong> An AI can name emotion, sound empathetic, and still behave unsafely under emotional load.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="kicker">Figures</span>
+      <h2>What the data shows</h2>
+      <p class="section-sub">Three findings that explain the gap — without publishing rubric or scoring mechanics.</p>
+      <div class="figure-grid">
+        <a class="figure-card" href="/emotional-safety-gap.html#figure-risk">
+          <div class="figure-chip">Figure 1</div>
+          <div class="figure-title">Safety Gate Triggers</div>
+          <p class="figure-desc">Where baseline models introduced emotional risk at first contact.</p>
+        </a>
+        <a class="figure-card" href="/emotional-safety-gap.html#figure-repair">
+          <div class="figure-chip">Figure 2</div>
+          <div class="figure-title">Repair Behavior</div>
+          <p class="figure-desc">When risk was introduced, how often models corrected within the interaction.</p>
+        </a>
+        <a class="figure-card" href="/emotional-safety-gap.html#figure-regulation">
+          <div class="figure-chip">Figure 3</div>
+          <div class="figure-title">Regulation Before Reasoning</div>
+          <p class="figure-desc">Largest performance gap across all evaluated systems.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="kicker">What We Measure</span>
+      <h2>Behavioral safety under emotional load</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>First-Contact Safety</h3>
+          <p>Does the AI introduce emotional risk the moment vulnerability appears? We measure initiation, not just response.</p>
+        </div>
+        <div class="card">
+          <h3>Repair Behavior</h3>
+          <p>When risk is introduced, does the system correct it? <strong>43%</strong> showed no repair within the interaction window.</p>
+        </div>
+        <div class="card">
+          <h3>Regulation Before Reasoning</h3>
+          <p>Does the AI regulate emotion before analyzing it? This is the highest-weighted dimension in our framework.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta">
+    <div class="narrow">
+      <span class="kicker">Research</span>
+      <h2>The Emotional Safety Gap</h2>
+      <p>ChatGPT claims "health." Grok claims "emotional intelligence." Both failed the same emotional safety test.</p>
+      <div class="cta-btns">
+        <a class="btn primary" href="/emotional-safety-gap.html">Read the Findings</a>
+        <a class="btn" href="/request-access.html">Request Full Report</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-title">ikwe.ai</div><div>Behavioral emotional safety research</div></div>
+      <div><div class="footer-title">Contact</div><div><a href="/cdn-cgi/l/email-protection#a9dbccdaccc8dbcac1e9c0c2decc87c8c0"><span class="__cf_email__" data-cfemail="2d5f485e484c5f4e456d44465a48034c44">[email&#160;protected]</span></a></div></div>
+      <div><div class="footer-title">Cite</div><
