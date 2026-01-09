@@ -20,6 +20,8 @@ a:hover{opacity:.85}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1rem}
 .brand img{width:28px;height:28px;border-radius:50%}
 .nav-links{display:flex;gap:4px}
+.nav-toggle{display:none;flex-direction:column;gap:5px;padding:8px;background:none;border:none;cursor:pointer}
+.nav-toggle span{width:20px;height:2px;background:var(--text);border-radius:2px;transition:all .15s}
 .nav-links a{padding:8px 14px;border-radius:8px;font-size:.85rem;color:var(--text2);transition:all .15s}
 .nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.05);color:var(--text);opacity:1}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:10px;font-weight:600;font-size:.85rem;border:1px solid var(--border2);background:rgba(255,255,255,.03);color:var(--text);cursor:pointer;transition:all .15s}
@@ -53,7 +55,7 @@ h2{font-size:clamp(1.3rem,2vw,1.6rem);margin:8px 0 16px}
 .footer-nav{display:flex;flex-direction:column;gap:6px}
 .footer-nav a{color:var(--text3)}
 .footer-nav a:hover{color:var(--text);opacity:1}
-@media(max-width:900px){.nav-links{display:none}.stat-strip{gap:28px}}
+@media(max-width:900px){.nav-inner{position:relative}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:12px;flex-direction:column;gap:6px}.nav-links.open{display:flex}.nav-toggle{display:flex}.stat-strip{gap:28px}}
 @media(max-width:520px){.btn{width:100%}.cta-btns{flex-direction:column}.footer-grid{flex-direction:column;gap:32px}}
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,12 +66,15 @@ h2{font-size:clamp(1.3rem,2vw,1.6rem);margin:8px 0 16px}
 
 <nav class="nav"><div class="container"><div class="nav-inner">
   <a class="brand" href="/"><img src="ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
-  <div class="nav-links">
+  <div class="nav-links" id="primary-navigation">
     <a href="emotional-safety-gap.html">Findings</a>
     <a href="research.html">Research</a>
     <a href="press.html" class="active">Press</a>
     <a href="about.html">About</a>
   </div>
+  <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
+    <span></span><span></span><span></span>
+  </button>
   <a class="btn primary" href="https://form.jotform.com/260067967050055">Work With Us</a>
 </div></div></nav>
 
@@ -149,5 +154,21 @@ h2{font-size:clamp(1.3rem,2vw,1.6rem);margin:8px 0 16px}
   <div class="footer-col"><div class="footer-title">Contact</div><div><span class="email" onclick="window.location='mai'+'lto:'+'research'+'@'+'ikwe.ai'">research&#64;ikwe.ai</span></div></div>
 </div></div></footer>
 
+<script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.getElementById('primary-navigation');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
 </body>
 </html>
