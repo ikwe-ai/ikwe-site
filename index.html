@@ -75,7 +75,7 @@
     }
     .nav{display:flex; gap:8px; color:var(--muted); font-size:13px;}
     .nav a{padding:7px 10px; border-radius:8px;}
-    .nav a:hover{background: rgba(255,255,255,.05); color:var(--text);}
+    .nav a:hover, .nav a.active{background: rgba(255,255,255,.05); color:var(--text);}
     .nav-cta{display:flex; gap:8px;}
 
     .btn{
@@ -110,7 +110,7 @@
       font-family: var(--serif); font-weight:800;
       font-size: clamp(36px, 4.5vw, 64px);
       line-height: 1.0; margin:0 0 20px; letter-spacing:-.02em;
-      max-width: 16ch;
+      max-width: 18ch;
     }
     .hero-sub{font-size: clamp(16px, 1.6vw, 18px); color:var(--muted); margin:0 0 20px; max-width:52ch; line-height:1.55;}
     .hero-sub strong{color:var(--text);}
@@ -132,7 +132,7 @@
     /* Two column */
     .two-col{display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:24px;}
     .two-col h3{font-size:16px; margin:0 0 10px; color:var(--text);}
-    .two-col p{color:var(--muted); font-size:14px; line-height:1.6;}
+    .two-col p{color:var(--muted); font-size:14px; line-height:1.6; margin:0;}
     .two-col strong{color:var(--text);}
 
     /* Stats Grid */
@@ -217,6 +217,7 @@
 
 <body>
 
+<!-- ========== HEADER (CONSISTENT ACROSS ALL PAGES) ========== -->
 <header class="topbar">
   <div class="container">
     <div class="topbar-inner">
@@ -227,16 +228,17 @@
       <nav class="nav" aria-label="Primary">
         <a href="/">Home</a>
         <a href="/research">Research</a>
-        <a href="/explorer">Explorer</a>
-        <a href="#engagements">Engagements</a>
+        <a href="/emotional-safety-gap">Findings</a>
+        <a href="/press">Press</a>
         <a href="/about">About</a>
       </nav>
       <div class="nav-cta">
-        <a class="btn primary" href="https://form.jotform.com/253607150614047">Work With Us</a>
+        <a class="btn primary" href="/request-access">Work With Us</a>
       </div>
     </div>
   </div>
 </header>
+<!-- ========== END HEADER ========== -->
 
 <main>
 
@@ -262,8 +264,8 @@
       </div>
       
       <div class="hero-actions">
-        <a class="btn primary" href="#benchmark">View the Benchmark →</a>
-        <a class="btn" href="https://form.jotform.com/253607150614047">Request Full Research</a>
+        <a class="btn primary" href="/emotional-safety-gap">View the Findings →</a>
+        <a class="btn" href="/request-access">Request Full Research</a>
       </div>
     </div>
   </section>
@@ -320,8 +322,8 @@
       </div>
       
       <div class="cta-row">
-        <a class="btn primary" href="/research">View Full Research →</a>
-        <a class="btn" href="/explorer">Explore Scenarios →</a>
+        <a class="btn primary" href="/emotional-safety-gap">View Full Findings →</a>
+        <a class="btn" href="/research">Methodology</a>
       </div>
     </div>
   </section>
@@ -426,7 +428,7 @@
   </section>
 
   <!-- SERVICES -->
-  <section class="section" id="engagements">
+  <section class="section" id="services">
     <div class="container">
       <span class="kicker">Services</span>
       <h2 class="section-title">Work with us</h2>
@@ -450,7 +452,7 @@
       </div>
       
       <div class="cta-row">
-        <a class="btn primary" href="https://form.jotform.com/253607150614047">Start a Conversation →</a>
+        <a class="btn primary" href="/request-access">Start a Conversation →</a>
         <a class="btn" href="/research">View Research First</a>
       </div>
     </div>
@@ -463,7 +465,7 @@
       <p class="section-intro" style="margin:0 auto 24px;">Request access to the full methodology, taxonomy, scoring framework, and results.</p>
       
       <div class="cta-row" style="justify-content:center;">
-        <a class="btn primary" href="/research">View Research →</a>
+        <a class="btn primary" href="/emotional-safety-gap">View Findings →</a>
         <a class="btn" href="/request-access">Request Full Report →</a>
       </div>
     </div>
@@ -471,6 +473,7 @@
 
 </main>
 
+<!-- ========== FOOTER (CONSISTENT ACROSS ALL PAGES) ========== -->
 <footer class="foot">
   <div class="container">
     <div class="foot-grid">
@@ -482,7 +485,8 @@
       <nav class="foot-nav">
         <a href="/">Home</a>
         <a href="/research">Research</a>
-        <a href="/explorer">Explorer</a>
+        <a href="/emotional-safety-gap">Findings</a>
+        <a href="/press">Press</a>
         <a href="/about">About</a>
         <a href="mailto:research@ikwe.ai">Contact</a>
       </nav>
@@ -493,6 +497,7 @@
     </div>
   </div>
 </footer>
+<!-- ========== END FOOTER ========== -->
 
 </body>
 </html>

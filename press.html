@@ -54,7 +54,8 @@
     }
     a{color:inherit; text-decoration:none}
     a:hover{opacity:.9}
-    p{margin:0 0 16px}
+    p{margin:0 0 16px; color:var(--muted);}
+    p strong{color:var(--text);}
     ul{margin:0 0 16px; padding-left:20px;}
     li{margin-bottom:8px; color:var(--muted);}
     li strong{color:var(--text);}
@@ -78,7 +79,7 @@
     }
     .nav{display:flex; gap:8px; color:var(--muted); font-size:13px;}
     .nav a{padding:7px 10px; border-radius:8px;}
-    .nav a:hover{background: rgba(255,255,255,.05); color:var(--text);}
+    .nav a:hover, .nav a.active{background: rgba(255,255,255,.05); color:var(--text);}
     .nav-cta{display:flex; gap:8px;}
 
     .btn{
@@ -176,6 +177,7 @@
 
 <body>
 
+<!-- ========== HEADER (CONSISTENT ACROSS ALL PAGES) ========== -->
 <header class="topbar">
   <div class="container">
     <div class="topbar-inner">
@@ -186,15 +188,17 @@
       <nav class="nav" aria-label="Primary">
         <a href="/">Home</a>
         <a href="/research">Research</a>
-        <a href="/explorer">Explorer</a>
+        <a href="/emotional-safety-gap">Findings</a>
+        <a href="/press" class="active">Press</a>
         <a href="/about">About</a>
       </nav>
       <div class="nav-cta">
-        <a class="btn primary" href="https://form.jotform.com/253607150614047">Work With Us</a>
+        <a class="btn primary" href="/request-access">Work With Us</a>
       </div>
     </div>
   </div>
 </header>
+<!-- ========== END HEADER ========== -->
 
 <main>
 
@@ -331,9 +335,8 @@
       <h2 class="section-title">Related Links</h2>
       
       <ul class="links-list">
-        <li><a href="/emotional-safety-gap">The Emotional Safety Gap →</a> Main research landing page</li>
+        <li><a href="/emotional-safety-gap">The Emotional Safety Gap →</a> Main research findings page</li>
         <li><a href="/research">Full Methodology →</a> Complete benchmark documentation</li>
-        <li><a href="/explorer">Research Explorer →</a> Interactive findings dashboard</li>
       </ul>
     </div>
   </section>
@@ -372,6 +375,7 @@
 
 </main>
 
+<!-- ========== FOOTER (CONSISTENT ACROSS ALL PAGES) ========== -->
 <footer class="foot">
   <div class="container">
     <div class="foot-grid">
@@ -383,7 +387,8 @@
       <nav class="foot-nav">
         <a href="/">Home</a>
         <a href="/research">Research</a>
-        <a href="/explorer">Explorer</a>
+        <a href="/emotional-safety-gap">Findings</a>
+        <a href="/press">Press</a>
         <a href="/about">About</a>
         <a href="mailto:research@ikwe.ai">Contact</a>
       </nav>
@@ -394,6 +399,7 @@
     </div>
   </div>
 </footer>
+<!-- ========== END FOOTER ========== -->
 
 </body>
 </html>

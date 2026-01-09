@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Request Full Research Report — ikwe.ai</title>
+  <title>Request Access — ikwe.ai</title>
   
   <meta name="description" content="Request access to the full Ikwe.ai research report including detailed scoring rubrics and evaluation mechanics.">
   
-  <meta property="og:title" content="Request Full Research Report — ikwe.ai">
+  <meta property="og:title" content="Request Access — ikwe.ai">
   <meta property="og:description" content="Request access to the full behavioral emotional safety evaluation report.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ikwe.ai/request-access">
@@ -50,7 +50,7 @@
     }
     a{color:inherit; text-decoration:none}
     a:hover{opacity:.9}
-    p{margin:0 0 16px}
+    p{margin:0 0 16px; color:var(--muted);}
     ul{margin:0 0 16px; padding-left:20px;}
     li{margin-bottom:6px; color:var(--muted); font-size:14px;}
 
@@ -73,7 +73,7 @@
     }
     .nav{display:flex; gap:8px; color:var(--muted); font-size:13px;}
     .nav a{padding:7px 10px; border-radius:8px;}
-    .nav a:hover{background: rgba(255,255,255,.05); color:var(--text);}
+    .nav a:hover, .nav a.active{background: rgba(255,255,255,.05); color:var(--text);}
     .nav-cta{display:flex; gap:8px;}
 
     .btn{
@@ -120,19 +120,7 @@
     .note{color:var(--muted2); font-size:12px; margin-top:20px; line-height:1.5;}
     .note a{color:var(--purple);}
 
-    /* Jotform embed container */
-    .jotform-container{
-      margin-top:24px;
-      border-radius:12px;
-      overflow:hidden;
-    }
-    .jotform-container iframe{
-      width:100%;
-      min-height:500px;
-      border:none;
-    }
-
-    /* Alternative: Simple form styling if not using Jotform */
+    /* Form styling */
     .simple-form{margin-top:24px;}
     .form-group{margin-bottom:20px;}
     .form-group label{display:block; font-size:13px; font-weight:600; color:var(--text); margin-bottom:8px;}
@@ -189,6 +177,7 @@
 
 <body>
 
+<!-- ========== HEADER (CONSISTENT ACROSS ALL PAGES) ========== -->
 <header class="topbar">
   <div class="container">
     <div class="topbar-inner">
@@ -199,7 +188,8 @@
       <nav class="nav" aria-label="Primary">
         <a href="/">Home</a>
         <a href="/research">Research</a>
-        <a href="/explorer">Explorer</a>
+        <a href="/emotional-safety-gap">Findings</a>
+        <a href="/press">Press</a>
         <a href="/about">About</a>
       </nav>
       <div class="nav-cta">
@@ -208,13 +198,14 @@
     </div>
   </div>
 </header>
+<!-- ========== END HEADER ========== -->
 
 <main>
 
   <!-- HERO -->
   <section class="hero">
     <div class="container narrow">
-      <h1 class="hero-title">Access the Full Research Report</h1>
+      <h1 class="hero-title">Request Access</h1>
       <p class="hero-sub">
         The full research report includes detailed scoring rubrics, weighting logic, and evaluation mechanics. To prevent misuse or reverse-engineering, access is provided upon request.
       </p>
@@ -225,7 +216,7 @@
   <section>
     <div class="container narrow">
       <div class="form-card">
-        <h3>Request Access</h3>
+        <h3>Full Research Report</h3>
         <p>For researchers, journalists, regulators, and practitioners reviewing the work in good faith.</p>
         
         <div class="includes-list">
@@ -238,14 +229,6 @@
           </ul>
         </div>
 
-        <!-- OPTION 1: Embed your existing Jotform -->
-        <!-- Uncomment and add your Jotform embed code here:
-        <div class="jotform-container">
-          <iframe src="https://form.jotform.com/YOUR_FORM_ID" frameborder="0" scrolling="no"></iframe>
-        </div>
-        -->
-
-        <!-- OPTION 2: Simple HTML form (replace action with your endpoint) -->
         <form class="simple-form" action="https://form.jotform.com/253607150614047" method="GET">
           <div class="form-group">
             <label for="name">Name *</label>
@@ -290,7 +273,7 @@
         
         <p class="note">
           Requests are reviewed manually. You'll receive a response within 1-2 business days.<br><br>
-          Public findings, headline statistics, and methodology overview remain freely accessible at <a href="/research">/research</a> and in the <a href="/05_Ikwe_Research_Summary.pdf" target="_blank">2-page summary</a>.
+          Public findings and methodology overview remain freely accessible at <a href="/research">/research</a> and in the <a href="/05_Ikwe_Research_Summary.pdf" target="_blank">2-page summary</a>.
         </p>
       </div>
     </div>
@@ -298,6 +281,7 @@
 
 </main>
 
+<!-- ========== FOOTER (CONSISTENT ACROSS ALL PAGES) ========== -->
 <footer class="foot">
   <div class="container">
     <div class="foot-grid">
@@ -309,7 +293,8 @@
       <nav class="foot-nav">
         <a href="/">Home</a>
         <a href="/research">Research</a>
-        <a href="/explorer">Explorer</a>
+        <a href="/emotional-safety-gap">Findings</a>
+        <a href="/press">Press</a>
         <a href="/about">About</a>
         <a href="mailto:research@ikwe.ai">Contact</a>
       </nav>
@@ -320,6 +305,7 @@
     </div>
   </div>
 </footer>
+<!-- ========== END FOOTER ========== -->
 
 </body>
 </html>
