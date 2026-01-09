@@ -16,7 +16,7 @@
 
   const footerLinksMarkup = navLinks
     .map((link) => `<a href="${link.href}" data-path="${link.href}">${link.label}</a>`)
-    .concat('<a href="mailto:research@ikwe.ai">Contact</a>')
+    .concat('<a href="mailto:info@ikwe.ai">Contact</a>')
     .join("");
 
   footerHost.innerHTML = `
