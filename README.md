@@ -1,64 +1,65 @@
-# IKWE.AI Site Update — Language Precision + OG Images
+# IKWE.AI Site Update — Complete Package
 
-## Summary of Changes
+## Complete Site Map
 
-All HTML files have been updated with:
+### HTML Pages (all updated)
 
-1. **Language precision** — replaced "risk" with "harm" / "made situations worse"
-2. **Defensible claims** — "observed to" / "were found to" framing
-3. **AEO-optimized meta** — clear, journalist-safe descriptions
-4. **Complete OG tags** — Open Graph + Twitter Cards for all pages
-5. **Canonical URLs** — with .html extensions
+| File | Purpose | OG Image |
+|------|---------|----------|
+| `index.html` | Homepage | ikwe-default.png |
+| `emotional-safety-gap.html` | Key findings | ikwe-gap.png |
+| `research.html` | Research overview | ikwe-research.png |
+| `about.html` | About page | ikwe-about.png |
+| `press.html` | Press kit | ikwe-press.png |
+| `inquiry.html` | **NEW** - Contact/Access form | ikwe-default.png |
+| `explorer.html` | Scenario explorer | ikwe-research.png |
+| `privacy.html` | Privacy policy | ikwe-default.png |
+| `terms.html` | Terms of service | ikwe-default.png |
 
----
+### Supporting Files
 
-## Language Changes Applied
+| File | Purpose |
+|------|---------|
+| `sitemap.xml` | Updated sitemap with all pages |
+| `ikwe-og-verified.html` | Screenshot to generate OG images |
 
-### Global replacements
+### Assets Needed (verify these exist in your repo)
 
-| Before | After |
-|--------|-------|
-| "introduced emotional risk" | "made emotional situations worse" |
-| "risk at first contact" | "made situations worse at first contact" |
-| "risk patterns" | "responded unsafely" |
-| "no repair behavior" | "no corrective behavior" / "failed to correct" |
-| "AI fails" | "AI responses were observed to..." |
-| "AI harms" | "AI did not consistently respond safely" |
-
-### Page-specific additions
-
-**emotional-safety-gap.html:**
-> "The emotional safety gap is the difference between how AI systems are expected to respond to distress and how they actually respond in practice."
-
-**research.html:**
-> "This research examines how leading AI systems respond to people in emotionally vulnerable situations, using public datasets spanning 12 vulnerability categories (including grief, trauma, loneliness, crisis, and social isolation)."
-
-**press.html:**
-> Attribution-ready quote: "Findings are based on analysis of public datasets covering 12 categories of emotional vulnerability."
-
-**about.html:**
-> "We build evaluation infrastructure for emotional safety in AI. That means studying how AI actually responds when people are distressed, and identifying where current safety checks fall short."
+| File | Purpose |
+|------|---------|
+| `ikwe_logo_dark.png` | Site logo |
+| `ikwe_logo_light.png` | Light logo variant |
+| `/og/ikwe-default.png` | Default OG image |
+| `/og/ikwe-research.png` | Research page OG |
+| `/og/ikwe-gap.png` | Findings page OG |
+| `/og/ikwe-press.png` | Press page OG |
+| `/og/ikwe-about.png` | About page OG |
 
 ---
 
-## Files Updated
+## Fixes Applied in This Update
 
-| File | Key Changes |
-|------|-------------|
-| `index.html` | Meta description, signal card stats, OG tags |
-| `emotional-safety-gap.html` | Gap definition added, "risk" → "harm" throughout |
-| `research.html` | Intro rewritten, method language clarified |
-| `press.html` | Attribution quote added, conservative framing |
-| `about.html` | Clarifying line added, OG tags |
-| `privacy.html` | OG tags added |
-| `terms.html` | OG tags added |
-| `explorer.html` | OG tags added |
-| `sitemap.xml` | URLs updated, dates refreshed |
-| `ikwe-og-verified.html` | Stats updated to match language |
+### 1. Icon sizing (emotional-safety-gap.html)
+Warning triangle icons now constrained to 16×16px
+
+### 2. Email display (all pages)
+All emails now show as `research@ikwe.ai` with proper mailto links
+
+### 3. Contact/Access forms (all pages)
+- Nav "Contact" links now go to `inquiry.html`
+- Access modals use JotForm iframe: `https://form.jotform.com/260067967050055`
+
+### 4. New inquiry.html page
+Standalone page with embedded JotForm for access requests
+
+### 5. Language precision (all pages)
+- "risk" → "made situations worse" / "harm"
+- "patterns" → "behaviors"
+- Added defensible framing throughout
 
 ---
 
-## Language Constitution (for preventing drift)
+## Language Constitution
 
 ### Prefer these phrases:
 - "emotionally vulnerable situations"
