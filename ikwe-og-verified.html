@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IKWE.AI OG Images - VERIFIED DATA - Screenshot All</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 40px;
+    }
+    
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 32px;
+      margin-bottom: 8px;
+      color: #b794f6;
+    }
+    
+    .instructions {
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    
+    .verified-note {
+      background: rgba(183, 148, 246, 0.15);
+      border: 1px solid rgba(183, 148, 246, 0.3);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 40px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+    }
+    
+    .verified-note strong { color: #b794f6; }
+    
+    .og-section {
+      margin-bottom: 60px;
+    }
+    
+    .og-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #b794f6;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    .og-filename {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+      font-family: monospace;
+    }
+    
+    /* OG Image Base Styles */
+    .og-image {
+      width: 1200px;
+      height: 630px;
+      background: #0a0b0f;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 64px 80px;
+      border-radius: 8px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.1);
+      flex-shrink: 0;
+    }
+    
+    .logo-quadrant { position: absolute; width: 50%; height: 50%; }
+    .logo-quadrant.tl { top: 0; left: 0; background: #1a1b2e; }
+    .logo-quadrant.tr { top: 0; right: 0; background: #f6a192; }
+    .logo-quadrant.bl { bottom: 0; left: 0; background: #b794f6; }
+    .logo-quadrant.br { bottom: 0; right: 0; background: #f6d992; }
+    
+    .brand-name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #e9eefc;
+    }
+    
+    .tag {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #b794f6;
+      margin-bottom: 16px;
+    }
+    
+    .headline {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      color: #e9eefc;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    
+    .subhead {
+      font-weight: 400;
+      color: rgba(233, 238, 252, 0.72);
+      line-height: 1.5;
+    }
+    
+    .stats {
+      display: flex;
+      margin-top: auto;
+    }
+    
+    .stat { display: flex; flex-direction: column; }
+    
+    .stat-value {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    
+    .stat-value.coral { color: #f6a192; }
+    .stat-value.gold { color: #f6d992; }
+    .stat-value.purple { color: #b794f6; }
+    .stat-value.mint { color: #92f6d9; }
+    
+    .stat-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(233, 238, 252, 0.5);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    
+    .footer-line {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    
+    .footer-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      color: rgba(233, 238, 252, 0.5);
+    }
+    
+    .footer-item .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    
+    .dot.purple { background: #b794f6; }
+    .dot.coral { background: #f6a192; }
+    .dot.gold { background: #f6d992; }
+    
+    .questions {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: auto;
+    }
+    
+    .question {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 18px;
+      color: rgba(233, 238, 252, 0.6);
+    }
+    
+    .question .q-mark {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #b794f6;
+    }
+  </style>
+</head>
+<body>
+  <h1>ikwe.ai OG Images — Verified Data</h1>
+  <p class="instructions">Right-click each image → Inspect → right-click .og-image element → "Capture node screenshot"<br>Save to: <code>/og/</code> folder in your repo.</p>
+  
+  <div class="verified-note">
+    <strong>✓ All stats verified against your research documentation:</strong><br>
+    • 79 scenarios across 12 vulnerability categories from 8 public datasets<br>
+    • 312 scored responses (4 models × 79 scenarios, minus 4 API errors)<br>
+    • 54.7% = 128/234 baseline responses made emotional situations worse<br>
+    • 43% of those responses showed no corrective behavior
+  </div>
+  
+  <!-- ============================================== -->
+  <!-- DEFAULT / HOMEPAGE -->
+  <!-- ============================================== -->
+  <div class="og-section">
+    <div class="og-label">Default / Homepage</div>
+    <div class="og-filename">ikwe-default.png → Used for: index.html, privacy.html, terms.html</div>
+    <div class="og-image" id="og-default">
+      <div class="header">
+        <div class="logo">
+          <div class="logo-quadrant tl"></div>
+          <div class="logo-quadrant tr"></div>
+          <div class="logo-quadrant bl"></div>
+          <div class="logo-quadrant br"></div>
+        </div>
+        <span class="brand-name">ikwe.ai</span>
+      </div>
+      
+      <h1 class="headline" style="font-size: 68px; margin-bottom: 24px; max-width: 900px;">Emotional Safety Infrastructure for AI</h1>
+      
+      <p class="subhead" style="font-size: 24px; max-width: 700px; margin-bottom: 48px;">Examining how AI responds when people are emotionally vulnerable</p>
+      
+      <div class="stats" style="gap: 64px;">
+        <div class="stat">
+          <span class="stat-value coral" style="font-size: 52px;">54.7%</span>
+          <span class="stat-label" style="max-width: 160px;">of AI responses made<br>situations worse</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value gold" style="font-size: 52px;">43%</span>
+          <span class="stat-label" style="max-width: 160px;">showed no corrective<br>behavior after</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value purple" style="font-size: 52px;">12</span>
+          <span class="stat-label" style="max-width: 160px;">vulnerability categories<br>from 8 public datasets</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ============================================== -->
+  <!-- RESEARCH -->
+  <!-- ============================================== -->
+  <div class="og-section">
+    <div class="og-label">Research Page</div>
+    <div class="og-filename">ikwe-research.png → Used for: research.html</div>
+    <div class="og-image" id="og-research">
+      <div class="header">
+        <div class="logo">
+          <div class="logo-quadrant tl"></div>
+          <div class="logo-quadrant tr"></div>
+          <div class="logo-quadrant bl"></div>
+          <div class="logo-quadrant br"></div>
+        </div>
+        <span class="brand-name">ikwe.ai</span>
+      </div>
+      
+      <div class="tag">Original Research · January 2026</div>
+      <h1 class="headline" style="font-size: 64px;">The Emotional Safety Gap in AI</h1>
+      
+      <p class="subhead" style="font-size: 22px; max-width: 700px; margin-bottom: 40px;">What happens when people turn to AI while distressed — and how often it goes wrong</p>
+      
+      <div class="stats" style="gap: 56px;">
+        <div class="stat">
+          <span class="stat-value purple" style="font-size: 48px;">12</span>
+          <span class="stat-label" style="max-width: 140px;">vulnerability categories<br>tested</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value mint" style="font-size: 48px;">8</span>
+          <span class="stat-label" style="max-width: 140px;">public datasets<br>sourced</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value coral" style="font-size: 48px;">4</span>
+          <span class="stat-label" style="max-width: 140px;">frontier AI systems<br>evaluated</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value gold" style="font-size: 48px;">54.7%</span>
+          <span class="stat-label" style="max-width: 140px;">made situations<br>worse on first reply</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ============================================== -->
+  <!-- EMOTIONAL SAFETY GAP (Findings) -->
+  <!-- ============================================== -->
+  <div class="og-section">
+    <div class="og-label">Emotional Safety Gap (Findings Page)</div>
+    <div class="og-filename">ikwe-gap.png → Used for: emotional-safety-gap.html</div>
+    <div class="og-image" id="og-gap">
+      <div class="header">
+        <div class="logo">
+          <div class="logo-quadrant tl"></div>
+          <div class="logo-quadrant tr"></div>
+          <div class="logo-quadrant bl"></div>
+          <div class="logo-quadrant br"></div>
+        </div>
+        <span class="brand-name">ikwe.ai</span>
+      </div>
+      
+      <div class="tag">Key Findings · January 2026</div>
+      <h1 class="headline" style="font-size: 60px;">The Emotional Safety Gap</h1>
+      
+      <p class="subhead" style="font-size: 21px; max-width: 720px; margin-bottom: 36px;">How AI actually behaves when people are emotionally vulnerable — tested across 12 categories from public datasets</p>
+      
+      <div class="stats" style="gap: 48px;">
+        <div class="stat">
+          <span class="stat-value coral" style="font-size: 46px;">54.7%</span>
+          <span class="stat-label" style="max-width: 150px;">of AI responses<br>made situations worse</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value gold" style="font-size: 46px;">43%</span>
+          <span class="stat-label" style="max-width: 150px;">failed to correct<br>after distress signals</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value purple" style="font-size: 46px;">1.7<span style="font-size: 28px;">/5</span></span>
+          <span class="stat-label" style="max-width: 150px;">avg regulation score<br>for baseline models</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value mint" style="font-size: 46px;">4</span>
+          <span class="stat-label" style="max-width: 150px;">frontier systems<br>showed similar behavior</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ============================================== -->
+  <!-- PRESS -->
+  <!-- ============================================== -->
+  <div class="og-section">
+    <div class="og-label">Press & Media Kit</div>
+    <div class="og-filename">ikwe-press.png → Used for: press.html</div>
+    <div class="og-image" id="og-press">
+      <div class="header">
+        <div class="logo">
+          <div class="logo-quadrant tl"></div>
+          <div class="logo-quadrant tr"></div>
+          <div class="logo-quadrant bl"></div>
+          <div class="logo-quadrant br"></div>
+        </div>
+        <span class="brand-name">ikwe.ai</span>
+      </div>
+      
+      <h1 class="headline" style="font-size: 68px; margin-bottom: 20px;">Press & Media Kit</h1>
+      
+      <p class="subhead" style="font-size: 23px; max-width: 620px; margin-bottom: 48px;">Independent research on how AI responds to people in emotional distress</p>
+      
+      <div class="stats" style="gap: 64px;">
+        <div class="stat">
+          <span class="stat-value purple" style="font-size: 50px;">12</span>
+          <span class="stat-label">vulnerability categories</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value coral" style="font-size: 50px;">4</span>
+          <span class="stat-label">AI systems evaluated</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value gold" style="font-size: 50px;">54.7%</span>
+          <span class="stat-label">made situations worse</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ============================================== -->
+  <!-- ABOUT -->
+  <!-- ============================================== -->
+  <div class="og-section">
+    <div class="og-label">About Page</div>
+    <div class="og-filename">ikwe-about.png → Used for: about.html</div>
+    <div class="og-image" id="og-about">
+      <div class="header" style="margin-bottom: 48px;">
+        <div class="logo">
+          <div class="logo-quadrant tl"></div>
+          <div class="logo-quadrant tr"></div>
+          <div class="logo-quadrant bl"></div>
+          <div class="logo-quadrant br"></div>
+        </div>
+        <span class="brand-name">ikwe.ai</span>
+      </div>
+      
+      <h1 class="headline" style="font-size: 60px; margin-bottom: 28px; max-width: 850px;">Built by people who refused to ship until they could prove it was safe</h1>
+      
+      <p class="subhead" style="font-size: 23px; max-width: 700px; line-height: 1.6;">We study what AI actually does to people in vulnerable moments — measuring emotional harm that current safety checks miss.</p>
+      
+      <div class="footer-line">
+        <div class="footer-item">
+          <span class="dot purple"></span>
+          Iowa-based
+        </div>
+        <div class="footer-item">
+          <span class="dot coral"></span>
+          Independent research
+        </div>
+        <div class="footer-item">
+          <span class="dot gold"></span>
+          Founded 2024
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ============================================== -->
+  <!-- FAQ -->
+  <!-- ============================================== -->
+  <div class="og-section">
+    <div class="og-label">FAQ Page</div>
+    <div class="og-filename">ikwe-faq.png → Used for: faq.html (if exists)</div>
+    <div class="og-image" id="og-faq">
+      <div class="header" style="margin-bottom: 48px;">
+        <div class="logo">
+          <div class="logo-quadrant tl"></div>
+          <div class="logo-quadrant tr"></div>
+          <div class="logo-quadrant bl"></div>
+          <div class="logo-quadrant br"></div>
+        </div>
+        <span class="brand-name">ikwe.ai</span>
+      </div>
+      
+      <h1 class="headline" style="font-size: 64px; margin-bottom: 28px;">Frequently Asked Questions</h1>
+      
+      <p class="subhead" style="font-size: 23px; max-width: 680px; margin-bottom: 48px;">Common questions about emotional safety, AI evaluation, and responsible deployment</p>
+      
+      <div class="questions">
+        <div class="question">
+          <span class="q-mark">?</span>
+          What does it mean for AI to be emotionally safe?
+        </div>
+        <div class="question">
+          <span class="q-mark">?</span>
+          How do you measure emotional harm?
+        </div>
+        <div class="question">
+          <span class="q-mark">?</span>
+          Who needs emotional safety evaluation?
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
