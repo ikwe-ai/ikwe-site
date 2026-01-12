@@ -1,6 +1,11 @@
 # Netlify redirects for ikwe.ai
 # Clean URL handling and legacy path redirects
 
+# API Routes (Netlify Functions)
+/api/newsletter      /.netlify/functions/newsletter      200
+/api/inquiry         /.netlify/functions/inquiry         200
+/api/access-request  /.netlify/functions/access-request  200
+
 # Redirect .html extensions to clean paths (301 permanent)
 /index.html                 /                          301
 /emotional-safety-gap.html  /emotional-safety-gap      301

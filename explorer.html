@@ -3,11 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Scenario Explorer | EQ Safety Benchmark | ikwe.ai</title>
+  <title>Scenario Explorer | EQ Safety Benchmark | Ikwe.ai</title>
   <meta name="description" content="Explore real scenarios from the EQ Safety Benchmark. See how different AI models respond to emotional vulnerability—and how they score.">
+  <link rel="canonical" href="https://ikwe.ai/explorer">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ikwe.ai/explorer">
+  <meta property="og:site_name" content="Ikwe.ai">
+  <meta property="og:title" content="Scenario Explorer | EQ Safety Benchmark">
+  <meta property="og:description" content="See how different AI models respond to emotional vulnerability—and how they score.">
+  <meta property="og:image" content="https://ikwe.ai/og/ikwe-research.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Scenario Explorer | EQ Safety Benchmark">
+  <meta name="twitter:description" content="See how different AI models respond to emotional vulnerability—and how they score.">
+  <meta name="twitter:image" content="https://ikwe.ai/og/ikwe-research.png">
 
   <link rel="icon" type="image/png" href="ikwe_logo_dark.png">
-  <link rel="canonical" href="https://ikwe.ai/explorer">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700;800&display=swap" rel="stylesheet">
@@ -315,11 +332,12 @@
     <a class="brand" href="/"><img src="ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
 
     <div class="nav-links">
-      <a href="/emotional-safety-gap" class="">The Gap</a>
-      <a href="/research" class="">Research</a>
-      <a href="/explorer" class="active">Explorer</a>
-      <a href="/about" class="">About</a>
-      <a href="#" onclick="openContact();return false;">Contact</a>
+      <a href="/emotional-safety-gap">The Gap</a>
+      <a href="/research">Research</a>
+      <a href="/faq">FAQ</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
+      <a href="/inquiry">Contact</a>
     </div>
 
     <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
@@ -329,9 +347,10 @@
     <div class="mobile-menu">
       <a href="/emotional-safety-gap">The Gap</a>
       <a href="/research">Research</a>
-      <a href="/explorer" class="active">Explorer</a>
+      <a href="/faq">FAQ</a>
+      <a href="/blog">Blog</a>
       <a href="/about">About</a>
-      <a href="#" onclick="openContact();return false;">Contact</a>
+      <a href="/inquiry">Contact</a>
     </div>
   </div>
 </nav>
@@ -356,7 +375,7 @@
 
   <section class="cta-block" aria-label="Explorer footer note">
     <div class="cta-copy">
-      <div class="cta-title">Benchmarked across 74 scenarios</div>
+      <div class="cta-title">Benchmarked across 79 scenarios</div>
       <div class="cta-desc">This explorer shows selected exemplars. Full scenario library + methodology available under restricted access.</div>
     </div>
     <div class="cta-actions">
@@ -370,22 +389,35 @@
   <div class="footer-grid">
     <div class="footer-col">
       <div class="footer-title">ikwe.ai</div>
-      <div>Behavioral emotional safety evaluation for conversational AI.</div>
+      <div style="color:var(--text2);font-size:.88rem;">Emotional safety evaluation for conversational AI.</div>
+      <div style="margin-top:12px;">© 2026 Visible Healing Inc.</div>
     </div>
     <div class="footer-col">
-      <div class="footer-title">Explore</div>
+      <div class="footer-title">Research</div>
       <div class="footer-nav">
-        <a href="/emotional-safety-gap">The Gap</a>
-        <a href="/research">Research</a>
-        <a href="/explorer">Explorer</a>
+        <a href="/">Home</a>
+        <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+        <a href="/research">Methodology</a>
+        <a href="/explorer">Scenario Explorer</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-title">Resources</div>
+      <div class="footer-nav">
+        <a href="/faq">FAQ</a>
+        <a href="/blog">Blog</a>
+        <a href="/press">Press & Citations</a>
         <a href="/about">About</a>
       </div>
     </div>
     <div class="footer-col">
-      <div class="footer-title">Contact</div>
+      <div class="footer-title">Legal</div>
       <div class="footer-nav">
-        <a class="email" href="mailto:info@ikwe.ai">info@ikwe.ai</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/inquiry">Contact</a>
       </div>
+      <div style="margin-top:12px;"><a href="mailto:research@ikwe.ai" style="color:var(--purple);">research@ikwe.ai</a></div>
     </div>
   </div>
 </footer>
@@ -393,7 +425,7 @@
 <script>
   // Basic contact hook (swap to whatever your site uses)
   function openContact(){
-    window.location.href = "mailto:info@ikwe.ai";
+    window.location.href = "mailto:research@ikwe.ai";
   }
 
   const scenarios = [
@@ -736,17 +768,4 @@
   }
 
   function syncUrl(){
-    const url = new URL(window.location.href);
-    url.searchParams.set('scenario', String(currentScenario));
-    history.replaceState({}, '', url);
-  }
-
-  // Initialize
-  applyDeepLink();
-  renderTabs();
-  renderScenario();
-  syncUrl();
-</script>
-
-</body>
-</html>
+    const url = new URL(window.locat

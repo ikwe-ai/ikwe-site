@@ -118,20 +118,17 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
   <div class="nav-inner">
     <a class="brand" href="/"><img src="ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
     <div class="nav-links">
-      <a href="emotional-safety-gap.html">The Gap</a>
-      <a href="research.html">Research</a>
-      <a href="about.html">About</a>
-      <a href="inquiry.html">Contact</a>
+      <a href="/emotional-safety-gap">The Gap</a>
+      <a href="/research">Research</a>
+      <a href="/faq">FAQ</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/about">About</a>
+      <a href="/inquiry">Contact</a>
     </div>
     <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
-    <div class="mobile-menu">
-      <a href="emotional-safety-gap.html">The Gap</a>
-      <a href="research.html">Research</a>
-      <a href="about.html">About</a>
-      <a href="inquiry.html">Contact</a>
-    </div>
+    <div class="mobile-menu"><a href="/emotional-safety-gap">The Gap</a><a href="/research">Research</a><a href="/faq">FAQ</a><a href="/blog">Blog</a><a href="/about">About</a><a href="/inquiry">Contact</a></div>
   </div>
 </nav>
 
@@ -148,7 +145,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
     <div class="container">
       
       <!-- FEATURED POST -->
-      <a href="emotional-safety-gap.html" class="post-card featured-post">
+      <a href="/emotional-safety-gap" class="post-card featured-post">
         <span class="featured-label">Featured Research</span>
         <h2 class="post-title">The Emotional Safety Gap: What We Found When We Tested How AI Responds to Vulnerability</h2>
         <p class="post-excerpt">54.7% of AI responses made emotional situations worse at first contact. 43% failed to correct. Here's what that means for how we build and deploy conversational AI.</p>
@@ -162,7 +159,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
       </a>
 
       <!-- REGULAR POSTS -->
-      <a href="research.html" class="post-card">
+      <a href="/research" class="post-card">
         <div class="post-meta">
           <span class="post-tag insight">Methodology</span>
           <span>January 2026</span>
@@ -172,7 +169,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         <span class="post-link">Read more <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
       </a>
 
-      <a href="about.html" class="post-card">
+      <a href="/about" class="post-card">
         <div class="post-meta">
           <span class="post-tag announcement">Announcement</span>
           <span>January 2026</span>
@@ -195,11 +192,46 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
       <div class="newsletter-box">
         <h3>Stay Updated</h3>
         <p>Get research updates and insights delivered to your inbox. No spam, just substance.</p>
-        <form class="newsletter-form" action="https://form.jotform.com/260067967050055" method="get" target="_blank">
-          <input type="email" name="email" class="newsletter-input" placeholder="your@email.com" required>
-          <button type="submit" class="btn primary">Subscribe</button>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" name="email" id="newsletter-email" class="newsletter-input" placeholder="your@email.com" required>
+          <button type="submit" class="btn primary" id="newsletter-btn">Subscribe</button>
         </form>
+        <div id="newsletter-success" style="display:none;margin-top:16px;color:#92f6d9;font-weight:500;">✓ You're subscribed! We'll be in touch.</div>
+        <div id="newsletter-error" style="display:none;margin-top:16px;color:var(--coral);">Something went wrong. Please try again.</div>
       </div>
+      
+      <script>
+      document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletter-email').value.trim();
+        const btn = document.getElementById('newsletter-btn');
+        const success = document.getElementById('newsletter-success');
+        const error = document.getElementById('newsletter-error');
+        
+        btn.disabled = true;
+        btn.textContent = 'Subscribing...';
+        success.style.display = 'none';
+        error.style.display = 'none';
+        
+        fetch('/api/newsletter', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        })
+        .then(r => r.ok ? r.json() : Promise.reject())
+        .then(() => {
+          success.style.display = 'block';
+          document.getElementById('newsletter-email').value = '';
+          btn.disabled = false;
+          btn.textContent = 'Subscribe';
+        })
+        .catch(() => {
+          error.style.display = 'block';
+          btn.disabled = false;
+          btn.textContent = 'Subscribe';
+        });
+      });
+      </script>
 
     </div>
   </section>
@@ -216,25 +248,25 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
       <div class="footer-title">Explore</div>
       <div class="footer-nav">
         <a href="/">Home</a>
-        <a href="emotional-safety-gap.html">The Emotional Safety Gap</a>
-        <a href="research.html">Research</a>
-        <a href="about.html">About</a>
+        <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+        <a href="/research">Research</a>
+        <a href="/about">About</a>
       </div>
     </div>
     <div class="footer-col">
       <div class="footer-title">Resources</div>
       <div class="footer-nav">
-        <a href="explorer.html">Scenario Explorer</a>
-        <a href="press.html">Press & Citations</a>
-        <a href="faq.html">FAQ</a>
-        <a href="blog.html">Blog</a>
+        <a href="/explorer">Scenario Explorer</a>
+        <a href="/press">Press & Citations</a>
+        <a href="/faq">FAQ</a>
+        <a href="/blog">Blog</a>
       </div>
     </div>
     <div class="footer-col">
       <div class="footer-title">Legal</div>
       <div class="footer-nav">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
       </div>
       <div style="margin-top:12px;"><a href="mailto:research@ikwe.ai" style="color:var(--purple);">research@ikwe.ai</a></div>
     </div>

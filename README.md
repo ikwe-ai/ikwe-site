@@ -1,261 +1,166 @@
-# IKWE.AI Site Update — Complete Package
+# IKWE.AI - Clean Site Package
 
-## Site Map (12 Pages)
+**Generated:** January 11, 2026  
+**Purpose:** Complete, deployment-ready site with all fixes applied
 
-| Path | File | Purpose | OG Image |
-|------|------|---------|----------|
-| `/` | `index.html` | Homepage | ikwe-default.png |
-| `/emotional-safety-gap` | `emotional-safety-gap.html` | Key findings | ikwe-gap.png |
-| `/research` | `research.html` | Methodology | ikwe-research.png |
-| `/about` | `about.html` | About page | ikwe-about.png |
-| `/press` | `press.html` | Press kit | ikwe-press.png |
-| `/inquiry` | `inquiry.html` | Contact/Access form | ikwe-default.png |
-| `/explorer` | `explorer.html` | Scenario explorer | ikwe-research.png |
-| `/faq` | `faq.html` | **NEW** - FAQ page | ikwe-default.png |
-| `/blog` | `blog.html` | **NEW** - Research updates | ikwe-default.png |
-| `/privacy` | `privacy.html` | Privacy policy | ikwe-default.png |
-| `/terms` | `terms.html` | Terms of service | ikwe-default.png |
+---
 
-## Supporting Files
+## 📁 File Manifest
 
+### HTML Pages (11 files) — REQUIRED
+| File | Path | Purpose |
+|------|------|---------|
+| `index.html` | `/` | Homepage |
+| `emotional-safety-gap.html` | `/emotional-safety-gap` | Key findings |
+| `research.html` | `/research` | Methodology |
+| `about.html` | `/about` | About page |
+| `press.html` | `/press` | Press kit |
+| `inquiry.html` | `/inquiry` | Contact form (Notion-integrated) |
+| `explorer.html` | `/explorer` | Scenario explorer |
+| `faq.html` | `/faq` | FAQ |
+| `blog.html` | `/blog` | Research updates |
+| `privacy.html` | `/privacy` | Privacy policy |
+| `terms.html` | `/terms` | Terms of service |
+
+### Config Files (4 files) — REQUIRED
 | File | Purpose |
 |------|---------|
-| `sitemap.xml` | XML sitemap with clean URLs (12 pages + 3 PDFs) |
+| `_redirects` | Netlify redirect rules (clean URLs + API routes) |
+| `netlify.toml` | Netlify build config + headers |
+| `sitemap.xml` | Search engine sitemap |
 | `robots.txt` | Search engine directives |
-| `_redirects` | Netlify redirect rules for clean URLs |
-| `ikwe-og-verified.html` | OG image generation template |
+
+### Netlify Functions (3 files) — REQUIRED for forms
+| File | Endpoint | Purpose |
+|------|----------|---------|
+| `netlify/functions/newsletter.js` | `/api/newsletter` | Blog newsletter signup |
+| `netlify/functions/inquiry.js` | `/api/inquiry` | Audit/work requests |
+| `netlify/functions/access-request.js` | `/api/access-request` | Research access requests |
+
+### Assets — COPY FROM EXISTING REPO
+These files should be copied from your existing repo (not regenerated):
+- `ikwe_logo_dark.png` — Site logo
+- `ikwe_logo_light.png` — Light version
+- `ikwe-press-og.png` — Press OG image
+- `og/` folder — OG images for each page
+- `styles.css` — If using external CSS (most styles are inline)
 
 ---
 
-## New Pages Created
+## ✅ All Fixes Applied
 
-### FAQ (`/faq`)
-Comprehensive FAQ covering:
-- **About the Research** - What is emotional safety, EQ Safety Benchmark, what stats mean
-- **Methodology** - Data sources, 12 vulnerability categories, scoring approach
-- **Implications & Limitations** - Not proving danger, peer review status, limitations
-- **Working With Us** - Evaluation services, full access, citation format
-
-### Blog (`/blog`)
-Research updates page featuring:
-- Featured post linking to main findings
-- Card-based post layout with tags (Research, Insight, Update, Announcement)
-- Newsletter signup (links to JotForm)
-- Ready for future content additions
-
-### Research Page Updates
-- Added "Interactive Tools" section
-- Links to Scenario Explorer
-- "Request Dashboard Access" for full data (gated)
+| Issue | Status |
+|-------|--------|
+| Desktop nav missing FAQ/Blog | ✅ Fixed |
+| Internal links with `.html` | ✅ Removed (all use `/page`) |
+| onclick modal handlers | ✅ Converted to `/inquiry` links |
+| Footer inconsistencies | ✅ Standardized 4-column layout |
+| JotForm dependencies | ✅ Replaced with Notion API |
+| Clean URL routing | ✅ `_redirects` configured |
+| Canonical/OG URLs | ✅ All use clean paths |
 
 ---
 
-## All Issues Fixed
+## 🚀 Deployment Instructions
 
-### ✅ Navigation & Footer Standardized
+### Step 1: Prepare Notion Databases
 
-All pages now have consistent navigation:
+Create 3 databases in Notion:
 
-**Desktop Nav:**
-- The Gap → Research → FAQ → Blog → About → Contact
+**Newsletter Database:**
+- Email (Title)
+- Subscribed At (Date)
+- Status (Select: Active, Unsubscribed)
+- Source (Select: Blog, Other)
 
-**Mobile Menu:**
-- Same order as desktop
+**Inquiry Database:**
+- Name (Title)
+- Email (Email)
+- Organization (Text)
+- Role (Text)
+- Product Description (Text)
+- Product Stage (Select)
+- Engagement Type (Select)
+- Source (Select)
+- Details (Text)
+- Status (Select: New, Contacted, Closed)
+- Submitted At (Date)
 
-**Footer (4 columns):**
-1. **ikwe.ai** - Tagline + copyright
-2. **Research** - Home, The Emotional Safety Gap, Methodology, Scenario Explorer
-3. **Resources** - FAQ, Blog, Press & Citations, About
-4. **Legal** - Privacy, Terms, Contact + email
+**Access Request Database:**
+- Name (Title)
+- Email (Email)
+- Organization (Text)
+- Role (Text)
+- Intended Use (Select)
+- Description (Text)
+- Status (Select: Pending, Approved, Denied)
+- Requested At (Date)
 
-### Template File
+### Step 2: Get Notion Integration
 
-A reference template is available at `includes/nav-footer-template.html` for maintaining consistency when adding new pages.
+1. Go to https://www.notion.so/my-integrations
+2. Create new integration for "Ikwe Forms"
+3. Copy the API key
+4. Share each database with the integration
 
-**When adding a new page:**
-1. Copy nav structure from template
-2. Copy footer structure from template  
-3. Add to sitemap.xml
-4. Add to _redirects
-5. Update the template file
+### Step 3: Configure Netlify Environment Variables
 
-### ✅ Clean URLs Implemented
+In Netlify Dashboard → Site settings → Environment variables:
 
-All internal links now use clean URLs without `.html` extensions:
+```
+NOTION_API_KEY=secret_xxxxxxxxxxxxx
+NOTION_NEWSLETTER_DB_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NOTION_INQUIRY_DB_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NOTION_ACCESS_DB_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
 
-| Before | After |
-|--------|-------|
-| `href="research.html"` | `href="/research"` |
-| `href="faq.html"` | `href="/faq"` |
-| `href="explorer.html?scenario=1"` | `href="/explorer?scenario=1"` |
+### Step 4: Install Dependencies
 
-**URL Format:**
-- All internal links use absolute paths starting with `/`
-- No `.html` extensions anywhere
-- Query parameters preserved (e.g., `/explorer?scenario=1`)
-- External links unchanged (full URLs)
-- Mailto links unchanged
+Create `package.json` in root:
+```json
+{
+  "name": "ikwe-site",
+  "dependencies": {
+    "@notionhq/client": "^2.2.0"
+  }
+}
+```
 
-### ✅ All Buttons & Links Fixed
+### Step 5: Deploy
 
-- Removed `onclick` handlers that should be links
-- Fixed obfuscated email links in privacy/terms
-- All "Contact" links → `/inquiry`
-- All "Press Kit" links → `/press`
-- Modals only used for forms (JotForm embedded)
+1. Replace all files in your `ikwe-site` repo with this package
+2. Add your existing assets (logos, OG images)
+3. Commit and push
+4. Netlify will auto-deploy
 
----
+### Step 6: Verify
 
-### ✅ 1. Scenario Count Standardized
-- Changed from 74 → **79 scenarios** in explorer.html
-- All pages now consistent
-
-### ✅ 2. Email Unified
-- All pages now use **research@ikwe.ai**
-- Fixed `info@ikwe.ai` in explorer.html
-- All mailto links properly formatted
-
-### ✅ 3. Temporal Language Fixed
-- Removed "builds over time" → "introduced at first contact"
-- Agency framing: AI introduces risk, not "risk appears"
-
-### ✅ 4. Navigation Fixed
-- All "Contact" nav links → `/inquiry`
-- "Request Evaluation" buttons → `/inquiry`
-- "Request Full Methodology Access" → `/inquiry`
-- Removed onclick modal triggers, using direct links
-
-### ✅ 5. Clean URLs Implemented
-- Sitemap uses paths without .html
-- `_redirects` file handles:
-  - `.html` → clean path (301)
-  - clean path → serve .html (200)
-  - Legacy paths (`/request-access`, `/contact`, `/faq`) → proper destinations
-
-### ✅ 6. Language Precision
-- "risk" → "made situations worse" / "harm"
-- "patterns" → "behaviors"
-- "no repair behavior" → "failed to correct"
-- Added defensible framing ("observed to", "were found to")
-
-### ✅ 7. Icon Sizing
-- Warning triangle SVGs constrained to 16×16px
-
-### ✅ 8. Forms
-- All access forms use JotForm: `https://form.jotform.com/260067967050055`
+Test these URLs:
+- `https://ikwe.ai/emotional-safety-gap.html` → should 301 redirect
+- `https://ikwe.ai/emotional-safety-gap` → should show page
+- `https://ikwe.ai/inquiry` → should show form
+- Submit test form → should appear in Notion
 
 ---
 
-## Verified Statistics
+## 🔗 URL Structure
 
-| Stat | Value | Plain English |
-|------|-------|---------------|
-| First-contact harm | **54.7%** | "made emotional situations worse at first contact" |
-| No correction | **43%** | "failed to correct within the interaction" |
-| Categories | **12** | "vulnerability categories" |
-| Datasets | **8** | "public datasets" |
-| Scenarios | **79** | "scenarios tested" |
-| Systems | **4** | "AI systems evaluated" |
-| Regulation score | **1.7/5** | "avg regulation score for baseline models" |
-
----
-
-## Language Constitution
-
-### Prefer these phrases:
-- "emotionally vulnerable situations"
-- "public datasets"
-- "made emotional situations worse"
-- "introduced emotional risk at first contact"
-- "failed to acknowledge or correct"
-- "responded unsafely"
-- "within the interaction window"
-
-### Avoid:
-- "risk" without context (too abstract)
-- "patterns" (sounds speculative)
-- "over time" (implies longitudinal study)
-- "AI fails" / "AI harms" (implies intent)
-- "safety failure" (too accusatory)
+| Clean URL | Serves | Redirect From |
+|-----------|--------|---------------|
+| `/` | `index.html` | `/index.html` |
+| `/emotional-safety-gap` | `emotional-safety-gap.html` | `/emotional-safety-gap.html`, `/gap`, `/findings` |
+| `/research` | `research.html` | `/research.html`, `/methodology` |
+| `/about` | `about.html` | `/about.html` |
+| `/press` | `press.html` | `/press.html`, `/media` |
+| `/inquiry` | `inquiry.html` | `/inquiry.html`, `/contact`, `/request-access` |
+| `/explorer` | `explorer.html` | `/explorer.html` |
+| `/faq` | `faq.html` | `/faq.html`, `/questions` |
+| `/blog` | `blog.html` | `/blog.html`, `/updates`, `/news` |
+| `/privacy` | `privacy.html` | `/privacy.html` |
+| `/terms` | `terms.html` | `/terms.html` |
 
 ---
 
-## Deployment Checklist
+## 📧 Contact
 
-1. **Upload all HTML files** to repo root
-2. **Upload supporting files**: `sitemap.xml`, `robots.txt`, `_redirects`
-3. **Generate OG images** from `ikwe-og-verified.html`:
-   - Open in Chrome
-   - Screenshot each `.og-image` section
-   - Save to `/og/` folder as PNG
-4. **Deploy to Netlify**
-5. **Verify redirects** work:
-   - `/research.html` → `/research`
-   - `/request-access` → `/inquiry`
-6. **Cache bust social previews**:
-   - Twitter: https://cards-dev.twitter.com/validator
-   - LinkedIn: https://www.linkedin.com/post-inspector/
-   - Facebook: https://developers.facebook.com/tools/debug/
-
----
-
-## Future Recommendations
-
-1. **FAQ Page** — Create `/faq` answering common questions
-2. **Dashboard Link** — Link `eq_safety_dashboard.html` from Research page
-3. **Blog Section** — For ongoing research updates
-4. **Newsletter Integration** — Connect inquiry form to email marketing
-
-### Prefer these phrases:
-- "emotionally vulnerable situations"
-- "public datasets"
-- "made emotional situations worse"
-- "failed to acknowledge or correct"
-- "responded unsafely"
-- "were observed to increase emotional distress"
-
-### Avoid (unless carefully defined):
-- "risk" (too abstract)
-- "patterns" (sounds speculative)
-- "evaluation" without explanation
-- "safety failure" (too accusatory)
-- "AI fails" / "AI harms" (intent implied)
-
----
-
-## To Deploy
-
-1. **Generate OG Images:**
-   - Open `ikwe-og-verified.html` in Chrome
-   - Screenshot each `.og-image` section
-   - Save to `/og/` folder
-
-2. **Replace HTML Files:**
-   - Upload all HTML files to your repo
-   - Ensure `/og/` folder contains the PNG images
-
-3. **Deploy & Cache Bust:**
-   - Push to production
-   - Force refresh at validators:
-     - https://cards-dev.twitter.com/validator
-     - https://www.linkedin.com/post-inspector/
-     - https://developers.facebook.com/tools/debug/
-
-4. **Verify:**
-   - Test at https://metatags.io
-   - Test at https://opengraph.xyz
-
----
-
-## Verified Statistics
-
-All stats verified against research documentation:
-
-| Stat | Value | Plain-English Version |
-|------|-------|----------------------|
-| First-contact harm | 54.7% | "made emotional situations worse" |
-| No correction | 43% | "failed to correct after distress" |
-| Categories | 12 | "vulnerability categories" |
-| Datasets | 8 | "public datasets" |
-| Systems | 4 | "AI systems evaluated" |
-| Regulation score | 1.7/5 | "avg regulation score for baseline models" |
+All forms submit to: `research@ikwe.ai` (via Notion)
