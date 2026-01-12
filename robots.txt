@@ -1,17 +1,9 @@
 # robots.txt for ikwe.ai
-# Behavioral Emotional Safety Research
-
 User-agent: *
 Allow: /
 
 # Sitemap location
 Sitemap: https://ikwe.ai/sitemap.xml
 
-# Crawl-delay (optional)
-Crawl-delay: 1
-
-# Block admin/internal paths if any exist
-Disallow: /admin/
-Disallow: /api/
-Disallow: /_next/
-Disallow: /cdn-cgi/
+# Disallow internal/utility pages
+Disallow: /ikwe-og-verified.html
