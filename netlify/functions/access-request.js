@@ -31,34 +31,37 @@ exports.handler = async (event) => {
       };
     }
 
+    const properties = {
+      Name: {
+        title: [{ text: { content: name } }]
+      },
+      Email: {
+        email: email
+      },
+      Organization: {
+        rich_text: [{ text: { content: organization } }]
+      },
+      Role: {
+        rich_text: [{ text: { content: role || '' } }]
+      },
+      Description: {
+        rich_text: [{ text: { content: description || '' } }]
+      },
+      Status: {
+        select: { name: 'Pending' }
+      },
+      'Requested At': {
+        date: { start: new Date().toISOString() }
+      }
+    };
+
+    if (intended_use) {
+      properties['Intended Use'] = { select: { name: intended_use } };
+    }
+
     await notion.pages.create({
       parent: { database_id: databaseId },
-      properties: {
-        Name: {
-          title: [{ text: { content: name } }]
-        },
-        Email: {
-          email: email
-        },
-        Organization: {
-          rich_text: [{ text: { content: organization } }]
-        },
-        Role: {
-          rich_text: [{ text: { content: role || '' } }]
-        },
-        'Intended Use': {
-          select: intended_use ? { name: intended_use } : null
-        },
-        Description: {
-          rich_text: [{ text: { content: description || '' } }]
-        },
-        Status: {
-          select: { name: 'Pending' }
-        },
-        'Requested At': {
-          date: { start: new Date().toISOString() }
-        }
-      }
+      properties
     });
 
     return {

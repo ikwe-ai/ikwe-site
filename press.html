@@ -81,14 +81,6 @@ h2{font-size:clamp(1.3rem,2vw,1.6rem);margin:10px 0 18px}
 .footer-nav a{color:var(--text3)}
 .footer-nav a:hover{color:var(--text)}
 .footer .email{color:var(--purple);cursor:pointer}
-.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);z-index:1000;align-items:center;justify-content:center;padding:20px}
-.modal-overlay.open{display:flex}
-.modal-content{background:var(--bg2);border:1px solid var(--border);border-radius:16px;width:100%;max-width:640px;max-height:90vh;overflow:hidden}
-.modal-header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--border)}
-.modal-header h3{font-size:1.1rem;font-weight:700}
-.modal-close{background:none;border:none;color:var(--text2);font-size:1.5rem;cursor:pointer;padding:4px 8px;line-height:1}
-.modal-body{height:70vh}
-.modal-body iframe{width:100%;height:100%;border:none}
 @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}.stat-strip{gap:32px}}
 @media(max-width:520px){.btn{width:100%}.cta-btns{flex-direction:column}.footer-grid{flex-direction:column;gap:36px}}
   </style>
@@ -98,17 +90,26 @@ h2{font-size:clamp(1.3rem,2vw,1.6rem);margin:10px 0 18px}
 <nav class="nav"><div class="container"><div class="nav-inner">
   <a class="brand" href="/"><img src="ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
   <div class="nav-links">
-    <a href="/emotional-safety-gap">The Gap</a>
-    <a href="/research">Research</a>
-    <a href="/faq">FAQ</a>
-    <a href="/blog">Blog</a>
-    <a href="/about">About</a>
-    <a href="/inquiry">Contact</a>
-  </div>
+      <a href="/emotional-safety-gap">The Gap</a>
+      <a href="/research">Research</a>
+      <a href="/explorer">Explorer</a>
+      <a href="/faq">FAQ</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
+      <a href="/inquiry">Contact</a>
+    </div>
   <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <div class="mobile-menu"><a href="/emotional-safety-gap">The Gap</a><a href="/research">Research</a><a href="/faq">FAQ</a><a href="/blog">Blog</a><a href="/about">About</a><a href="/inquiry">Contact</a></div>
+  <div class="mobile-menu">
+      <a href="/emotional-safety-gap">The Gap</a>
+      <a href="/research">Research</a>
+      <a href="/explorer">Explorer</a>
+      <a href="/faq">FAQ</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
+      <a href="/inquiry">Contact</a>
+    </div>
 </div></div></nav>
 
 <main>
@@ -187,49 +188,42 @@ h2{font-size:clamp(1.3rem,2vw,1.6rem);margin:10px 0 18px}
 </div></section>
 </main>
 
-<footer class="footer"><div class="container"><div class="footer-grid">
-  <div class="footer-col">
-    <div class="footer-title">ikwe.ai</div>
-    <div style="color:var(--text2);font-size:.9rem">Emotional safety evaluation for conversational AI.</div>
-    <div style="margin-top:14px">© 2026 Visible Healing Inc.</div>
-  </div>
-  <div class="footer-col">
-    <div class="footer-title">Explore</div>
-    <div class="footer-nav">
-      <a href="/">Home</a>
-      <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
-      <a href="/research">Research</a>
-      <a href="/about">About</a>
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-title">ikwe.ai</div>
+      <div style="color:var(--text2);font-size:.88rem;">Emotional safety evaluation for conversational AI.</div>
+      <div style="margin-top:12px;">© 2026 Visible Healing Inc.</div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-title">Research</div>
+      <div class="footer-nav">
+        <a href="/">Home</a>
+        <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+        <a href="/research">Methodology</a>
+        <a href="/explorer">Scenario Explorer</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-title">Resources</div>
+      <div class="footer-nav">
+        <a href="/faq">FAQ</a>
+        <a href="/blog">Blog</a>
+        <a href="/press">Press & Citations</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-title">Legal</div>
+      <div class="footer-nav">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/inquiry">Contact</a>
+      </div>
+      <div style="margin-top:12px;"><a href="mailto:research@ikwe.ai" style="color:var(--purple);">research@ikwe.ai</a></div>
     </div>
   </div>
-  <div class="footer-col">
-    <div class="footer-title">Resources</div>
-    <div class="footer-nav">
-      <a href="/explorer">Scenario Explorer</a><a href="/press">Press & Citations</a><a href="/faq">FAQ</a><a href="/blog">Blog</a>
-      
-    </div>
-  </div>
-  <div class="footer-col">
-    <div class="footer-title">Legal</div>
-    <div class="footer-nav">
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-    </div>
-    <div style="margin-top:14px"><a href="mailto:research@ikwe.ai" style="color:var(--purple);">research@ikwe.ai</a></div>
-  </div>
-</div></div></footer>
+</footer>
 
-<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
-  <div class="modal-content">
-    <div class="modal-header"><h3>Work With Us</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
-    <div class="modal-body"><iframe src="https://form.jotform.com/260067967050055" title="Contact Form"></iframe></div>
-  </div>
-</div>
-
-<script>
-function openModal(){document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden';}
-function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
-</script>
 </body>
 </html>

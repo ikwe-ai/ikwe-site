@@ -334,6 +334,7 @@
     <div class="nav-links">
       <a href="/emotional-safety-gap">The Gap</a>
       <a href="/research">Research</a>
+      <a href="/explorer" class="active">Explorer</a>
       <a href="/faq">FAQ</a>
       <a href="/blog">Blog</a>
       <a href="/about">About</a>
@@ -347,6 +348,7 @@
     <div class="mobile-menu">
       <a href="/emotional-safety-gap">The Gap</a>
       <a href="/research">Research</a>
+      <a href="/explorer" class="active">Explorer</a>
       <a href="/faq">FAQ</a>
       <a href="/blog">Blog</a>
       <a href="/about">About</a>
@@ -671,8 +673,11 @@
   function renderTabs(){
     const tabsEl = document.getElementById('tabs');
     tabsEl.innerHTML = scenarios.map((s,i)=>(
-      `<button class="tab ${i===currentScenario?'active':''}" onclick="selectScenario(${i})">${s.category}</button>`
+      `<button class="tab ${i===currentScenario?'active':''}" data-scenario-index="${i}">${s.category}</button>`
     )).join('');
+    tabsEl.querySelectorAll('[data-scenario-index]').forEach((button) => {
+      button.addEventListener('click', () => selectScenario(Number(button.dataset.scenarioIndex)));
+    });
   }
 
   function renderScenario(){
@@ -701,6 +706,12 @@
         </div>
       </div>
     `;
+
+    el.querySelectorAll('[data-response-index]').forEach((response) => {
+      response.addEventListener('click', () => {
+        toggleResponse(Number(response.dataset.responseIndex));
+      });
+    });
   }
 
   function renderResponse(r,index){
@@ -709,7 +720,7 @@
     const scoreClass = getScoreClass(r.score);
 
     return `
-      <div class="response" onclick="toggleResponse(${index})" role="button" tabindex="0">
+      <div class="response" data-response-index="${index}" role="button" tabindex="0">
         <div class="response-head">
           <span class="model">${r.model}</span>
           <span class="score ${scoreClass}">${r.score}</span>

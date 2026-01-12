@@ -14,6 +14,12 @@
   force = true
 
 [[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/research.html"
   to = "/research"
   status = 301

@@ -34,43 +34,48 @@ exports.handler = async (event) => {
       };
     }
 
+    const properties = {
+      Name: {
+        title: [{ text: { content: name } }]
+      },
+      Email: {
+        email: email
+      },
+      Organization: {
+        rich_text: [{ text: { content: organization } }]
+      },
+      Role: {
+        rich_text: [{ text: { content: role || '' } }]
+      },
+      'Product Description': {
+        rich_text: [{ text: { content: product_description || '' } }]
+      },
+      Details: {
+        rich_text: [{ text: { content: details || '' } }]
+      },
+      Status: {
+        select: { name: 'New' }
+      },
+      'Submitted At': {
+        date: { start: new Date().toISOString() }
+      }
+    };
+
+    if (product_stage) {
+      properties['Product Stage'] = { select: { name: product_stage } };
+    }
+
+    if (engagement_type) {
+      properties['Engagement Type'] = { select: { name: engagement_type } };
+    }
+
+    if (source) {
+      properties.Source = { select: { name: source } };
+    }
+
     await notion.pages.create({
       parent: { database_id: databaseId },
-      properties: {
-        Name: {
-          title: [{ text: { content: name } }]
-        },
-        Email: {
-          email: email
-        },
-        Organization: {
-          rich_text: [{ text: { content: organization } }]
-        },
-        Role: {
-          rich_text: [{ text: { content: role || '' } }]
-        },
-        'Product Description': {
-          rich_text: [{ text: { content: product_description || '' } }]
-        },
-        'Product Stage': {
-          select: product_stage ? { name: product_stage } : null
-        },
-        'Engagement Type': {
-          select: engagement_type ? { name: engagement_type } : null
-        },
-        Source: {
-          select: source ? { name: source } : null
-        },
-        Details: {
-          rich_text: [{ text: { content: details || '' } }]
-        },
-        Status: {
-          select: { name: 'New' }
-        },
-        'Submitted At': {
-          date: { start: new Date().toISOString() }
-        }
-      }
+      properties
     });
 
     return {

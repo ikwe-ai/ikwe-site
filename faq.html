@@ -108,6 +108,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
     <div class="nav-links">
       <a href="/emotional-safety-gap">The Gap</a>
       <a href="/research">Research</a>
+      <a href="/explorer">Explorer</a>
       <a href="/faq" class="active">FAQ</a>
       <a href="/blog">Blog</a>
       <a href="/about">About</a>
@@ -116,7 +117,15 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
     <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
-    <div class="mobile-menu"><a href="/emotional-safety-gap">The Gap</a><a href="/research">Research</a><a href="/faq">FAQ</a><a href="/blog">Blog</a><a href="/about">About</a><a href="/inquiry">Contact</a></div>
+    <div class="mobile-menu">
+      <a href="/emotional-safety-gap">The Gap</a>
+      <a href="/research">Research</a>
+      <a href="/explorer">Explorer</a>
+      <a href="/faq" class="active">FAQ</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
+      <a href="/inquiry">Contact</a>
+    </div>
   </div>
 </nav>
 
@@ -137,7 +146,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         <h2 class="faq-category-title">About the Research</h2>
         
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             What is emotional safety in AI?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -148,7 +157,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         </div>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             What is the EQ Safety Benchmark?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -163,7 +172,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         </div>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             What does "54.7% made situations worse" mean?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -182,7 +191,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         </div>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             What does "43% failed to correct" mean?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -193,7 +202,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         </div>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             Which AI systems did you test?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -215,7 +224,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         <h2 class="faq-category-title">Methodology</h2>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             Where does the test data come from?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -226,7 +235,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         </div>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             What are the 12 vulnerability categories?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -250,7 +259,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         </div>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             How is scoring done?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -265,7 +274,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         </div>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             Why is some methodology gated?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -285,7 +294,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         <h2 class="faq-category-title">Implications & Limitations</h2>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             Does this mean AI is dangerous?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -296,7 +305,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         </div>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             Is this research peer-reviewed?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -307,7 +316,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         </div>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             What are the limitations of this research?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -325,7 +334,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         </div>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             Should I stop using AI chatbots?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -347,7 +356,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         <h2 class="faq-category-title">Working With Us</h2>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             Can you evaluate our AI system?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -365,7 +374,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         </div>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             How can I access the full research?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -376,7 +385,7 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         </div>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <div class="faq-question">
             Can I cite this research?
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </div>
@@ -407,20 +416,21 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
       <div style="margin-top:12px;">© 2026 Visible Healing Inc.</div>
     </div>
     <div class="footer-col">
-      <div class="footer-title">Explore</div>
+      <div class="footer-title">Research</div>
       <div class="footer-nav">
         <a href="/">Home</a>
         <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
-        <a href="/research">Research</a>
-        <a href="/about">About</a>
+        <a href="/research">Methodology</a>
+        <a href="/explorer">Scenario Explorer</a>
       </div>
     </div>
     <div class="footer-col">
       <div class="footer-title">Resources</div>
       <div class="footer-nav">
-        <a href="/explorer">Scenario Explorer</a>
-        <a href="/press">Press & Citations</a>
         <a href="/faq">FAQ</a>
+        <a href="/blog">Blog</a>
+        <a href="/press">Press & Citations</a>
+        <a href="/about">About</a>
       </div>
     </div>
     <div class="footer-col">
@@ -428,11 +438,21 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
       <div class="footer-nav">
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
+        <a href="/inquiry">Contact</a>
       </div>
       <div style="margin-top:12px;"><a href="mailto:research@ikwe.ai" style="color:var(--purple);">research@ikwe.ai</a></div>
     </div>
   </div>
 </footer>
+
+
+<script>
+document.querySelectorAll('.faq-question').forEach((question) => {
+  question.addEventListener('click', () => {
+    question.parentElement.classList.toggle('open');
+  });
+});
+</script>
 
 </body>
 </html>

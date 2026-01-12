@@ -55,7 +55,7 @@ These files should be copied from your existing repo (not regenerated):
 | Internal links with `.html` | ✅ Removed (all use `/page`) |
 | onclick modal handlers | ✅ Converted to `/inquiry` links |
 | Footer inconsistencies | ✅ Standardized 4-column layout |
-| JotForm dependencies | ✅ Replaced with Notion API |
+| Form dependencies | ✅ Replaced with Notion API |
 | Clean URL routing | ✅ `_redirects` configured |
 | Canonical/OG URLs | ✅ All use clean paths |
 

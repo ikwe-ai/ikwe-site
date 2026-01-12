@@ -103,6 +103,7 @@ h1{font-size:clamp(2rem,4vw,2.6rem);margin-bottom:10px}
     <div class="nav-links">
       <a href="/emotional-safety-gap">The Gap</a>
       <a href="/research" class="active">Research</a>
+      <a href="/explorer">Explorer</a>
       <a href="/faq">FAQ</a>
       <a href="/blog">Blog</a>
       <a href="/about">About</a>
@@ -114,6 +115,9 @@ h1{font-size:clamp(2rem,4vw,2.6rem);margin-bottom:10px}
     <div class="mobile-menu">
       <a href="/emotional-safety-gap">The Gap</a>
       <a href="/research" class="active">Research</a>
+      <a href="/explorer">Explorer</a>
+      <a href="/faq">FAQ</a>
+      <a href="/blog">Blog</a>
       <a href="/about">About</a>
       <a href="/inquiry">Contact</a>
     </div>
@@ -196,28 +200,40 @@ h1{font-size:clamp(2rem,4vw,2.6rem);margin-bottom:10px}
 
 <footer class="footer">
   <div class="footer-grid">
-    <div class="footer-col"><div class="footer-title">ikwe.ai</div><div style="color:var(--text2);font-size:.9rem;">Emotional safety evaluation for conversational AI.</div><div style="margin-top:14px;">© 2026 Visible Healing Inc.</div></div>
-    <div class="footer-col"><div class="footer-title">Explore</div><div class="footer-nav"><a href="/">Home</a><a href="/emotional-safety-gap">The Gap</a><a href="/research">Research</a><a href="/about">About</a></div></div>
-    <div class="footer-col"><div class="footer-title">Resources</div><div class="footer-nav"><a href="/explorer">Scenario Explorer</a><a href="/press">Press & Citations</a><a href="/faq">FAQ</a><a href="/blog">Blog</a></div></div>
-    <div class="footer-col"><div class="footer-title">Legal</div><div class="footer-nav"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><div style="margin-top:14px;"><a href="mailto:research@ikwe.ai" style="color:var(--purple);">research@ikwe.ai</a></div></div>
+    <div class="footer-col">
+      <div class="footer-title">ikwe.ai</div>
+      <div style="color:var(--text2);font-size:.88rem;">Emotional safety evaluation for conversational AI.</div>
+      <div style="margin-top:12px;">© 2026 Visible Healing Inc.</div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-title">Research</div>
+      <div class="footer-nav">
+        <a href="/">Home</a>
+        <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+        <a href="/research">Methodology</a>
+        <a href="/explorer">Scenario Explorer</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-title">Resources</div>
+      <div class="footer-nav">
+        <a href="/faq">FAQ</a>
+        <a href="/blog">Blog</a>
+        <a href="/press">Press & Citations</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-title">Legal</div>
+      <div class="footer-nav">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/inquiry">Contact</a>
+      </div>
+      <div style="margin-top:12px;"><a href="mailto:research@ikwe.ai" style="color:var(--purple);">research@ikwe.ai</a></div>
+    </div>
   </div>
 </footer>
 
-<div class="modal-overlay" id="access-modal" onclick="if(event.target===this)closeAccess()" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);z-index:1000;align-items:center;justify-content:center;padding:20px">
-  <div style="background:var(--bg);border:1px solid var(--border);border-radius:20px;width:100%;max-width:640px;padding:0;position:relative;overflow:hidden">
-    <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--border);"><h3 style="font-size:1.1rem;font-weight:700;margin:0;">Request Full Methodology Access</h3><button onclick="closeAccess()" style="background:none;border:none;color:var(--text3);font-size:1.5rem;cursor:pointer;">&times;</button></div>
-    <div style="height:70vh;"><iframe src="https://form.jotform.com/260067967050055" title="Access Request" style="width:100%;height:100%;border:none;"></iframe></div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="contact-modal" onclick="if(event.target===this)closeContact()" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);z-index:1000;align-items:center;justify-content:center;padding:20px">
-  <div style="background:var(--bg);border:1px solid var(--border);border-radius:20px;width:100%;max-width:640px;padding:0;position:relative;overflow:hidden">
-    <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--border);"><h3 style="font-size:1.1rem;font-weight:700;margin:0;">Work With Us</h3><button onclick="closeContact()" style="background:none;border:none;color:var(--text3);font-size:1.5rem;cursor:pointer;">&times;</button></div>
-    <div style="height:70vh;"><iframe src="https://form.jotform.com/260067967050055" title="Contact Form" style="width:100%;height:100%;border:none;"></iframe></div>
-  </div>
-</div>
-
-<script>
-function openAccess(){document.getElementById('access-modal').style.display='flex';document.body.style.overflow='hidden';}
-function closeAccess(){document.getElementById('access-modal').style.display='none';document.body.style.overflow='';}
-function openContact(){docum
+</body>
+</html>

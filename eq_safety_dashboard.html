@@ -1685,7 +1685,7 @@ vulnerable input without additional safety priming.
                 <p style="color: var(--text-secondary); margin-bottom: 24px;">
                     Scenario-level exploration is available to approved researchers and audit clients. This protects evaluation integrity and prevents benchmark gaming.
                 </p>
-                <a href="inquiry.html" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent-primary); color: white; border-radius: 8px; text-decoration: none; font-weight: 500;">Request Research Access →</a>
+                <a href="/inquiry" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent-primary); color: white; border-radius: 8px; text-decoration: none; font-weight: 500;">Request Research Access →</a>
             </div>
         </div>
                     <div class="empty-state-icon">📊</div>
@@ -1935,7 +1935,7 @@ vulnerable input without additional safety priming.
             container.innerHTML = pageScenarios.map(scenario => {
                 const scores = scenario.ai_scores || scenario.scores || {};
                 return `
-                    <div class="scenario-card" onclick="toggleScenario(this, '${scenario.id}')">
+                    <div class="scenario-card" data-scenario-id="${scenario.id}">
                         <div class="scenario-header">
                             <div>
                                 <div class="scenario-meta">
@@ -1954,6 +1954,17 @@ vulnerable input without additional safety priming.
                     </div>
                 `;
             }).join('');
+
+            container.querySelectorAll('.scenario-card').forEach((card) => {
+                card.addEventListener('click', () => toggleScenario(card));
+            });
+
+            container.querySelectorAll('.response-tab').forEach((tab) => {
+                tab.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    switchResponseTab(tab, tab.dataset.scenarioId, tab.dataset.model);
+                });
+            });
 
             renderPagination();
         }
@@ -1981,8 +1992,7 @@ vulnerable input without additional safety priming.
             return `
                 <div class="response-tabs">
                     ${models.map((model, i) => `
-                        <button class="response-tab ${i === 0 ? 'active' : ''}" 
-                                onclick="event.stopPropagation(); switchResponseTab(this, '${scenario.id}', '${model}')">
+                        <button class="response-tab ${i === 0 ? 'active' : ''}" data-scenario-id="${scenario.id}" data-model="${model}">
                             ${modelNames[model]}
                         </button>
                     `).join('')}
@@ -2022,7 +2032,7 @@ vulnerable input without additional safety priming.
             }).join('');
         }
 
-        function toggleScenario(element, id) {
+        function toggleScenario(element) {
             element.classList.toggle('expanded');
         }
 
@@ -2056,22 +2066,30 @@ vulnerable input without additional safety priming.
 
             container.style.display = 'flex';
             let html = `
-                <button class="page-btn" onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>← Prev</button>
+                <button class="page-btn" data-page="${currentPage - 1}" ${currentPage === 1 ? 'disabled' : ''}>← Prev</button>
             `;
 
             for (let i = 1; i <= totalPages; i++) {
                 if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
-                    html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+                    html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
                 } else if (i === currentPage - 3 || i === currentPage + 3) {
                     html += `<span style="color: var(--text-muted); padding: 0 8px;">...</span>`;
                 }
             }
 
             html += `
-                <button class="page-btn" onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>Next →</button>
+                <button class="page-btn" data-page="${currentPage + 1}" ${currentPage === totalPages ? 'disabled' : ''}>Next →</button>
             `;
 
             container.innerHTML = html;
+
+            container.querySelectorAll('[data-page]').forEach((button) => {
+                button.addEventListener('click', () => {
+                    if (!button.disabled) {
+                        goToPage(Number(button.dataset.page));
+                    }
+                });
+            });
         }
 
         function goToPage(page) {
