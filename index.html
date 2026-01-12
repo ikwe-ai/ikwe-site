@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ikwe.ai — Emotional Safety in AI</title>
+  <meta name="description" content="Independent research examining how AI responses affect people in emotionally vulnerable situations, based on public datasets spanning 12 categories.">
+  <link rel="canonical" href="https://ikwe.ai/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ikwe.ai/">
+  <meta property="og:site_name" content="Ikwe.ai">
+  <meta property="og:title" content="Emotional Safety Infrastructure for AI">
+  <meta property="og:description" content="What happens when people turn to AI in vulnerable moments? 54.7% of responses made emotional situations worse. 43% showed no corrective behavior.">
+  <meta property="og:image" content="https://ikwe.ai/og/ikwe-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ikwe.ai research: 54.7% of AI responses made emotional situations worse, 43% showed no corrective behavior, 12 vulnerability categories from 8 public datasets">
+  
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Emotional Safety Infrastructure for AI">
+  <meta name="twitter:description" content="What happens when people turn to AI in vulnerable moments? 54.7% of responses made situations worse.">
+  <meta name="twitter:image" content="https://ikwe.ai/og/ikwe-default.png">
+  <meta name="twitter:image:alt" content="Ikwe.ai emotional safety research findings">
+  
+  <link rel="icon" type="image/png" href="ikwe_logo_dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+:root{--bg:#0a0b0f;--bg2:#0f1117;--bg3:#161820;--text:#e9eefc;--text2:rgba(233,238,252,.72);--text3:rgba(233,238,252,.5);--purple:#b794f6;--purple-dim:rgba(183,148,246,.15);--coral:#f6a192;--coral-dim:rgba(246,161,146,.12);--gold:#f6d992;--gold-dim:rgba(246,217,146,.12);--mint:#92f6d9;--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.12);--serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.2}
+a{color:inherit;text-decoration:none}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+.narrow{max-width:680px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,11,15,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1.1rem}
+.brand img{width:32px;height:32px;border-radius:50%}
+.nav-links{display:flex;gap:8px}
+.nav-links a{padding:10px 16px;border-radius:8px;font-size:.9rem;font-weight:500;color:var(--text2);transition:all .15s}
+.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.06);color:var(--text)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;padding:10px;background:none;border:none;cursor:pointer}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .2s}
+.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;color:var(--text2);border-bottom:1px solid var(--border)}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--text)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border-radius:10px;font-weight:600;font-size:.9rem;border:1px solid var(--border2);background:rgba(255,255,255,.03);color:var(--text);cursor:pointer;transition:all .15s}
+.btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.07)}
+.btn.primary{border-color:rgba(183,148,246,.4);background:linear-gradient(180deg,rgba(183,148,246,.2),rgba(183,148,246,.1))}
+.btn.primary:hover{background:linear-gradient(180deg,rgba(183,148,246,.28),rgba(183,148,246,.15))}
+
+/* HERO */
+.hero{padding:80px 0 60px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:start}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:16px}
+.kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--purple);box-shadow:0 0 0 3px var(--purple-dim)}
+h1{font-size:clamp(2.2rem,4.5vw,3.2rem);letter-spacing:-.02em;margin-bottom:20px}
+.hero-sub{font-size:1.08rem;color:var(--text2);max-width:52ch;line-height:1.75;margin-bottom:32px}
+.hero-sub strong{color:var(--text)}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.version{font-size:.78rem;color:var(--text3);margin-top:28px}
+
+/* SIGNAL CARD */
+.signal-card{background:linear-gradient(145deg,rgba(22,24,32,.85),rgba(15,17,23,.75));border:1px solid var(--border);border-radius:20px;padding:28px}
+.signal-title{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:20px}
+.signal-row{display:flex;align-items:baseline;gap:18px;padding:18px 0;border-top:1px solid var(--border)}
+.signal-row:first-of-type{border-top:none;padding-top:0}
+.signal-num{font-family:var(--serif);font-size:2.2rem;font-weight:700;flex-shrink:0;min-width:110px}
+.signal-num .unit{font-size:.45em;opacity:.6}
+.signal-txt{font-size:.88rem;color:var(--text2);line-height:1.5}
+.signal-txt strong{color:var(--text)}
+.s-coral{color:var(--coral)}
+.s-gold{color:var(--gold)}
+.s-purple{color:var(--purple)}
+
+/* SECTIONS */
+.section{padding:72px 0;border-top:1px solid var(--border)}
+h2{font-size:clamp(1.5rem,2.5vw,2rem);margin:10px 0 18px}
+.section-sub{color:var(--text2);font-size:1.02rem;max-width:58ch;line-height:1.75}
+.section-sub strong{color:var(--text)}
+
+/* CALLOUT */
+.callout{border-left:3px solid var(--purple);background:var(--purple-dim);padding:20px 24px;border-radius:0 12px 12px 0;margin-top:28px;font-size:.98rem;color:var(--text2)}
+.callout strong{color:var(--text)}
+
+/* CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.card{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:16px;padding:26px;transition:all .15s}
+.card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.card h3{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:14px}
+.card p{font-size:.94rem;color:var(--text2);line-height:1.65;margin:0}
+.card p strong{color:var(--text)}
+
+/* FIGURE CARDS */
+.figure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.figure-card{display:block;padding:24px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,.025);transition:all .15s}
+.figure-card:hover{transform:translateY(-3px);border-color:rgba(183,148,246,.3)}
+.figure-chip{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:12px}
+.figure-title{font-family:var(--serif);font-size:1.08rem;font-weight:700;margin-bottom:10px}
+.figure-desc{font-size:.88rem;color:var(--text2)}
+
+/* WHY NOW */
+.why-now{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.why-now .section-sub{margin-bottom:18px}
+
+/* CTA */
+.cta{text-align:center;padding:80px 0}
+.cta p{color:var(--text2);max-width:44ch;margin:0 auto 32px}
+.cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+
+/* FOOTER */
+.footer{padding:40px 0 56px;border-top:1px solid var(--border);font-size:.85rem;color:var(--text3)}
+.footer-grid{display:flex;flex-wrap:wrap;gap:56px;justify-content:space-between}
+.footer-col{min-width:150px}
+.footer-title{font-weight:700;color:var(--text);margin-bottom:12px;font-size:.9rem}
+.footer-nav{display:flex;flex-direction:column;gap:8px}
+.footer-nav a{color:var(--text3);transition:color .15s}
+.footer-nav a:hover{color:var(--text)}
+.footer .email{color:var(--purple);cursor:pointer}
+.footer .email:hover{text-decoration:underline}
+
+.note{font-size:.78rem;color:var(--text3);margin-top:18px}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);z-index:1000;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal-content{background:var(--bg2);border:1px solid var(--border);border-radius:16px;width:100%;max-width:640px;max-height:90vh;overflow:hidden;position:relative}
+.modal-header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--border)}
+.modal-header h3{font-size:1.1rem;font-weight:700}
+.modal-close{background:none;border:none;color:var(--text2);font-size:1.5rem;cursor:pointer;padding:4px 8px;line-height:1}
+.modal-close:hover{color:var(--text)}
+.modal-body{height:70vh}
+.modal-body iframe{width:100%;height:100%;border:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-grid,.figure-grid,.card-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+  .hero{padding:60px 0 48px}
+  .section{padding:56px 0}
+}
+@media(max-width:520px){
+  .btn{width:100%;justify-content:center}
+  .cta-btns,.hero-btns{flex-direction:column}
+  .footer-grid{flex-direction:column;gap:36px}
+  .signal-num{font-size:1.8rem;min-width:85px}
+}
+  </style>
+</head>
+<body>
+
+<nav class="nav"><div class="container"><div class="nav-inner">
+  <a class="brand" href="/"><img src="ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+  <div class="nav-links">
+    <a href="/emotional-safety-gap">The Gap</a>
+    <a href="/research">Research</a>
+    <a href="/about">About</a>
+    <a href="/inquiry">Contact</a>
+  </div>
+  <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu"><a href="/emotional-safety-gap">The Gap</a><a href="/research">Research</a><a href="/faq">FAQ</a><a href="/blog">Blog</a><a href="/about">About</a><a href="/inquiry">Contact</a></div>
+</div></div></nav>
+
+<main>
+<section class="hero"><div class="container"><div class="hero-grid">
+  <div>
+    <span class="kicker">When AI starts to feel personal</span>
+    <h1>We test whether it's safe to keep talking.</h1>
+    <p class="hero-sub">AI already gives advice on your health, your heart, your hardest days. We measure what happens next: <strong>real help — or harm introduced at first contact.</strong></p>
+    <p class="hero-sub" style="margin-top:0;font-size:.95rem">Most builders chase how good it <em>sounds</em>. We measure how it actually <em>lands</em>.</p>
+    <div class="hero-btns">
+      <a class="btn primary" href="/emotional-safety-gap">See the Findings →</a>
+      <a class="btn" href="/inquiry">Request Evaluation</a>
+    </div>
+    <p class="version">Ikwe.ai Research · Version 2.0 · January 2026</p>
+  </div>
+  <aside class="signal-card">
+    <div class="signal-title">What we found</div>
+    <div class="signal-row"><div class="signal-num s-coral">54.7%</div><div class="signal-txt">of AI responses <strong>made emotional situations worse</strong> at first contact</div></div>
+    <div class="signal-row"><div class="signal-num s-gold">43%</div><div class="signal-txt"><strong>failed to acknowledge or correct</strong> after distress was expressed</div></div>
+    <div class="signal-row"><div class="signal-num s-purple">12</div><div class="signal-txt">vulnerability categories · 8 public datasets · 4 systems tested</div></div>
+    <p class="note">Observed behaviors under test conditions. Not clinical claims.</p>
+  </aside>
+</div></div></section>
+
+<section class="section"><div class="narrow">
+  <span class="kicker">The problem no one's measuring</span>
+  <h2>The harm that stays invisible</h2>
+  <p class="section-sub">AI can sound perfectly calm, endlessly patient, deeply caring — and still leave someone more anxious, more isolated, more dependent, or more confused than when they started.</p>
+  <p class="section-sub">Today's "safety" checks scan for bad words, policy breaks, or rare disasters. They rarely look at the slow drip inside real conversations — especially when someone is already raw, grieving, or lost.</p>
+  <div class="callout"><strong>Empathy that sounds right can still feel wrong in the long run.</strong> That's where most real damage happens.</div>
+</div></section>
+
+<section class="section"><div class="narrow">
+  <span class="kicker">Why this stays invisible</span>
+  <h2>The gap everyone ships around</h2>
+  <div class="section-sub">
+    <p style="margin-bottom:16px">• Emotional harm rarely arrives as an obvious mistake — it arrives as gentle influence, growing dependency, eroded confidence</p>
+    <p style="margin-bottom:16px">• The more human AI feels, the faster people trust it (and the harder it is to spot problems)</p>
+    <p style="margin-bottom:16px">• Most evaluations stop at the output, not the after-effect on the person</p>
+    <p style="margin-bottom:16px">• There is no shared standard for testing emotional risk across full conversations</p>
+  </div>
+  <p class="section-sub" style="margin-top:24px"><strong>So teams ship AI that feels supportive — without ever knowing what it truly does to the people who need it most.</strong></p>
+</div></section>
+
+<section class="section"><div class="container">
+  <span class="kicker">How we actually test</span>
+  <h2>We evaluate AI the way people experience it</h2>
+  <p class="section-sub" style="margin-bottom:28px">Conversation by conversation. Pattern by pattern. Risk by risk.</p>
+  <div class="card-grid">
+    <div class="card">
+      <h3>We test real conversations</h3>
+      <p>We run and analyze thousands of sensitive, emotional, high-stakes interactions — including the kinds most teams avoid — to reveal how AI behaves under real human pressure.</p>
+    </div>
+    <div class="card">
+      <h3>We measure emotional impact</h3>
+      <p>We track patterns linked to distress, growing dependency, misdirection, emotional escalation — <strong>not just rule violations</strong>.</p>
+    </div>
+    <div class="card">
+      <h3>We make it actionable</h3>
+      <p>We turn raw findings into precise, practical guidance for design, product, and safety teams — so fixes happen <strong>before deployment</strong>.</p>
+    </div>
+  </div>
+  <p class="note" style="margin-top:28px;text-align:center"><a href="/research" style="color:var(--purple)">Our methodology →</a> draws on interaction-level behavioral analysis, emotional signal tracking, and standardized safety benchmarking.</p>
+</div></section>
+
+<section class="section why-now"><div class="narrow">
+  <span class="kicker">This isn't future risk — it's here</span>
+  <h2>AI is already in the room</h2>
+  <p class="section-sub">Mental health support. Wellness coaching. Education. Caregiving. Crisis lines. Personal decisions.</p>
+  <p class="section-sub">Without measuring emotional impact, we quietly normalize tools that shape how people feel, trust, and see themselves — with zero accountability.</p>
+  <div class="callout" style="margin-top:28px"><strong>Emotional safety isn't optional polish.</strong> It's the foundation everything else stands on.</div>
+</div></section>
+
+<section class="section cta"><div class="narrow">
+  <span class="kicker">We learned this by building real systems</span>
+  <h2>If your AI has conversations with people, this matters to you.</h2>
+  <p>Ikwe.ai grew out of actually building and deploying emotionally intelligent AI — and refusing to ship until we could prove it didn't hurt people.</p>
+  <div class="cta-btns">
+    <a class="btn primary" href="/emotional-safety-gap">View the Research</a>
+    <button class="btn" onclick="openModal()">Request Evaluation</button>
+  </div>
+</div></section>
+</main>
+
+<footer class="footer"><div class="container"><div class="footer-grid">
+  <div class="footer-col">
+    <div class="footer-title">ikwe.ai</div>
+    <div style="color:var(--text2);font-size:.9rem">Emotional safety evaluation for conversational AI.</div>
+    <div style="margin-top:14px">© 2026 Visible Healing Inc.</div>
+  </div>
+  <div class="footer-col">
+    <div class="footer-title">Explore</div>
+    <div class="footer-nav">
+      <a href="/">Home</a>
+      <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+      <a href="/research">Research</a>
+      <a href="/about">About</a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <div class="footer-title">Resources</div>
+    <div class="footer-nav">
+      <a href="/explorer">Scenario Explorer</a>
+      <a href="/press">Press & Citations</a>
+      <a href="/faq">FAQ</a>
+      <a href="/blog">Blog</a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <div class="footer-title">Legal</div>
+    <div class="footer-nav">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+    <div style="margin-top:14px"><a href="mailto:research@ikwe.ai" style="color:var(--purple);">research@ikwe.ai</a></div>
+  </div>
+</div></div></footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Work With Us</h3>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <iframe src="https://form.jotform.com/260067967050055" title="Contact Form"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal(){document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+</script>
+
+</body>
+</html>
