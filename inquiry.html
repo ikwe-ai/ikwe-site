@@ -72,8 +72,6 @@ h1{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:16px}
 button[type="submit"]{width:100%;background:var(--purple);color:var(--bg);padding:14px 24px;border:none;border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .15s;margin-top:8px}
 button[type="submit"]:hover{background:#c9a8f8;transform:translateY(-1px)}
 button[type="submit"]:disabled{opacity:.6;cursor:not-allowed}
-.success-message{margin-top:24px;padding:20px;background:rgba(146,246,217,.1);border:1px solid rgba(146,246,217,.3);border-radius:10px;color:#92f6d9;text-align:center;font-weight:500}
-.error-message{margin-top:24px;padding:20px;background:rgba(246,161,146,.1);border:1px solid rgba(246,161,146,.3);border-radius:10px;color:var(--coral);text-align:center}
 
 /* INFO BOX */
 .info-box{margin-top:32px;background:var(--purple-dim);border:1px solid rgba(183,148,246,.2);border-radius:12px;padding:24px}
@@ -129,20 +127,17 @@ button[type="submit"]:disabled{opacity:.6;cursor:not-allowed}
   </div>
   
   <div class="form-wrapper">
-    <!-- Netlify Forms-enabled contact form -->
-    <form id="contactForm" name="ikwe-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <!-- Hidden form-name for Netlify -->
+    <!-- Netlify Forms - no JavaScript needed -->
+    <form name="ikwe-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/inquiry?success=true">
       <input type="hidden" name="form-name" value="ikwe-contact">
-      <!-- Honeypot field to prevent spam -->
-      <p class="hidden">
-        <label>Don’t fill this out if you're human: <input name="bot-field"></label>
-      </p>
+      <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+      
       <div class="form-group">
         <label for="request_type">What are you looking for?</label>
         <select name="request_type" id="request_type" required>
           <option value="">Select request type</option>
-          <option value="inquiry">Emotional Safety Audit / Work with Us</option>
-          <option value="access">Full Research Report Access</option>
+          <option value="Emotional Safety Audit / Work with Us">Emotional Safety Audit / Work with Us</option>
+          <option value="Full Research Report Access">Full Research Report Access</option>
         </select>
       </div>
       
@@ -164,80 +159,51 @@ button[type="submit"]:disabled{opacity:.6;cursor:not-allowed}
         <input id="role" name="role" type="text" required>
       </div>
       
-      <!-- Inquiry Section (Audit/Work With Us) -->
-      <div id="section-inquiry" class="section" style="display:none;">
-        <div class="section-title">Audit Details</div>
-        <div class="form-group">
-          <label for="product_description">Product or Service Description</label>
-          <textarea id="product_description" name="product_description" placeholder="Briefly describe what you'd like us to evaluate"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="product_stage">Product Stage</label>
-          <select id="product_stage" name="product_stage">
-            <option value="">Select stage</option>
-            <option value="Concept">Concept</option>
-            <option value="Pre-launch">Pre-launch</option>
-            <option value="Live">Live</option>
-            <option value="Post-incident">Post-incident</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="engagement_type">Engagement Type</label>
-          <select id="engagement_type" name="engagement_type">
-            <option value="">Select type</option>
-            <option value="Snapshot">Snapshot (quick review)</option>
-            <option value="Audit">Full Audit</option>
-            <option value="Advisory">Advisory engagement</option>
-            <option value="Unsure">Not sure yet</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="source">How did you hear about us?</label>
-          <select id="source" name="source">
-            <option value="">Select source</option>
-            <option value="Benchmark research">Benchmark research</option>
-            <option value="Policy requirement">Policy requirement</option>
-            <option value="Investor request">Investor request</option>
-            <option value="Internal concern">Internal concern</option>
-            <option value="Incident">Incident response</option>
-            <option value="Referral">Referral</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="details">Additional Context</label>
-          <textarea id="details" name="details" placeholder="Any other details you'd like to share"></textarea>
-        </div>
+      <div class="form-group">
+        <label for="product_stage">Product Stage (if applicable)</label>
+        <select id="product_stage" name="product_stage">
+          <option value="">Select stage</option>
+          <option value="Concept">Concept</option>
+          <option value="Pre-launch">Pre-launch</option>
+          <option value="Live">Live</option>
+          <option value="Post-incident">Post-incident</option>
+          <option value="N/A - Research Access">N/A - Research Access</option>
+        </select>
       </div>
       
-      <!-- Access Section (Research Report) -->
-      <div id="section-access" class="section" style="display:none;">
-        <div class="section-title">Research Access Details</div>
-        <div class="form-group">
-          <label for="intended_use">Intended Use</label>
-          <select id="intended_use" name="intended_use">
-            <option value="">Select intended use</option>
-            <option value="Academic research">Academic research</option>
-            <option value="Product evaluation">Product evaluation</option>
-            <option value="Policy development">Policy development</option>
-            <option value="Journalism">Journalism / Press</option>
-            <option value="Internal training">Internal training</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="description">Purpose or Questions</label>
-          <textarea id="description" name="description" placeholder="Tell us how you intend to use the full report"></textarea>
-        </div>
+      <div class="form-group">
+        <label for="engagement_type">Engagement Type (if applicable)</label>
+        <select id="engagement_type" name="engagement_type">
+          <option value="">Select type</option>
+          <option value="Snapshot">Snapshot (quick review)</option>
+          <option value="Full Audit">Full Audit</option>
+          <option value="Advisory">Advisory engagement</option>
+          <option value="Research Access Only">Research Access Only</option>
+          <option value="Not sure yet">Not sure yet</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="source">How did you hear about us?</label>
+        <select id="source" name="source">
+          <option value="">Select source</option>
+          <option value="Benchmark research">Benchmark research</option>
+          <option value="Policy requirement">Policy requirement</option>
+          <option value="Investor request">Investor request</option>
+          <option value="Internal concern">Internal concern</option>
+          <option value="Incident response">Incident response</option>
+          <option value="Referral">Referral</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="details">Additional Context</label>
+        <textarea id="details" name="details" placeholder="Tell us about your product, what you're looking for, or any questions you have"></textarea>
       </div>
       
       <button type="submit" id="submitBtn">Submit Request</button>
     </form>
-    
-    <div id="successMessage" class="success-message" style="display:none;">
-      ✓ Thank you! Your request has been submitted. We'll be in touch within two business days.
-    </div>
-    <div id="errorMessage" class="error-message" style="display:none;"></div>
   </div>
   
   <div class="info-box">
@@ -284,19 +250,10 @@ button[type="submit"]:disabled{opacity:.6;cursor:not-allowed}
 </footer>
 
 <script>
-// Minimal JS to toggle contact form sections when using Netlify Forms.
-document.addEventListener('DOMContentLoaded', function() {
-  const requestType = document.getElementById('request_type');
-  const sectionInquiry = document.getElementById('section-inquiry');
-  const sectionAccess = document.getElementById('section-access');
-
-  // Show or hide additional fields based on the selected request type
-  requestType.addEventListener('change', function() {
-    const value = this.value;
-    sectionInquiry.style.display = (value === 'inquiry') ? 'block' : 'none';
-    sectionAccess.style.display = (value === 'access') ? 'block' : 'none';
-  });
-});
+// Show success message if redirected after form submission
+if(window.location.search.includes('success=true')){
+  document.querySelector('.form-wrapper').innerHTML = '<div style="text-align:center;padding:40px 20px;"><div style="font-size:3rem;margin-bottom:16px;">✓</div><h2 style="margin-bottom:12px;color:var(--purple);">Thank You!</h2><p style="color:var(--text2);">Your request has been submitted. We\'ll be in touch within two business days.</p></div>';
+}
 </script>
 
 </body>
