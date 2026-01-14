@@ -205,11 +205,10 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
       <script>
       document.getElementById('newsletterForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        const form = e.target;
-        const email = document.getElementById('newsletter-email').value.trim();
-        const btn = document.getElementById('newsletter-btn');
-        const success = document.getElementById('newsletter-success');
-        const error = document.getElementById('newsletter-error');
+        var form = e.target;
+        var btn = document.getElementById('newsletter-btn');
+        var success = document.getElementById('newsletter-success');
+        var error = document.getElementById('newsletter-error');
         
         btn.disabled = true;
         btn.textContent = 'Subscribing...';
@@ -217,22 +216,24 @@ h1{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:20px}
         error.style.display = 'none';
         
         // Submit to Netlify Forms
+        var formData = new FormData(form);
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(new FormData(form)).toString()
+          body: new URLSearchParams(formData).toString()
         })
-        .then(r => {
+        .then(function(r) {
           if(r.ok) {
             success.style.display = 'block';
             document.getElementById('newsletter-email').value = '';
+            form.style.display = 'none';
           } else {
             throw new Error('Failed');
           }
           btn.disabled = false;
           btn.textContent = 'Subscribe';
         })
-        .catch(() => {
+        .catch(function() {
           error.style.display = 'block';
           btn.disabled = false;
           btn.textContent = 'Subscribe';
