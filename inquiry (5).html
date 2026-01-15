@@ -27,13 +27,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
   <style>
-:root{--bg:#0a0b0f;--bg2:#0f1117;--bg3:#161820;--text:#e9eefc;--text2:rgba(233,238,252,.72);--text3:rgba(233,238,252,.5);--purple:#b794f6;--purple-dim:rgba(183,148,246,.15);--coral:#f6a192;--coral-dim:rgba(246,161,146,.12);--gold:#f6d992;--gold-dim:rgba(246,217,146,.12);--mint:#92f6d9;--mint-dim:rgba(146,246,217,.12);--green:#6fcf97;--green-dim:rgba(111,207,151,.15);--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.12);--serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+:root{
+  --bg:#0a0b0f;
+  --bg2:#0f1117;
+  --bg3:#161820;
+  --text:#e9eefc;
+  --text2:rgba(233,238,252,.72);
+  --text3:rgba(233,238,252,.5);
+  --purple:#b794f6;
+  --purple-dim:rgba(183,148,246,.15);
+  --border:rgba(255,255,255,.08);
+  --border2:rgba(255,255,255,.12);
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  /* Logo quadrant colors */
+  --q1:#1e1e2e;
+  --q2:#f0a090;
+  --q3:#c4b5f0;
+  --q4:#f0d898;
+}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
 h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.2}
 a{color:inherit;text-decoration:none}
 
+/* NAV */
 .nav{position:sticky;top:0;z-index:100;background:rgba(10,11,15,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1.1rem}
@@ -48,6 +67,7 @@ a{color:inherit;text-decoration:none}
 .mobile-menu a{display:block;padding:14px 0;font-size:1rem;color:var(--text2);border-bottom:1px solid var(--border)}
 .mobile-menu a:last-child{border-bottom:none}
 
+/* PAGE LAYOUT */
 .container{max-width:640px;margin:0 auto;padding:60px 24px 80px}
 .header{text-align:center;margin-bottom:40px}
 .kicker{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:12px}
@@ -57,175 +77,288 @@ h1{font-size:clamp(1.6rem,4vw,2.2rem);margin-bottom:16px}
 
 .form-wrapper{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:32px 28px}
 
-/* INTAKE WHEEL — Matches Ikwe logo: 4 quadrants, multi-select, tooltips */
-.wheel-section{margin-bottom:32px}
-.wheel-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);text-align:center;margin-bottom:6px}
-.wheel-hint{font-size:.85rem;color:var(--text3);text-align:center;margin-bottom:20px}
+/* ============================================
+   INTAKE WHEEL — Logo-shaped multi-select
+   ============================================ */
+.wheel-section{margin-bottom:28px}
+
+.wheel-prompt{
+  text-align:center;
+  font-size:1rem;
+  font-weight:600;
+  color:var(--text);
+  margin-bottom:4px;
+}
+.wheel-prompt .hint{
+  font-weight:400;
+  font-size:.85rem;
+  color:var(--text3);
+}
 
 .intake-wheel-container{
   position:relative;
-  width:240px;
-  margin:0 auto 16px;
+  width:260px;
+  margin:20px auto 8px;
 }
 
 .intake-wheel{
   position:relative;
-  width:240px;
-  height:240px;
+  width:260px;
+  height:260px;
   margin:0 auto;
   border-radius:50%;
   display:grid;
   grid-template-columns:1fr 1fr;
   grid-template-rows:1fr 1fr;
-  overflow:hidden;
-  border:3px solid rgba(255,255,255,.15);
-  box-shadow:0 4px 20px rgba(0,0,0,.25),0 8px 40px rgba(0,0,0,.15);
+  /* Cross gutter */
+  gap:6px;
+  padding:6px;
+  background:var(--bg);
+  /* Outer ring */
+  border:3px solid rgba(255,255,255,.12);
+  box-shadow:0 4px 24px rgba(0,0,0,.3);
 }
 
-/* Hidden checkboxes for multi-select */
-.intake-wheel input[type="checkbox"]{
+/* Hide checkbox inputs but keep accessible */
+.wheel-check{
   position:absolute;
   opacity:0;
   width:0;
   height:0;
+  pointer-events:none;
 }
 
+/* Quadrant buttons */
 .quadrant{
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:12px 8px;
   cursor:pointer;
-  transition:filter .2s ease, opacity .2s ease;
+  transition:all .15s ease;
   border:none;
   position:relative;
-  opacity:.75;
+  /* Soft inner corners */
+  border-radius:12px;
 }
 
-/* Pull content toward center for each quadrant */
-.q1{background:#1e1e2e;padding:20px 12px 12px 20px}
-.q2{background:#f0a090;padding:20px 20px 12px 12px}
-.q3{background:#c4b5f0;padding:12px 12px 20px 20px}
-.q4{background:#f0d898;padding:12px 20px 20px 12px}
+/* Outer corners match circle */
+.q1{background:var(--q1);border-top-left-radius:999px}
+.q2{background:var(--q2);border-top-right-radius:999px}
+.q3{background:var(--q3);border-bottom-left-radius:999px}
+.q4{background:var(--q4);border-bottom-right-radius:999px}
 
-/* Align content toward center */
-.q1{align-items:flex-end;justify-content:flex-end}
-.q2{align-items:flex-start;justify-content:flex-end}
-.q3{align-items:flex-end;justify-content:flex-start}
-.q4{align-items:flex-start;justify-content:flex-start}
-
-.quadrant:hover{
-  filter:brightness(1.15);
-  opacity:1;
-}
+/* Content positioning toward center */
+.q1{padding:24px 10px 10px 24px;align-items:flex-end;justify-content:flex-end}
+.q2{padding:24px 24px 10px 10px;align-items:flex-start;justify-content:flex-end}
+.q3{padding:10px 10px 24px 24px;align-items:flex-end;justify-content:flex-start}
+.q4{padding:10px 24px 24px 10px;align-items:flex-start;justify-content:flex-start}
 
 .quadrant .icon{
-  font-size:1.4rem;
+  font-size:1.5rem;
   margin-bottom:2px;
+  transition:transform .15s ease;
 }
 
 .quadrant .title{
   font-weight:700;
-  font-size:.72rem;
+  font-size:.8rem;
   line-height:1.15;
 }
 
-.quadrant .desc{display:none}
+/* Text colors for contrast */
+.q1 .icon,.q1 .title{color:#e9eefc}
+.q2 .icon,.q2 .title{color:#1e1e2e}
+.q3 .icon,.q3 .title{color:#1e1e2e}
+.q4 .icon,.q4 .title{color:#1e1e2e}
 
-/* Tooltip on hover */
-.quadrant::after{
-  content:attr(data-tooltip);
-  position:absolute;
-  bottom:calc(100% + 8px);
-  left:50%;
-  transform:translateX(-50%);
-  background:var(--bg2);
-  border:1px solid var(--border2);
-  color:var(--text);
-  padding:8px 12px;
-  border-radius:8px;
-  font-size:.8rem;
-  white-space:nowrap;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .15s ease;
-  z-index:20;
-  box-shadow:0 4px 12px rgba(0,0,0,.3);
+/* Hover state */
+.quadrant:hover{
+  filter:brightness(1.1);
 }
-.quadrant:hover::after{opacity:1}
-
-/* Text colors per quadrant */
-.q1 .icon, .q1 .title{color:#e9eefc}
-.q2 .icon, .q2 .title{color:#1e1e2e}
-.q3 .icon, .q3 .title{color:#1e1e2e}
-.q4 .icon, .q4 .title{color:#1e1e2e}
-
-/* Selected state — darkened + checkmark */
-input:checked + .quadrant{
-  opacity:1;
-  filter:brightness(.8);
+.quadrant:hover .icon{
+  transform:scale(1.1);
 }
 
-input:checked + .quadrant::before{
+/* ============================================
+   SELECTED STATE — darkened + checkmark
+   ============================================ */
+.wheel-check:checked + .quadrant{
+  filter:brightness(.75);
+}
+
+.wheel-check:checked + .quadrant::after{
   content:"✓";
   position:absolute;
-  width:18px;
-  height:18px;
+  width:22px;
+  height:22px;
   background:rgba(255,255,255,.95);
   color:#1e1e2e;
   border-radius:50%;
-  font-size:.65rem;
+  font-size:.75rem;
   font-weight:700;
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 2px 6px rgba(0,0,0,.25);
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
 }
 
-input:checked + .q1::before{top:10px;left:10px}
-input:checked + .q2::before{top:10px;right:10px}
-input:checked + .q3::before{bottom:10px;left:10px}
-input:checked + .q4::before{bottom:10px;right:10px}
+/* Position checkmarks in outer corners */
+.wheel-check:checked + .q1::after{top:16px;left:16px}
+.wheel-check:checked + .q2::after{top:16px;right:16px}
+.wheel-check:checked + .q3::after{bottom:16px;left:16px}
+.wheel-check:checked + .q4::after{bottom:16px;right:16px}
 
-.wheel-selection-hint{
+/* Focus state for accessibility */
+.wheel-check:focus + .quadrant{
+  outline:2px solid var(--purple);
+  outline-offset:2px;
+}
+
+/* Center dot (like logo) */
+.wheel-center{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:32px;
+  height:32px;
+  background:var(--bg);
+  border:2px solid rgba(255,255,255,.15);
+  border-radius:50%;
+  pointer-events:none;
+  z-index:10;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+}
+.wheel-center::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:10px;
+  height:10px;
+  background:var(--purple);
+  border-radius:50%;
+  box-shadow:0 0 8px var(--purple);
+}
+
+/* Validation message */
+.wheel-validation{
   text-align:center;
-  font-size:.78rem;
-  color:var(--text3);
+  font-size:.82rem;
+  color:#f6a192;
+  min-height:20px;
   margin-top:8px;
 }
 
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
 .form-group{margin-bottom:20px}
 .form-group label{display:block;font-size:.9rem;margin-bottom:8px;color:var(--text);font-weight:500}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--border2);background:var(--bg);color:var(--text);font-size:.95rem;font-family:var(--sans)}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--purple)}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;
+  padding:12px 14px;
+  border-radius:8px;
+  border:1px solid var(--border2);
+  background:var(--bg);
+  color:var(--text);
+  font-size:.95rem;
+  font-family:var(--sans);
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  outline:none;
+  border-color:var(--purple);
+}
 .form-group textarea{height:100px;resize:vertical}
 .form-group .optional{font-size:.8rem;color:var(--text3);font-weight:400}
 
-/* Checkbox styling */
-.checkbox-group{display:flex;align-items:flex-start;gap:12px;padding:16px;background:var(--bg3);border-radius:10px;margin-bottom:20px;cursor:pointer}
-.checkbox-group input[type="checkbox"]{width:20px;height:20px;margin-top:2px;accent-color:var(--purple);cursor:pointer}
+/* Newsletter checkbox */
+.checkbox-group{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:16px;
+  background:var(--bg3);
+  border-radius:10px;
+  margin-bottom:20px;
+  cursor:pointer;
+}
+.checkbox-group input[type="checkbox"]{
+  width:20px;
+  height:20px;
+  margin-top:2px;
+  accent-color:var(--purple);
+  cursor:pointer;
+}
 .checkbox-group .checkbox-text{flex:1}
 .checkbox-group .checkbox-label{font-weight:500;color:var(--text);font-size:.95rem}
 .checkbox-group .checkbox-desc{font-size:.85rem;color:var(--text3);margin-top:2px}
 
 /* Expandable details */
-.details-toggle{width:100%;padding:14px 16px;background:transparent;border:1px dashed var(--border2);border-radius:10px;color:var(--text2);font-size:.9rem;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:20px}
+.details-toggle{
+  width:100%;
+  padding:14px 16px;
+  background:transparent;
+  border:1px dashed var(--border2);
+  border-radius:10px;
+  color:var(--text2);
+  font-size:.9rem;
+  cursor:pointer;
+  transition:all .15s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-bottom:20px;
+}
 .details-toggle:hover{border-color:var(--purple);color:var(--text)}
 .details-toggle svg{transition:transform .2s}
 .details-toggle.open svg{transform:rotate(180deg)}
 .extra-fields{display:none;padding-top:20px;border-top:1px solid var(--border)}
 .extra-fields.open{display:block}
-.extra-hint{font-size:.85rem;color:var(--text3);font-style:italic;margin-bottom:16px;padding:12px;background:var(--bg);border-radius:8px}
+.extra-hint{
+  font-size:.85rem;
+  color:var(--text3);
+  font-style:italic;
+  margin-bottom:16px;
+  padding:12px;
+  background:var(--bg);
+  border-radius:8px;
+}
 
-button[type="submit"]{width:100%;background:var(--purple);color:var(--bg);padding:16px 24px;border:none;border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .15s}
-button[type="submit"]:hover{background:#c9a8f8;transform:translateY(-1px)}
+/* Submit button */
+button[type="submit"]{
+  width:100%;
+  background:var(--purple);
+  color:var(--bg);
+  padding:16px 24px;
+  border:none;
+  border-radius:10px;
+  font-size:1rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:all .15s;
+}
+button[type="submit"]:hover{
+  background:#c9a8f8;
+  transform:translateY(-1px);
+}
 
-.info-box{margin-top:24px;padding:20px;background:var(--purple-dim);border:1px solid rgba(183,148,246,.2);border-radius:12px;text-align:center}
+.info-box{
+  margin-top:24px;
+  padding:20px;
+  background:var(--purple-dim);
+  border:1px solid rgba(183,148,246,.2);
+  border-radius:12px;
+  text-align:center;
+}
 .info-box p{color:var(--text2);font-size:.9rem}
 .info-box a{color:var(--purple)}
 
+/* FOOTER */
 .footer{padding:48px 0 64px;border-top:1px solid var(--border);font-size:.85rem;color:var(--text3)}
 .footer-grid{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;gap:48px;justify-content:space-between}
 .footer-col{min-width:140px}
@@ -234,16 +367,24 @@ button[type="submit"]:hover{background:#c9a8f8;transform:translateY(-1px)}
 .footer-nav a{color:var(--text3);transition:color .15s}
 .footer-nav a:hover{color:var(--text)}
 
-@media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}}
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+}
 @media(max-width:520px){
-  .intake-wheel{width:220px;height:220px}
-  .intake-wheel-container{width:220px}
-  .quadrant{padding:10px 6px}
-  .quadrant .title{font-size:.68rem}
-  .quadrant .icon{font-size:1.2rem}
+  .intake-wheel-container{width:240px}
+  .intake-wheel{width:240px;height:240px;gap:5px;padding:5px}
+  .quadrant .icon{font-size:1.3rem}
+  .quadrant .title{font-size:.72rem}
+  .q1{padding:20px 8px 8px 20px}
+  .q2{padding:20px 20px 8px 8px}
+  .q3{padding:8px 8px 20px 20px}
+  .q4{padding:8px 20px 20px 8px}
+  .wheel-center{width:28px;height:28px}
+  .wheel-center::after{width:8px;height:8px}
   .form-wrapper{padding:24px 20px}
   .container{padding:40px 20px 60px}
-  .quadrant::after{font-size:.72rem;padding:6px 10px}
 }
   </style>
 </head>
@@ -278,7 +419,7 @@ button[type="submit"]:hover{background:#c9a8f8;transform:translateY(-1px)}
   <div class="header">
     <span class="kicker">Get in Touch</span>
     <h1>What brings you here?</h1>
-    <p class="subtitle">Select the option that best fits — you can add details later.</p>
+    <p class="subtitle">Select what you're interested in, add your email, and we'll be in touch.</p>
   </div>
   
   <div class="form-wrapper">
@@ -286,43 +427,53 @@ button[type="submit"]:hover{background:#c9a8f8;transform:translateY(-1px)}
       <input type="hidden" name="form-name" value="ikwe-contact">
       <input type="hidden" name="bot-field">
       
-      <!-- INTAKE WHEEL - 4-Quadrant Multi-Select -->
+      <!-- Hidden aggregator field for validation (enforces at least one selection) -->
+      <input type="text" name="request_types" id="request_types" required hidden aria-hidden="true">
+      
+      <!-- INTAKE WHEEL — Logo-shaped multi-select -->
       <div class="wheel-section">
+        <p class="wheel-prompt">Select one or more <span class="hint">(required)</span></p>
+        
         <div class="intake-wheel-container">
-          <div class="intake-wheel">
-            <!-- Q1: Top-Left - Research Access -->
-            <input type="checkbox" name="request_type" id="req-research" value="Research Access">
-            <label for="req-research" class="quadrant q1" data-tooltip="Get the full report & methodology">
+          <div class="intake-wheel" role="group" aria-label="Inquiry type selection">
+            
+            <!-- Q1: Top-Left - Research -->
+            <input type="checkbox" class="wheel-check" id="req-research" value="Research Access">
+            <label for="req-research" class="quadrant q1">
               <span class="icon">📊</span>
-              <span class="title">Research<br>Access</span>
+              <span class="title">Research</span>
             </label>
             
-            <!-- Q2: Top-Right - Safety Evaluation -->
-            <input type="checkbox" name="request_type" id="req-audit" value="Safety Evaluation">
-            <label for="req-audit" class="quadrant q2" data-tooltip="Audit an AI system for safety risks">
+            <!-- Q2: Top-Right - Evaluate -->
+            <input type="checkbox" class="wheel-check" id="req-audit" value="Safety Evaluation">
+            <label for="req-audit" class="quadrant q2">
               <span class="icon">🔍</span>
-              <span class="title">Safety<br>Evaluation</span>
+              <span class="title">Evaluate</span>
             </label>
             
-            <!-- Q3: Bottom-Left - Work With Us -->
-            <input type="checkbox" name="request_type" id="req-work" value="Work With Us">
-            <label for="req-work" class="quadrant q3" data-tooltip="Collaboration, partnerships, advisory">
+            <!-- Q3: Bottom-Left - Collaborate -->
+            <input type="checkbox" class="wheel-check" id="req-work" value="Work With Us">
+            <label for="req-work" class="quadrant q3">
               <span class="icon">🤝</span>
-              <span class="title">Work<br>With Us</span>
+              <span class="title">Collaborate</span>
             </label>
             
-            <!-- Q4: Bottom-Right - Invest / Support -->
-            <input type="checkbox" name="request_type" id="req-invest" value="Invest / Support">
-            <label for="req-invest" class="quadrant q4" data-tooltip="Investors, grants, or strategic support">
+            <!-- Q4: Bottom-Right - Invest -->
+            <input type="checkbox" class="wheel-check" id="req-invest" value="Invest / Support">
+            <label for="req-invest" class="quadrant q4">
               <span class="icon">💠</span>
-              <span class="title">Invest /<br>Support</span>
+              <span class="title">Invest</span>
             </label>
+            
+            <!-- Center dot -->
+            <div class="wheel-center" aria-hidden="true"></div>
           </div>
-          <div class="wheel-selection-hint">Select one or more options</div>
         </div>
+        
+        <p class="wheel-validation" id="wheelValidation" aria-live="polite"></p>
       </div>
       
-      <!-- Required: Just email -->
+      <!-- Email (required) -->
       <div class="form-group">
         <label for="email">Email address</label>
         <input id="email" name="email" type="email" placeholder="you@company.com" required>
@@ -344,7 +495,7 @@ button[type="submit"]:hover{background:#c9a8f8;transform:translateY(-1px)}
       </button>
       
       <div class="extra-fields" id="extraFields">
-        <div class="extra-hint">If you're requesting research access or investment information, feel free to share what you're hoping to learn or support.</div>
+        <div class="extra-hint">Share what you're working on or what you'd like to learn.</div>
         
         <div class="form-group">
           <label for="name">Name <span class="optional">(optional)</span></label>
@@ -357,13 +508,8 @@ button[type="submit"]:hover{background:#c9a8f8;transform:translateY(-1px)}
         </div>
         
         <div class="form-group">
-          <label for="role">Role <span class="optional">(optional)</span></label>
-          <input id="role" name="role" type="text" placeholder="Your title or role">
-        </div>
-        
-        <div class="form-group">
           <label for="context">Tell us more <span class="optional">(optional)</span></label>
-          <textarea id="context" name="context" placeholder="What are you working on? What brings you here? Any specific questions?"></textarea>
+          <textarea id="context" name="context" placeholder="What brings you here? Any specific questions?"></textarea>
         </div>
         
         <div class="form-group">
@@ -380,7 +526,7 @@ button[type="submit"]:hover{background:#c9a8f8;transform:translateY(-1px)}
         </div>
       </div>
       
-      <button type="submit">Submit Request</button>
+      <button type="submit">Send Request</button>
     </form>
   </div>
   
@@ -428,6 +574,7 @@ button[type="submit"]:hover{background:#c9a8f8;transform:translateY(-1px)}
 </footer>
 
 <script>
+// Toggle extra details section
 function toggleDetails() {
   var btn = document.querySelector('.details-toggle');
   var fields = document.getElementById('extraFields');
@@ -437,6 +584,28 @@ function toggleDetails() {
     ? '<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> Hide details'
     : '<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg> Add context (optional)';
 }
+
+// Multi-select wheel: update hidden aggregator field
+// This does NOT intercept form submission - just updates field value
+(function(){
+  var checks = Array.from(document.querySelectorAll('.wheel-check'));
+  var agg = document.getElementById('request_types');
+  var msg = document.getElementById('wheelValidation');
+
+  function updateAggregator(){
+    var selected = checks.filter(function(c){ return c.checked; }).map(function(c){ return c.value; });
+    agg.value = selected.join(', ');
+    // Show hint if nothing selected
+    msg.textContent = selected.length ? '' : 'Please select at least one option above.';
+  }
+
+  checks.forEach(function(c){
+    c.addEventListener('change', updateAggregator);
+  });
+  
+  // Initialize on load
+  updateAggregator();
+})();
 </script>
 
 </body>
