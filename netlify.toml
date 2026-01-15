@@ -151,6 +151,17 @@
   to = "/terms.html"
   status = 200
 
+[[redirects]]
+  from = "/thank-you"
+  to = "/thank-you.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/thank-you.html"
+  to = "/thank-you.html"
+  status = 200
+
 # Headers for security and caching
 [[headers]]
   for = "/*"
