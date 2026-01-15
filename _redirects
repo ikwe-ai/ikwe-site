@@ -3,6 +3,7 @@
 
 # Form success page (Netlify forms will redirect here after POST)
 /thank-you                /thank-you.html           200!
+/thank-you.html           /thank-you.html           200
 
 # Main pages
 /                         /index.html               200
