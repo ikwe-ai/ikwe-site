@@ -2,7 +2,7 @@
 # This file must be in the publish root directory
 
 # Form success page (Netlify forms will redirect here after POST)
-/thank-you                /thank-you.html           200!
+/thank-you                /thank-you.html           303
 
 # Main pages
 /                         /index.html               200
