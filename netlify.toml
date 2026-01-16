@@ -154,8 +154,7 @@
 [[redirects]]
   from = "/thank-you"
   to = "/thank-you.html"
-  status = 200
-  force = true
+  status = 303
 
 [[redirects]]
   from = "/thank-you.html"
