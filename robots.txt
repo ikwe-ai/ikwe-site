@@ -1,9 +1,0 @@
-# robots.txt for ikwe.ai
-User-agent: *
-Allow: /
-
-# Sitemap location
-Sitemap: https://ikwe.ai/sitemap.xml
-
-# Disallow internal/utility pages
-Disallow: /ikwe-og-verified.html
