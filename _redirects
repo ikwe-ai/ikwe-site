@@ -1,0 +1,5 @@
+# Redirects for Ikwe.ai
+# Use this OR netlify.toml redirects (not both)
+
+/report    /report.html    200
+/report-requested    /report-requested.html    200
