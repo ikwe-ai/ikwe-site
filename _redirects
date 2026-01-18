@@ -1,0 +1,10 @@
+# Redirects for Ikwe.ai
+# Use this OR netlify.toml redirects (not both)
+
+# Clean URLs
+/report    /report.html    200
+/report-requested    /report-requested.html    200
+
+# Legacy PDF redirects (stable URLs)
+/05_Ikwe_Research_Summary.pdf             /Ikwe_Research_Summary.pdf            301
+/Ikwe_Full_Research_Report_v1_Jan2026.pdf /Ikwe_Full_Research_Report.pdf        301
