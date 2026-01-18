@@ -1,0 +1,5 @@
+# Blog post clean URLs
+/blog/the-world-fell-once    /blog/the-world-fell-once.html    200
+/blog/the-day-we-stopped-checking    /blog/the-day-we-stopped-checking.html    200
+
+# Existing redirects (add to your current _redirects)
