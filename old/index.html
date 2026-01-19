@@ -181,14 +181,14 @@ a { color: inherit; text-decoration: none; }
 }
 .kicker.teal { color: var(--teal); }
 
-/* HERO */
+/* HERO (tuned: stronger first-fold balance) */
 .hero {
-  padding: 64px 0 56px;
+  padding: 72px 0 56px;
 }
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px;
+  gap: 40px;
   align-items: center;
 }
 .hero-title {
@@ -196,7 +196,7 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.1;
   letter-spacing: -.02em;
   margin-bottom: 18px;
-  max-width: 18ch;
+  max-width: 22ch;
 }
 .hero-sub {
   font-size: 1rem;
@@ -219,6 +219,9 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 24px 28px;
+  border-color: rgba(255,255,255,.10);
+  box-shadow: 0 18px 48px rgba(0,0,0,.42);
+  transform: translateY(-6px);
 }
 
 .stage-section {
@@ -638,6 +641,7 @@ a { color: inherit; text-decoration: none; }
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
   .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .results-card { transform: none; }
   .offerings-grid { grid-template-columns: 1fr; }
   .stat-pair { grid-template-columns: 1fr; }
   .card-grid { grid-template-columns: 1fr; }
@@ -656,19 +660,21 @@ a { color: inherit; text-decoration: none; }
 <body>
 
 <nav class="nav"><div class="container"><div class="nav-inner">
-  <a class="brand" href="index.html"><img src="ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+  <a class="brand" href="/"><img src="ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
   <div class="nav-links">
-    <a href="emotional-safety-gap.html">The Gap</a>
-    <a href="research.html">Research</a>
-    <a href="partner.html">Partner</a>
-    <a href="press.html">Press</a>
-    <a href="support.html" style="color: var(--purple);">Support</a>
-    <a href="inquiry.html">Contact</a>
+    <a href="/emotional-safety-gap">The Gap</a>
+    <a href="/research">Research</a>
+    <a href="/faq">FAQ</a>
+    <a href="/blog">Blog</a>
+    <a href="/about">About</a>
+    <a href="/support">Support</a>
+    <a href="/partner">Partner</a>
+    <a href="/inquiry">Contact</a>
   </div>
   <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <div class="mobile-menu"><a href="emotional-safety-gap.html">The Gap</a><a href="research.html">Research</a><a href="partner.html">Partner</a><a href="press.html">Press</a><a href="support.html">Support</a><a href="inquiry.html">Contact</a></div>
+  <div class="mobile-menu"><a href="/emotional-safety-gap">The Gap</a><a href="/research">Research</a><a href="/faq">FAQ</a><a href="/blog">Blog</a><a href="/about">About</a><a href="/support">Support</a><a href="/partner">Partner</a><a href="/inquiry">Contact</a></div>
 </div></div></nav>
 
 <main>
@@ -683,8 +689,9 @@ a { color: inherit; text-decoration: none; }
         <p class="hero-sub">Measuring observable behavior when users are vulnerable — not just accuracy, intent, or alignment claims.</p>
         <p class="hero-sub"><strong>Correct ≠ Safe.</strong> Ikwe.ai measures what happens when humans trust AI systems — especially under emotional load.</p>
         <div class="hero-btns">
-          <a class="btn primary" href="research.html">View Benchmark Methodology</a>
-          <a class="btn" href="partner.html">Partner with Ikwe.ai</a>
+          <a class="btn primary" href="/research">View Benchmark Methodology</a>
+          <a class="btn" href="/partner">Partner with Ikwe.ai</a>
+          <a class="btn" href="https://donate.stripe.com/fZu28s6UY5Xb7Bk66B9sk00" target="_blank" rel="noopener">Support the Research</a>
         </div>
       </div>
       
@@ -906,8 +913,8 @@ a { color: inherit; text-decoration: none; }
     <h2>Close the emotional safety gap</h2>
     <p>Whether you need to measure your current risk or build with safety-first architecture from day one.</p>
     <div class="cta-btns">
-      <a class="btn teal" href="partner.html">License the Framework</a>
-      <a class="btn primary" href="partner.html">Request an Audit</a>
+      <a class="btn teal" href="/partner">License the Framework</a>
+      <a class="btn primary" href="/partner">Request an Audit</a>
     </div>
   </div>
 </section>
@@ -927,35 +934,50 @@ a { color: inherit; text-decoration: none; }
         <div style="color: var(--text2); font-size: .9rem;">Behavioral emotional safety in AI.</div>
         <div style="margin-top: 14px;">© 2026 Visible Healing Inc.</div>
       </div>
+
       <div class="footer-col">
         <div class="footer-title">Research</div>
         <div class="footer-nav">
-          <a href="index.html">Home</a>
-          <a href="emotional-safety-gap.html">The Emotional Safety Gap</a>
-          <a href="research.html">Methodology</a>
-          <a href="full-report.html">Full Report</a>
+          <a href="/">Home</a>
+          <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+          <a href="/research">Methodology</a>
+          <a href="/report">Download Report</a>
         </div>
       </div>
+
       <div class="footer-col">
-        <div class="footer-title">Company</div>
+        <div class="footer-title">About</div>
         <div class="footer-nav">
-          <a href="partner.html">Partner</a>
-          <a href="press.html">Press & Citations</a>
-          <a href="inquiry.html">Contact</a>
-          <a href="support.html" style="color: var(--purple);">Support Us ♥</a>
+          <a href="/about">About Ikwe.ai</a>
+          <a href="/faq">FAQ</a>
+          <a href="/blog">Blog</a>
+          <a href="/press">Press & Citations</a>
+          <a href="/partner">Partner</a>
         </div>
       </div>
+
       <div class="footer-col">
-        <div class="footer-title">Donate</div>
+        <div class="footer-title">Support</div>
         <div class="footer-nav">
-          <a href="https://donate.stripe.com/fZu28s6UY5Xb7Bk66B9sk00" target="_blank" style="color: var(--purple);">Stripe (Primary)</a>
-          <a href="support.html">Crypto & Other Options</a>
+          <a href="/support">Support the research</a>
+          <a href="https://donate.stripe.com/fZu28s6UY5Xb7Bk66B9sk00" target="_blank" rel="noopener">Stripe</a>
+          <a href="/support#crypto">Crypto</a>
+        </div>
+        <div style="margin-top: 12px; color: var(--text2); font-size: .85rem; word-break: break-all;">0x6162903967c2D9A9D5457e479Dab6A08190EE430</div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Legal</div>
+        <div class="footer-nav">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/inquiry">Contact</a>
         </div>
         <div style="margin-top: 14px;"><a href="mailto:research@ikwe.ai" style="color: var(--purple);">research@ikwe.ai</a></div>
       </div>
     </div>
   </div>
-</footer>-e 
+</footer>
 
 </body>
 </html>

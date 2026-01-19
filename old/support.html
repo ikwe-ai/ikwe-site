@@ -3,15 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Support Ikwe.ai — Fund Independent AI Safety Research</title>
-  <meta name="description" content="Support Ikwe.ai's mission to build behavioral emotional safety infrastructure for conversational AI. Your contribution funds independent research protecting vulnerable users.">
+  <title>ikwe.ai — Support the Research</title>
+  <meta name="description" content="Support independent behavioral emotional safety research at Ikwe.ai — via Stripe, crypto, or sponsorship.">
   <link rel="canonical" href="https://ikwe.ai/support">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ikwe.ai/support">
-  <meta property="og:title" content="Support Ikwe.ai — Fund Independent AI Safety Research">
-  <meta property="og:description" content="Help build the behavioral safety layer AI benchmarks forgot.">
+  <meta property="og:site_name" content="Ikwe.ai">
+  <meta property="og:title" content="Support Ikwe.ai Research">
+  <meta property="og:description" content="Fund independent behavioral emotional safety research — Stripe, crypto, or sponsorship.">
+  <meta property="og:image" content="https://ikwe.ai/og/ikwe-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  
+  <!-- Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Support Ikwe.ai Research">
+  <meta name="twitter:description" content="Fund independent behavioral emotional safety research — Stripe, crypto, or sponsorship.">
+  <meta name="twitter:image" content="https://ikwe.ai/og/ikwe-default.png">
   
   <link rel="icon" type="image/png" href="ikwe_logo_dark.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +41,7 @@
   --coral: #fb923c;
   --gold: #fbbf24;
   --green: #22c55e;
-  --green-dim: rgba(34,197,94,.1);
+  --red: #f87171;
   --teal: #2dd4bf;
   --teal-dim: rgba(45,212,191,.1);
   --border: rgba(255,255,255,.06);
@@ -46,7 +57,7 @@ body {
   font-family: var(--sans);
   background: var(--bg);
   color: var(--text);
-  line-height: 1.65;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -90,13 +101,74 @@ a { color: inherit; text-decoration: none; }
   transition: all .15s;
 }
 .nav-links a:hover { background: rgba(255,255,255,.05); color: var(--text); }
-
-/* HERO */
-.support-hero {
-  padding: 80px 0 60px;
-  text-align: center;
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+}
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px;
+}
+.mobile-menu.open { display: block; }
+.mobile-menu a {
+  display: block;
+  padding: 12px 0;
+  font-size: .95rem;
+  color: var(--text2);
   border-bottom: 1px solid var(--border);
 }
+.mobile-menu a:last-child { border-bottom: none; }
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: .9rem;
+  border: 1px solid var(--border2);
+  background: rgba(255,255,255,.03);
+  color: var(--text);
+  cursor: pointer;
+  transition: all .15s;
+}
+.btn:hover { transform: translateY(-1px); background: rgba(255,255,255,.06); }
+.btn.primary {
+  border-color: rgba(167,139,250,.35);
+  background: linear-gradient(180deg, rgba(167,139,250,.18), rgba(167,139,250,.08));
+}
+.btn.primary:hover {
+  background: linear-gradient(180deg, rgba(167,139,250,.25), rgba(167,139,250,.12));
+}
+.btn.teal {
+  border-color: rgba(45,212,191,.35);
+  background: linear-gradient(180deg, rgba(45,212,191,.15), rgba(45,212,191,.06));
+}
+.btn.teal:hover {
+  background: linear-gradient(180deg, rgba(45,212,191,.22), rgba(45,212,191,.1));
+}
+
+/* KICKER */
 .kicker {
   display: inline-block;
   font-family: var(--mono);
@@ -105,527 +177,663 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--purple);
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
-.support-hero h1 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  margin-bottom: 20px;
-  max-width: 16ch;
-  margin-left: auto;
-  margin-right: auto;
+.kicker.teal { color: var(--teal); }
+
+
+/* SUPPORT */
+.support-hero{padding:56px 0 28px;}
+.support-hero h1{font-size:clamp(1.9rem,3.2vw,2.4rem);margin:10px 0 12px;}
+.support-hero p{color:var(--text2);max-width:70ch;}
+.support-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:start;margin-top:18px;}
+.panel{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:22px;}
+.panel h2{font-size:1.1rem;margin:6px 0 10px;}
+.tier{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--border);}
+.tier:first-of-type{border-top:none;padding-top:2px;}
+.tier strong{font-family:var(--mono);font-size:.85rem;}
+.codebox{font-family:var(--mono);font-size:.82rem;color:var(--text);background:rgba(255,255,255,.03);border:1px solid var(--border);padding:12px;border-radius:12px;word-break:break-all;}
+.small{font-size:12px;color:var(--text3);}
+.qr{width:148px;height:148px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;color:var(--text3);font-family:var(--mono);font-size:11px;}
+@media (max-width:900px){.support-grid{grid-template-columns:1fr;}}
+
+/* HERO */
+.hero {
+  padding: 64px 0 56px;
 }
-.support-hero .lead {
-  font-size: 1.15rem;
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 48px;
+  align-items: start;
+}
+.hero-title {
+  font-size: clamp(1.85rem, 3.6vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin-bottom: 18px;
+  max-width: 18ch;
+}
+.hero-sub {
+  font-size: 1rem;
   color: var(--text2);
-  max-width: 600px;
-  margin: 0 auto 32px;
+  max-width: 50ch;
   line-height: 1.7;
+  margin-bottom: 14px;
+}
+.hero-sub strong { color: var(--text); }
+.hero-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
 }
 
-/* MAIN DONATE */
-.donate-section {
-  padding: 60px 0;
+/* TWO-STAGE RESULTS CARD */
+.results-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 28px;
 }
-.donate-primary {
-  background: linear-gradient(135deg, var(--purple-dim) 0%, var(--bg2) 100%);
-  border: 1px solid rgba(167,139,250,.25);
-  border-radius: 20px;
-  padding: 48px;
-  text-align: center;
-  margin-bottom: 40px;
+
+.stage-section {
+  margin-bottom: 24px;
 }
-.donate-primary h2 {
-  font-size: 1.75rem;
-  margin-bottom: 16px;
+.stage-section:last-child {
+  margin-bottom: 0;
 }
-.donate-primary p {
-  color: var(--text2);
-  margin-bottom: 32px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.btn-donate {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 18px 40px;
-  font-size: 1.1rem;
+
+.stage-label {
+  font-family: var(--mono);
+  font-size: 10px;
   font-weight: 700;
-  color: var(--bg);
-  background: var(--purple);
-  border-radius: 12px;
-  transition: all .2s;
-  box-shadow: 0 4px 24px rgba(167,139,250,.25);
-}
-.btn-donate:hover {
-  background: #9171eb;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(167,139,250,.35);
-}
-.btn-donate svg {
-  width: 24px;
-  height: 24px;
-}
-.donate-note {
-  margin-top: 20px;
-  font-size: .85rem;
-  color: var(--text3);
-}
-
-/* IMPACT GRID */
-.impact-section {
-  padding: 60px 0;
-  border-top: 1px solid var(--border);
-}
-.section-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-.section-header h2 {
-  font-size: 1.5rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--green);
   margin-bottom: 12px;
 }
-.section-header p {
-  color: var(--text2);
-  max-width: 500px;
-  margin: 0 auto;
+.stage-label.secondary {
+  color: var(--text3);
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
 }
-.impact-grid {
+
+.primary-stat {
+  margin-bottom: 8px;
+}
+.primary-stat .num {
+  font-family: var(--mono);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+}
+.primary-stat .desc {
+  font-size: 15px;
+  color: var(--text);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+.primary-stat .sub {
+  font-size: 12px;
+  color: var(--text3);
+  margin-top: 4px;
+}
+
+.conditional-note {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: rgba(255,255,255,.02);
+  border-radius: 8px;
+}
+.conditional-note strong {
+  color: var(--text);
+}
+
+.compare-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.compare-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1.4fr 2.2fr .7fr;
+  align-items: center;
+  gap: 12px;
+}
+.compare-label strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  display: block;
+}
+.compare-label.primary strong {
+  color: var(--green);
+}
+.compare-label span {
+  font-size: 10px;
+  color: var(--text3);
+}
+.compare-bar {
+  height: 10px;
+  background: rgba(255,255,255,.04);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.compare-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+.compare-fill.green { background: linear-gradient(90deg, #22c55e, #16a34a); }
+.compare-fill.amber { background: linear-gradient(90deg, #fbbf24, #d97706); }
+.compare-fill.red { background: linear-gradient(90deg, #f87171, #dc2626); }
+
+.compare-value {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+}
+.compare-value.green { color: var(--green); }
+.compare-value.amber { color: var(--gold); }
+.compare-value.red { color: var(--red); }
+
+.card-footer {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text3);
+  line-height: 1.6;
+}
+.card-footer strong {
+  color: var(--text2);
+}
+
+/* STAT PAIR */
+.stat-section {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+.stat-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
-.impact-card {
+.stat-card {
   background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 28px;
+  padding: 24px 26px;
 }
-.impact-icon {
-  width: 48px;
-  height: 48px;
-  background: var(--teal-dim);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-.impact-icon svg {
-  width: 24px;
-  height: 24px;
-  color: var(--teal);
-}
-.impact-card h3 {
-  font-size: 1.1rem;
+.stat-card .num {
+  font-family: var(--mono);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
   margin-bottom: 10px;
-  font-family: var(--sans);
-  font-weight: 600;
 }
-.impact-card p {
-  font-size: .9rem;
+.stat-card .num.coral { color: var(--coral); }
+.stat-card .num.gold { color: var(--gold); }
+.stat-card p {
+  font-size: 14px;
   color: var(--text2);
-  line-height: 1.6;
+  line-height: 1.55;
+}
+.stat-card p strong {
+  color: var(--text);
 }
 
-/* ALT PAYMENT */
-.alt-section {
-  padding: 60px 0;
+/* THESIS */
+.thesis-section {
+  padding: 56px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.thesis-box {
+  background: linear-gradient(135deg, rgba(45,212,191,.08), rgba(45,212,191,.02));
+  border: 1px solid rgba(45,212,191,.15);
+  border-radius: 16px;
+  padding: 40px 48px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.thesis-box .title {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 14px;
+}
+.thesis-box p {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 48ch;
+  margin: 0 auto;
+}
+
+/* SECTION */
+.section {
+  padding: 56px 0;
   border-top: 1px solid var(--border);
 }
-.alt-section .section-header {
-  margin-bottom: 32px;
+.section h2 {
+  font-size: clamp(1.4rem, 2.2vw, 1.7rem);
+  margin: 8px 0 14px;
 }
-.alt-grid {
+.section-sub {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 54ch;
+}
+.section-sub strong {
+  color: var(--text);
+}
+
+/* TWO OFFERINGS */
+.offerings-section {
+  padding: 64px 0;
+  border-top: 1px solid var(--border);
+  background: var(--bg2);
+}
+.offerings-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
+  margin-top: 28px;
 }
-.alt-card {
+.offering-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+.offering-card .badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+.offering-card.framework .badge {
+  background: var(--teal-dim);
+  color: var(--teal);
+}
+.offering-card.evaluation .badge {
+  background: var(--purple-dim);
+  color: var(--purple);
+}
+.offering-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.offering-card .desc {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.offering-card .uses {
+  margin-top: auto;
+}
+.offering-card .uses-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 10px;
+}
+.offering-card .uses ul {
+  list-style: none;
+  padding: 0;
+}
+.offering-card .uses li {
+  font-size: 13px;
+  color: var(--text2);
+  padding: 6px 0;
+  padding-left: 18px;
+  position: relative;
+}
+.offering-card .uses li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  opacity: .6;
+}
+.offering-card.framework .uses li::before { background: var(--teal); }
+.offering-card.evaluation .uses li::before { background: var(--purple); }
+
+/* CLUSTER */
+.cluster {
   background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 28px;
+  padding: 24px;
+  margin: 20px 0;
 }
-.alt-card h3 {
-  font-size: 1rem;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--sans);
-  font-weight: 600;
-}
-.alt-card h3 .badge {
+.cluster-label {
   font-family: var(--mono);
-  font-size: .65rem;
-  padding: 4px 8px;
-  background: var(--gold);
-  color: var(--bg);
-  border-radius: 4px;
+  font-size: 10px;
   font-weight: 700;
-}
-
-/* CRYPTO ADDRESSES */
-.crypto-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.crypto-item {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 16px;
-}
-.crypto-item .chain {
-  font-size: .75rem;
-  font-weight: 600;
-  color: var(--text3);
+  letter-spacing: .08em;
   text-transform: uppercase;
-  letter-spacing: .05em;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  color: var(--text3);
+  margin-bottom: 14px;
 }
-.crypto-item .chain .icon {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
+.cluster ul {
+  list-style: none;
+  padding: 0;
 }
-.crypto-item .chain .icon.sol { background: linear-gradient(135deg, #9945FF, #14F195); }
-.crypto-item .chain .icon.eth { background: linear-gradient(135deg, #627EEA, #8A9BF0); }
-.crypto-item .chain .icon.btc { background: linear-gradient(135deg, #F7931A, #FFAB40); }
-.crypto-item .chain .icon.avax { background: linear-gradient(135deg, #E84142, #FF6B6B); }
-.crypto-item .address {
-  font-family: var(--mono);
-  font-size: .75rem;
+.cluster li {
+  font-size: 14px;
   color: var(--text2);
-  word-break: break-all;
-  background: var(--bg);
-  padding: 10px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all .15s;
+  padding: 8px 0;
+  padding-left: 20px;
   position: relative;
+  border-bottom: 1px solid var(--border);
 }
-.crypto-item .address:hover {
-  background: var(--bg2);
-  color: var(--purple);
+.cluster li:last-child {
+  border-bottom: none;
 }
-.crypto-item .address::after {
-  content: 'Click to copy';
+.cluster li::before {
+  content: "";
   position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: var(--sans);
-  font-size: .7rem;
-  color: var(--text3);
-  opacity: 0;
-  transition: opacity .15s;
+  left: 0;
+  top: 14px;
+  width: 6px;
+  height: 6px;
+  background: var(--coral);
+  border-radius: 50%;
+  opacity: .7;
 }
-.crypto-item .address:hover::after {
-  opacity: 1;
-}
-.crypto-item .address.copied::after {
-  content: 'Copied!';
-  color: var(--green);
-  opacity: 1;
+.cluster li strong {
+  color: var(--text);
 }
 
-/* DONATE.GG */
-.donatgg-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 20px;
-  background: var(--bg3);
+/* CARD GRID */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+.card {
+  background: var(--bg2);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  transition: all .2s;
-  margin-top: 16px;
+  border-radius: 14px;
+  padding: 24px;
 }
-.donatgg-link:hover {
-  border-color: var(--purple);
-  background: var(--purple-dim);
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
-.donatgg-link .icon {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #ff6b6b, #feca57);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.1rem;
+.card p {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.65;
 }
-.donatgg-link .info .label {
-  font-size: .8rem;
-  color: var(--text3);
-}
-.donatgg-link .info .url {
-  font-size: .9rem;
-  color: var(--purple);
-  font-weight: 500;
+.card p strong {
+  color: var(--text);
 }
 
-/* MISSION */
-.mission-section {
-  padding: 60px 0;
+/* CTA */
+.cta {
+  padding: 64px 0;
   border-top: 1px solid var(--border);
   text-align: center;
 }
-.mission-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+.cta h2 {
+  font-size: 1.6rem;
+  margin: 8px 0 14px;
 }
-.mission-section p {
+.cta p {
   color: var(--text2);
-  max-width: 600px;
-  margin: 0 auto 24px;
-  line-height: 1.7;
+  font-size: 15px;
+  max-width: 480px;
+  margin: 0 auto 28px;
 }
-.founder-note {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 28px 32px;
-  max-width: 600px;
-  margin: 32px auto 0;
-  text-align: left;
-}
-.founder-note .sig {
+.cta-btns {
   display: flex;
-  align-items: center;
   gap: 12px;
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-}
-.founder-note .sig .avatar {
-  width: 40px;
-  height: 40px;
-  background: var(--purple-dim);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-weight: 700;
-  color: var(--purple);
+  flex-wrap: wrap;
 }
-.founder-note .sig .name {
-  font-weight: 600;
+
+/* CLOSING */
+.closing-line {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 15px;
+  color: var(--text2);
 }
-.founder-note .sig .title {
-  font-size: .85rem;
-  color: var(--text3);
+.closing-line strong {
+  color: var(--text);
 }
 
 /* FOOTER */
-footer {
-  padding: 48px 0;
+.footer {
+  padding: 40px 0 56px;
   border-top: 1px solid var(--border);
-  text-align: center;
-}
-.footer-brand {
-  font-family: var(--serif);
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-.footer-tagline {
+  font-size: .85rem;
   color: var(--text3);
-  font-size: .9rem;
 }
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  justify-content: space-between;
+}
+.footer-col { min-width: 140px; }
+.footer-title { font-weight: 700; color: var(--text); margin-bottom: 12px; font-size: .9rem; }
+.footer-nav { display: flex; flex-direction: column; gap: 8px; }
+.footer-nav a { color: var(--text3); transition: color .15s; }
+.footer-nav a:hover { color: var(--text); }
 
-/* RESPONSIVE */
 @media (max-width: 900px) {
   .nav-links { display: none; }
-  .impact-grid { grid-template-columns: 1fr; }
-  .alt-grid { grid-template-columns: 1fr; }
+  .nav-toggle { display: flex; }
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .offerings-grid { grid-template-columns: 1fr; }
+  .stat-pair { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
 }
-@media (max-width: 600px) {
-  .support-hero { padding: 60px 0 40px; }
-  .donate-primary { padding: 32px 24px; }
-  .btn-donate { padding: 16px 32px; font-size: 1rem; }
+@media (max-width: 520px) {
+  .hero { padding: 40px 0 36px; }
+  .hero-btns { flex-direction: column; }
+  .btn { width: 100%; }
+  .cta-btns { flex-direction: column; }
+  .footer-grid { flex-direction: column; gap: 32px; }
+  .compare-row { grid-template-columns: 1fr 1fr; }
+  .compare-label span { display: none; }
 }
   </style>
 </head>
 <body>
 
 <nav class="nav"><div class="container"><div class="nav-inner">
-  <a class="brand" href="index.html"><img src="ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+  <a class="brand" href="/"><img src="ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
   <div class="nav-links">
-    <a href="research.html">Research</a>
-    <a href="emotional-safety-gap.html">Explorer</a>
-    <a href="partner.html">Partner</a>
-    <a href="press.html">Press</a>
-    <a href="inquiry.html">Contact</a>
+    <a href="/emotional-safety-gap">The Gap</a>
+    <a href="/research">Research</a>
+    <a href="/faq">FAQ</a>
+    <a href="/blog">Blog</a>
+    <a href="/about">About</a>
+    <a href="/support">Support</a>
+    <a href="/partner">Partner</a>
+    <a href="/inquiry">Contact</a>
   </div>
+  <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu"><a href="/emotional-safety-gap">The Gap</a><a href="/research">Research</a><a href="/faq">FAQ</a><a href="/blog">Blog</a><a href="/about">About</a><a href="/support">Support</a>
+    <a href="/partner">Partner</a><a href="/inquiry">Contact</a></div>
 </div></div></nav>
 
 <main>
 
-<!-- HERO -->
 <section class="support-hero">
   <div class="container">
-    <span class="kicker">Support Independent Research</span>
-    <h1>Fund the Safety Layer AI Forgot</h1>
-    <p class="lead">Ikwe.ai is building behavioral emotional safety infrastructure for conversational AI. Your support directly funds research protecting vulnerable users from invisible harm.</p>
-  </div>
-</section>
+    <span class="kicker teal">Support</span>
+    <h1>Fund independent emotional AI safety research.</h1>
+    <p>Ikwe.ai publishes open benchmark work measuring <strong>behavior under emotional load</strong>. Support funds new scenario packs, additional model evaluations, and public reporting.
+    </p>
 
-<!-- PRIMARY DONATE -->
-<section class="donate-section">
-  <div class="container">
-    <div class="donate-primary">
-      <h2>Make a Contribution</h2>
-      <p>Every dollar goes directly toward expanding our benchmark, publishing research, and building tools that make AI safer for everyone.</p>
-      <a href="https://donate.stripe.com/fZu28s6UY5Xb7Bk66B9sk00" class="btn-donate" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-        </svg>
-        Donate via Stripe
-      </a>
-      <p class="donate-note">Secure payment processing. All major cards accepted.</p>
-    </div>
-  </div>
-</section>
+    <div class="support-grid">
+      <div class="panel">
+        <div class="kicker">Stripe</div>
+        <h2>Support the research (card)</h2>
+        <p class="small">Use a Stripe payment link (one-time or monthly). Replace the placeholder URLs with your live Stripe links.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 10px;">
+          <a class="btn primary" href="https://donate.stripe.com/fZu28s6UY5Xb7Bk66B9sk00" target="_blank" rel="noopener">One-time support</a>
+        </div>
+        <div class="divider" style="height:1px;background:var(--border);margin:14px 0;"></div>
+        <div class="kicker teal" style="margin:0 0 8px;">Suggested tiers</div>
+        <div class="tier"><span>Supporter</span><strong>$25</strong></div>
+        <div class="tier"><span>Research Ally</span><strong>$100</strong></div>
+        <div class="tier"><span>Sustaining Sponsor</span><strong>$500</strong></div>
+        <div class="small" style="margin-top:10px;">Want an invoice or sponsorship agreement? Use <a href="/partner" style="color:var(--teal)">Partner</a>.</div>
+      </div>
 
-<!-- IMPACT -->
-<section class="impact-section">
-  <div class="container">
-    <div class="section-header">
-      <h2>Where Your Support Goes</h2>
-      <p>100% of donations fund research and infrastructure—no overhead, no middlemen.</p>
-    </div>
-    <div class="impact-grid">
-      <div class="impact-card">
-        <div class="impact-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-          </svg>
+      <div class="panel">
+        <div class="kicker">Crypto</div>
+        <h2>Direct support (onchain)</h2>
+        <p class="small">If you prefer to fund work directly, you can send crypto. (Swap in your preferred addresses / ENS.)</p>
+
+        <div class="small" style="margin:12px 0 6px;">EVM address (Base / Ethereum)</div>
+        <div class="codebox" id="evm">0xE48D506E3EE778C7AB10cf2D41D1099cC33aE5F9</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+          <button class="btn teal" onclick="copyText('evm')">Copy address</button>
+          <a class="btn" href="/inquiry">Request a receipt</a>
         </div>
-        <h3>Expand the Benchmark</h3>
-        <p>More scenarios, more models tested, more comprehensive coverage of emotionally vulnerable contexts.</p>
-      </div>
-      <div class="impact-card">
-        <div class="impact-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-            <polyline points="10 9 9 9 8 9"></polyline>
-          </svg>
+
+        <div class="divider" style="height:1px;background:var(--border);margin:16px 0;"></div>
+        <div class="small" style="margin:0 0 6px;">Solana address (optional)</div>
+        <div class="codebox" id="sol">DxJpAqFcrCoUWpHXhsfzCjs4QM4WQpWDnNPE3zcRZxeA</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+          <button class="btn teal" onclick="copyText('sol')">Copy SOL</button>
         </div>
-        <h3>Publish Research</h3>
-        <p>Peer review, open access publications, and policy briefs that influence how AI systems are built and deployed.</p>
-      </div>
-      <div class="impact-card">
-        <div class="impact-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-            <polyline points="2 17 12 22 22 17"></polyline>
-            <polyline points="2 12 12 17 22 12"></polyline>
-          </svg>
+
+        <div class="divider" style="height:1px;background:var(--border);margin:16px 0;"></div>
+        <div class="small" style="margin:0 0 6px;">Bitcoin address</div>
+        <div class="codebox" id="btc">bc1q7njw8vty2la36r2savr9n3jpz6rq7e7qr75jw3</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+          <button class="btn teal" onclick="copyText('btc')">Copy BTC</button>
         </div>
-        <h3>Build Tools</h3>
-        <p>Open-source evaluation infrastructure that any developer or organization can use to test their systems.</p>
+
+        <div class="divider" style="height:1px;background:var(--border);margin:16px 0;"></div>
+        <div class="small" style="margin:0 0 6px;">Avalanche / Arena EVM address</div>
+        <div class="codebox" id="avax">0x434e792c0e5759c4e23fbd2bb13bcf0e9994dbd0</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+          <button class="btn teal" onclick="copyText('avax')">Copy AVAX</button>
+        </div>
+
+        <div class="divider" style="height:1px;background:var(--border);margin:16px 0;"></div>
+        <div class="small">Donate option: <a href="https://www.donate.gg/@Ladyinvisible" target="_blank" rel="noopener" style="color:var(--teal)">donate.gg/@Ladyinvisible</a><br><span style="opacity:.85;">Tip: If you have an ENS name, add it above the address for readability.</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ALTERNATIVE PAYMENT -->
-<section class="alt-section">
+<section class="cta">
   <div class="container">
-    <div class="section-header">
-      <h2>Alternative Ways to Support</h2>
-      <p>Prefer crypto or other platforms? We've got you covered.</p>
-    </div>
-    <div class="alt-grid">
-      <div class="alt-card">
-        <h3>
-          Cryptocurrency
-          <span class="badge">Direct</span>
-        </h3>
-        <div class="crypto-list">
-          <div class="crypto-item">
-            <div class="chain"><span class="icon sol"></span> Solana (SOL)</div>
-            <div class="address" onclick="copyAddress(this, 'DxJpAqFcrCoUWpHXhsfzCjs4QM4WQpWDnNPE3zcRZxeA')">DxJpAqFcrCoUWpHXhsfzCjs4QM4WQpWDnNPE3zcRZxeA</div>
-          </div>
-          <div class="crypto-item">
-            <div class="chain"><span class="icon eth"></span> Ethereum / Base (ETH)</div>
-            <div class="address" onclick="copyAddress(this, '0xE48D506E3EE778C7AB10cf2D41D1099cC33aE5F9')">0xE48D506E3EE778C7AB10cf2D41D1099cC33aE5F9</div>
-          </div>
-          <div class="crypto-item">
-            <div class="chain"><span class="icon btc"></span> Bitcoin (BTC)</div>
-            <div class="address" onclick="copyAddress(this, 'bc1q7njw8vty2la36r2savr9n3jpz6rq7e7qr75jw3')">bc1q7njw8vty2la36r2savr9n3jpz6rq7e7qr75jw3</div>
-          </div>
-          <div class="crypto-item">
-            <div class="chain"><span class="icon avax"></span> Avalanche / Arena EVM (AVAX)</div>
-            <div class="address" onclick="copyAddress(this, '0x434e792c0e5759c4e23fbd2bb13bcf0e9994dbd0')">0x434e792c0e5759c4e23fbd2bb13bcf0e9994dbd0</div>
-          </div>
-        </div>
-      </div>
-      <div class="alt-card">
-        <h3>Other Platforms</h3>
-        <a href="https://www.donate.gg/@Ladyinvisible" class="donatgg-link" target="_blank" rel="noopener">
-          <div class="icon">💝</div>
-          <div class="info">
-            <div class="label">donate.gg</div>
-            <div class="url">donate.gg/@Ladyinvisible</div>
-          </div>
-        </a>
-        <p style="margin-top: 20px; font-size: .9rem; color: var(--text2);">Support the founder directly through donate.gg for recurring or one-time contributions.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MISSION -->
-<section class="mission-section">
-  <div class="container">
-    <h2>Why This Matters</h2>
-    <p>AI systems are increasingly deployed in contexts where people are vulnerable—mental health support, grief processing, relationship guidance. Without behavioral safety measurement, emotional capability can increase risk at scale.</p>
-    <p>Ikwe.ai exists to close that gap. We measure what others assume.</p>
-    
-    <div class="founder-note">
-      <p>"This research started because I saw what happens when AI systems fail people who are already hurting. Every contribution helps us build the safety infrastructure that should have existed from the start."</p>
-      <div class="sig">
-        <div class="avatar">S</div>
-        <div>
-          <div class="name">Stephanie</div>
-          <div class="title">Founder & CEO, Ikwe.ai</div>
-        </div>
-      </div>
+    <span class="kicker">Sponsorship</span>
+    <h2>Need audits, advisory, or an enterprise pilot?</h2>
+    <p>Ikwe.ai works with teams shipping emotionally sensitive AI to evaluate behavioral risk, repair behavior, and trust dynamics — and to harden systems before deployment.</p>
+    <div class="cta-btns">
+      <a class="btn primary" href="/partner">Partner with Ikwe.ai</a>
+      <a class="btn" href="/inquiry">Start an inquiry</a>
+      <a class="btn teal" href="/research">Read the methodology</a>
     </div>
   </div>
 </section>
 
 </main>
 
-<footer>
+<footer class="footer">
   <div class="container">
-    <div class="footer-brand">ikwe.ai · Visible Healing Inc.</div>
-    <p class="footer-tagline">Building the behavioral safety layer AI benchmarks forgot.</p>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-title">ikwe.ai</div>
+        <div style="color: var(--text2); font-size: .9rem;">Behavioral emotional safety in AI.</div>
+        <div style="margin-top: 14px;">© 2026 Visible Healing Inc.</div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Research</div>
+        <div class="footer-nav">
+          <a href="/">Home</a>
+          <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+          <a href="/research">Methodology</a>
+          <a href="/report">Download Report</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">About</div>
+        <div class="footer-nav">
+          <a href="/about">About Ikwe.ai</a>
+          <a href="/faq">FAQ</a>
+          <a href="/blog">Blog</a>
+          <a href="/press">Press & Citations</a>
+          <a href="/partner">Partner</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Support</div>
+        <div class="footer-nav">
+          <a href="/support">Support the research</a>
+          <a href="https://donate.stripe.com/fZu28s6UY5Xb7Bk66B9sk00" target="_blank" rel="noopener">Stripe</a>
+          <a href="/support#crypto">Crypto</a>
+        </div>
+        <div style="margin-top: 12px; color: var(--text2); font-size: .85rem; word-break: break-all;">0xE48D506E3EE778C7AB10cf2D41D1099cC33aE5F9</div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Legal</div>
+        <div class="footer-nav">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/inquiry">Contact</a>
+        </div>
+        <div style="margin-top: 14px;"><a href="mailto:research@ikwe.ai" style="color: var(--purple);">research@ikwe.ai</a></div>
+      </div>
+    </div>
   </div>
 </footer>
 
+
 <script>
-function copyAddress(element, address) {
-  navigator.clipboard.writeText(address).then(() => {
-    element.classList.add('copied');
-    setTimeout(() => {
-      element.classList.remove('copied');
-    }, 2000);
+function copyText(id){
+  const el=document.getElementById(id);
+  if(!el) return;
+  const text=el.innerText.trim();
+  navigator.clipboard.writeText(text).then(()=>{
+    const btns=[...document.querySelectorAll('button')].filter(b=>b.getAttribute('onclick')?.includes(id));
+    btns.forEach(b=>{const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,900);});
   });
 }
 </script>
-
 </body>
 </html>
