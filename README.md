@@ -1,166 +1,43 @@
-# IKWE.AI - Clean Site Package
+# Ikwe.ai Site Package
 
-**Generated:** January 11, 2026  
-**Purpose:** Complete, deployment-ready site with all fixes applied
+## HTML Pages
+- `index.html` — Homepage (hero alignment fixed, Support/Stripe in nav+footer)
+- `research.html` — Methodology page with two-stage framework
+- `emotional-safety-gap.html` — Interactive explorer
+- `full-report.html` — Full research report (HTML presentation)
+- `research-summary.html` — Summary report (HTML presentation)
+- `partner.html` — Partnership options
+- `press.html` — Media kit
+- `inquiry.html` — Contact form
+- `report.html` — Report access page
+- `support.html` — Donation page with Stripe + crypto
 
----
+## PDFs
+- `Ikwe_Full_Research_Report.pdf` — Full 10-page research report
+- `Ikwe_Research_Summary.pdf` — 7-page public summary
 
-## 📁 File Manifest
+## Assets
+- `assets/ikwe-logo.png` — Logo
+- `assets/ikwe-support-banner.png` — Support/Stripe banner (use for Stripe product image)
+- `assets/ikwe-two-stage.png` — Two-stage framework visualization ✓ CORRECT
+- `assets/stat-card-1.png` — "Recognition ≠ Safety" (teal) ✓ CORRECT
+- `assets/stat-card-2.png` — "43% no corrective behavior" (orange) ✓ CORRECT
+- `assets/stat-card-3.png` — Duplicate of stat-card-2
+- `assets/stat-card-4.png` — ⚠️ NEEDS CORRECTION - Says "54.7% introduced risk" but should say "45.3% introduced risk" or "54.7% passed"
 
-### HTML Pages (11 files) — REQUIRED
-| File | Path | Purpose |
-|------|------|---------|
-| `index.html` | `/` | Homepage |
-| `emotional-safety-gap.html` | `/emotional-safety-gap` | Key findings |
-| `research.html` | `/research` | Methodology |
-| `about.html` | `/about` | About page |
-| `press.html` | `/press` | Press kit |
-| `inquiry.html` | `/inquiry` | Contact form (Notion-integrated) |
-| `explorer.html` | `/explorer` | Scenario explorer |
-| `faq.html` | `/faq` | FAQ |
-| `blog.html` | `/blog` | Research updates |
-| `privacy.html` | `/privacy` | Privacy policy |
-| `terms.html` | `/terms` | Terms of service |
+## Key Links Wired
+- **Stripe (Primary)**: https://donate.stripe.com/fZu28s6UY5Xb7Bk66B9sk00
+- **donate.gg**: https://www.donate.gg/@Ladyinvisible
 
-### Config Files (4 files) — REQUIRED
-| File | Purpose |
-|------|---------|
-| `_redirects` | Netlify redirect rules (clean URLs + API routes) |
-| `netlify.toml` | Netlify build config + headers |
-| `sitemap.xml` | Search engine sitemap |
-| `robots.txt` | Search engine directives |
+## Crypto Addresses
+- SOL: `DxJpAqFcrCoUWpHXhsfzCjs4QM4WQpWDnNPE3zcRZxeA`
+- ETH/Base: `0xE48D506E3EE778C7AB10cf2D41D1099cC33aE5F9`
+- BTC: `bc1q7njw8vty2la36r2savr9n3jpz6rq7e7qr75jw3`
+- AVAX/Arena: `0x434e792c0e5759c4e23fbd2bb13bcf0e9994dbd0`
 
-### Netlify Functions (3 files) — REQUIRED for forms
-| File | Endpoint | Purpose |
-|------|----------|---------|
-| `netlify/functions/newsletter.js` | `/api/newsletter` | Blog newsletter signup |
-| `netlify/functions/inquiry.js` | `/api/inquiry` | Audit/work requests |
-| `netlify/functions/access-request.js` | `/api/access-request` | Research access requests |
+## Two-Stage Framework Messaging
+- **Stage 1 (Safety Gate)**: 54.7% PASSED = did not introduce emotional risk at first contact
+- **Stage 2 (Conditional)**: Among those that passed → Ikwe.ai 84.6%, GPT-4o 59.0%, Claude 56.4%, Grok 20.5%
+- **Repair stat**: 43% of failed responses showed NO corrective behavior
 
-### Assets — COPY FROM EXISTING REPO
-These files should be copied from your existing repo (not regenerated):
-- `ikwe_logo_dark.png` — Site logo
-- `ikwe_logo_light.png` — Light version
-- `ikwe-press-og.png` — Press OG image
-- `og/` folder — OG images for each page
-- `styles.css` — If using external CSS (most styles are inline)
-
----
-
-## ✅ All Fixes Applied
-
-| Issue | Status |
-|-------|--------|
-| Desktop nav missing FAQ/Blog | ✅ Fixed |
-| Internal links with `.html` | ✅ Removed (all use `/page`) |
-| onclick modal handlers | ✅ Converted to `/inquiry` links |
-| Footer inconsistencies | ✅ Standardized 4-column layout |
-| JotForm dependencies | ✅ Replaced with Notion API |
-| Clean URL routing | ✅ `_redirects` configured |
-| Canonical/OG URLs | ✅ All use clean paths |
-
----
-
-## 🚀 Deployment Instructions
-
-### Step 1: Prepare Notion Databases
-
-Create 3 databases in Notion:
-
-**Newsletter Database:**
-- Email (Title)
-- Subscribed At (Date)
-- Status (Select: Active, Unsubscribed)
-- Source (Select: Blog, Other)
-
-**Inquiry Database:**
-- Name (Title)
-- Email (Email)
-- Organization (Text)
-- Role (Text)
-- Product Description (Text)
-- Product Stage (Select)
-- Engagement Type (Select)
-- Source (Select)
-- Details (Text)
-- Status (Select: New, Contacted, Closed)
-- Submitted At (Date)
-
-**Access Request Database:**
-- Name (Title)
-- Email (Email)
-- Organization (Text)
-- Role (Text)
-- Intended Use (Select)
-- Description (Text)
-- Status (Select: Pending, Approved, Denied)
-- Requested At (Date)
-
-### Step 2: Get Notion Integration
-
-1. Go to https://www.notion.so/my-integrations
-2. Create new integration for "Ikwe Forms"
-3. Copy the API key
-4. Share each database with the integration
-
-### Step 3: Configure Netlify Environment Variables
-
-In Netlify Dashboard → Site settings → Environment variables:
-
-```
-NOTION_API_KEY=secret_xxxxxxxxxxxxx
-NOTION_NEWSLETTER_DB_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-NOTION_INQUIRY_DB_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-NOTION_ACCESS_DB_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-```
-
-### Step 4: Install Dependencies
-
-Create `package.json` in root:
-```json
-{
-  "name": "ikwe-site",
-  "dependencies": {
-    "@notionhq/client": "^2.2.0"
-  }
-}
-```
-
-### Step 5: Deploy
-
-1. Replace all files in your `ikwe-site` repo with this package
-2. Add your existing assets (logos, OG images)
-3. Commit and push
-4. Netlify will auto-deploy
-
-### Step 6: Verify
-
-Test these URLs:
-- `https://ikwe.ai/emotional-safety-gap.html` → should 301 redirect
-- `https://ikwe.ai/emotional-safety-gap` → should show page
-- `https://ikwe.ai/inquiry` → should show form
-- Submit test form → should appear in Notion
-
----
-
-## 🔗 URL Structure
-
-| Clean URL | Serves | Redirect From |
-|-----------|--------|---------------|
-| `/` | `index.html` | `/index.html` |
-| `/emotional-safety-gap` | `emotional-safety-gap.html` | `/emotional-safety-gap.html`, `/gap`, `/findings` |
-| `/research` | `research.html` | `/research.html`, `/methodology` |
-| `/about` | `about.html` | `/about.html` |
-| `/press` | `press.html` | `/press.html`, `/media` |
-| `/inquiry` | `inquiry.html` | `/inquiry.html`, `/contact`, `/request-access` |
-| `/explorer` | `explorer.html` | `/explorer.html` |
-| `/faq` | `faq.html` | `/faq.html`, `/questions` |
-| `/blog` | `blog.html` | `/blog.html`, `/updates`, `/news` |
-| `/privacy` | `privacy.html` | `/privacy.html` |
-| `/terms` | `terms.html` | `/terms.html` |
-
----
-
-## 📧 Contact
-
-All forms submit to: `research@ikwe.ai` (via Notion)
+© 2026 Visible Healing Inc.
