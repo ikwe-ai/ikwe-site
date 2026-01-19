@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /Ikwe_Full_Research_Report.pdf
+
+Sitemap: https://ikwe.ai/sitemap.xml
