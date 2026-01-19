@@ -19,12 +19,12 @@
 
 [[redirects]]
   from = "/Ikwe_Full_Research_Report_v1_Jan2026.pdf"
-  to = "/Ikwe_Full_Research_Report.pdf"
+  to = "/Ikwe_Full_Report.pdf"
   status = 301
 
 # Headers to prevent full report PDF from being indexed
 [[headers]]
-  for = "/Ikwe_Full_Research_Report.pdf"
+  for = "/Ikwe_Full_Report.pdf"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
