@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms of Use — ikwe.ai</title>
+  <meta name="description" content="Terms of Use for Ikwe.ai and Visible Healing Inc.">
+  <link rel="canonical" href="https://ikwe.ai/terms">
+  <meta name="robots" content="index, follow">
+  
+  <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #09090b;
+  --bg2: #0f1014;
+  --text: #eaeaf0;
+  --text2: rgba(234,234,240,.7);
+  --text3: rgba(234,234,240,.45);
+  --purple: #a78bfa;
+  --coral: #fb923c;
+  --teal: #2dd4bf;
+  --border: rgba(255,255,255,.06);
+  --border2: rgba(255,255,255,.1);
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'Space Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.15; }
+a { color: var(--purple); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9,9,11,.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+.brand img { width: 30px; height: 30px; border-radius: 50%; }
+.nav-links { display: flex; gap: 6px; }
+.nav-links a {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: .88rem;
+  font-weight: 500;
+  color: var(--text2);
+  transition: all .15s;
+}
+.nav-links a:hover { background: rgba(255,255,255,.05); color: var(--text); text-decoration: none; }
+.nav-links a.highlight { color: var(--purple); }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+}
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px;
+}
+.mobile-menu.open { display: block; }
+.mobile-menu a {
+  display: block;
+  padding: 12px 0;
+  font-size: .95rem;
+  color: var(--text2);
+  border-bottom: 1px solid var(--border);
+}
+.mobile-menu a:last-child { border-bottom: none; }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+}
+
+/* LEGAL PAGE */
+.legal-page {
+  padding: 64px 0 80px;
+}
+.legal-page h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+.effective-date {
+  font-size: .9rem;
+  color: var(--text3);
+  margin-bottom: 40px;
+}
+.legal-page h2 {
+  font-size: 1.2rem;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.legal-page p {
+  color: var(--text2);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+.legal-page ul {
+  margin: 16px 0;
+  padding-left: 24px;
+  color: var(--text2);
+}
+.legal-page li {
+  margin-bottom: 8px;
+}
+.legal-page strong {
+  color: var(--text);
+}
+
+/* IMPORTANT BOX */
+.important-box {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-left: 3px solid var(--coral);
+  padding: 20px 24px;
+  border-radius: 0 8px 8px 0;
+  margin: 24px 0;
+}
+.important-box p {
+  margin-bottom: 8px;
+}
+.important-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* FOOTER */
+.footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 48px 0 32px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(4, 1fr);
+  gap: 40px;
+}
+@media (max-width: 800px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+@media (max-width: 500px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.footer-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-nav a {
+  color: var(--text2);
+  font-size: .9rem;
+  transition: color .15s;
+}
+.footer-nav a:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+  </style>
+</head>
+<body>
+
+<nav class="nav"><div class="container"><div class="nav-inner">
+  <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+  <div class="nav-links">
+    <a href="/emotional-safety-gap">The Gap</a>
+    <a href="/research">Research</a>
+    <a href="/faq">FAQ</a>
+    <a href="/blog">Blog</a>
+    <a href="/about">About</a>
+    <a href="/support" class="highlight">Support</a>
+    <a href="/partner">Partner</a>
+    <a href="/inquiry">Contact</a>
+  </div>
+  <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu">
+    <a href="/emotional-safety-gap">The Gap</a>
+    <a href="/research">Research</a>
+    <a href="/faq">FAQ</a>
+    <a href="/blog">Blog</a>
+    <a href="/about">About</a>
+    <a href="/support">Support</a>
+    <a href="/partner">Partner</a>
+    <a href="/inquiry">Contact</a>
+  </div>
+</div></div></nav>
+
+<main class="legal-page">
+  <div class="narrow">
+    <h1>Terms of Use</h1>
+    <p class="effective-date">Last updated: January 9, 2026</p>
+    
+    <h2>1. Acceptance of Terms</h2>
+    <p>By accessing or using ikwe.ai (the "Site"), you agree to be bound by these Terms of Use. If you do not agree to these terms, please do not use the Site.</p>
+    <p>The Site is operated by <strong>Visible Healing Inc.</strong>, an Iowa corporation ("Company," "we," "us," or "our").</p>
+    
+    <h2>2. Nature of the Service</h2>
+    <p>ikwe.ai is a <strong>research and evaluation initiative</strong> focused on behavioral emotional safety in AI systems. The Site provides:</p>
+    <ul>
+      <li>Research findings and methodology documentation</li>
+      <li>Benchmark framework information</li>
+      <li>Press and citation resources</li>
+      <li>Information about evaluation services</li>
+    </ul>
+    
+    <h2>3. Not a Crisis Support Service</h2>
+    <div class="important-box">
+      <p><strong>Important:</strong> ikwe.ai is not a crisis support service, mental health provider, or therapeutic resource. The Site is for research and evaluation purposes only.</p>
+      <p>If you are experiencing a mental health crisis or emergency, please contact:</p>
+      <ul style="margin-top: 12px;">
+        <li>National Suicide Prevention Lifeline: <strong>988</strong> (US)</li>
+        <li>Crisis Text Line: Text <strong>HOME</strong> to <strong>741741</strong></li>
+        <li>Emergency services: <strong>911</strong></li>
+      </ul>
+    </div>
+    
+    <h2>4. Research Disclaimers</h2>
+    <p>All research findings presented on this Site:</p>
+    <ul>
+      <li>Describe <strong>observed behavioral patterns under test conditions</strong></li>
+      <li>Do not claim real-world outcomes, harm, or intent</li>
+      <li>Do not constitute deployment recommendations</li>
+      <li>Are subject to the limitations described in our methodology</li>
+      <li>Are pending human validation where noted</li>
+    </ul>
+    <p>Benchmark scores reflect observable response behavior in controlled scenarios, not internal model intent, training data, or overall model quality.</p>
+    
+    <h2>5. Intellectual Property</h2>
+    <p>All content on the Site, including text, graphics, logos, research findings, and methodology documentation, is the property of Visible Healing Inc. or its licensors and is protected by intellectual property laws.</p>
+    <p><strong>Citation:</strong> You may cite our research with proper attribution. See our <a href="/press">Press page</a> for citation guidance.</p>
+    <p><strong>Prohibited uses:</strong> You may not reproduce, distribute, modify, or create derivative works from our content without written permission, except for fair use purposes such as commentary, criticism, or academic citation.</p>
+    
+    <h2>6. Use of Forms and Services</h2>
+    <p>When you submit information through our forms (such as evaluation requests), you agree that:</p>
+    <ul>
+      <li>The information you provide is accurate</li>
+      <li>You have authority to share any organizational information</li>
+      <li>Your submission does not create a binding contract</li>
+    </ul>
+    <p>See our <a href="/privacy">Privacy Policy</a> for information about how we handle your data.</p>
+    
+    <h2>7. Limitation of Liability</h2>
+    <p>To the maximum extent permitted by law, Visible Healing Inc. shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Site or reliance on any information provided.</p>
+    <p>The Site and all content are provided "as is" without warranties of any kind, express or implied.</p>
+    
+    <h2>8. Third-Party Links</h2>
+    <p>The Site may contain links to third-party websites. We are not responsible for the content, privacy practices, or terms of any third-party sites.</p>
+    
+    <h2>9. Changes to Terms</h2>
+    <p>We may update these Terms of Use at any time. Changes will be posted on this page with an updated revision date. Your continued use of the Site after changes constitutes acceptance of the revised terms.</p>
+    
+    <h2>10. Governing Law</h2>
+    <p>These Terms of Use are governed by the laws of the State of Iowa, United States, without regard to conflict of law principles.</p>
+    
+    <h2>11. Contact</h2>
+    <p>For questions about these Terms of Use, contact us at:</p>
+    <p><strong>Email:</strong> <a href="mailto:research@ikwe.ai">research@ikwe.ai</a><br>
+    <strong>Company:</strong> Visible Healing Inc., Des Moines, Iowa</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-title">ikwe.ai</div>
+        <div style="color: var(--text2); font-size: .9rem;">Behavioral emotional safety in AI.</div>
+        <div style="margin-top: 14px;">© 2026 Visible Healing Inc.</div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Research</div>
+        <div class="footer-nav">
+          <a href="/">Home</a>
+          <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+          <a href="/research">Methodology</a>
+          <a href="/full-report">Full Report</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">About</div>
+        <div class="footer-nav">
+          <a href="/about">About Ikwe.ai</a>
+          <a href="/founder">Founder</a>
+          <a href="/faq">FAQ</a>
+          <a href="/blog">Blog</a>
+          <a href="/press">Press & Citations</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Support</div>
+        <div class="footer-nav">
+          <a href="/support">Support the Research</a>
+          <a href="/support#crypto">Crypto Options</a>
+          <a href="/partner">Partner With Us</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Legal</div>
+        <div class="footer-nav">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/inquiry">Contact</a>
+        </div>
+        <div style="margin-top: 14px;"><a href="mailto:research@ikwe.ai" style="color: var(--purple);">research@ikwe.ai</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
