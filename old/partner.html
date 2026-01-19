@@ -406,196 +406,71 @@ a { color: inherit; text-decoration: none; }
   flex-wrap: wrap;
 }
 
-
 /* FOOTER */
 .footer {
-  background: var(--bg2);
+  padding: 40px 0 56px;
   border-top: 1px solid var(--border);
-  padding: 64px 0 32px;
-  margin-top: 0;
-}
-.footer .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+  font-size: .85rem;
+  color: var(--text3);
 }
 .footer-grid {
-  display: grid;
-  grid-template-columns: 1.8fr repeat(4, 1fr);
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-wrap: wrap;
   gap: 48px;
+  justify-content: space-between;
 }
-.footer-brand {}
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 12px;
-}
-.footer-logo img {
-  border-radius: 50%;
-}
-.footer-tagline {
-  color: var(--text2);
-  font-size: .95rem;
-  margin-bottom: 16px;
-}
-.footer-legal {
-  font-size: .85rem;
-  color: var(--text3);
-  line-height: 1.5;
-}
-.footer-title {
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: .9rem;
-  margin-bottom: 16px;
-  color: var(--text);
-}
-.footer-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.footer-nav a {
-  color: var(--text2);
-  font-size: .9rem;
-  text-decoration: none;
-  transition: color .15s;
-}
-.footer-nav a:hover {
-  color: var(--text);
-}
-.footer-email {
-  color: var(--purple) !important;
-}
-.footer-bottom {
-  margin-top: 48px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
-  text-align: center;
-}
-.footer-citation {
-  font-size: .85rem;
-  color: var(--text3);
-}
-.footer-citation a {
-  color: var(--purple);
-  text-decoration: none;
-}
-.footer-citation a:hover {
-  text-decoration: underline;
-}
+.footer-col { min-width: 140px; }
+.footer-title { font-weight: 700; color: var(--text); margin-bottom: 12px; font-size: .9rem; }
+.footer-nav { display: flex; flex-direction: column; gap: 8px; }
+.footer-nav a { color: var(--text3); transition: color .15s; }
+.footer-nav a:hover { color: var(--text); }
 
 @media (max-width: 900px) {
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-  .footer-brand {
-    grid-column: span 2;
-  }
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .paths-grid { grid-template-columns: 1fr; }
+  .engagement-grid { grid-template-columns: 1fr; }
+  .who-grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 500px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-  .footer-brand {
-    grid-column: span 1;
-  }
+@media (max-width: 520px) {
+  .hero { padding: 48px 0 36px; }
+  .path-card { padding: 24px; }
+  .who-grid { grid-template-columns: 1fr; }
+  .cta-btns { flex-direction: column; }
+  .btn { width: 100%; }
+  .footer-grid { flex-direction: column; gap: 32px; }
 }
-
-</style>
+  </style>
 </head>
 <body>
 
 <nav class="nav">
-  <div class="container">
-    <div class="nav-inner">
-      <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
-      
-      <div class="nav-links">
-        <div class="nav-dropdown">
-          <button class="nav-link dropdown-trigger">Research <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="dropdown-menu">
-            <a href="/emotional-safety-gap" class="dropdown-item">
-              <span class="dropdown-title">The Emotional Safety Gap</span>
-              <span class="dropdown-desc">Interactive research findings</span>
-            </a>
-            <a href="/research" class="dropdown-item">
-              <span class="dropdown-title">Methodology</span>
-              <span class="dropdown-desc">Two-stage evaluation framework</span>
-            </a>
-            <a href="/full-report" class="dropdown-item">
-              <span class="dropdown-title">Full Report</span>
-              <span class="dropdown-desc">Complete research document</span>
-            </a>
-            <a href="/research-summary" class="dropdown-item">
-              <span class="dropdown-title">Research Summary</span>
-              <span class="dropdown-desc">Key findings overview</span>
-            </a>
-          </div>
-        </div>
-        
-        <div class="nav-dropdown">
-          <button class="nav-link dropdown-trigger">About <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="dropdown-menu">
-            <a href="/about" class="dropdown-item">
-              <span class="dropdown-title">About Ikwe.ai</span>
-              <span class="dropdown-desc">Our mission and approach</span>
-            </a>
-            <a href="/founder" class="dropdown-item">
-              <span class="dropdown-title">Founder</span>
-              <span class="dropdown-desc">Stephanie Stranko</span>
-            </a>
-            <a href="/faq" class="dropdown-item">
-              <span class="dropdown-title">FAQ</span>
-              <span class="dropdown-desc">Common questions answered</span>
-            </a>
-            <a href="/blog" class="dropdown-item">
-              <span class="dropdown-title">Blog</span>
-              <span class="dropdown-desc">Research updates & insights</span>
-            </a>
-            <a href="/press" class="dropdown-item">
-              <span class="dropdown-title">Press Kit</span>
-              <span class="dropdown-desc">Media resources & citations</span>
-            </a>
-          </div>
-        </div>
-        
-        <a href="/partner" class="nav-link">Partner</a>
-        <a href="/support" class="nav-link highlight">Support</a>
-        <a href="/inquiry" class="nav-btn">Contact</a>
-      </div>
-      
-      <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+  <div class="nav-inner">
+    <a class="brand" href="/"><img src="ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+    <div class="nav-links">
+      <a href="/emotional-safety-gap">The Gap</a>
+      <a href="/research">Research</a>
+      <a href="/faq">FAQ</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
+      <a href="/partner" class="active">Partner</a>
+      <a href="/inquiry">Contact</a>
     </div>
-    
+    <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
     <div class="mobile-menu">
-      <div class="mobile-section">
-        <div class="mobile-section-title">Research</div>
-        <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
-        <a href="/research">Methodology</a>
-        <a href="/full-report">Full Report</a>
-        <a href="/research-summary">Research Summary</a>
-      </div>
-      <div class="mobile-section">
-        <div class="mobile-section-title">About</div>
-        <a href="/about">About Ikwe.ai</a>
-        <a href="/founder">Founder</a>
-        <a href="/faq">FAQ</a>
-        <a href="/blog">Blog</a>
-        <a href="/press">Press Kit</a>
-      </div>
-      <div class="mobile-section">
-        <a href="/partner">Partner</a>
-        <a href="/support" class="highlight">Support the Research</a>
-        <a href="/inquiry" class="mobile-cta">Contact Us</a>
-      </div>
+      <a href="/emotional-safety-gap">The Gap</a>
+      <a href="/research">Research</a>
+      <a href="/faq">FAQ</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
+    <a href="/support">Support</a>
+    <a href="/partner">Partner</a>
+      <a href="/inquiry">Contact</a>
     </div>
   </div>
 </nav>
