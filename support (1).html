@@ -417,82 +417,156 @@ a { color: inherit; text-decoration: none; }
 .impact-statement p { font-size: .9rem; color: var(--text2); margin: 0; }
 .impact-statement strong { color: var(--teal); }
 
-/* TIER CARDS */
-.tiers-section { padding: 64px 0; }
-.section-header { text-align: center; margin-bottom: 40px; }
+/* TIER CARDS - replaced with enables/paths */
+.enables-section { padding: 72px 0; }
+.section-header { text-align: center; margin-bottom: 48px; }
 .section-header h2 { font-size: clamp(1.5rem, 2.5vw, 1.9rem); margin: 8px 0 12px; }
-.section-sub { color: var(--text2); max-width: 50ch; margin: 0 auto; }
+.section-sub { color: var(--text2); max-width: 55ch; margin: 0 auto; }
 
-.tier-grid {
+.enables-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  max-width: 960px;
-  margin: 0 auto;
 }
-.tier-card {
-  position: relative;
+.enable-card {
   background: var(--bg2);
   border: 1px solid var(--border2);
   border-radius: 20px;
-  padding: 32px 28px;
-  text-align: center;
-  transition: all .3s ease;
+  padding: 32px;
 }
-.tier-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,.3);
+.enable-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--teal-dim);
+  margin-bottom: 20px;
 }
-.tier-card.featured {
-  border-color: rgba(45,212,191,.3);
-  background: linear-gradient(180deg, rgba(45,212,191,.06), var(--bg2));
-  transform: scale(1.03);
+.enable-icon svg { width: 24px; height: 24px; }
+.enable-card h3 { font-family: var(--serif); font-size: 1.2rem; margin-bottom: 12px; }
+.enable-card > p { color: var(--text2); font-size: .95rem; margin-bottom: 16px; }
+.enable-card ul { list-style: none; margin-bottom: 16px; }
+.enable-card li {
+  padding: 8px 0;
+  font-size: .9rem;
+  color: var(--text2);
+  border-top: 1px solid var(--border);
 }
-.tier-card.featured:hover { transform: scale(1.03) translateY(-4px); }
-.tier-card.featured::before {
-  content: 'Most Popular';
+.enable-card li:first-child { border-top: none; padding-top: 0; }
+.enable-card li strong { color: var(--text); }
+.enable-note {
+  font-size: .85rem;
+  color: var(--teal);
+  font-style: italic;
+  margin: 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+/* PATHS SECTION */
+.paths-section {
+  padding: 72px 0;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.paths-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.path-card {
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: 20px;
+  padding: 36px 32px;
+  position: relative;
+}
+.path-card.research { border-color: rgba(167,139,250,.25); }
+.path-card.partner { border-color: rgba(45,212,191,.25); }
+.path-badge {
   position: absolute;
   top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 24px;
   padding: 6px 14px;
-  background: var(--teal);
+  background: var(--purple);
   color: #000;
   font-size: .7rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: .06em;
   border-radius: 20px;
 }
-.tier-icon {
-  width: 56px;
-  height: 56px;
-  margin: 0 auto 20px;
+.path-badge.teal { background: var(--teal); }
+.path-card h3 { font-family: var(--serif); font-size: 1.4rem; margin: 8px 0 12px; }
+.path-card > p { color: var(--text2); margin-bottom: 20px; line-height: 1.6; }
+.path-details { margin-bottom: 24px; }
+.path-label {
+  font-family: var(--mono);
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--text3);
+  margin-bottom: 4px;
+}
+.path-details p { color: var(--text2); font-size: .9rem; margin-bottom: 12px; }
+.path-tiers {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 16px;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.mini-tier {
+  flex: 1;
+  padding: 12px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-align: center;
+}
+.mini-tier span { display: block; font-size: .75rem; color: var(--text3); margin-bottom: 4px; }
+.mini-tier strong { font-family: var(--mono); font-size: 1rem; color: var(--text); }
+.mini-tier.featured {
+  border-color: rgba(167,139,250,.3);
   background: var(--purple-dim);
 }
-.tier-card.featured .tier-icon { background: var(--teal-dim); }
-.tier-icon svg { width: 28px; height: 28px; }
-.tier-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
-.tier-price { font-family: var(--mono); font-size: 2.2rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-.tier-freq { font-size: .85rem; color: var(--text3); margin-bottom: 20px; }
-.tier-perks { text-align: left; margin-bottom: 24px; }
-.tier-perks li {
+.partner-services { margin-bottom: 24px; }
+.service-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
   padding: 10px 0;
   font-size: .9rem;
   color: var(--text2);
   border-top: 1px solid var(--border);
-  list-style: none;
 }
-.tier-perks li:first-child { border-top: none; }
-.tier-perks svg { flex-shrink: 0; width: 18px; height: 18px; color: var(--teal); margin-top: 2px; }
-.tier-card .btn { width: 100%; }
+.service-item:first-child { border-top: none; }
+.service-item svg { width: 18px; height: 18px; color: var(--teal); }
+.path-card .btn { width: 100%; margin-bottom: 12px; }
+.path-note { text-align: center; font-size: .85rem; color: var(--text3); margin: 0; }
+.path-note a { color: var(--teal); }
+
+/* TRANSPARENCY */
+.transparency-section { padding: 56px 0; }
+.transparency-box {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 32px 40px;
+  background: linear-gradient(135deg, rgba(45,212,191,.04), rgba(167,139,250,.04));
+  border: 1px solid var(--border2);
+  border-radius: 20px;
+  text-align: center;
+}
+.transparency-box h3 { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 12px; }
+.transparency-box > p { color: var(--text2); margin-bottom: 24px; }
+.transparency-items { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.t-item { display: flex; align-items: center; gap: 10px; }
+.t-item svg { width: 20px; height: 20px; }
+.t-item span { font-size: .9rem; color: var(--text); font-weight: 500; }
 
 /* CRYPTO SECTION */
 .crypto-section {
@@ -584,38 +658,17 @@ a { color: inherit; text-decoration: none; }
 .receipt-callout p { font-size: .9rem; color: var(--text2); margin: 0; }
 .receipt-callout a { color: var(--teal); font-weight: 600; }
 
-/* TRUST SECTION */
-.trust-section { padding: 64px 0; }
-.trust-section h2 { text-align: center; font-size: clamp(1.3rem, 2vw, 1.5rem); margin-bottom: 32px; }
-.progress-bar-container { max-width: 600px; margin: 0 auto 40px; text-align: center; }
-.progress-label { display: flex; justify-content: space-between; font-size: .85rem; color: var(--text2); margin-bottom: 10px; }
-.progress-label strong { color: var(--teal); }
-.progress-bar { height: 12px; background: rgba(255,255,255,.06); border-radius: 6px; overflow: hidden; }
-.progress-fill { height: 100%; background: linear-gradient(90deg, var(--teal), #5eead4); border-radius: 6px; width: 39.5%; }
-.progress-caption { font-size: .8rem; color: var(--text3); margin-top: 10px; }
-
-.trust-quote {
-  max-width: 560px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 32px;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-}
-.trust-quote blockquote { font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--text); line-height: 1.6; margin-bottom: 16px; }
-.trust-quote cite { font-size: .85rem; color: var(--text3); font-style: normal; }
-
 @media (max-width:900px){
-  .tier-grid { grid-template-columns: 1fr; max-width: 400px; }
-  .tier-card.featured { transform: none; }
-  .tier-card.featured:hover { transform: translateY(-4px); }
+  .enables-grid { grid-template-columns: 1fr; }
+  .paths-grid { grid-template-columns: 1fr; }
   .crypto-grid { grid-template-columns: 1fr; }
   .hero-illustration { display: none; }
 }
 @media (max-width:520px){
   .support-hero { padding: 48px 0 40px; }
-  .tiers-section, .crypto-section, .trust-section { padding: 48px 0; }
+  .enables-section, .paths-section, .crypto-section, .transparency-section { padding: 48px 0; }
+  .path-tiers { flex-direction: column; }
+  .transparency-items { flex-direction: column; gap: 16px; }
 }
 
 /* HERO */
@@ -1211,112 +1264,171 @@ a { color: inherit; text-decoration: none; }
   </svg>
 
   <div class="container">
-    <span class="kicker teal">Support Independent Research</span>
-    <h1>Fund <span>emotional AI safety</span> research.</h1>
-    <p class="hero-sub">Your support enables new scenario packs, additional model evaluations, and public reporting. Ikwe.ai is building the behavioral safety layer that AI benchmarks forgot.</p>
+    <span class="kicker teal">Support Ikwe.ai</span>
+    <h1>Help fund the <span>next phase</span> of behavioral safety research.</h1>
+    <p class="hero-sub">Your support turns a benchmark into a standard: broader testing, external validation, and safe deployment pathways for emotionally vulnerable AI use cases.</p>
     
     <div class="impact-statement">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      <p><strong>79 scenarios tested</strong> across 4 frontier models → Next: <strong>200+ scenarios</strong> in 2026</p>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <p>We measure emotional safety as <strong>behavior over time</strong> — not tone, not intent, not accuracy alone.</p>
     </div>
   </div>
 </section>
 
 <!-- ================================= -->
-<!-- TIER CARDS -->
+<!-- WHAT YOUR SUPPORT ENABLES -->
 <!-- ================================= -->
-<section class="tiers-section">
+<section class="enables-section">
   <div class="container">
     <div class="section-header">
-      <span class="kicker">Choose Your Level</span>
-      <h2>Support the research your way</h2>
-      <p class="section-sub">Every contribution directly funds scenario development, model evaluations, and public reporting.</p>
+      <span class="kicker">What Your Support Enables</span>
+      <h2>From benchmark to standard</h2>
+      <p class="section-sub">Funding expands evaluation breadth, independent validation, and deployment readiness across models and real-world contexts.</p>
     </div>
     
-    <div class="tier-grid">
-      <!-- Supporter -->
-      <div class="tier-card">
-        <div class="tier-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
-        <div class="tier-name">Supporter</div>
-        <div class="tier-price">$25</div>
-        <div class="tier-freq">one-time or monthly</div>
-        <ul class="tier-perks">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Name in future research reports
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Warm thank-you email
-          </li>
-        </ul>
-        <a href="https://donate.stripe.com/fZu28s6UY5Xb7Bk66B9sk00" target="_blank" rel="noopener" class="btn primary">Support $25</a>
-      </div>
-      
-      <!-- Research Ally (Featured) -->
-      <div class="tier-card featured">
-        <div class="tier-icon">
+    <div class="enables-grid">
+      <!-- Expand the Benchmark -->
+      <div class="enable-card">
+        <div class="enable-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6M7 10h6"/>
           </svg>
         </div>
-        <div class="tier-name">Research Ally</div>
-        <div class="tier-price">$100</div>
-        <div class="tier-freq">one-time or monthly</div>
-        <ul class="tier-perks">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Name + short thanks in reports
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Early access to new findings
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Quarterly research updates
-          </li>
+        <h3>Expand the benchmark</h3>
+        <p>Scale evaluation beyond the current release:</p>
+        <ul>
+          <li><strong>Scenario coverage</strong> — more vulnerable contexts, edge cases, ambiguity</li>
+          <li><strong>Response volume</strong> — more samples per scenario to reduce variance</li>
+          <li><strong>Model coverage</strong> — frontier systems, open models, specialized deployments</li>
+          <li><strong>Stress conditions</strong> — escalation pressure, persuasion risk, conflict dynamics</li>
         </ul>
-        <a href="https://donate.stripe.com/fZu28s6UY5Xb7Bk66B9sk00" target="_blank" rel="noopener" class="btn teal">Become an Ally</a>
+        <p class="enable-note">From "initial benchmark" → broad, reproducible evaluation at scale.</p>
       </div>
       
-      <!-- Sustaining Sponsor -->
-      <div class="tier-card">
-        <div class="tier-icon">
+      <!-- Independent Validation -->
+      <div class="enable-card">
+        <div class="enable-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
           </svg>
         </div>
-        <div class="tier-name">Sustaining Sponsor</div>
-        <div class="tier-price">$500</div>
-        <div class="tier-freq">one-time or monthly</div>
-        <ul class="tier-perks">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Name + logo in major updates
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Special mention in press releases
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Direct line to research updates
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Optional 30-min call with founder
-          </li>
+        <h3>Independent validation</h3>
+        <p>Make the next phase externally tested and defensible:</p>
+        <ul>
+          <li><strong>Research affiliates</strong> — replicate scoring and review edge cases</li>
+          <li><strong>Inter-rater reliability</strong> — human evaluator consistency studies</li>
+          <li><strong>External advisory</strong> — methodology, weighting, and taxonomy review</li>
+          <li><strong>Publication-grade artifacts</strong> — datasets, evaluation docs, reproducibility notes</li>
         </ul>
-        <a href="https://donate.stripe.com/fZu28s6UY5Xb7Bk66B9sk00" target="_blank" rel="noopener" class="btn primary">Sponsor Research</a>
+        <p class="enable-note">This is how a benchmark becomes a credible standard.</p>
+      </div>
+      
+      <!-- Compliance & Deployment -->
+      <div class="enable-card">
+        <div class="enable-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2">
+            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+          </svg>
+        </div>
+        <h3>Compliance & deployment readiness</h3>
+        <p>Advance toward real-world deployment contexts:</p>
+        <ul>
+          <li><strong>Privacy & compliance</strong> — HIPAA-aligned workflows, data handling standards</li>
+          <li><strong>Clinical constraints</strong> — what "safe" must mean under duty-of-care settings</li>
+          <li><strong>Governance documentation</strong> — risk statements, limitations, evaluation scope</li>
+        </ul>
+        <p class="enable-note">Operational maturity for partner deployments.</p>
+      </div>
+      
+      <!-- Measurement → Infrastructure -->
+      <div class="enable-card">
+        <div class="enable-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <h3>From measurement → infrastructure</h3>
+        <p>Move from evaluation into reduction:</p>
+        <ul>
+          <li><strong>Safety-layer integration</strong> — guardrails, trajectory checks, escalation handling</li>
+          <li><strong>Partner pilots</strong> — measured deployments with feedback loops</li>
+          <li><strong>Application readiness</strong> — tools that can ship because the safety layer exists</li>
+        </ul>
+        <p class="enable-note">We don't deploy until we can prove systems stay safe.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ================================= -->
+<!-- TWO WAYS TO SUPPORT -->
+<!-- ================================= -->
+<section class="paths-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="kicker">Two Ways to Support</span>
+      <h2>Choose your path</h2>
+    </div>
     
-    <p style="text-align:center;margin-top:24px;color:var(--text3);font-size:.9rem;">Need an invoice or custom sponsorship? <a href="/partner" style="color:var(--teal);">Partner with us →</a></p>
+    <div class="paths-grid">
+      <!-- Support the Research -->
+      <div class="path-card research">
+        <div class="path-badge">For Donors & Foundations</div>
+        <h3>Support the Research</h3>
+        <p>Help expand benchmarking, validation, and evaluation coverage.</p>
+        <div class="path-details">
+          <div class="path-label">Best for</div>
+          <p>Researchers, safety advocates, foundations, individual donors</p>
+          <div class="path-label">You're funding</div>
+          <p>Independent validation + scale + rigor</p>
+        </div>
+        <div class="path-tiers">
+          <div class="mini-tier">
+            <span>Supporter</span>
+            <strong>$25</strong>
+          </div>
+          <div class="mini-tier featured">
+            <span>Research Ally</span>
+            <strong>$100</strong>
+          </div>
+          <div class="mini-tier">
+            <span>Sustaining Sponsor</span>
+            <strong>$500</strong>
+          </div>
+        </div>
+        <a href="https://donate.stripe.com/fZu28s6UY5Xb7Bk66B9sk00" target="_blank" rel="noopener" class="btn primary large">Fund Benchmark Expansion</a>
+        <p class="path-note">Or <a href="#crypto">support via crypto →</a></p>
+      </div>
+      
+      <!-- Partner for Deployment -->
+      <div class="path-card partner">
+        <div class="path-badge teal">For Product Teams</div>
+        <h3>Partner for Deployment</h3>
+        <p>Building conversational AI for healthcare, mental health, HR, education, or high-stakes support?</p>
+        <div class="path-details">
+          <div class="path-label">Best for</div>
+          <p>Product teams, safety leads, compliance leaders</p>
+          <div class="path-label">You're funding</div>
+          <p>Pilots + integration + evaluation services</p>
+        </div>
+        <div class="partner-services">
+          <div class="service-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Behavioral risk evaluation
+          </div>
+          <div class="service-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Safety-layer integration
+          </div>
+          <div class="service-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Measured pilot deployments
+          </div>
+        </div>
+        <a href="/partner" class="btn teal large">Explore a Pilot</a>
+        <p class="path-note">Or <a href="/inquiry">request an evaluation →</a></p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1429,26 +1541,27 @@ a { color: inherit; text-decoration: none; }
 </section>
 
 <!-- ================================= -->
-<!-- TRUST / IMPACT -->
+<!-- TRANSPARENCY -->
 <!-- ================================= -->
-<section class="trust-section">
+<section class="transparency-section">
   <div class="container">
-    <h2>Your impact so far</h2>
-    
-    <div class="progress-bar-container">
-      <div class="progress-label">
-        <span><strong>79</strong> scenarios tested</span>
-        <span>Goal: <strong>200</strong> scenarios</span>
+    <div class="transparency-box">
+      <h3>Transparency</h3>
+      <p>Ikwe.ai publishes research artifacts and methodology updates as the benchmark expands. Support directly funds:</p>
+      <div class="transparency-items">
+        <div class="t-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <span>Evaluation breadth</span>
+        </div>
+        <div class="t-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Validation & review</span>
+        </div>
+        <div class="t-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          <span>Infrastructure readiness</span>
+        </div>
       </div>
-      <div class="progress-bar">
-        <div class="progress-fill"></div>
-      </div>
-      <div class="progress-caption">Thanks to early supporters, we've completed Phase 1. Help us reach 200 scenarios in 2026.</div>
-    </div>
-    
-    <div class="trust-quote">
-      <blockquote>"Supporting Ikwe feels like investing in a more humane AI future — the work they're doing on emotional safety is exactly what the field needs."</blockquote>
-      <cite>— Early Research Ally</cite>
     </div>
   </div>
 </section>
