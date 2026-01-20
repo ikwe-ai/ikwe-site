@@ -1,0 +1,1551 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ikwe.ai — Support the Research</title>
+  <meta name="description" content="Support independent behavioral emotional safety research at Ikwe.ai — via Stripe, crypto, or sponsorship.">
+  <link rel="canonical" href="https://ikwe.ai/support">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ikwe.ai/support">
+  <meta property="og:site_name" content="Ikwe.ai">
+  <meta property="og:title" content="Support Ikwe.ai Research">
+  <meta property="og:description" content="Fund independent behavioral emotional safety research — Stripe, crypto, or sponsorship.">
+  <meta property="og:image" content="https://ikwe.ai/og/ikwe-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ikwe.ai - Behavioral Emotional Safety in AI">
+  
+  <!-- Twitter/X -->
+  <meta name="twitter:site" content="@ikaborot">
+  <meta name="twitter:creator" content="@ikaborot">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Support Ikwe.ai Research">
+  <meta name="twitter:description" content="Fund independent behavioral emotional safety research — Stripe, crypto, or sponsorship.">
+  <meta name="twitter:image" content="https://ikwe.ai/og/ikwe-default.png">
+  
+  <link rel="icon" type="image/png" href="ikwe_logo_dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #09090b;
+  --bg2: #0f1014;
+  --bg3: #16181d;
+  --text: #eaeaf0;
+  --text2: rgba(234,234,240,.7);
+  --text3: rgba(234,234,240,.6);
+  --purple: #a78bfa;
+  --purple-dim: rgba(167,139,250,.12);
+  --purple-glow: rgba(167,139,250,.08);
+  --coral: #fb923c;
+  --gold: #fbbf24;
+  --green: #22c55e;
+  --red: #f87171;
+  --teal: #2dd4bf;
+  --teal-dim: rgba(45,212,191,.1);
+  --teal-glow: rgba(45,212,191,.08);
+  --border: rgba(255,255,255,.06);
+  --border2: rgba(255,255,255,.1);
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'Space Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; }
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9,9,11,.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.brand img { width: 32px; height: 32px; border-radius: 50%; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--text2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all .15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+.nav-link:hover {
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+}
+.nav-link.highlight {
+  color: var(--purple);
+}
+.nav-link.highlight:hover {
+  background: var(--purple-dim);
+}
+.nav-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+  color: #000;
+  background: var(--purple);
+  text-decoration: none;
+  margin-left: 8px;
+  transition: all .15s;
+}
+.nav-btn:hover {
+  background: #b89dfc;
+  transform: translateY(-1px);
+}
+
+/* Dropdown - Critical positioning */
+.nav-dropdown {
+  position: relative;
+}
+.dropdown-trigger {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--text2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all .15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.dropdown-trigger:hover {
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+}
+.dropdown-trigger svg {
+  transition: transform .2s;
+}
+.nav-dropdown:hover .dropdown-trigger svg {
+  transform: rotate(180deg);
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  min-width: 280px;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all .2s;
+  box-shadow: 0 10px 40px rgba(0,0,0,.4);
+  z-index: 1000;
+}
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.dropdown-item {
+  display: block;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .15s;
+}
+.dropdown-item:hover {
+  background: rgba(255,255,255,.05);
+}
+.dropdown-title {
+  display: block;
+  font-weight: 600;
+  color: var(--text);
+  font-size: .9rem;
+  margin-bottom: 2px;
+}
+.dropdown-desc {
+  display: block;
+  font-size: .8rem;
+  color: var(--text3);
+}
+
+/* Mobile */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all .2s;
+}
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px 24px;
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+  z-index: 999;
+}
+.mobile-menu.open { display: block; }
+.mobile-section {
+  margin-bottom: 20px;
+}
+.mobile-section-title {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--text3);
+  margin-bottom: 8px;
+  padding: 0 12px;
+}
+.mobile-menu a {
+  display: block;
+  padding: 12px;
+  font-size: .95rem;
+  color: var(--text2);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all .15s;
+}
+.mobile-menu a:hover {
+  background: rgba(255,255,255,.05);
+  color: var(--text);
+}
+.mobile-menu a.highlight {
+  color: var(--purple);
+}
+.mobile-cta {
+  display: block;
+  text-align: center;
+  padding: 14px 20px !important;
+  background: var(--purple) !important;
+  color: #000 !important;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+}
+
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: .9rem;
+  border: 1px solid var(--border2);
+  background: rgba(255,255,255,.03);
+  color: var(--text);
+  cursor: pointer;
+  transition: all .15s;
+}
+.btn:hover { transform: translateY(-2px) scale(1.02); background: rgba(255,255,255,.06); box-shadow: 0 4px 12px rgba(0,0,0,.3); }
+.btn.primary {
+  border-color: rgba(167,139,250,.35);
+  background: linear-gradient(180deg, rgba(167,139,250,.18), rgba(167,139,250,.08));
+}
+.btn.primary:hover {
+  background: linear-gradient(180deg, rgba(167,139,250,.25), rgba(167,139,250,.12));
+}
+.btn.teal {
+  border-color: rgba(45,212,191,.35);
+  background: linear-gradient(180deg, rgba(45,212,191,.15), rgba(45,212,191,.06));
+}
+.btn.teal:hover {
+  background: linear-gradient(180deg, rgba(45,212,191,.22), rgba(45,212,191,.1));
+}
+
+/* KICKER */
+.kicker {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 10px;
+}
+.kicker.teal { color: var(--teal); }
+
+
+/* SUPPORT PAGE ENHANCED */
+.support-hero {
+  position: relative;
+  padding: 72px 0 56px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 20% 0%, var(--purple-glow) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 100%, var(--teal-glow) 0%, transparent 50%);
+}
+.hero-illustration {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  width: 380px;
+  height: 380px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+.hero-illustration circle { animation: pulse 4s ease-in-out infinite; }
+.hero-illustration .node { animation: float 5s ease-in-out infinite; }
+.hero-illustration .node:nth-child(2) { animation-delay: -1s; }
+.hero-illustration .node:nth-child(3) { animation-delay: -2s; }
+@keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.7; } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+.support-hero .container { position: relative; z-index: 1; }
+.support-hero h1 {
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  margin: 12px 0 16px;
+  max-width: 20ch;
+  animation: fadeInUp 0.6s ease;
+}
+.support-hero h1 span {
+  background: linear-gradient(135deg, var(--text), var(--teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.support-hero .hero-sub {
+  color: var(--text2);
+  font-size: 1.05rem;
+  max-width: 55ch;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  animation: fadeInUp 0.6s ease 0.1s both;
+}
+
+.impact-statement {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+.impact-statement svg { flex-shrink: 0; color: var(--teal); }
+.impact-statement p { font-size: .9rem; color: var(--text2); margin: 0; }
+.impact-statement strong { color: var(--teal); }
+
+/* TIER CARDS */
+.tiers-section { padding: 64px 0; }
+.section-header { text-align: center; margin-bottom: 40px; }
+.section-header h2 { font-size: clamp(1.5rem, 2.5vw, 1.9rem); margin: 8px 0 12px; }
+.section-sub { color: var(--text2); max-width: 50ch; margin: 0 auto; }
+
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.tier-card {
+  position: relative;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 20px;
+  padding: 32px 28px;
+  text-align: center;
+  transition: all .3s ease;
+}
+.tier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,.3);
+}
+.tier-card.featured {
+  border-color: rgba(45,212,191,.3);
+  background: linear-gradient(180deg, rgba(45,212,191,.06), var(--bg2));
+  transform: scale(1.03);
+}
+.tier-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+.tier-card.featured::before {
+  content: 'Most Popular';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 14px;
+  background: var(--teal);
+  color: #000;
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  border-radius: 20px;
+}
+.tier-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: var(--purple-dim);
+}
+.tier-card.featured .tier-icon { background: var(--teal-dim); }
+.tier-icon svg { width: 28px; height: 28px; }
+.tier-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+.tier-price { font-family: var(--mono); font-size: 2.2rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.tier-freq { font-size: .85rem; color: var(--text3); margin-bottom: 20px; }
+.tier-perks { text-align: left; margin-bottom: 24px; }
+.tier-perks li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  font-size: .9rem;
+  color: var(--text2);
+  border-top: 1px solid var(--border);
+  list-style: none;
+}
+.tier-perks li:first-child { border-top: none; }
+.tier-perks svg { flex-shrink: 0; width: 18px; height: 18px; color: var(--teal); margin-top: 2px; }
+.tier-card .btn { width: 100%; }
+
+/* CRYPTO SECTION */
+.crypto-section {
+  padding: 72px 0;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.crypto-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.crypto-card {
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all .2s;
+}
+.crypto-card:hover { border-color: rgba(255,255,255,.15); }
+.crypto-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.crypto-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: .8rem;
+}
+.crypto-icon.eth { background: linear-gradient(135deg, #627eea, #3c3c3d); color: #fff; }
+.crypto-icon.sol { background: linear-gradient(135deg, #9945FF, #14F195); color: #fff; }
+.crypto-icon.btc { background: linear-gradient(135deg, #f7931a, #ff9500); color: #fff; }
+.crypto-icon.avax { background: linear-gradient(135deg, #e84142, #ff6b6b); color: #fff; }
+.crypto-name { font-weight: 600; font-size: 1rem; }
+.crypto-chain { font-size: .8rem; color: var(--text3); }
+.crypto-address {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+.crypto-address code {
+  flex: 1;
+  font-family: var(--mono);
+  font-size: .75rem;
+  color: var(--text2);
+  word-break: break-all;
+  line-height: 1.4;
+}
+.copy-btn {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  background: var(--teal-dim);
+  border: 1px solid rgba(45,212,191,.3);
+  border-radius: 8px;
+  color: var(--teal);
+  font-size: .8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.copy-btn:hover { background: rgba(45,212,191,.2); }
+.copy-btn.copied { background: var(--teal); color: #000; }
+.copy-btn svg { width: 14px; height: 14px; }
+.crypto-note { font-size: .75rem; color: var(--text3); display: flex; align-items: center; gap: 6px; }
+.crypto-note svg { width: 14px; height: 14px; color: var(--text3); }
+
+.receipt-callout {
+  max-width: 600px;
+  margin: 32px auto 0;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, rgba(45,212,191,.06), rgba(167,139,250,.04));
+  border: 1px solid var(--border2);
+  border-radius: 14px;
+  text-align: center;
+}
+.receipt-callout p { font-size: .9rem; color: var(--text2); margin: 0; }
+.receipt-callout a { color: var(--teal); font-weight: 600; }
+
+/* TRUST SECTION */
+.trust-section { padding: 64px 0; }
+.trust-section h2 { text-align: center; font-size: clamp(1.3rem, 2vw, 1.5rem); margin-bottom: 32px; }
+.progress-bar-container { max-width: 600px; margin: 0 auto 40px; text-align: center; }
+.progress-label { display: flex; justify-content: space-between; font-size: .85rem; color: var(--text2); margin-bottom: 10px; }
+.progress-label strong { color: var(--teal); }
+.progress-bar { height: 12px; background: rgba(255,255,255,.06); border-radius: 6px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--teal), #5eead4); border-radius: 6px; width: 39.5%; }
+.progress-caption { font-size: .8rem; color: var(--text3); margin-top: 10px; }
+
+.trust-quote {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 32px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.trust-quote blockquote { font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--text); line-height: 1.6; margin-bottom: 16px; }
+.trust-quote cite { font-size: .85rem; color: var(--text3); font-style: normal; }
+
+@media (max-width:900px){
+  .tier-grid { grid-template-columns: 1fr; max-width: 400px; }
+  .tier-card.featured { transform: none; }
+  .tier-card.featured:hover { transform: translateY(-4px); }
+  .crypto-grid { grid-template-columns: 1fr; }
+  .hero-illustration { display: none; }
+}
+@media (max-width:520px){
+  .support-hero { padding: 48px 0 40px; }
+  .tiers-section, .crypto-section, .trust-section { padding: 48px 0; }
+}
+
+/* HERO */
+.hero {
+  padding: 64px 0 56px;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 48px;
+  align-items: start;
+}
+.hero-title {
+  font-size: clamp(1.85rem, 3.6vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin-bottom: 18px;
+  max-width: 18ch;
+}
+.hero-sub {
+  font-size: 1rem;
+  color: var(--text2);
+  max-width: 50ch;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.hero-sub strong { color: var(--text); }
+.hero-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+/* TWO-STAGE RESULTS CARD */
+.results-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 28px;
+}
+
+.stage-section {
+  margin-bottom: 24px;
+}
+.stage-section:last-child {
+  margin-bottom: 0;
+}
+
+.stage-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+.stage-label.secondary {
+  color: var(--text3);
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.primary-stat {
+  margin-bottom: 8px;
+}
+.primary-stat .num {
+  font-family: var(--mono);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+}
+.primary-stat .desc {
+  font-size: 15px;
+  color: var(--text);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+.primary-stat .sub {
+  font-size: 12px;
+  color: var(--text3);
+  margin-top: 4px;
+}
+
+.conditional-note {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: rgba(255,255,255,.02);
+  border-radius: 8px;
+}
+.conditional-note strong {
+  color: var(--text);
+}
+
+.compare-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.compare-row {
+  display: grid;
+  grid-template-columns: 1.4fr 2.2fr .7fr;
+  align-items: center;
+  gap: 12px;
+}
+.compare-label strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  display: block;
+}
+.compare-label.primary strong {
+  color: var(--green);
+}
+.compare-label span {
+  font-size: 10px;
+  color: var(--text3);
+}
+.compare-bar {
+  height: 10px;
+  background: rgba(255,255,255,.04);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.compare-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+.compare-fill.green { background: linear-gradient(90deg, #22c55e, #16a34a); }
+.compare-fill.amber { background: linear-gradient(90deg, #fbbf24, #d97706); }
+.compare-fill.red { background: linear-gradient(90deg, #f87171, #dc2626); }
+
+.compare-value {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+}
+.compare-value.green { color: var(--green); }
+.compare-value.amber { color: var(--gold); }
+.compare-value.red { color: var(--red); }
+
+.card-footer {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text3);
+  line-height: 1.6;
+}
+.card-footer strong {
+  color: var(--text2);
+}
+
+/* STAT PAIR */
+.stat-section {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+.stat-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.stat-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 26px;
+}
+.stat-card .num {
+  font-family: var(--mono);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.stat-card .num.coral { color: var(--coral); }
+.stat-card .num.gold { color: var(--gold); }
+.stat-card p {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.55;
+}
+.stat-card p strong {
+  color: var(--text);
+}
+
+/* THESIS */
+.thesis-section {
+  padding: 56px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.thesis-box {
+  background: linear-gradient(135deg, rgba(45,212,191,.08), rgba(45,212,191,.02));
+  border: 1px solid rgba(45,212,191,.15);
+  border-radius: 16px;
+  padding: 40px 48px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.thesis-box .title {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 14px;
+}
+.thesis-box p {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 48ch;
+  margin: 0 auto;
+}
+
+/* SECTION */
+.section {
+  padding: 56px 0;
+  border-top: 1px solid var(--border);
+}
+.section h2 {
+  font-size: clamp(1.4rem, 2.2vw, 1.7rem);
+  margin: 8px 0 14px;
+}
+.section-sub {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 54ch;
+}
+.section-sub strong {
+  color: var(--text);
+}
+
+/* TWO OFFERINGS */
+.offerings-section {
+  padding: 64px 0;
+  border-top: 1px solid var(--border);
+  background: var(--bg2);
+}
+.offerings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 28px;
+}
+.offering-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+.offering-card .badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+.offering-card.framework .badge {
+  background: var(--teal-dim);
+  color: var(--teal);
+}
+.offering-card.evaluation .badge {
+  background: var(--purple-dim);
+  color: var(--purple);
+}
+.offering-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.offering-card .desc {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.offering-card .uses {
+  margin-top: auto;
+}
+.offering-card .uses-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 10px;
+}
+.offering-card .uses ul {
+  list-style: none;
+  padding: 0;
+}
+.offering-card .uses li {
+  font-size: 13px;
+  color: var(--text2);
+  padding: 6px 0;
+  padding-left: 18px;
+  position: relative;
+}
+.offering-card .uses li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  opacity: .6;
+}
+.offering-card.framework .uses li::before { background: var(--teal); }
+.offering-card.evaluation .uses li::before { background: var(--purple); }
+
+/* CLUSTER */
+.cluster {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  margin: 20px 0;
+}
+.cluster-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 14px;
+}
+.cluster ul {
+  list-style: none;
+  padding: 0;
+}
+.cluster li {
+  font-size: 14px;
+  color: var(--text2);
+  padding: 8px 0;
+  padding-left: 20px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+}
+.cluster li:last-child {
+  border-bottom: none;
+}
+.cluster li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 6px;
+  height: 6px;
+  background: var(--coral);
+  border-radius: 50%;
+  opacity: .7;
+}
+.cluster li strong {
+  color: var(--text);
+}
+
+/* CARD GRID */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+}
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.card p {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+.card p strong {
+  color: var(--text);
+}
+
+/* CTA */
+.cta {
+  padding: 64px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.cta h2 {
+  font-size: 1.6rem;
+  margin: 8px 0 14px;
+}
+.cta p {
+  color: var(--text2);
+  font-size: 15px;
+  max-width: 480px;
+  margin: 0 auto 28px;
+}
+.cta-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* CLOSING */
+.closing-line {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 15px;
+  color: var(--text2);
+}
+.closing-line strong {
+  color: var(--text);
+}
+
+/* FOOTER */
+.footer {
+  padding: 40px 0 56px;
+  border-top: 1px solid var(--border);
+  font-size: .85rem;
+  color: var(--text3);
+}
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  justify-content: space-between;
+}
+.footer-col { min-width: 140px; }
+.footer-title { font-weight: 700; color: var(--text); margin-bottom: 12px; font-size: .9rem; }
+.footer-nav { display: flex; flex-direction: column; gap: 8px; }
+.footer-nav a { color: var(--text3); transition: color .15s; }
+.footer-nav a:hover { color: var(--purple); }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .offerings-grid { grid-template-columns: 1fr; }
+  .stat-pair { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .hero { padding: 40px 0 36px; }
+  .hero-btns { flex-direction: column; }
+  .btn { width: 100%; padding: 14px 24px; font-size: 1rem; }
+  .cta-btns { flex-direction: column; }
+  .footer-grid { flex-direction: column; gap: 32px; }
+  .compare-row { grid-template-columns: 1fr 1fr; }
+  .compare-label span { display: none; }
+}
+  </style>
+  <script defer data-domain="ikwe.ai" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+      
+      <div class="nav-links">
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger">Research <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown-menu">
+            <a href="/emotional-safety-gap" class="dropdown-item">
+              <span class="dropdown-title">The Emotional Safety Gap</span>
+              <span class="dropdown-desc">Interactive research findings</span>
+            </a>
+            <a href="/research" class="dropdown-item">
+              <span class="dropdown-title">Methodology</span>
+              <span class="dropdown-desc">Two-stage evaluation framework</span>
+            </a>
+            <a href="/full-report" class="dropdown-item">
+              <span class="dropdown-title">Full Report</span>
+              <span class="dropdown-desc">Complete research document</span>
+            </a>
+            <a href="/research-summary" class="dropdown-item">
+              <span class="dropdown-title">Research Summary</span>
+              <span class="dropdown-desc">Key findings overview</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger">About <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown-menu">
+            <a href="/about" class="dropdown-item">
+              <span class="dropdown-title">About Ikwe.ai</span>
+              <span class="dropdown-desc">Our mission and approach</span>
+            </a>
+            <a href="/founder" class="dropdown-item">
+              <span class="dropdown-title">Founder</span>
+              <span class="dropdown-desc">Stephanie Stranko</span>
+            </a>
+            <a href="/faq" class="dropdown-item">
+              <span class="dropdown-title">FAQ</span>
+              <span class="dropdown-desc">Common questions answered</span>
+            </a>
+            <a href="/blog" class="dropdown-item">
+              <span class="dropdown-title">Blog</span>
+              <span class="dropdown-desc">Research updates & insights</span>
+            </a>
+            <a href="/press" class="dropdown-item">
+              <span class="dropdown-title">Press Kit</span>
+              <span class="dropdown-desc">Media resources & citations</span>
+            </a>
+          </div>
+        </div>
+        
+        <a href="/partner" class="nav-link">Partner</a>
+        <a href="/support" class="nav-link highlight">Support</a>
+        <a href="/inquiry" class="nav-btn">Contact</a>
+      </div>
+      
+      <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    
+    <div class="mobile-menu">
+      <div class="mobile-section">
+        <div class="mobile-section-title">Research</div>
+        <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+        <a href="/research">Methodology</a>
+        <a href="/full-report">Full Report</a>
+        <a href="/research-summary">Research Summary</a>
+      </div>
+      <div class="mobile-section">
+        <div class="mobile-section-title">About</div>
+        <a href="/about">About Ikwe.ai</a>
+        <a href="/founder">Founder</a>
+        <a href="/faq">FAQ</a>
+        <a href="/blog">Blog</a>
+        <a href="/press">Press Kit</a>
+      </div>
+      <div class="mobile-section">
+        <a href="/partner">Partner</a>
+        <a href="/support" class="highlight">Support the Research</a>
+        <a href="/inquiry" class="mobile-cta">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ================================= -->
+<!-- HERO - ENHANCED -->
+<!-- ================================= -->
+<section class="support-hero">
+  <!-- Abstract illustration -->
+  <svg class="hero-illustration" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="200" cy="200" r="100" fill="url(#glow1)" />
+    <circle cx="200" cy="200" r="60" fill="url(#glow2)" />
+    <g opacity="0.4">
+      <path d="M200 200 L100 140" stroke="var(--teal)" stroke-width="1.5"/>
+      <path d="M200 200 L300 140" stroke="var(--purple)" stroke-width="1.5"/>
+      <path d="M200 200 L120 280" stroke="var(--teal)" stroke-width="1.5"/>
+      <path d="M200 200 L280 280" stroke="var(--purple)" stroke-width="1.5"/>
+    </g>
+    <g class="node"><circle cx="100" cy="140" r="10" fill="var(--teal)" opacity="0.6"/><circle cx="100" cy="140" r="5" fill="var(--teal)"/></g>
+    <g class="node"><circle cx="300" cy="140" r="8" fill="var(--purple)" opacity="0.6"/><circle cx="300" cy="140" r="4" fill="var(--purple)"/></g>
+    <g class="node"><circle cx="120" cy="280" r="12" fill="var(--teal)" opacity="0.5"/><circle cx="120" cy="280" r="6" fill="var(--teal)"/></g>
+    <g class="node"><circle cx="280" cy="280" r="9" fill="var(--purple)" opacity="0.5"/><circle cx="280" cy="280" r="4" fill="var(--purple)"/></g>
+    <circle cx="200" cy="200" r="20" fill="var(--bg2)" stroke="var(--teal)" stroke-width="2" opacity="0.8"/>
+    <circle cx="200" cy="200" r="10" fill="var(--teal)" opacity="0.6"/>
+    <defs>
+      <radialGradient id="glow1"><stop offset="0%" stop-color="var(--teal)" stop-opacity="0.15"/><stop offset="100%" stop-color="var(--teal)" stop-opacity="0"/></radialGradient>
+      <radialGradient id="glow2"><stop offset="0%" stop-color="var(--purple)" stop-opacity="0.1"/><stop offset="100%" stop-color="var(--purple)" stop-opacity="0"/></radialGradient>
+    </defs>
+  </svg>
+
+  <div class="container">
+    <span class="kicker teal">Support Independent Research</span>
+    <h1>Fund <span>emotional AI safety</span> research.</h1>
+    <p class="hero-sub">Your support enables new scenario packs, additional model evaluations, and public reporting. Ikwe.ai is building the behavioral safety layer that AI benchmarks forgot.</p>
+    
+    <div class="impact-statement">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <p><strong>79 scenarios tested</strong> across 4 frontier models → Next: <strong>200+ scenarios</strong> in 2026</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================= -->
+<!-- TIER CARDS -->
+<!-- ================================= -->
+<section class="tiers-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="kicker">Choose Your Level</span>
+      <h2>Support the research your way</h2>
+      <p class="section-sub">Every contribution directly funds scenario development, model evaluations, and public reporting.</p>
+    </div>
+    
+    <div class="tier-grid">
+      <!-- Supporter -->
+      <div class="tier-card">
+        <div class="tier-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="tier-name">Supporter</div>
+        <div class="tier-price">$25</div>
+        <div class="tier-freq">one-time or monthly</div>
+        <ul class="tier-perks">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Name in future research reports
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Warm thank-you email
+          </li>
+        </ul>
+        <a href="https://donate.stripe.com/fZu28s6UY5Xb7Bk66B9sk00" target="_blank" rel="noopener" class="btn primary">Support $25</a>
+      </div>
+      
+      <!-- Research Ally (Featured) -->
+      <div class="tier-card featured">
+        <div class="tier-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <div class="tier-name">Research Ally</div>
+        <div class="tier-price">$100</div>
+        <div class="tier-freq">one-time or monthly</div>
+        <ul class="tier-perks">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Name + short thanks in reports
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Early access to new findings
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Quarterly research updates
+          </li>
+        </ul>
+        <a href="https://donate.stripe.com/fZu28s6UY5Xb7Bk66B9sk00" target="_blank" rel="noopener" class="btn teal">Become an Ally</a>
+      </div>
+      
+      <!-- Sustaining Sponsor -->
+      <div class="tier-card">
+        <div class="tier-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div class="tier-name">Sustaining Sponsor</div>
+        <div class="tier-price">$500</div>
+        <div class="tier-freq">one-time or monthly</div>
+        <ul class="tier-perks">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Name + logo in major updates
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Special mention in press releases
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Direct line to research updates
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Optional 30-min call with founder
+          </li>
+        </ul>
+        <a href="https://donate.stripe.com/fZu28s6UY5Xb7Bk66B9sk00" target="_blank" rel="noopener" class="btn primary">Sponsor Research</a>
+      </div>
+    </div>
+    
+    <p style="text-align:center;margin-top:24px;color:var(--text3);font-size:.9rem;">Need an invoice or custom sponsorship? <a href="/partner" style="color:var(--teal);">Partner with us →</a></p>
+  </div>
+</section>
+
+<!-- ================================= -->
+<!-- CRYPTO SECTION -->
+<!-- ================================= -->
+<section class="crypto-section" id="crypto">
+  <div class="container">
+    <div class="section-header">
+      <span class="kicker">Onchain Support</span>
+      <h2>Direct crypto contributions</h2>
+      <p class="section-sub">Prefer to fund work directly? Send crypto to these wallets. All donations go directly to research operations.</p>
+    </div>
+    
+    <div class="crypto-grid">
+      <!-- Ethereum / Base -->
+      <div class="crypto-card">
+        <div class="crypto-header">
+          <div class="crypto-icon eth">ETH</div>
+          <div>
+            <div class="crypto-name">Ethereum / Base</div>
+            <div class="crypto-chain">EVM Compatible</div>
+          </div>
+        </div>
+        <div class="crypto-address">
+          <code id="evm">0xE48D506E3EE778C7AB10cf2D41D1099cC33aE5F9</code>
+          <button class="copy-btn" onclick="copyAddress('evm', this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+        <div class="crypto-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Works with ETH, USDC, or any ERC-20
+        </div>
+      </div>
+      
+      <!-- Solana -->
+      <div class="crypto-card">
+        <div class="crypto-header">
+          <div class="crypto-icon sol">SOL</div>
+          <div>
+            <div class="crypto-name">Solana</div>
+            <div class="crypto-chain">SPL Tokens</div>
+          </div>
+        </div>
+        <div class="crypto-address">
+          <code id="sol">DxJpAqFcrCoUWpHXhsfzCjs4QM4WQpWDnNPE3zcRZxeA</code>
+          <button class="copy-btn" onclick="copyAddress('sol', this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+        <div class="crypto-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          SOL or USDC accepted
+        </div>
+      </div>
+      
+      <!-- Bitcoin -->
+      <div class="crypto-card">
+        <div class="crypto-header">
+          <div class="crypto-icon btc">BTC</div>
+          <div>
+            <div class="crypto-name">Bitcoin</div>
+            <div class="crypto-chain">Native BTC</div>
+          </div>
+        </div>
+        <div class="crypto-address">
+          <code id="btc">bc1q7njw8vty2la36r2savr9n3jpz6rq7e7qr75jw3</code>
+          <button class="copy-btn" onclick="copyAddress('btc', this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+        <div class="crypto-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          SegWit address (lower fees)
+        </div>
+      </div>
+      
+      <!-- Avalanche -->
+      <div class="crypto-card">
+        <div class="crypto-header">
+          <div class="crypto-icon avax">AVAX</div>
+          <div>
+            <div class="crypto-name">Avalanche</div>
+            <div class="crypto-chain">C-Chain / Arena</div>
+          </div>
+        </div>
+        <div class="crypto-address">
+          <code id="avax">0x434e792c0e5759c4e23fbd2bb13bcf0e9994dbd0</code>
+          <button class="copy-btn" onclick="copyAddress('avax', this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+        <div class="crypto-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          AVAX or bridged assets
+        </div>
+      </div>
+    </div>
+    
+    <div class="receipt-callout">
+      <p>💌 Want a receipt? Just email <a href="mailto:research@ikwe.ai">research@ikwe.ai</a> after sending — we take care of it.<br>
+      <span style="opacity:.7;font-size:.85rem;">Also available: <a href="https://www.donate.gg/@Ladyinvisible" target="_blank" rel="noopener">donate.gg/@Ladyinvisible</a></span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================= -->
+<!-- TRUST / IMPACT -->
+<!-- ================================= -->
+<section class="trust-section">
+  <div class="container">
+    <h2>Your impact so far</h2>
+    
+    <div class="progress-bar-container">
+      <div class="progress-label">
+        <span><strong>79</strong> scenarios tested</span>
+        <span>Goal: <strong>200</strong> scenarios</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <div class="progress-caption">Thanks to early supporters, we've completed Phase 1. Help us reach 200 scenarios in 2026.</div>
+    </div>
+    
+    <div class="trust-quote">
+      <blockquote>"Supporting Ikwe feels like investing in a more humane AI future — the work they're doing on emotional safety is exactly what the field needs."</blockquote>
+      <cite>— Early Research Ally</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ================================= -->
+<!-- CTA -->
+<!-- ================================= -->
+<section class="cta">
+  <div class="container">
+    <span class="kicker">Enterprise</span>
+    <h2>Need audits, advisory, or a pilot?</h2>
+    <p>Ikwe.ai works with teams shipping emotionally sensitive AI to evaluate behavioral risk, repair behavior, and trust dynamics.</p>
+    <div class="cta-btns">
+      <a class="btn primary" href="/partner">Partner with Ikwe.ai</a>
+      <a class="btn" href="/inquiry">Start an inquiry</a>
+      <a class="btn teal" href="/research">Read the methodology</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div class="footer-logo">
+          <img src="/ikwe_logo_dark.png" alt="ikwe.ai" width="40" height="40">
+          <span>ikwe.ai</span>
+        </div>
+        <p class="footer-tagline">Behavioral emotional safety in AI.</p>
+        <p class="footer-legal">© 2026 Visible Healing Inc.<br>Des Moines, Iowa</p>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Research</div>
+        <div class="footer-nav">
+          <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+          <a href="/research">Methodology</a>
+          <a href="/full-report">Full Report</a>
+          <a href="/research-summary">Research Summary</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Company</div>
+        <div class="footer-nav">
+          <a href="/about">About</a>
+          <a href="/founder">Founder</a>
+          <a href="/faq">FAQ</a>
+          <a href="/blog">Blog</a>
+          <a href="/press">Press Kit</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Support</div>
+        <div class="footer-nav">
+          <a href="/support">Support the Research</a>
+          <a href="/support#crypto">Crypto Options</a>
+          <a href="/partner">Partner With Us</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Connect</div>
+        <div class="footer-nav">
+          <a href="/inquiry">Contact</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="mailto:research@ikwe.ai">research@ikwe.ai</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="footer-citation"><strong>Cite:</strong> Ikwe.ai. (2026). <em>The Emotional Safety Gap.</em> Visible Healing Inc. <a href="https://ikwe.ai/research">ikwe.ai/research</a></p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+function copyAddress(id, btn) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const text = el.innerText.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.classList.add('copied');
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy';
+    }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
