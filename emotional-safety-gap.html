@@ -846,4 +846,14 @@ function submitAccess(e){
   setTimeout(function(){
     grantAccess();
     closeAccess();
-    document.getElementById('modal-
+    document.getElementById('modal-form').style.display='block';
+    document.getElementById('modal-success').style.display='none';
+  },2000);
+}
+
+function openContact(){document.getElementById('contact-modal').classList.add('open');document.body.style.overflow='hidden';}
+function closeContact(){document.getElementById('contact-modal').classList.remove('open');document.body.style.overflow='';}
+</script>
+
+</body>
+</html>
