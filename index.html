@@ -75,6 +75,85 @@ body {
 @keyframes barFill {
   from { width: 0; }
 }
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Animated bar fills */
+.bar-animated {
+  animation: barFill 1s ease-out forwards;
+}
+
+/* Abstract illustration styles */
+.hero-illustration {
+  position: absolute;
+  top: 50%;
+  right: -5%;
+  transform: translateY(-50%);
+  width: 420px;
+  height: 420px;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-illustration circle {
+  animation: pulse 4s ease-in-out infinite;
+}
+.hero-illustration .node {
+  animation: float 6s ease-in-out infinite;
+}
+.hero-illustration .node:nth-child(2) { animation-delay: -1s; }
+.hero-illustration .node:nth-child(3) { animation-delay: -2s; }
+.hero-illustration .node:nth-child(4) { animation-delay: -3s; }
+
+/* Stat card enhancements */
+.stat-card-enhanced {
+  position: relative;
+  overflow: hidden;
+}
+.stat-card-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+  opacity: 0.6;
+}
+.stat-card-enhanced.teal { --accent-color: var(--teal); }
+.stat-card-enhanced.purple { --accent-color: var(--purple); }
+
+/* Tooltip for bars */
+.bar-tooltip {
+  position: relative;
+}
+.bar-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: var(--bg3);
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border2);
+}
+.bar-tooltip:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
 
 h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; }
 a { color: inherit; text-decoration: none; }
@@ -363,6 +442,8 @@ a { color: inherit; text-decoration: none; }
   padding: 80px 0 64px;
   background: radial-gradient(ellipse at 30% 0%, var(--purple-glow) 0%, transparent 50%),
               radial-gradient(ellipse at 70% 100%, var(--teal-glow) 0%, transparent 50%);
+  position: relative;
+  overflow: hidden;
 }
 .hero-grid {
   display: grid;
@@ -978,7 +1059,63 @@ a { color: inherit; text-decoration: none; }
 <!-- HERO (FRAMEWORK-FIRST) -->
 <!-- ========================= -->
 <section class="hero">
-  <div class="container">
+  <!-- Abstract neural/connection illustration -->
+  <svg class="hero-illustration" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Central glow -->
+    <circle cx="200" cy="200" r="120" fill="url(#glow1)" />
+    <circle cx="200" cy="200" r="80" fill="url(#glow2)" />
+    
+    <!-- Connection lines -->
+    <path d="M200 200 L80 120" stroke="var(--teal)" stroke-width="1" opacity="0.3"/>
+    <path d="M200 200 L320 100" stroke="var(--purple)" stroke-width="1" opacity="0.3"/>
+    <path d="M200 200 L100 300" stroke="var(--teal)" stroke-width="1" opacity="0.3"/>
+    <path d="M200 200 L300 320" stroke="var(--purple)" stroke-width="1" opacity="0.3"/>
+    <path d="M200 200 L200 60" stroke="var(--teal)" stroke-width="1" opacity="0.4"/>
+    <path d="M200 200 L340 200" stroke="var(--purple)" stroke-width="1" opacity="0.4"/>
+    
+    <!-- Nodes (human-AI connection points) -->
+    <g class="node">
+      <circle cx="80" cy="120" r="12" fill="var(--teal)" opacity="0.6"/>
+      <circle cx="80" cy="120" r="6" fill="var(--teal)"/>
+    </g>
+    <g class="node">
+      <circle cx="320" cy="100" r="10" fill="var(--purple)" opacity="0.6"/>
+      <circle cx="320" cy="100" r="5" fill="var(--purple)"/>
+    </g>
+    <g class="node">
+      <circle cx="100" cy="300" r="14" fill="var(--teal)" opacity="0.5"/>
+      <circle cx="100" cy="300" r="7" fill="var(--teal)"/>
+    </g>
+    <g class="node">
+      <circle cx="300" cy="320" r="11" fill="var(--purple)" opacity="0.5"/>
+      <circle cx="300" cy="320" r="5" fill="var(--purple)"/>
+    </g>
+    <g class="node">
+      <circle cx="200" cy="60" r="8" fill="var(--teal)" opacity="0.7"/>
+      <circle cx="200" cy="60" r="4" fill="var(--teal)"/>
+    </g>
+    <g class="node">
+      <circle cx="340" cy="200" r="9" fill="var(--purple)" opacity="0.6"/>
+      <circle cx="340" cy="200" r="4" fill="var(--purple)"/>
+    </g>
+    
+    <!-- Central node (larger, representing the AI) -->
+    <circle cx="200" cy="200" r="24" fill="var(--bg2)" stroke="var(--teal)" stroke-width="2" opacity="0.8"/>
+    <circle cx="200" cy="200" r="12" fill="var(--teal)" opacity="0.6"/>
+    
+    <defs>
+      <radialGradient id="glow1" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0%" stop-color="var(--teal)" stop-opacity="0.15"/>
+        <stop offset="100%" stop-color="var(--teal)" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="glow2" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0%" stop-color="var(--purple)" stop-opacity="0.1"/>
+        <stop offset="100%" stop-color="var(--purple)" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+  </svg>
+
+  <div class="container" style="position:relative;z-index:1;">
     <div class="hero-grid">
       <!-- LEFT: Thesis -->
       <div>
@@ -997,19 +1134,19 @@ a { color: inherit; text-decoration: none; }
         <div class="stage-section">
           <div class="stage-label" style="color:var(--purple);">EQ Safety Benchmark · Key Finding</div>
           
-          <!-- Lead stat -->
-          <div style="margin-bottom:20px;">
-            <div style="font-family:var(--mono);font-size:42px;font-weight:700;color:var(--text);line-height:1;">54.7%</div>
-            <div style="font-size:14px;color:var(--text2);margin-top:6px;">of AI responses passed the emotional safety gate</div>
-            <div style="font-size:12px;color:var(--coral);margin-top:4px;">45.3% introduced risk at first contact</div>
+          <!-- Lead stat with visual accent -->
+          <div style="margin-bottom:20px;position:relative;">
+            <div style="font-family:var(--mono);font-size:48px;font-weight:700;color:var(--text);line-height:1;background:linear-gradient(135deg,var(--text),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">54.7%</div>
+            <div style="font-size:14px;color:var(--text2);margin-top:8px;">of AI responses passed the emotional safety gate</div>
+            <div style="font-size:13px;color:var(--coral);margin-top:4px;font-weight:500;">⚠ 45.3% introduced risk at first contact</div>
           </div>
           
-          <div class="conditional-note">
+          <div class="conditional-note" style="background:linear-gradient(135deg,rgba(45,212,191,.06),rgba(167,139,250,.04));border:1px solid rgba(255,255,255,.06);">
             Ikwe evaluates AI systems across a <strong>two-stage framework</strong>:
             <br><br>
-            <strong>Stage 1:</strong> Does the response introduce emotional risk at first contact?
+            <strong style="color:var(--teal);">Stage 1:</strong> Does the response introduce emotional risk at first contact?
             <br>
-            <strong>Stage 2:</strong> Does it regulate, repair, and stabilize over time?
+            <strong style="color:var(--purple);">Stage 2:</strong> Does it regulate, repair, and stabilize over time?
           </div>
           
           <div class="card-footer" style="margin-top:16px;">
@@ -1035,76 +1172,96 @@ a { color: inherit; text-decoration: none; }
 <!-- ================================= -->
 <!-- BENCHMARK FINDINGS (RESEARCH STYLE) -->
 <!-- ================================= -->
-<section class="section">
+<section class="section" id="findings">
   <div class="container">
-    <div style="text-align:center;margin-bottom:32px;">
+    <div style="text-align:center;margin-bottom:40px;">
       <span class="kicker">Benchmark Findings</span>
       <h2 style="font-size:clamp(1.4rem,2.2vw,1.7rem);margin:8px 0;">What we observed across frontier AI systems</h2>
       <p style="color:var(--text2);font-size:15px;max-width:520px;margin:12px auto 0;">79 emotionally vulnerable scenarios. 4 frontier models. Two-stage behavioral evaluation.</p>
     </div>
     
-    <!-- Research-style findings grid -->
+    <!-- Research-style findings grid with enhanced cards -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:800px;margin:0 auto;">
       
       <!-- Stage 1 Finding -->
-      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:28px;">
-        <div style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:16px;">Stage 1 · Safety Gate</div>
-        <div style="font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--text);line-height:1;margin-bottom:12px;">54.7%</div>
-        <p style="font-size:14px;color:var(--text2);line-height:1.6;">of baseline AI responses <strong style="color:var(--text);">passed</strong> the initial emotional safety check — meaning <strong style="color:var(--coral);">45.3% introduced risk</strong> at first contact.</p>
+      <div class="stat-card-enhanced teal" style="background:var(--bg2);border:1px solid var(--border2);border-radius:16px;padding:32px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);">Stage 1 · Safety Gate</span>
+        </div>
+        <div style="font-family:var(--serif);font-size:2.6rem;font-weight:700;color:var(--text);line-height:1;margin-bottom:14px;">54.7%</div>
+        <p style="font-size:14px;color:var(--text2);line-height:1.7;">of baseline AI responses <strong style="color:var(--text);">passed</strong> the initial emotional safety check — meaning <strong style="color:var(--coral);">45.3% introduced risk</strong> at first contact.</p>
       </div>
       
       <!-- Stage 2 Finding -->
-      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:28px;">
-        <div style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:16px;">Stage 2 · Repair Behavior</div>
-        <div style="font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--text);line-height:1;margin-bottom:12px;">43%</div>
-        <p style="font-size:14px;color:var(--text2);line-height:1.6;">of responses that failed the Safety Gate showed <strong style="color:var(--gold);">no corrective behavior</strong> — no attempt to repair or stabilize.</p>
+      <div class="stat-card-enhanced purple" style="background:var(--bg2);border:1px solid var(--border2);border-radius:16px;padding:32px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2">
+            <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+          </svg>
+          <span style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);">Stage 2 · Repair Behavior</span>
+        </div>
+        <div style="font-family:var(--serif);font-size:2.6rem;font-weight:700;color:var(--text);line-height:1;margin-bottom:14px;">43%</div>
+        <p style="font-size:14px;color:var(--text2);line-height:1.7;">of responses that failed the Safety Gate showed <strong style="color:var(--gold);">no corrective behavior</strong> — no attempt to repair or stabilize.</p>
       </div>
       
     </div>
     
-    <!-- Model comparison with subtle bars -->
-    <div style="max-width:600px;margin:40px auto 0;">
-      <div style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:20px;">Conditional Performance · Stage 2</div>
+    <!-- Model comparison with animated bars and tooltips -->
+    <div style="max-width:640px;margin:48px auto 0;background:var(--bg2);border:1px solid var(--border2);border-radius:16px;padding:32px;">
+      <div style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:24px;display:flex;align-items:center;gap:8px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 20V10M12 20V4M6 20v-6"/>
+        </svg>
+        Conditional Performance · Stage 2
+      </div>
       
-      <div style="display:flex;flex-direction:column;gap:16px;">
+      <div style="display:flex;flex-direction:column;gap:20px;">
         <!-- Ikwe -->
-        <div style="display:grid;grid-template-columns:140px 1fr 60px;align-items:center;gap:16px;">
+        <div class="bar-tooltip" data-tooltip="Safety-first architecture outperforms by 25+ points" style="display:grid;grid-template-columns:140px 1fr 60px;align-items:center;gap:16px;">
           <div style="font-size:13px;font-weight:600;color:var(--teal);">Ikwe EI Prototype</div>
-          <div style="height:8px;background:rgba(255,255,255,.04);border-radius:4px;overflow:hidden;">
-            <div style="width:84.6%;height:100%;background:var(--teal);border-radius:4px;"></div>
+          <div style="height:10px;background:rgba(255,255,255,.04);border-radius:5px;overflow:hidden;">
+            <div class="bar-animated" style="width:84.6%;height:100%;background:linear-gradient(90deg,var(--teal),#5eead4);border-radius:5px;box-shadow:0 0 12px rgba(45,212,191,.4);"></div>
           </div>
-          <div style="font-family:var(--mono);font-size:13px;font-weight:600;color:var(--teal);text-align:right;">84.6%</div>
+          <div style="font-family:var(--mono);font-size:14px;font-weight:700;color:var(--teal);text-align:right;">84.6%</div>
         </div>
         
         <!-- GPT-4o -->
-        <div style="display:grid;grid-template-columns:140px 1fr 60px;align-items:center;gap:16px;">
+        <div class="bar-tooltip" data-tooltip="OpenAI GPT-4o baseline" style="display:grid;grid-template-columns:140px 1fr 60px;align-items:center;gap:16px;">
           <div style="font-size:13px;color:var(--text2);">GPT-4o</div>
-          <div style="height:8px;background:rgba(255,255,255,.04);border-radius:4px;overflow:hidden;">
-            <div style="width:59%;height:100%;background:var(--text3);border-radius:4px;"></div>
+          <div style="height:10px;background:rgba(255,255,255,.04);border-radius:5px;overflow:hidden;">
+            <div class="bar-animated" style="width:59%;height:100%;background:linear-gradient(90deg,var(--text3),rgba(234,234,240,.4));border-radius:5px;animation-delay:0.1s;"></div>
           </div>
-          <div style="font-family:var(--mono);font-size:13px;color:var(--text3);text-align:right;">59.0%</div>
+          <div style="font-family:var(--mono);font-size:14px;color:var(--text3);text-align:right;">59.0%</div>
         </div>
         
         <!-- Claude -->
-        <div style="display:grid;grid-template-columns:140px 1fr 60px;align-items:center;gap:16px;">
+        <div class="bar-tooltip" data-tooltip="Anthropic Claude 3.5 Sonnet baseline" style="display:grid;grid-template-columns:140px 1fr 60px;align-items:center;gap:16px;">
           <div style="font-size:13px;color:var(--text2);">Claude 3.5 Sonnet</div>
-          <div style="height:8px;background:rgba(255,255,255,.04);border-radius:4px;overflow:hidden;">
-            <div style="width:56.4%;height:100%;background:var(--text3);border-radius:4px;"></div>
+          <div style="height:10px;background:rgba(255,255,255,.04);border-radius:5px;overflow:hidden;">
+            <div class="bar-animated" style="width:56.4%;height:100%;background:linear-gradient(90deg,var(--text3),rgba(234,234,240,.4));border-radius:5px;animation-delay:0.2s;"></div>
           </div>
-          <div style="font-family:var(--mono);font-size:13px;color:var(--text3);text-align:right;">56.4%</div>
+          <div style="font-family:var(--mono);font-size:14px;color:var(--text3);text-align:right;">56.4%</div>
         </div>
         
         <!-- Grok -->
-        <div style="display:grid;grid-template-columns:140px 1fr 60px;align-items:center;gap:16px;">
+        <div class="bar-tooltip" data-tooltip="xAI Grok baseline" style="display:grid;grid-template-columns:140px 1fr 60px;align-items:center;gap:16px;">
           <div style="font-size:13px;color:var(--text2);">Grok</div>
-          <div style="height:8px;background:rgba(255,255,255,.04);border-radius:4px;overflow:hidden;">
-            <div style="width:20.5%;height:100%;background:var(--text3);border-radius:4px;"></div>
+          <div style="height:10px;background:rgba(255,255,255,.04);border-radius:5px;overflow:hidden;">
+            <div class="bar-animated" style="width:20.5%;height:100%;background:linear-gradient(90deg,rgba(248,113,113,.6),rgba(248,113,113,.3));border-radius:5px;animation-delay:0.3s;"></div>
           </div>
-          <div style="font-family:var(--mono);font-size:13px;color:var(--text3);text-align:right;">20.5%</div>
+          <div style="font-family:var(--mono);font-size:14px;color:var(--red);text-align:right;">20.5%</div>
         </div>
       </div>
       
-      <p style="font-size:12px;color:var(--text3);margin-top:20px;line-height:1.5;padding-top:16px;border-top:1px solid var(--border);">Scores reflect regulation quality only among responses that passed Stage 1. Higher = stronger stabilization behavior.</p>
+      <p style="font-size:12px;color:var(--text3);margin-top:24px;line-height:1.6;padding-top:20px;border-top:1px solid var(--border);display:flex;align-items:flex-start;gap:8px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;">
+          <circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>
+        </svg>
+        Scores reflect regulation quality only among responses that passed Stage 1. Higher = stronger stabilization behavior after initial safe contact.
+      </p>
     </div>
     
   </div>
