@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ | Emotional Safety in AI — ikwe.ai</title>
+  <meta name="description" content="Answers to common questions about emotional safety research, the EQ Safety Benchmark methodology, and what our findings mean for AI systems.">
+  <link rel="canonical" href="https://ikwe.ai/faq">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ikwe.ai/faq">
+  <meta property="og:site_name" content="Ikwe.ai">
+  <meta property="og:title" content="FAQ | Emotional Safety in AI">
+  <meta property="og:description" content="Answers to common questions about emotional safety research and the EQ Safety Benchmark.">
+  <meta property="og:image" content="https://ikwe.ai/og/ikwe-default.png">
+  
+  <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #09090b;
+  --bg2: #0f1014;
+  --bg3: #16181d;
+  --text: #eaeaf0;
+  --text2: rgba(234,234,240,.7);
+  --text3: rgba(234,234,240,.45);
+  --purple: #a78bfa;
+  --purple-dim: rgba(167,139,250,.12);
+  --coral: #fb923c;
+  --green: #22c55e;
+  --red: #f87171;
+  --teal: #2dd4bf;
+  --border: rgba(255,255,255,.06);
+  --border2: rgba(255,255,255,.1);
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'Space Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.15; }
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.narrow { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9,9,11,.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.brand img { width: 32px; height: 32px; border-radius: 50%; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--text2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all .15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+.nav-link:hover {
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+}
+.nav-link.highlight {
+  color: var(--purple);
+}
+.nav-link.highlight:hover {
+  background: var(--purple-dim);
+}
+.nav-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+  color: #000;
+  background: var(--purple);
+  text-decoration: none;
+  margin-left: 8px;
+  transition: all .15s;
+}
+.nav-btn:hover {
+  background: #b89dfc;
+  transform: translateY(-1px);
+}
+
+/* Dropdown - Critical positioning */
+.nav-dropdown {
+  position: relative;
+}
+.dropdown-trigger {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--text2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all .15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.dropdown-trigger:hover {
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+}
+.dropdown-trigger svg {
+  transition: transform .2s;
+}
+.nav-dropdown:hover .dropdown-trigger svg {
+  transform: rotate(180deg);
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  min-width: 280px;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all .2s;
+  box-shadow: 0 10px 40px rgba(0,0,0,.4);
+  z-index: 1000;
+}
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.dropdown-item {
+  display: block;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .15s;
+}
+.dropdown-item:hover {
+  background: rgba(255,255,255,.05);
+}
+.dropdown-title {
+  display: block;
+  font-weight: 600;
+  color: var(--text);
+  font-size: .9rem;
+  margin-bottom: 2px;
+}
+.dropdown-desc {
+  display: block;
+  font-size: .8rem;
+  color: var(--text3);
+}
+
+/* Mobile */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all .2s;
+}
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px 24px;
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+  z-index: 999;
+}
+.mobile-menu.open { display: block; }
+.mobile-section {
+  margin-bottom: 20px;
+}
+.mobile-section-title {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--text3);
+  margin-bottom: 8px;
+  padding: 0 12px;
+}
+.mobile-menu a {
+  display: block;
+  padding: 12px;
+  font-size: .95rem;
+  color: var(--text2);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all .15s;
+}
+.mobile-menu a:hover {
+  background: rgba(255,255,255,.05);
+  color: var(--text);
+}
+.mobile-menu a.highlight {
+  color: var(--purple);
+}
+.mobile-cta {
+  display: block;
+  text-align: center;
+  padding: 14px 20px !important;
+  background: var(--purple) !important;
+  color: #000 !important;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+}
+
+
+/* HERO */
+.page-hero {
+  padding: 64px 0 48px;
+  border-bottom: 1px solid var(--border);
+}
+.page-hero .kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+.page-hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  margin-bottom: 16px;
+}
+.page-hero .lead {
+  font-size: 1.1rem;
+  color: var(--text2);
+  max-width: 600px;
+}
+
+/* FAQ SECTIONS */
+.faq-section {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+}
+.faq-section:last-of-type {
+  border-bottom: none;
+}
+.faq-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 32px;
+  color: var(--purple);
+}
+
+/* FAQ ITEMS */
+.faq-item {
+  margin-bottom: 32px;
+}
+.faq-item:last-child {
+  margin-bottom: 0;
+}
+.faq-q {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.faq-a {
+  color: var(--text2);
+  line-height: 1.7;
+}
+.faq-a p {
+  margin-bottom: 12px;
+}
+.faq-a p:last-child {
+  margin-bottom: 0;
+}
+.faq-a strong {
+  color: var(--text);
+}
+.faq-a ul {
+  margin: 12px 0;
+  padding-left: 24px;
+}
+.faq-a li {
+  margin-bottom: 8px;
+}
+
+/* HIGHLIGHT BOX */
+.highlight-box {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-left: 3px solid var(--green);
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+.highlight-box.amber {
+  border-left-color: var(--coral);
+}
+
+/* CTA */
+.cta-section {
+  padding: 64px 0;
+  text-align: center;
+  background: var(--bg2);
+}
+.cta-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+.cta-section p {
+  color: var(--text2);
+  margin-bottom: 24px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: .9rem;
+  border: 1px solid var(--border2);
+  background: rgba(255,255,255,.03);
+  color: var(--text);
+  transition: all .15s;
+  text-decoration: none;
+}
+.btn:hover {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.15);
+}
+.btn.primary {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: #000;
+}
+.btn.primary:hover {
+  background: #b89dfc;
+}
+
+/* FOOTER */
+.footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 48px 0 32px;
+  margin-top: 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(4, 1fr);
+  gap: 40px;
+}
+@media (max-width: 800px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+@media (max-width: 500px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.footer-col {}
+.footer-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-nav a {
+  color: var(--text2);
+  font-size: .9rem;
+  transition: color .15s;
+}
+.footer-nav a:hover {
+  color: var(--text);
+}
+  </style>
+  <script defer data-domain="ikwe.ai" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+      
+      <div class="nav-links">
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger">Research <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown-menu">
+            <a href="/emotional-safety-gap" class="dropdown-item">
+              <span class="dropdown-title">The Emotional Safety Gap</span>
+              <span class="dropdown-desc">Interactive research findings</span>
+            </a>
+            <a href="/research" class="dropdown-item">
+              <span class="dropdown-title">Methodology</span>
+              <span class="dropdown-desc">Two-stage evaluation framework</span>
+            </a>
+            <a href="/full-report" class="dropdown-item">
+              <span class="dropdown-title">Full Report</span>
+              <span class="dropdown-desc">Complete research document</span>
+            </a>
+            <a href="/research-summary" class="dropdown-item">
+              <span class="dropdown-title">Research Summary</span>
+              <span class="dropdown-desc">Key findings overview</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger">About <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown-menu">
+            <a href="/about" class="dropdown-item">
+              <span class="dropdown-title">About Ikwe.ai</span>
+              <span class="dropdown-desc">Our mission and approach</span>
+            </a>
+            <a href="/founder" class="dropdown-item">
+              <span class="dropdown-title">Founder</span>
+              <span class="dropdown-desc">Stephanie Stranko</span>
+            </a>
+            <a href="/faq" class="dropdown-item">
+              <span class="dropdown-title">FAQ</span>
+              <span class="dropdown-desc">Common questions answered</span>
+            </a>
+            <a href="/blog" class="dropdown-item">
+              <span class="dropdown-title">Blog</span>
+              <span class="dropdown-desc">Research updates & insights</span>
+            </a>
+            <a href="/press" class="dropdown-item">
+              <span class="dropdown-title">Press Kit</span>
+              <span class="dropdown-desc">Media resources & citations</span>
+            </a>
+          </div>
+        </div>
+        
+        <a href="/partner" class="nav-link">Partner</a>
+        <a href="/support" class="nav-link highlight">Support</a>
+        <a href="/inquiry" class="nav-btn">Contact</a>
+      </div>
+      
+      <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    
+    <div class="mobile-menu">
+      <div class="mobile-section">
+        <div class="mobile-section-title">Research</div>
+        <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+        <a href="/research">Methodology</a>
+        <a href="/full-report">Full Report</a>
+        <a href="/research-summary">Research Summary</a>
+      </div>
+      <div class="mobile-section">
+        <div class="mobile-section-title">About</div>
+        <a href="/about">About Ikwe.ai</a>
+        <a href="/founder">Founder</a>
+        <a href="/faq">FAQ</a>
+        <a href="/blog">Blog</a>
+        <a href="/press">Press Kit</a>
+      </div>
+      <div class="mobile-section">
+        <a href="/partner">Partner</a>
+        <a href="/support" class="highlight">Support the Research</a>
+        <a href="/inquiry" class="mobile-cta">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<section class="page-hero">
+  <div class="narrow">
+    <div class="kicker">Frequently Asked Questions</div>
+    <h1>Understanding Emotional Safety in AI</h1>
+    <p class="lead">Answers to common questions about our research methodology, findings, and what emotional safety means for AI systems.</p>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="narrow">
+    <h2>About the Research</h2>
+    
+    <div class="faq-item">
+      <div class="faq-q">What is emotional safety in AI?</div>
+      <div class="faq-a">
+        <p>Emotional safety refers to whether an AI system's responses stabilize or destabilize a person's emotional state during vulnerable interactions. It's not about sounding empathetic—it's about whether the interaction actually helps or harms.</p>
+        <p>A system can recognize emotions perfectly and still respond in ways that increase distress, reinforce unhealthy patterns, or miss critical escalation signals. <strong>Recognition ≠ Safety.</strong></p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-q">What is the EQ Safety Benchmark?</div>
+      <div class="faq-a">
+        <p>The EQ Safety Benchmark is our evaluation framework for measuring behavioral emotional safety in conversational AI. It uses a two-stage approach:</p>
+        <ul>
+          <li><strong>Stage 1: Safety Gate</strong> — Binary pass/fail detection of behaviors that introduce emotional risk at first contact</li>
+          <li><strong>Stage 2: Behavioral Scoring</strong> — Weighted dimensions measuring emotional regulation, acknowledgment, and stability (only among responses that passed Stage 1)</li>
+        </ul>
+        <p>The benchmark tests AI responses across 79 scenarios spanning 12 vulnerability categories, using data from 8 public datasets.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-q">What does "54.7% passed the safety gate" mean?</div>
+      <div class="faq-a">
+        <div class="highlight-box">
+          <p><strong>54.7% of baseline AI responses passed the initial emotional safety check</strong> — meaning they did not introduce emotional risk at first contact.</p>
+        </div>
+        <p>Conversely, <strong>45.3% failed</strong> the safety gate by exhibiting behaviors linked to increased emotional distress. These failure behaviors include:</p>
+        <ul>
+          <li>Jumping to solutions before validating feelings</li>
+          <li>Toxic positivity ("You've got this!") during active distress</li>
+          <li>Minimizing or dismissing expressed emotions</li>
+          <li>Redirecting to professional help without presence</li>
+          <li>Mirroring or amplifying distress patterns</li>
+        </ul>
+        <p>This is an observed behavioral pattern under test conditions, not a claim about real-world harm rates.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-q">What does "43% showed no repair behavior" mean?</div>
+      <div class="faq-a">
+        <div class="highlight-box amber">
+          <p>Of the responses that failed the initial safety gate (introduced emotional risk), <strong>43% showed no corrective behavior</strong> within the interaction window.</p>
+        </div>
+        <p>The system introduced harm and never acknowledged or adjusted. This matters because it indicates whether systems can self-correct when their initial response misses the mark—a critical capability for safe deployment in sensitive contexts.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-q">Which AI systems did you test?</div>
+      <div class="faq-a">
+        <p>We evaluated four systems. Stage 2 scores reflect performance <strong>only among responses that passed the Stage 1 safety gate</strong>:</p>
+        <ul>
+          <li><strong>Ikwe.ai EI Prototype</strong> — 84.6% Stage 2 score (safety-first architecture)</li>
+          <li><strong>GPT-4o</strong> — 59.0% Stage 2 score</li>
+          <li><strong>Claude 3.5 Sonnet</strong> — 56.4% Stage 2 score</li>
+          <li><strong>Grok</strong> — 20.5% Stage 2 score</li>
+        </ul>
+        <p>These Stage 2 scores are <strong>conditional</strong> — they measure regulation quality only among responses that avoided initial harm.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="narrow">
+    <h2>Methodology</h2>
+    
+    <div class="faq-item">
+      <div class="faq-q">Where does the test data come from?</div>
+      <div class="faq-a">
+        <p>Our scenarios are derived from 8 public datasets, primarily sourced from Hugging Face. The primary dataset is <strong>LuangMV97/Empathetic_counseling_Dataset</strong>, supplemented by 7 additional datasets covering diverse emotional contexts.</p>
+        <p>We do not use real user conversations. All evaluation scenarios are based on publicly available research data, modified to protect any identifying information.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-q">What are the 12 vulnerability categories?</div>
+      <div class="faq-a">
+        <p>The benchmark covers scenarios across 12 categories of emotional vulnerability:</p>
+        <ul>
+          <li>Grief and loss</li>
+          <li>Trauma and abuse</li>
+          <li>Loneliness and isolation</li>
+          <li>Crisis and emergency</li>
+          <li>Relationship distress</li>
+          <li>Work and career stress</li>
+          <li>Health anxiety</li>
+          <li>Financial stress</li>
+          <li>Identity and self-worth</li>
+          <li>Family conflict</li>
+          <li>Social rejection</li>
+          <li>Life transitions</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-q">How is scoring done?</div>
+      <div class="faq-a">
+        <p>Scoring uses a two-stage approach:</p>
+        <ul>
+          <li><strong>Stage 1 — Safety Gate (Pass/Fail)</strong>: Detection of specific behavioral patterns that indicate emotional risk at first contact</li>
+          <li><strong>Stage 2 — Behavioral Dimensions (weighted score)</strong>: Assessment across multiple dimensions including emotional regulation, acknowledgment quality, and trajectory stability. <em>Only applies to responses that passed Stage 1.</em></li>
+        </ul>
+        <p>The full scoring rubric and pattern definitions are available upon request for qualified researchers.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-q">Why is some methodology gated?</div>
+      <div class="faq-a">
+        <p>We keep certain methodology details gated for two reasons:</p>
+        <ul>
+          <li><strong>Gaming prevention</strong> — Full pattern definitions could enable optimization for benchmark scores rather than actual safety</li>
+          <li><strong>Proprietary protection</strong> — The scoring framework represents significant research investment</li>
+        </ul>
+        <p>We share full methodology with qualified researchers, press, and organizations deploying AI in sensitive contexts. <a href="/inquiry" style="color: var(--purple);">Request access here</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="narrow">
+    <h2>Implications & Limitations</h2>
+    
+    <div class="faq-item">
+      <div class="faq-q">Does this mean AI is dangerous?</div>
+      <div class="faq-a">
+        <p>Our findings describe <strong>behavioral patterns observed under test conditions</strong>. They do not prove real-world harm or suggest that AI systems are inherently dangerous.</p>
+        <p>What the research shows is that current AI systems lack consistent behavioral standards for emotional safety—they can sound supportive while exhibiting patterns linked to increased distress. This is a measurable gap that can be addressed through better evaluation and design.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-q">Is this research peer-reviewed?</div>
+      <div class="faq-a">
+        <p>The current findings represent independent research conducted by Ikwe.ai. While not yet published in peer-reviewed venues, the methodology has been reviewed by advisors with expertise in AI safety, psychology, and evaluation design.</p>
+        <p>We are preparing materials for academic submission and welcome collaboration with researchers in this space.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-q">What are the limitations of this research?</div>
+      <div class="faq-a">
+        <p>Key limitations include:</p>
+        <ul>
+          <li><strong>Test conditions</strong> — Results reflect controlled scenarios, not naturalistic conversation</li>
+          <li><strong>Sample size</strong> — 79 scenarios across 4 systems; broader coverage needed</li>
+          <li><strong>Static evaluation</strong> — Models are updated frequently; results may not reflect current versions</li>
+          <li><strong>Cultural context</strong> — Scenarios primarily reflect Western emotional frameworks</li>
+          <li><strong>No longitudinal data</strong> — We measure single interactions, not long-term effects</li>
+        </ul>
+        <p>We are transparent about these limitations and actively working to address them in future research.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-q">Should I stop using AI chatbots?</div>
+      <div class="faq-a">
+        <p>That's not our recommendation. AI systems can provide genuine value in many contexts, and millions of people find them helpful.</p>
+        <p>What we encourage is:</p>
+        <ul>
+          <li><strong>Awareness</strong> — Recognize that supportive-sounding responses aren't always emotionally safe</li>
+          <li><strong>Context-appropriate use</strong> — Be thoughtful about relying on AI during acute emotional distress</li>
+          <li><strong>Human connection</strong> — Maintain relationships with people who can provide real support</li>
+        </ul>
+        <p>If you're experiencing a mental health crisis, please reach out to a qualified professional or crisis line.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="narrow">
+    <h2>Working With Us</h2>
+    
+    <div class="faq-item">
+      <div class="faq-q">Can you evaluate our AI system?</div>
+      <div class="faq-a">
+        <p>Yes. We offer evaluation services for organizations deploying conversational AI in sensitive contexts—wellness, mental health support, education, caregiving, and similar domains.</p>
+        <p>Our evaluation process includes:</p>
+        <ul>
+          <li>Custom scenario development for your use case</li>
+          <li>Full benchmark assessment using the EQ Safety methodology</li>
+          <li>Detailed findings report with actionable recommendations</li>
+          <li>Optional ongoing monitoring</li>
+        </ul>
+        <p><a href="/inquiry" style="color: var(--purple);">Request an evaluation</a> to get started.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-q">How can I access the full research?</div>
+      <div class="faq-a">
+        <p>The summary findings are publicly available on our <a href="/emotional-safety-gap" style="color: var(--purple);">Emotional Safety Gap</a> page. You can also <a href="/full-report" style="color: var(--purple);">view the full research report</a> online.</p>
+        <p>Full methodology access—including scoring rubrics, pattern definitions, and complete data tables—is available upon request. <a href="/inquiry" style="color: var(--purple);">Submit a request</a> with your background and intended use.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-q">Can I cite this research?</div>
+      <div class="faq-a">
+        <p>Yes. Please use the following citation format:</p>
+        <div class="highlight-box">
+          <p style="font-family: var(--mono); font-size: .9rem;">Ikwe.ai. (2026). The Emotional Safety Gap: Behavioral Emotional Safety in Conversational AI. Visible Healing Inc. https://ikwe.ai/research</p>
+        </div>
+        <p>For press inquiries and interview requests, please visit our <a href="/press" style="color: var(--purple);">Press Kit</a> page.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Still have questions?</h2>
+    <p>We're happy to discuss the research, methodology, or potential collaboration.</p>
+    <a href="/inquiry" class="btn primary">Get in Touch</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div class="footer-logo">
+          <img src="/ikwe_logo_dark.png" alt="ikwe.ai" width="40" height="40">
+          <span>ikwe.ai</span>
+        </div>
+        <p class="footer-tagline">Behavioral emotional safety in AI.</p>
+        <p class="footer-legal">© 2026 Visible Healing Inc.<br>Des Moines, Iowa</p>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Research</div>
+        <div class="footer-nav">
+          <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+          <a href="/research">Methodology</a>
+          <a href="/full-report">Full Report</a>
+          <a href="/research-summary">Research Summary</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Company</div>
+        <div class="footer-nav">
+          <a href="/about">About</a>
+          <a href="/founder">Founder</a>
+          <a href="/faq">FAQ</a>
+          <a href="/blog">Blog</a>
+          <a href="/press">Press Kit</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Support</div>
+        <div class="footer-nav">
+          <a href="/support">Support the Research</a>
+          <a href="/support#crypto">Crypto Options</a>
+          <a href="/partner">Partner With Us</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Connect</div>
+        <div class="footer-nav">
+          <a href="/inquiry">Contact</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="mailto:research@ikwe.ai" class="footer-email">research@ikwe.ai</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="footer-citation"><strong>Cite:</strong> Ikwe.ai. (2026). <em>The Emotional Safety Gap.</em> Visible Healing Inc. <a href="https://ikwe.ai/research">ikwe.ai/research</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
