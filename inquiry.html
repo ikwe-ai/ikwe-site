@@ -63,7 +63,7 @@ a { color: inherit; text-decoration: none; }
 .hero .lead { font-size: 1.15rem; color: var(--text2); max-width: 560px; margin: 0 auto; }
 
 /* INQUIRY CARDS */
-.inquiry-grid { max-width: 1000px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.inquiry-grid { max-width: 1000px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .inquiry-card { background: var(--bg2); border: 1px solid var(--border2); border-radius: 16px; padding: 28px; cursor: pointer; transition: all .2s; position: relative; overflow: hidden; }
 .inquiry-card:hover { border-color: var(--purple); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.3); }
 .inquiry-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--purple); opacity: 0; transition: opacity .2s; }
@@ -78,6 +78,12 @@ a { color: inherit; text-decoration: none; }
 .card-cta { display: inline-flex; align-items: center; gap: 6px; color: var(--purple); font-weight: 600; font-size: .9rem; }
 .card-cta svg { transition: transform .2s; }
 .inquiry-card:hover .card-cta svg { transform: translateX(4px); }
+
+/* Mobile responsive for inquiry grid */
+@media (max-width: 700px) {
+  .inquiry-grid { grid-template-columns: 1fr; gap: 16px; }
+  .inquiry-card { padding: 24px; }
+}
 
 /* QUICK CONTACT */
 .quick-contact { max-width: 600px; margin: 0 auto; padding: 0 24px 80px; text-align: center; }
@@ -107,6 +113,17 @@ a { color: inherit; text-decoration: none; }
 .submit-btn { width: 100%; padding: 14px 24px; border-radius: 10px; border: none; background: var(--purple); color: #000; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all .15s; margin-top: 8px; }
 .submit-btn:hover { background: #b89dfc; transform: translateY(-2px); }
 .form-note { text-align: center; font-size: .85rem; color: var(--text3); margin-top: 16px; }
+
+/* Mobile responsive for modals */
+@media (max-width: 520px) {
+  .modal-overlay { padding: 16px; }
+  .modal { border-radius: 16px; }
+  .modal-header { padding: 24px 20px 0; }
+  .modal-header h2 { font-size: 1.2rem; }
+  .modal-body { padding: 20px 20px 24px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .email-link { padding: 14px 20px; font-size: 1rem; }
+}
 
 /* SUCCESS */
 .success-state { display: none; text-align: center; padding: 40px 32px; }
