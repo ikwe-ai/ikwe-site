@@ -910,10 +910,13 @@ a { color: inherit; text-decoration: none; }
 
 <main>
 
-<!-- HERO -->
+<!-- ========================= -->
+<!-- HERO (FRAMEWORK-FIRST) -->
+<!-- ========================= -->
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
+      <!-- LEFT: Thesis -->
       <div>
         <span class="kicker">EQ Safety Benchmark · 2026</span>
         <h1 class="hero-title">We evaluate emotional safety across frontier AI systems.</h1>
@@ -921,101 +924,38 @@ a { color: inherit; text-decoration: none; }
         <p class="hero-sub"><strong>Correct ≠ Safe.</strong> Ikwe.ai measures what happens when humans trust AI systems — especially under emotional load.</p>
         <div class="hero-btns">
           <a class="btn primary" href="/research">View Benchmark Methodology</a>
-          <a class="btn" href="/partner">Partner with Ikwe.ai</a>
-          <a class="btn" href="/support">Support the Research</a>
+          <a class="btn" href="/emotional-safety-gap">Read the Safety Gap</a>
         </div>
       </div>
       
-      <!-- TWO-STAGE RESULTS CARD -->
-      <aside class="results-card">
-        <!-- STAGE 1: Primary headline stat -->
+      <!-- RIGHT: FRAMEWORK ABSTRACT PANEL -->
+      <aside class="results-card" style="transform:none;">
         <div class="stage-section">
-          <div class="stage-label">Stage 1 — Emotional Safety Gate</div>
-          <div class="primary-stat">
-            <div class="num">54.7%</div>
-            <div class="desc">of AI responses passed the initial emotional safety check</div>
-            <div class="sub">(did not introduce emotional risk at first contact)</div>
-          </div>
-          <div class="sub" style="font-size: 11px; color: var(--text3); margin-top: 8px;">79 emotionally vulnerable scenarios evaluated</div>
-        </div>
-        
-        <!-- STAGE 2: Conditional performance -->
-        <div class="stage-section">
-          <div class="stage-label secondary">Stage 2 — Performance Among Responses That Passed</div>
+          <div class="stage-label" style="color:var(--purple);">Framework Overview</div>
+          
           <div class="conditional-note">
-            <strong>How models performed after passing the safety gate.</strong><br>
-            Scores below reflect regulation quality only among responses that avoided initial harm.
+            Ikwe evaluates AI systems across a <strong>two-stage emotional safety framework</strong>:
+            <br><br>
+            <strong>Stage 1:</strong> Does the response introduce emotional risk at first contact?
+            <br>
+            <strong>Stage 2:</strong> If safe initially, does it regulate, repair, and stabilize over time?
           </div>
           
-          <div class="compare-rows">
-            <div class="compare-row">
-              <div class="compare-label primary">
-                <strong>Ikwe.ai</strong>
-                <span>Safety-first architecture</span>
-              </div>
-              <div class="compare-bar">
-                <div class="compare-fill green" style="width: 84.6%;"></div>
-              </div>
-              <div class="compare-value green">84.6%</div>
-            </div>
-            
-            <div class="compare-row">
-              <div class="compare-label">
-                <strong>GPT-4o</strong>
-                <span>Baseline frontier model</span>
-              </div>
-              <div class="compare-bar">
-                <div class="compare-fill amber" style="width: 59%;"></div>
-              </div>
-              <div class="compare-value amber">59.0%</div>
-            </div>
-            
-            <div class="compare-row">
-              <div class="compare-label">
-                <strong>Claude 3.5 Sonnet</strong>
-                <span>Baseline frontier model</span>
-              </div>
-              <div class="compare-bar">
-                <div class="compare-fill amber" style="width: 56.4%;"></div>
-              </div>
-              <div class="compare-value amber">56.4%</div>
-            </div>
-            
-            <div class="compare-row">
-              <div class="compare-label">
-                <strong>Grok</strong>
-                <span>Baseline frontier model</span>
-              </div>
-              <div class="compare-bar">
-                <div class="compare-fill red" style="width: 20.5%;"></div>
-              </div>
-              <div class="compare-value red">20.5%</div>
-            </div>
+          <div class="cluster" style="margin:16px 0;">
+            <div class="cluster-label">Measured Outcomes</div>
+            <ul>
+              <li>Risk introduction under vulnerability</li>
+              <li>Regulation quality after disclosure</li>
+              <li>Repair behavior following missteps</li>
+              <li>Trust calibration over time</li>
+            </ul>
+          </div>
+          
+          <div class="card-footer" style="margin-top:0;">
+            This framework underpins the <strong>EQ Safety Benchmark</strong> and all Ikwe evaluations.
           </div>
         </div>
-        
-        <div class="card-footer">
-          <strong>Conditional performance (post-safety-gate)</strong><br>
-          Higher = stronger regulation after passing the safety check
-        </div>
       </aside>
-    </div>
-  </div>
-</section>
-
-<!-- STAT PAIR -->
-<section class="stat-section">
-  <div class="container">
-    <p style="text-align: center; font-size: 13px; color: var(--text3); margin-bottom: 20px; font-weight: 600; letter-spacing: .05em;">WHY BASELINE MODELS FAIL THE SAFETY GATE</p>
-    <div class="stat-pair">
-      <div class="stat-card">
-        <div class="num coral">45.3%</div>
-        <p>of baseline AI responses <strong>introduced emotional risk</strong> when users disclosed vulnerability.</p>
-      </div>
-      <div class="stat-card">
-        <div class="num gold">43%</div>
-        <p>showed <strong>no corrective behavior</strong> after introducing harm.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -1027,6 +967,84 @@ a { color: inherit; text-decoration: none; }
       <div class="title">Recognition ≠ Safety</div>
       <p>AI systems can accurately identify emotion while still responding in ways that increase harm. We measure what happens when humans trust them — and we built a framework that does better.</p>
     </div>
+  </div>
+</section>
+
+<!-- ================================= -->
+<!-- BENCHMARK FINDINGS (RESEARCH STYLE) -->
+<!-- ================================= -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:32px;">
+      <span class="kicker">Benchmark Findings</span>
+      <h2 style="font-size:clamp(1.4rem,2.2vw,1.7rem);margin:8px 0;">What we observed across frontier AI systems</h2>
+      <p style="color:var(--text2);font-size:15px;max-width:520px;margin:12px auto 0;">79 emotionally vulnerable scenarios. 4 frontier models. Two-stage behavioral evaluation.</p>
+    </div>
+    
+    <!-- Research-style findings grid -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:800px;margin:0 auto;">
+      
+      <!-- Stage 1 Finding -->
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:28px;">
+        <div style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:16px;">Stage 1 · Safety Gate</div>
+        <div style="font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--text);line-height:1;margin-bottom:12px;">54.7%</div>
+        <p style="font-size:14px;color:var(--text2);line-height:1.6;">of baseline AI responses <strong style="color:var(--text);">passed</strong> the initial emotional safety check — meaning <strong style="color:var(--coral);">45.3% introduced risk</strong> at first contact.</p>
+      </div>
+      
+      <!-- Stage 2 Finding -->
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:28px;">
+        <div style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:16px;">Stage 2 · Repair Behavior</div>
+        <div style="font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--text);line-height:1;margin-bottom:12px;">43%</div>
+        <p style="font-size:14px;color:var(--text2);line-height:1.6;">of responses that failed the Safety Gate showed <strong style="color:var(--gold);">no corrective behavior</strong> — no attempt to repair or stabilize.</p>
+      </div>
+      
+    </div>
+    
+    <!-- Model comparison with subtle bars -->
+    <div style="max-width:600px;margin:40px auto 0;">
+      <div style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:20px;">Conditional Performance · Stage 2</div>
+      
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <!-- Ikwe -->
+        <div style="display:grid;grid-template-columns:140px 1fr 60px;align-items:center;gap:16px;">
+          <div style="font-size:13px;font-weight:600;color:var(--teal);">Ikwe EI Prototype</div>
+          <div style="height:8px;background:rgba(255,255,255,.04);border-radius:4px;overflow:hidden;">
+            <div style="width:84.6%;height:100%;background:var(--teal);border-radius:4px;"></div>
+          </div>
+          <div style="font-family:var(--mono);font-size:13px;font-weight:600;color:var(--teal);text-align:right;">84.6%</div>
+        </div>
+        
+        <!-- GPT-4o -->
+        <div style="display:grid;grid-template-columns:140px 1fr 60px;align-items:center;gap:16px;">
+          <div style="font-size:13px;color:var(--text2);">GPT-4o</div>
+          <div style="height:8px;background:rgba(255,255,255,.04);border-radius:4px;overflow:hidden;">
+            <div style="width:59%;height:100%;background:var(--text3);border-radius:4px;"></div>
+          </div>
+          <div style="font-family:var(--mono);font-size:13px;color:var(--text3);text-align:right;">59.0%</div>
+        </div>
+        
+        <!-- Claude -->
+        <div style="display:grid;grid-template-columns:140px 1fr 60px;align-items:center;gap:16px;">
+          <div style="font-size:13px;color:var(--text2);">Claude 3.5 Sonnet</div>
+          <div style="height:8px;background:rgba(255,255,255,.04);border-radius:4px;overflow:hidden;">
+            <div style="width:56.4%;height:100%;background:var(--text3);border-radius:4px;"></div>
+          </div>
+          <div style="font-family:var(--mono);font-size:13px;color:var(--text3);text-align:right;">56.4%</div>
+        </div>
+        
+        <!-- Grok -->
+        <div style="display:grid;grid-template-columns:140px 1fr 60px;align-items:center;gap:16px;">
+          <div style="font-size:13px;color:var(--text2);">Grok</div>
+          <div style="height:8px;background:rgba(255,255,255,.04);border-radius:4px;overflow:hidden;">
+            <div style="width:20.5%;height:100%;background:var(--text3);border-radius:4px;"></div>
+          </div>
+          <div style="font-family:var(--mono);font-size:13px;color:var(--text3);text-align:right;">20.5%</div>
+        </div>
+      </div>
+      
+      <p style="font-size:12px;color:var(--text3);margin-top:20px;line-height:1.5;padding-top:16px;border-top:1px solid var(--border);">Scores reflect regulation quality only among responses that passed Stage 1. Higher = stronger stabilization behavior.</p>
+    </div>
+    
   </div>
 </section>
 
