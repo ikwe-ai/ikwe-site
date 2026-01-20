@@ -4,7 +4,8 @@
   "description": "Ikwe.ai - Emotional Safety Evaluation for Conversational AI",
   "private": true,
   "dependencies": {
-    "@notionhq/client": "^2.2.0"
+    "@notionhq/client": "^2.2.0",
+    "@plausible-analytics/tracker": "^0.3.0"
   },
   "engines": {
     "node": ">=18.0.0"
