@@ -84,6 +84,7 @@
 :root{--bg:#0a0b0f;--bg2:#0f1117;--bg-card:#12141c;--text:#e9eefc;--text2:rgba(233,238,252,.72);--text3:rgba(233,238,252,.5);--purple:#b794f6;--purple-dim:rgba(183,148,246,.15);--coral:#f6a192;--coral-dim:rgba(246,161,146,.12);--gold:#f6d992;--gold-dim:rgba(246,217,146,.12);--blue:#5B8CFF;--green:#6FCF97;--green-dim:rgba(111,207,151,.12);--mint:#92f6d9;--mint-dim:rgba(146,246,217,.12);--red:#E16A6A;--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.12);--serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
 /* MEGA MENU DROPDOWN CSS */
 .nav { position: sticky; top: 0; z-index: 100; background: rgba(9,9,11,.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 .nav .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
 .brand { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-weight: 700; font-size: 1.05rem; color: var(--text); text-decoration: none; }
@@ -301,8 +302,8 @@ button{font-family:inherit}
 .success-text{color:var(--text2)}
 
 .footer{padding:40px 0 56px;border-top:1px solid var(--border);font-size:.85rem;color:var(--text3)}
-.footer-grid{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;gap:56px;justify-content:space-between}
-.footer-col{min-width:150px}
+.footer-grid{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:32px}
+.footer-col{}
 .footer-title{font-weight:700;color:var(--text);margin-bottom:12px;font-size:.9rem}
 .footer-nav{display:flex;flex-direction:column;gap:8px}
 .footer-nav a{color:var(--text3);transition:color .15s}
@@ -310,7 +311,7 @@ button{font-family:inherit}
 .footer .email{color:var(--purple);cursor:pointer}
 
 @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}.sidebar{display:none}.main{padding:32px 24px;max-width:100%}.stat-grid,.stage-grid,.pattern-grid,.resources-grid{grid-template-columns:1fr}.explorer-cta{flex-direction:column;text-align:center}}
-@media(max-width:520px){.footer-grid{flex-direction:column;gap:36px}}
+@media(max-width:900px){.footer-grid{grid-template-columns:repeat(2,1fr);gap:28px}.footer-brand{grid-column:1/-1}}@media(max-width:520px){.footer-grid{grid-template-columns:1fr;gap:24px}}
   </style>
   <script defer data-domain="ikwe.ai" src="https://plausible.io/js/script.js"></script>
 </head>
