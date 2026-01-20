@@ -1,0 +1,43 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Environment variables (set in Netlify dashboard, not here)
+# ANTHROPIC_API_KEY
+# OPENAI_API_KEY
+# GOOGLE_API_KEY
+# GITHUB_TOKEN
+# GITHUB_REPO (e.g., "ikwe-ai/ikwe-research")
+# NOTION_API_KEY
+# NOTION_SCENARIOS_DB
+# NOTION_RUNS_DB
+
+# Require authentication for all study pages
+[[redirects]]
+  from = "/study-ii"
+  to = "/study-ii.html"
+  status = 200
+  conditions = {Role = ["authenticated"]}
+
+[[redirects]]
+  from = "/study-ii"
+  to = "/"
+  status = 302
+
+# API routes
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://identity.netlify.com; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.netlify.app https://api.anthropic.com https://api.openai.com https://generativelanguage.googleapis.com https://api.github.com https://api.notion.com;"

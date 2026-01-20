@@ -1,0 +1,13 @@
+{
+  "name": "ikwe-research-runner",
+  "version": "1.0.0",
+  "description": "Ikwe.ai Research Portal - Study Execution Infrastructure",
+  "private": true,
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.30.0",
+    "@notionhq/client": "^2.2.0",
+    "openai": "^4.70.0",
+    "@google/generative-ai": "^0.21.0",
+    "octokit": "^4.0.0"
+  }
+}
