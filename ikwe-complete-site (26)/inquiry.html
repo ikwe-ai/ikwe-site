@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Ikwe.ai</title>
+  <meta name="description" content="Get in touch with Ikwe.ai — research access, safety evaluations, partnerships, or press inquiries.">
+  <link rel="canonical" href="https://ikwe.ai/inquiry">
+  <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #09090b;
+  --bg2: #0f1014;
+  --bg3: #16181d;
+  --text: #eaeaf0;
+  --text2: rgba(234,234,240,.7);
+  --text3: rgba(234,234,240,.45);
+  --purple: #a78bfa;
+  --purple-dim: rgba(167,139,250,.12);
+  --coral: #fb923c;
+  --green: #22c55e;
+  --teal: #2dd4bf;
+  --border: rgba(255,255,255,.06);
+  --border2: rgba(255,255,255,.1);
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'Space Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.15; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: rgba(9,9,11,.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-weight: 700; font-size: 1.05rem; }
+.brand img { width: 32px; height: 32px; border-radius: 50%; }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-link { padding: 10px 14px; border-radius: 8px; font-size: .9rem; font-weight: 500; color: var(--text2); transition: all .15s; }
+.nav-link:hover { background: rgba(255,255,255,.06); color: var(--text); }
+.nav-link.highlight { color: var(--purple); }
+.nav-btn { padding: 10px 20px; border-radius: 8px; font-size: .9rem; font-weight: 600; color: #000; background: var(--purple); margin-left: 8px; transition: all .15s; }
+.nav-btn:hover { background: #b89dfc; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 10px; background: none; border: none; cursor: pointer; }
+.nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+.mobile-menu { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px 24px 24px; }
+.mobile-menu.open { display: block; }
+.mobile-menu a { display: block; padding: 12px; font-size: .95rem; color: var(--text2); border-radius: 8px; }
+@media (max-width: 900px) { .nav-links { display: none; } .nav-toggle { display: flex; } }
+
+/* HERO */
+.hero { padding: 80px 0 60px; text-align: center; }
+.hero .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+.kicker { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--purple); margin-bottom: 16px; }
+.hero h1 { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 16px; }
+.hero .lead { font-size: 1.15rem; color: var(--text2); max-width: 560px; margin: 0 auto; }
+
+/* INQUIRY CARDS */
+.inquiry-grid { max-width: 1000px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.inquiry-card { background: var(--bg2); border: 1px solid var(--border2); border-radius: 16px; padding: 28px; cursor: pointer; transition: all .2s; position: relative; overflow: hidden; }
+.inquiry-card:hover { border-color: var(--purple); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.3); }
+.inquiry-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--purple); opacity: 0; transition: opacity .2s; }
+.inquiry-card:hover::before { opacity: 1; }
+.card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 16px; }
+.card-icon.research { background: rgba(45,212,191,.15); }
+.card-icon.evaluate { background: rgba(251,146,60,.15); }
+.card-icon.partner { background: rgba(167,139,250,.15); }
+.card-icon.press { background: rgba(34,197,94,.15); }
+.inquiry-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+.inquiry-card p { color: var(--text2); font-size: .9rem; line-height: 1.6; margin-bottom: 16px; }
+.card-cta { display: inline-flex; align-items: center; gap: 6px; color: var(--purple); font-weight: 600; font-size: .9rem; }
+.card-cta svg { transition: transform .2s; }
+.inquiry-card:hover .card-cta svg { transform: translateX(4px); }
+
+/* Mobile responsive for inquiry grid */
+@media (max-width: 700px) {
+  .inquiry-grid { grid-template-columns: 1fr; gap: 16px; }
+  .inquiry-card { padding: 24px; }
+}
+
+/* QUICK CONTACT */
+.quick-contact { max-width: 600px; margin: 0 auto; padding: 0 24px 80px; text-align: center; }
+.quick-contact h2 { font-size: 1.4rem; margin-bottom: 8px; }
+.quick-contact p { color: var(--text2); margin-bottom: 24px; }
+.email-link { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; background: var(--bg2); border: 1px solid var(--border2); border-radius: 12px; font-size: 1.1rem; font-weight: 600; color: var(--purple); transition: all .15s; }
+.email-link:hover { background: var(--purple-dim); border-color: var(--purple); }
+
+/* MODAL */
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.8); backdrop-filter: blur(4px); z-index: 1000; align-items: center; justify-content: center; padding: 24px; }
+.modal-overlay.open { display: flex; }
+.modal { background: var(--bg2); border: 1px solid var(--border2); border-radius: 20px; max-width: 480px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; animation: modalIn .2s ease; }
+@keyframes modalIn { from { opacity: 0; transform: scale(.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+.modal-close { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; background: var(--bg3); border: 1px solid var(--border); color: var(--text2); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .15s; z-index: 10; }
+.modal-close:hover { background: var(--bg); color: var(--text); }
+.modal-header { padding: 32px 32px 0; }
+.modal-header .modal-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 16px; }
+.modal-header h2 { font-size: 1.4rem; margin-bottom: 8px; }
+.modal-header p { color: var(--text2); font-size: .95rem; }
+.modal-body { padding: 24px 32px 32px; }
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: .9rem; font-weight: 500; margin-bottom: 8px; color: var(--text); }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border2); background: var(--bg); color: var(--text); font-size: .95rem; font-family: var(--sans); transition: border-color .15s; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--purple); }
+.form-group textarea { min-height: 100px; resize: vertical; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.submit-btn { width: 100%; padding: 14px 24px; border-radius: 10px; border: none; background: var(--purple); color: #000; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all .15s; margin-top: 8px; }
+.submit-btn:hover { background: #b89dfc; transform: translateY(-2px); }
+.form-note { text-align: center; font-size: .85rem; color: var(--text3); margin-top: 16px; }
+
+/* Mobile responsive for modals */
+@media (max-width: 520px) {
+  .modal-overlay { padding: 16px; }
+  .modal { border-radius: 16px; }
+  .modal-header { padding: 24px 20px 0; }
+  .modal-header h2 { font-size: 1.2rem; }
+  .modal-body { padding: 20px 20px 24px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .email-link { padding: 14px 20px; font-size: 1rem; }
+}
+
+/* SUCCESS */
+.success-state { display: none; text-align: center; padding: 40px 32px; }
+.success-state.show { display: block; }
+.success-icon { width: 64px; height: 64px; border-radius: 50%; background: rgba(34,197,94,.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem; }
+.success-state h3 { font-size: 1.3rem; margin-bottom: 8px; }
+.success-state p { color: var(--text2); margin-bottom: 24px; }
+.success-btn { padding: 12px 24px; border-radius: 10px; border: 1px solid var(--border2); background: transparent; color: var(--text); font-size: .95rem; font-weight: 500; cursor: pointer; transition: all .15s; }
+.success-btn:hover { background: rgba(255,255,255,.05); }
+
+/* FOOTER */
+.footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 64px 0 32px; }
+.footer .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.footer-grid { display: grid; grid-template-columns: 1.8fr repeat(4, 1fr); gap: 48px; }
+.footer-logo { display: flex; align-items: center; gap: 12px; font-family: var(--serif); font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; }
+.footer-logo img { border-radius: 50%; }
+.footer-tagline { color: var(--text2); font-size: .95rem; margin-bottom: 16px; }
+.footer-legal { font-size: .85rem; color: var(--text3); line-height: 1.5; }
+.footer-title { font-family: var(--serif); font-weight: 700; font-size: .9rem; margin-bottom: 16px; }
+.footer-nav { display: flex; flex-direction: column; gap: 10px; }
+.footer-nav a { color: var(--text2); font-size: .9rem; transition: color .15s; }
+.footer-nav a:hover { color: var(--text); }
+.footer-email { color: var(--purple) !important; }
+.footer-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; }
+.footer-citation { font-size: .85rem; color: var(--text3); }
+.footer-citation a { color: var(--purple); }
+@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+@media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+  </style>
+  <script defer data-domain="ikwe.ai" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+      <div class="nav-links">
+        <a href="/emotional-safety-gap" class="nav-link">Research</a>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/partner" class="nav-link">Partner</a>
+        <a href="/support" class="nav-link highlight">Support</a>
+        <a href="/inquiry" class="nav-btn">Contact</a>
+      </div>
+      <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu">
+      <a href="/emotional-safety-gap">Research</a>
+      <a href="/about">About</a>
+      <a href="/partner">Partner</a>
+      <a href="/support">Support</a>
+      <a href="/inquiry">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="kicker">Contact Ikwe.ai</div>
+    <h1>Inquiries reviewed intentionally</h1>
+    <p class="lead">This space is for research collaboration, partnership exploration, and serious inquiries related to behavioral emotional safety in AI systems.</p>
+    <p class="scope-note" style="font-size: .9rem; color: var(--text3); margin-top: 16px; max-width: 480px; margin-left: auto; margin-right: auto;">Ikwe.ai does not provide crisis support, therapy, or individual assistance.</p>
+  </div>
+</section>
+
+<div class="inquiry-grid">
+  <div class="inquiry-card" onclick="openModal('research')">
+    <div class="card-icon research">📊</div>
+    <h3>Research Access</h3>
+    <p>Request access to full methodology, scenario library, or benchmark data for academic or policy work.</p>
+    <span class="card-cta">Request Access <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+  
+  <div class="inquiry-card" onclick="openModal('evaluate')">
+    <div class="card-icon evaluate">🔍</div>
+    <h3>Safety Evaluation</h3>
+    <p>Get your AI system evaluated against the EQ Safety Benchmark. Confidential assessments available.</p>
+    <span class="card-cta">Start Evaluation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+  
+  <div class="inquiry-card" onclick="openModal('partner')">
+    <div class="card-icon partner">🤝</div>
+    <h3>Partnership</h3>
+    <p>License the framework, integrate the benchmark, or explore advisory relationships.</p>
+    <span class="card-cta">Explore Partnership <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+  
+  <div class="inquiry-card" onclick="openModal('press')">
+    <div class="card-icon press">📰</div>
+    <h3>Press & Media</h3>
+    <p>Interview requests, citation assistance, or media kit access for journalists and researchers.</p>
+    <span class="card-cta">Media Inquiry <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</div>
+
+<section class="quick-contact">
+  <h2>Direct contact</h2>
+  <p>For inquiries outside these categories.</p>
+  <a href="mailto:research@ikwe.ai" class="email-link">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    research@ikwe.ai
+  </a>
+</section>
+
+<!-- Crisis Disclaimer -->
+<section class="disclaimer" style="max-width: 600px; margin: 0 auto; padding: 0 24px 60px; text-align: center;">
+  <p style="font-size: .85rem; color: var(--text3); line-height: 1.6; padding: 20px; background: var(--bg2); border-radius: 12px; border: 1px solid var(--border);">
+    <strong style="color: var(--text2);">Ikwe.ai is a research organization.</strong><br>
+    We do not offer crisis support, counseling, or emergency services. If you are in immediate danger or experiencing a mental health emergency, please contact local emergency services or a crisis helpline in your area.
+  </p>
+</section>
+
+<!-- Research Modal -->
+<div class="modal-overlay" id="modal-research" onclick="if(event.target===this)closeModal('research')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('research')">✕</button>
+    <div class="modal-header">
+      <div class="modal-icon" style="background: rgba(45,212,191,.15);">📊</div>
+      <h2>Research Access</h2>
+      <p>Request access to methodology, scenarios, or benchmark data.</p>
+    </div>
+    <div class="modal-body" id="form-container-research">
+      <form id="form-research" name="ikwe-research" method="POST" data-netlify="true" onsubmit="submitForm(event, 'research')">
+        <input type="hidden" name="form-name" value="ikwe-research">
+        <div class="form-row">
+          <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
+          <div class="form-group"><label>Email</label><input type="email" name="email" required></div>
+        </div>
+        <div class="form-group"><label>Organization</label><input type="text" name="organization" placeholder="University, company, or affiliation"></div>
+        <div class="form-group">
+          <label>What do you need?</label>
+          <select name="access_type">
+            <option value="methodology">Full methodology documentation</option>
+            <option value="scenarios">Scenario library</option>
+            <option value="data">Benchmark data</option>
+            <option value="citation">Citation assistance</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Purpose <span style="color:var(--text3)">(optional)</span></label><textarea name="purpose" placeholder="How will you use this research?"></textarea></div>
+        <button type="submit" class="submit-btn">Submit Inquiry</button>
+        <p class="form-note">Inquiries reviewed within 1-2 business days.</p>
+      </form>
+    </div>
+    <div class="success-state" id="success-research">
+      <div class="success-icon">✓</div>
+      <h3>Request Received</h3>
+      <p>We'll review your request and get back to you within 1-2 business days.</p>
+      <button class="success-btn" onclick="closeModal('research')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Evaluate Modal -->
+<div class="modal-overlay" id="modal-evaluate" onclick="if(event.target===this)closeModal('evaluate')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('evaluate')">✕</button>
+    <div class="modal-header">
+      <div class="modal-icon" style="background: rgba(251,146,60,.15);">🔍</div>
+      <h2>Safety Evaluation</h2>
+      <p>Get your AI system evaluated against the EQ Safety Benchmark.</p>
+    </div>
+    <div class="modal-body" id="form-container-evaluate">
+      <form id="form-evaluate" name="ikwe-evaluate" method="POST" data-netlify="true" onsubmit="submitForm(event, 'evaluate')">
+        <input type="hidden" name="form-name" value="ikwe-evaluate">
+        <div class="form-row">
+          <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
+          <div class="form-group"><label>Work Email</label><input type="email" name="email" required></div>
+        </div>
+        <div class="form-group"><label>Company</label><input type="text" name="company" required></div>
+        <div class="form-group">
+          <label>System Type</label>
+          <select name="system_type">
+            <option value="chatbot">Conversational AI / Chatbot</option>
+            <option value="assistant">Virtual Assistant</option>
+            <option value="support">Customer Support AI</option>
+            <option value="health">Health / Wellness AI</option>
+            <option value="education">Education AI</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Timeline</label>
+          <select name="timeline">
+            <option value="urgent">Urgent (within 2 weeks)</option>
+            <option value="soon">Soon (within 1 month)</option>
+            <option value="planning">Planning phase (2-3 months)</option>
+            <option value="exploring">Just exploring</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Details <span style="color:var(--text3)">(optional)</span></label><textarea name="details" placeholder="Tell us about your system..."></textarea></div>
+        <div class="form-group"><label>What failure mode or safety question are you engaging with? <span style="color:var(--text3)">(optional)</span></label><textarea name="problem" placeholder="What specific behavioral safety concern prompted this inquiry?"></textarea></div>
+        <button type="submit" class="submit-btn">Submit Inquiry</button>
+      </form>
+    </div>
+    <div class="success-state" id="success-evaluate">
+      <div class="success-icon">✓</div>
+      <h3>Request Received</h3>
+      <p>We'll be in touch within 24 hours to discuss your evaluation needs.</p>
+      <button class="success-btn" onclick="closeModal('evaluate')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Partner Modal -->
+<div class="modal-overlay" id="modal-partner" onclick="if(event.target===this)closeModal('partner')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('partner')">✕</button>
+    <div class="modal-header">
+      <div class="modal-icon" style="background: rgba(167,139,250,.15);">🤝</div>
+      <h2>Partnership</h2>
+      <p>Explore licensing, integration, or advisory relationships.</p>
+    </div>
+    <div class="modal-body" id="form-container-partner">
+      <form id="form-partner" name="ikwe-partner" method="POST" data-netlify="true" onsubmit="submitForm(event, 'partner')">
+        <input type="hidden" name="form-name" value="ikwe-partner">
+        <div class="form-row">
+          <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
+          <div class="form-group"><label>Work Email</label><input type="email" name="email" required></div>
+        </div>
+        <div class="form-group"><label>Company</label><input type="text" name="company" required></div>
+        <div class="form-group"><label>Your Role</label><input type="text" name="role" placeholder="e.g., VP Product, Head of AI Safety"></div>
+        <div class="form-group">
+          <label>Partnership Interest</label>
+          <select name="interest">
+            <option value="license">License the EQ Safety Framework</option>
+            <option value="integrate">Integrate benchmark into our systems</option>
+            <option value="advisory">Advisory relationship</option>
+            <option value="invest">Investment opportunity</option>
+            <option value="other">Other / Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message <span style="color:var(--text3)">(optional)</span></label><textarea name="message" placeholder="Tell us what you're looking for..."></textarea></div>
+        <div class="form-group"><label>What problem or question is driving this inquiry? <span style="color:var(--text3)">(optional)</span></label><textarea name="problem" placeholder="What gap are you trying to address?"></textarea></div>
+        <button type="submit" class="submit-btn">Submit Inquiry</button>
+      </form>
+    </div>
+    <div class="success-state" id="success-partner">
+      <div class="success-icon">✓</div>
+      <h3>Message Sent</h3>
+      <p>We'll be in touch within 24 hours to explore partnership opportunities.</p>
+      <button class="success-btn" onclick="closeModal('partner')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Press Modal -->
+<div class="modal-overlay" id="modal-press" onclick="if(event.target===this)closeModal('press')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('press')">✕</button>
+    <div class="modal-header">
+      <div class="modal-icon" style="background: rgba(34,197,94,.15);">📰</div>
+      <h2>Press & Media</h2>
+      <p>Interview requests, citations, or media resources.</p>
+    </div>
+    <div class="modal-body" id="form-container-press">
+      <form id="form-press" name="ikwe-press" method="POST" data-netlify="true" onsubmit="submitForm(event, 'press')">
+        <input type="hidden" name="form-name" value="ikwe-press">
+        <div class="form-row">
+          <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
+          <div class="form-group"><label>Email</label><input type="email" name="email" required></div>
+        </div>
+        <div class="form-group"><label>Publication / Outlet</label><input type="text" name="outlet" placeholder="e.g., Wired, MIT Technology Review"></div>
+        <div class="form-group">
+          <label>Request Type</label>
+          <select name="request_type">
+            <option value="interview">Interview request</option>
+            <option value="quote">Quote / Comment</option>
+            <option value="citation">Citation assistance</option>
+            <option value="media-kit">Media kit / Assets</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Deadline <span style="color:var(--text3)">(if applicable)</span></label><input type="text" name="deadline" placeholder="e.g., Friday 5pm EST"></div>
+        <div class="form-group"><label>Details</label><textarea name="details" placeholder="What are you working on?"></textarea></div>
+        <button type="submit" class="submit-btn">Submit Inquiry</button>
+      </form>
+    </div>
+    <div class="success-state" id="success-press">
+      <div class="success-icon">✓</div>
+      <h3>Request Received</h3>
+      <p>We prioritize press inquiries and will respond as quickly as possible.</p>
+      <button class="success-btn" onclick="closeModal('press')">Close</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div class="footer-logo"><img src="/ikwe_logo_dark.png" alt="ikwe.ai" width="40" height="40"><span>ikwe.ai</span></div>
+        <p class="footer-tagline">Behavioral emotional safety in AI.</p>
+        <p class="footer-legal">© 2026 Visible Healing Inc.<br>Des Moines, Iowa</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">Research</div>
+        <div class="footer-nav">
+          <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+          <a href="/research">Methodology</a>
+          <a href="/full-report">Full Report</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">Company</div>
+        <div class="footer-nav">
+          <a href="/about">About</a>
+          <a href="/founder">Founder</a>
+          <a href="/faq">FAQ</a>
+          <a href="/blog">Blog</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">Support</div>
+        <div class="footer-nav">
+          <a href="/support">Support the Research</a>
+          <a href="/partner">Partner With Us</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">Connect</div>
+        <div class="footer-nav">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="mailto:research@ikwe.ai" class="footer-email">research@ikwe.ai</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-citation"><strong>Cite:</strong> Ikwe.ai. (2026). <em>The Emotional Safety Gap.</em> Visible Healing Inc. <a href="https://ikwe.ai/research">ikwe.ai/research</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function openModal(type) {
+  document.getElementById('modal-' + type).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(type) {
+  document.getElementById('modal-' + type).classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => {
+    const form = document.getElementById('form-' + type);
+    const success = document.getElementById('success-' + type);
+    const container = document.getElementById('form-container-' + type);
+    if (form) form.reset();
+    if (success) success.classList.remove('show');
+    if (container) container.style.display = '';
+  }, 200);
+}
+
+function submitForm(event, type) {
+  event.preventDefault();
+  const form = event.target;
+  const formData = new FormData(form);
+  
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(formData).toString()
+  })
+  .then(() => {
+    // Plausible: record a successful inquiry submission (type = research/evaluate/partner/press)
+    if (typeof window.plausible === 'function') {
+      try { window.plausible('Inquiry_Submit', { props: { type: type } }); } catch (e) {}
+    }
+    document.getElementById('form-container-' + type).style.display = 'none';
+    document.getElementById('success-' + type).classList.add('show');
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+    alert('Something went wrong. Please email us at research@ikwe.ai');
+  });
+}
+
+// Open from URL hash
+if (window.location.hash) {
+  const type = window.location.hash.replace('#', '');
+  if (['research', 'evaluate', 'partner', 'press'].includes(type)) {
+    setTimeout(() => openModal(type), 100);
+  }
+}
+
+// Close with Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(modal => {
+      closeModal(modal.id.replace('modal-', ''));
+    });
+  }
+});
+
+// Plausible: record inquiry page view (intent)
+if (typeof window.plausible === 'function') {
+  try { window.plausible('Inquiry_View'); } catch (e) {}
+}
+</script>
+
+</body>
+</html>
