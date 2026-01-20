@@ -1,244 +1,124 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog | Research Updates — ikwe.ai</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blog | Ikwe.ai — Emotional Safety in AI</title>
   <meta name="description" content="Insights on emotional safety in AI, research updates, and analysis of how conversational AI affects people in vulnerable moments.">
-  <link rel="canonical" href="https://ikwe.ai/blog">
-  <meta name="robots" content="index, follow">
   
-  <!-- Open Graph -->
+  <meta property="og:title" content="Ikwe.ai Blog">
+  <meta property="og:description" content="Research updates and analysis on emotional safety in conversational AI.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ikwe.ai/blog">
-  <meta property="og:site_name" content="Ikwe.ai">
-  <meta property="og:title" content="Blog | Ikwe.ai Research Updates">
-  <meta property="og:description" content="Insights on emotional safety in AI and research updates.">
-  <meta property="og:image" content="https://ikwe.ai/og/ikwe-default.png">
-  <meta property="og:image:alt" content="Ikwe.ai - Behavioral Emotional Safety in AI">
   
-  <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  
   <style>
 :root {
   --bg: #09090b;
-  --bg2: #0f1014;
-  --bg3: #16181d;
+  --bg2: #111113;
+  --bg3: #18181b;
   --text: #eaeaf0;
   --text2: rgba(234,234,240,.7);
-  --text3: rgba(234,234,240,.6);
+  --text3: rgba(234,234,240,.5);
   --purple: #a78bfa;
-  --purple-dim: rgba(167,139,250,.12);
-  --purple-glow: rgba(167,139,250,.08);
-  --coral: #fb923c;
-  --green: #22c55e;
-  --red: #f87171;
+  --purple-dim: rgba(167,139,250,.15);
   --teal: #2dd4bf;
-  --border: rgba(255,255,255,.06);
-  --border2: rgba(255,255,255,.1);
-  --serif: 'Fraunces', Georgia, serif;
-  --sans: 'DM Sans', system-ui, sans-serif;
-  --mono: 'Space Mono', monospace;
+  --teal-dim: rgba(45,212,191,.15);
+  --coral: #fb7185;
+  --coral-dim: rgba(251,113,133,.15);
+  --gold: #fbbf24;
+  --border: rgba(255,255,255,.08);
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-mono: 'Space Mono', monospace;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 html { scroll-behavior: smooth; }
+
 body {
-  font-family: var(--sans);
+  font-family: var(--font-sans);
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; }
 a { color: inherit; text-decoration: none; }
 
-.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-.narrow { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-/* NAV */
+/* Nav */
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  background: rgba(9,9,11,.98);
+  background: rgba(9,9,11,.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
-.nav .container {
-  max-width: 1200px;
+
+.nav-inner {
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
-}
-.nav-inner {
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
 }
+
 .brand {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--serif);
   font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--text);
-  text-decoration: none;
+  font-size: 1.1rem;
 }
-.brand img { width: 32px; height: 32px; border-radius: 50%; }
+
+.brand img {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
 
 .nav-links {
   display: flex;
-  align-items: center;
-  gap: 4px;
-}
-.nav-link {
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: .9rem;
-  font-weight: 500;
-  color: var(--text2);
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: all .15s;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  text-decoration: none;
-}
-.nav-link:hover {
-  background: rgba(255,255,255,.06);
-  color: var(--text);
-}
-.nav-link.highlight {
-  color: var(--purple);
-}
-.nav-link.highlight:hover {
-  background: var(--purple-dim);
-}
-.nav-btn {
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: .9rem;
-  font-weight: 600;
-  color: #000;
-  background: var(--purple);
-  text-decoration: none;
-  margin-left: 8px;
-  transition: all .15s;
-}
-.nav-btn:hover {
-  background: #b89dfc;
-  transform: translateY(-1px);
+  gap: 32px;
 }
 
-/* Dropdown - Critical positioning */
-.nav-dropdown {
-  position: relative;
-}
-.dropdown-trigger {
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: .9rem;
-  font-weight: 500;
+.nav-links a {
   color: var(--text2);
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: all .15s;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.dropdown-trigger:hover {
-  background: rgba(255,255,255,.06);
-  color: var(--text);
-}
-.dropdown-trigger svg {
-  transition: transform .2s;
-}
-.nav-dropdown:hover .dropdown-trigger svg {
-  transform: rotate(180deg);
-}
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%) translateY(8px);
-  min-width: 280px;
-  background: var(--bg2);
-  border: 1px solid var(--border2);
-  border-radius: 12px;
-  padding: 8px;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: all .2s;
-  box-shadow: 0 10px 40px rgba(0,0,0,.4);
-  z-index: 1000;
-}
-.nav-dropdown:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
-}
-.dropdown-item {
-  display: block;
-  padding: 12px 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background .15s;
-}
-.dropdown-item:hover {
-  background: rgba(255,255,255,.05);
-}
-.dropdown-title {
-  display: block;
-  font-weight: 600;
-  color: var(--text);
   font-size: .9rem;
-  margin-bottom: 2px;
-}
-.dropdown-desc {
-  display: block;
-  font-size: .8rem;
-  color: var(--text3);
+  transition: color .15s;
 }
 
-/* Mobile */
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); }
+
 .nav-toggle {
   display: none;
   flex-direction: column;
   gap: 5px;
-  padding: 10px;
   background: none;
   border: none;
   cursor: pointer;
+  padding: 8px;
 }
+
 .nav-toggle span {
-  display: block;
-  width: 22px;
+  width: 20px;
   height: 2px;
   background: var(--text);
   border-radius: 2px;
-  transition: all .2s;
 }
+
 .mobile-menu {
   display: none;
   position: absolute;
@@ -247,526 +127,444 @@ a { color: inherit; text-decoration: none; }
   right: 0;
   background: var(--bg2);
   border-bottom: 1px solid var(--border);
-  padding: 16px 24px 24px;
-  max-height: calc(100vh - 64px);
-  overflow-y: auto;
-  z-index: 999;
+  padding: 16px 24px;
+  flex-direction: column;
+  gap: 16px;
 }
-.mobile-menu.open { display: block; }
-.mobile-section {
-  margin-bottom: 20px;
+
+.mobile-menu.open { display: flex; }
+
+.mobile-menu a {
+  color: var(--text2);
+  font-size: .95rem;
 }
-.mobile-section-title {
-  font-size: .75rem;
-  font-weight: 700;
+
+/* Hero */
+.hero {
+  padding: 120px 0 60px;
+  text-align: center;
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: .8rem;
   text-transform: uppercase;
   letter-spacing: .1em;
-  color: var(--text3);
-  margin-bottom: 8px;
-  padding: 0 12px;
-}
-.mobile-menu a {
-  display: block;
-  padding: 12px;
-  font-size: .95rem;
-  color: var(--text2);
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all .15s;
-}
-.mobile-menu a:hover {
-  background: rgba(255,255,255,.05);
-  color: var(--text);
-}
-.mobile-menu a.highlight {
   color: var(--purple);
-}
-.mobile-cta {
-  display: block;
-  text-align: center;
-  padding: 14px 20px !important;
-  background: var(--purple) !important;
-  color: #000 !important;
-  border-radius: 10px;
-  font-weight: 600;
-  margin-top: 12px;
-}
-
-@media (max-width: 900px) {
-  .nav-links { display: none; }
-  .nav-toggle { display: flex; }
-}
-
-
-/* HERO */
-.page-hero {
-  padding: 64px 0 48px;
-  border-bottom: 1px solid var(--border);
-}
-.page-hero .kicker {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-bottom: 12px;
-}
-.page-hero h1 {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
   margin-bottom: 16px;
+  display: block;
 }
-.page-hero .lead {
-  font-size: 1.1rem;
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.hero-sub {
+  font-size: 1.15rem;
   color: var(--text2);
   max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
 }
 
-/* BLOG GRID */
-.blog-grid {
-  padding: 48px 0;
+/* Blog Section */
+.blog-section {
+  padding: 0 0 80px;
 }
 
-/* FEATURED POST */
+/* Featured Post */
 .featured-post {
   display: block;
-  background: var(--bg2);
-  border: 1px solid var(--border2);
+  background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
+  border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 32px;
-  margin-bottom: 40px;
-  transition: all .2s;
+  padding: 40px;
+  margin-bottom: 48px;
+  transition: border-color .2s, transform .2s;
+  position: relative;
+  overflow: hidden;
 }
+
+.featured-post::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--purple), var(--teal));
+}
+
 .featured-post:hover {
   border-color: var(--purple);
   transform: translateY(-2px);
 }
+
 .featured-label {
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .1em;
+  font-family: var(--font-mono);
+  font-size: .7rem;
   text-transform: uppercase;
-  color: var(--coral);
-  margin-bottom: 16px;
-}
-.featured-post h2 {
-  font-size: 1.5rem;
-  margin-bottom: 12px;
-}
-.featured-post p {
-  color: var(--text2);
-  margin-bottom: 16px;
-  line-height: 1.7;
-}
-.post-meta {
-  font-size: .85rem;
-  color: var(--text3);
-}
-.post-meta span {
-  margin-right: 16px;
+  letter-spacing: .1em;
+  color: var(--gold);
+  background: rgba(251,191,36,.1);
+  padding: 6px 12px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
-/* POST CARDS */
-.posts-list {
+.featured-post .post-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  margin-bottom: 16px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.featured-post .post-excerpt {
+  color: var(--text2);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 700px;
+}
+
+/* Post Cards */
+.posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 24px;
 }
+
 .post-card {
   display: block;
   background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 24px;
-  transition: all .2s;
+  padding: 28px;
+  transition: border-color .2s, transform .2s;
 }
+
 .post-card:hover {
-  border-color: var(--border2);
+  border-color: var(--purple);
   transform: translateY(-2px);
 }
-.post-card .tag {
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .1em;
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.post-tag {
+  font-family: var(--font-mono);
+  font-size: .7rem;
   text-transform: uppercase;
+  letter-spacing: .05em;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.post-tag.analysis {
+  background: var(--purple-dim);
+  color: var(--purple);
+}
+
+.post-tag.research {
+  background: var(--teal-dim);
   color: var(--teal);
-  margin-bottom: 12px;
 }
-.post-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  line-height: 1.3;
+
+.post-tag.insight {
+  background: var(--coral-dim);
+  color: var(--coral);
 }
-.post-card p {
-  color: var(--text2);
-  font-size: .95rem;
-  line-height: 1.6;
-  margin-bottom: 12px;
+
+.post-tag.essay {
+  background: rgba(251,191,36,.1);
+  color: var(--gold);
 }
-.post-card .meta {
-  font-size: .8rem;
+
+.post-date {
+  font-size: .85rem;
   color: var(--text3);
 }
-.post-card .read-more {
+
+.post-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+
+.post-excerpt {
+  color: var(--text3);
+  font-size: .95rem;
+  line-height: 1.6;
+}
+
+.post-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   color: var(--purple);
   font-size: .9rem;
   font-weight: 500;
+  margin-top: 16px;
 }
 
-/* NEWSLETTER */
-.newsletter {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 40px;
-  margin-top: 48px;
-  text-align: center;
+.post-link svg {
+  width: 16px;
+  height: 16px;
 }
-.newsletter h3 {
-  font-size: 1.3rem;
-  margin-bottom: 12px;
-}
-.newsletter p {
-  color: var(--text2);
-  margin-bottom: 20px;
-}
-.newsletter-form {
-  display: flex;
-  gap: 12px;
-  max-width: 400px;
-  margin: 0 auto;
-}
-.newsletter-form input {
-  flex: 1;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 1px solid var(--border2);
-  background: var(--bg);
-  color: var(--text);
-  font-size: .95rem;
-}
-.newsletter-form input::placeholder {
+
+/* External indicator */
+.external-badge {
+  font-size: .7rem;
   color: var(--text3);
-}
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 22px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: .9rem;
-  border: 1px solid var(--border2);
-  background: rgba(255,255,255,.03);
-  color: var(--text);
-  transition: all .15s;
-  text-decoration: none;
-  cursor: pointer;
-}
-.btn:hover {
-  background: rgba(255,255,255,.08);
-  border-color: rgba(255,255,255,.15);
-}
-.btn.primary {
-  background: var(--purple);
-  border-color: var(--purple);
-  color: #000;
-}
-.btn.primary:hover {
-  background: #b89dfc;
+  background: var(--bg3);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-left: auto;
 }
 
-/* FOOTER */
+/* Footer */
 .footer {
   background: var(--bg2);
   border-top: 1px solid var(--border);
   padding: 48px 0 32px;
-  margin-top: 64px;
 }
+
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr repeat(4, 1fr);
-  gap: 40px;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
 }
-@media (max-width: 800px) {
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
+
+.footer-brand p {
+  color: var(--text3);
+  font-size: .9rem;
+  margin-top: 12px;
+  max-width: 280px;
 }
-@media (max-width: 500px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
+
+.footer-col {
+  min-width: 120px;
 }
-.footer-col {}
+
 .footer-title {
-  font-family: var(--serif);
   font-weight: 700;
-  margin-bottom: 14px;
+  color: var(--text);
+  margin-bottom: 16px;
+  font-size: .9rem;
 }
+
 .footer-nav {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
 .footer-nav a {
-  color: var(--text2);
+  color: var(--text3);
   font-size: .9rem;
   transition: color .15s;
 }
+
 .footer-nav a:hover {
   color: var(--text);
 }
+
+.footer-bottom {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-bottom p {
+  color: var(--text3);
+  font-size: .85rem;
+}
+
+.footer-bottom a {
+  color: var(--text3);
+  font-size: .85rem;
+  transition: color .15s;
+}
+
+.footer-bottom a:hover {
+  color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 100px 0 40px; }
+  .featured-post { padding: 24px; }
+  .post-card { padding: 20px; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
   </style>
-  <script defer data-domain="ikwe.ai" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 
 <nav class="nav">
-  <div class="container">
-    <div class="nav-inner">
-      <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
-      
-      <div class="nav-links">
-        <div class="nav-dropdown">
-          <button class="dropdown-trigger">Research <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="dropdown-menu">
-            <a href="/emotional-safety-gap" class="dropdown-item">
-              <span class="dropdown-title">The Emotional Safety Gap</span>
-              <span class="dropdown-desc">Interactive research findings</span>
-            </a>
-            <a href="/research" class="dropdown-item">
-              <span class="dropdown-title">Methodology</span>
-              <span class="dropdown-desc">Two-stage evaluation framework</span>
-            </a>
-            <a href="/full-report" class="dropdown-item">
-              <span class="dropdown-title">Full Report</span>
-              <span class="dropdown-desc">Complete research document</span>
-            </a>
-            <a href="/research-summary" class="dropdown-item">
-              <span class="dropdown-title">Research Summary</span>
-              <span class="dropdown-desc">Key findings overview</span>
-            </a>
-          </div>
-        </div>
-        
-        <div class="nav-dropdown">
-          <button class="dropdown-trigger">About <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="dropdown-menu">
-            <a href="/about" class="dropdown-item">
-              <span class="dropdown-title">About Ikwe.ai</span>
-              <span class="dropdown-desc">Our mission and approach</span>
-            </a>
-            <a href="/founder" class="dropdown-item">
-              <span class="dropdown-title">Founder</span>
-              <span class="dropdown-desc">Stephanie Stranko</span>
-            </a>
-            <a href="/faq" class="dropdown-item">
-              <span class="dropdown-title">FAQ</span>
-              <span class="dropdown-desc">Common questions answered</span>
-            </a>
-            <a href="/blog" class="dropdown-item">
-              <span class="dropdown-title">Blog</span>
-              <span class="dropdown-desc">Research updates & insights</span>
-            </a>
-            <a href="/press" class="dropdown-item">
-              <span class="dropdown-title">Press Kit</span>
-              <span class="dropdown-desc">Media resources & citations</span>
-            </a>
-          </div>
-        </div>
-        
-        <a href="/partner" class="nav-link">Partner</a>
-        <a href="/support" class="nav-link highlight">Support</a>
-        <a href="/inquiry" class="nav-btn">Contact</a>
-      </div>
-      
-      <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+  <div class="nav-inner">
+    <a class="brand" href="/"><img src="ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+    <div class="nav-links">
+      <a href="emotional-safety-gap.html">The Gap</a>
+      <a href="research.html">Research</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="about.html">About</a>
+      <a href="inquiry.html">Contact</a>
     </div>
-    
+    <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
     <div class="mobile-menu">
-      <div class="mobile-section">
-        <div class="mobile-section-title">Research</div>
-        <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
-        <a href="/research">Methodology</a>
-        <a href="/full-report">Full Report</a>
-        <a href="/research-summary">Research Summary</a>
-      </div>
-      <div class="mobile-section">
-        <div class="mobile-section-title">About</div>
-        <a href="/about">About Ikwe.ai</a>
-        <a href="/founder">Founder</a>
-        <a href="/faq">FAQ</a>
-        <a href="/blog">Blog</a>
-        <a href="/press">Press Kit</a>
-      </div>
-      <div class="mobile-section">
-        <a href="/partner">Partner</a>
-        <a href="/support" class="highlight">Support the Research</a>
-        <a href="/inquiry" class="mobile-cta">Contact Us</a>
-      </div>
+      <a href="emotional-safety-gap.html">The Gap</a>
+      <a href="research.html">Research</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="inquiry.html">Contact</a>
     </div>
   </div>
 </nav>
 
 <main>
+  <section class="hero">
+    <div class="container">
+      <span class="kicker">Research Updates</span>
+      <h1>Ikwe.ai Blog</h1>
+      <p class="hero-sub">Insights on emotional safety in AI, research updates, and analysis of how conversational AI affects people in vulnerable moments.</p>
+    </div>
+  </section>
 
-<section class="page-hero">
-  <div class="narrow">
-    <div class="kicker">Research Updates</div>
-    <h1>Ikwe.ai Blog</h1>
-    <p class="lead">Insights on emotional safety in AI, research updates, and analysis of how conversational AI affects people in vulnerable moments.</p>
-  </div>
-</section>
+  <section class="blog-section">
+    <div class="container">
+      
+      <!-- FEATURED POST: WikiBear -->
+      <a href="blog-wikibear.html" class="featured-post">
+        <span class="featured-label">New Analysis</span>
+        <h2 class="post-title">WikiBear Was the Warning We Laughed At</h2>
+        <p class="post-excerpt">How a 2014 Conan O'Brien sketch accidentally predicted AI's deepest trust failure. The danger isn't that AI knows too much — it's that it speaks too confidently from positions it hasn't earned.</p>
+        <div class="post-meta">
+          <span class="post-tag analysis">Analysis</span>
+          <span class="post-date">January 19, 2026</span>
+        </div>
+        <span class="post-link">Read the full analysis <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
+      </a>
 
-<section class="blog-grid">
-  <div class="narrow">
-    
-    <!-- Featured Post -->
-    <a href="https://x.com/Ladyinvisible/status/2013323590611988501" target="_blank" rel="noopener" class="featured-post">
-      <div class="featured-label">Latest on X</div>
-      <h2>When an AI Should Have Stopped Talking</h2>
-      <p>This case is not shocking because an AI "encouraged violence." It is shocking because the system never interrupted the delusion at all. This wasn't a failure of intelligence. It was a failure of interruption. Safety isn't just about correctness — it's about knowing when not to proceed.</p>
-      <div class="post-meta">
-        <span>Analysis</span>
-        <span>January 19, 2026</span>
-        <span>5 min read</span>
+      <!-- POST GRID -->
+      <div class="posts-grid">
+        
+        <!-- Research Post -->
+        <a href="emotional-safety-gap.html" class="post-card">
+          <div class="post-meta">
+            <span class="post-tag research">Research</span>
+            <span class="post-date">January 2026</span>
+          </div>
+          <h2 class="post-title">The Emotional Safety Gap: What We Found When We Tested How AI Responds to Vulnerability</h2>
+          <p class="post-excerpt">54.7% of AI responses exhibited behaviors linked to increased user distress. 43% showed no repair behavior after causing harm.</p>
+          <span class="post-link">Read findings <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
+        </a>
+
+        <!-- Methodology Post -->
+        <a href="research.html" class="post-card">
+          <div class="post-meta">
+            <span class="post-tag insight">Methodology</span>
+            <span class="post-date">January 2026</span>
+          </div>
+          <h2 class="post-title">Recognition ≠ Safety: Why Emotional Intelligence Benchmarks Miss the Point</h2>
+          <p class="post-excerpt">Most AI evaluation focuses on whether systems can identify emotions. We measure what happens after recognition.</p>
+          <span class="post-link">Read more <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
+        </a>
+
+        <!-- Medium Essay: World Fell Once -->
+        <a href="https://ladyinvsible.medium.com/the-world-fell-once-it-never-really-stopped-7560717f908d" class="post-card" target="_blank" rel="noopener">
+          <div class="post-meta">
+            <span class="post-tag essay">Essay</span>
+            <span class="post-date">January 2026</span>
+            <span class="external-badge">Medium</span>
+          </div>
+          <h2 class="post-title">The World Fell Once. It Never Really Stopped.</h2>
+          <p class="post-excerpt">On generational trauma, media exposure, and how different generations process ongoing global crises.</p>
+          <span class="post-link">Read on Medium <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
+        </a>
+
+        <!-- Medium Essay: Safety Wasn't Accumulating -->
+        <a href="https://ladyinvsible.medium.com/safety-wasnt-accumulating-it-was-being-spent-retroactively-568ec76c1683" class="post-card" target="_blank" rel="noopener">
+          <div class="post-meta">
+            <span class="post-tag analysis">Analysis</span>
+            <span class="post-date">January 2026</span>
+            <span class="external-badge">Medium</span>
+          </div>
+          <h2 class="post-title">Safety Wasn't Accumulating — It Was Being Spent Retroactively</h2>
+          <p class="post-excerpt">The AI industry isn't in a safety renaissance. It's in a safety reckoning. New safety teams aren't building capacity — they're paying down debt.</p>
+          <span class="post-link">Read on Medium <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
+        </a>
+
       </div>
-    </a>
-    
-    <!-- Post Grid -->
-    <div class="posts-list">
-      
-      <a href="https://medium.com/@ladyinvsible/interpretability-isnt-enough-if-we-don-t-understand-the-humans-on-both-ends-31e2daef3d38" target="_blank" rel="noopener" class="post-card">
-        <div class="tag">Research</div>
-        <h3>Interpretability Isn't Enough If We Don't Understand the Humans on Both Ends</h3>
-        <p>Safety breaks at the handoff between AI output and human action. Interpretability can tell us what's happening inside the system — but safe deployment depends on whether humans retain agency.</p>
-        <div class="meta">January 2026 · 4 min read</div>
-        <div class="read-more">Read on Medium →</div>
-      </a>
-      
-      <a href="/emotional-safety-gap" class="post-card">
-        <div class="tag">Research</div>
-        <h3>The Emotional Safety Gap: What We Found When We Tested AI Responses to Vulnerability</h3>
-        <p>45.3% of AI responses introduced emotional risk at first contact. 43% showed no repair behavior. Here's what that means for how we build and deploy conversational AI.</p>
-        <div class="meta">January 2026 · 12 min read</div>
-      </a>
-      
-      <a href="/research" class="post-card">
-        <div class="tag">Methodology</div>
-        <h3>Recognition ≠ Safety: Why Emotional Intelligence Benchmarks Miss the Point</h3>
-        <p>Most AI evaluation focuses on whether systems can identify emotions. But recognition without safe response is just surveillance with a friendly face.</p>
-        <div class="meta">January 2026</div>
-      </a>
-      
-      <a href="/about" class="post-card">
-        <div class="tag">Announcement</div>
-        <h3>Introducing Ikwe.ai: Emotional Safety Infrastructure for AI</h3>
-        <p>We built the evaluation framework we wished existed. Now we're making it available to teams who want to know what their AI actually does to people.</p>
-        <div class="meta">January 2026</div>
-      </a>
-      
-      <a href="https://medium.com/@ladyinvsible" target="_blank" rel="noopener" class="post-card">
-        <div class="tag">Medium</div>
-        <h3>ChatGPT Claims "Health." Grok Claims "Emotional Intelligence." Both Failed the Same Test.</h3>
-        <p>What happens when AI systems make claims about emotional capability they can't back up? We tested them.</p>
-        <div class="meta">January 2026</div>
-        <div class="read-more">Read on Medium →</div>
-      </a>
-      
-      <a href="https://medium.com/@ladyinvsible" target="_blank" rel="noopener" class="post-card">
-        <div class="tag">Founder Story</div>
-        <h3>Why I Didn't Ship, and What It Taught Me About Emotional AI Safety</h3>
-        <p>A founder's account of restraint and responsibility, and what building emotionally intelligent AI under pressure taught me about harm.</p>
-        <div class="meta">December 2025</div>
-        <div class="read-more">Read on Medium →</div>
-      </a>
-      
-      <a href="https://medium.com/@ladyinvsible" target="_blank" rel="noopener" class="post-card">
-        <div class="tag">Methodology</div>
-        <h3>AI Can Recognize Emotions. That Doesn't Mean It Knows How to Respond.</h3>
-        <p>That distinction matters — especially when AI is used in moments of emotional distress.</p>
-        <div class="meta">December 2025</div>
-        <div class="read-more">Read on Medium →</div>
-      </a>
       
     </div>
-    
-    <!-- Newsletter -->
-    <div class="newsletter">
-      <h3>Stay Updated</h3>
-      <p>Get research updates and insights delivered to your inbox. No spam, just substance.</p>
-      <form class="newsletter-form" action="https://formspree.io/f/your-form-id" method="POST">
-        <input type="email" name="email" placeholder="your@email.com" required>
-        <button type="submit" class="btn primary">Subscribe</button>
-      </form>
-    </div>
-    
-  </div>
-</section>
-
+  </section>
 </main>
 
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-col footer-brand">
-        <div class="footer-logo">
-          <img src="/ikwe_logo_dark.png" alt="ikwe.ai" width="40" height="40">
-          <span>ikwe.ai</span>
-        </div>
-        <p class="footer-tagline">Behavioral emotional safety in AI.</p>
-        <p class="footer-legal">© 2026 Visible Healing Inc.<br>Des Moines, Iowa</p>
+      <div class="footer-brand">
+        <a class="brand" href="/"><img src="ikwe_logo_dark.png" alt="ikwe.ai" style="height:32px;width:32px;border-radius:50%;margin-right:8px;">ikwe.ai</a>
+        <p>Behavioral emotional safety evaluation for conversational AI. Measuring what happens when systems meet vulnerability.</p>
       </div>
-
       <div class="footer-col">
         <div class="footer-title">Research</div>
-        <div class="footer-nav">
-          <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
-          <a href="/research">Methodology</a>
-          <a href="/full-report">Full Report</a>
-          <a href="/research-summary">Research Summary</a>
-        </div>
+        <nav class="footer-nav">
+          <a href="emotional-safety-gap.html">The Gap</a>
+          <a href="research.html">Methodology</a>
+          <a href="blog.html">Blog</a>
+        </nav>
       </div>
-
       <div class="footer-col">
         <div class="footer-title">Company</div>
-        <div class="footer-nav">
-          <a href="/about">About</a>
-          <a href="/founder">Founder</a>
-          <a href="/faq">FAQ</a>
-          <a href="/blog">Blog</a>
-          <a href="/press">Press Kit</a>
-        </div>
+        <nav class="footer-nav">
+          <a href="about.html">About</a>
+          <a href="founder.html">Founder</a>
+          <a href="partner.html">Partner</a>
+        </nav>
       </div>
-
-      <div class="footer-col">
-        <div class="footer-title">Support</div>
-        <div class="footer-nav">
-          <a href="/support">Support the Research</a>
-          <a href="/support#crypto">Crypto Options</a>
-          <a href="/partner">Partner With Us</a>
-        </div>
-      </div>
-
       <div class="footer-col">
         <div class="footer-title">Connect</div>
-        <div class="footer-nav">
-          <a href="/inquiry">Contact</a>
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-          <a href="mailto:research@ikwe.ai" class="footer-email">research@ikwe.ai</a>
-        </div>
+        <nav class="footer-nav">
+          <a href="inquiry.html">Contact</a>
+          <a href="support.html">Support</a>
+          <a href="https://x.com/Ladyinvisible" target="_blank" rel="noopener">X / Twitter</a>
+        </nav>
       </div>
     </div>
-    
     <div class="footer-bottom">
-      <p class="footer-citation"><strong>Cite:</strong> Ikwe.ai. (2026). <em>The Emotional Safety Gap.</em> Visible Healing Inc. <a href="https://ikwe.ai/research">ikwe.ai/research</a></p>
+      <p>© 2026 Visible Healing Inc. (Ikwe.ai)</p>
+      <div>
+        <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>
+      </div>
     </div>
   </div>
 </footer>
