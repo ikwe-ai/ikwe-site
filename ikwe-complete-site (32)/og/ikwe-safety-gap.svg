@@ -1,0 +1,52 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#09090b"/>
+  <ellipse cx="300" cy="100" rx="400" ry="300" fill="url(#purpleGlow)"/>
+  <ellipse cx="900" cy="530" rx="400" ry="300" fill="url(#tealGlow)"/>
+  
+  <!-- Logo -->
+  <g transform="translate(80, 80)">
+    <rect width="48" height="48" rx="24" fill="#a78bfa"/>
+    <text x="70" y="35" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#eaeaf0">ikwe.ai</text>
+  </g>
+  
+  <!-- Kicker -->
+  <text x="80" y="220" font-family="monospace" font-size="14" font-weight="700" letter-spacing="2" fill="#fb923c">RESEARCH FINDINGS</text>
+  
+  <!-- Main title -->
+  <text x="80" y="300" font-family="Georgia, serif" font-size="56" font-weight="700" fill="#eaeaf0">The Emotional</text>
+  <text x="80" y="370" font-family="Georgia, serif" font-size="56" font-weight="700" fill="#eaeaf0">Safety Gap</text>
+  
+  <!-- Subtitle -->
+  <text x="80" y="445" font-family="system-ui, sans-serif" font-size="22" fill="#94a3b8">54.7% of AI responses passed the safety gate.</text>
+  <text x="80" y="480" font-family="system-ui, sans-serif" font-size="22" fill="#94a3b8">The rest introduced emotional risk at first contact.</text>
+  
+  <!-- Visual gap representation -->
+  <g transform="translate(800, 220)">
+    <rect width="300" height="200" rx="16" fill="#0f1014" stroke="#1e1e2e" stroke-width="2"/>
+    
+    <!-- Pass bar -->
+    <rect x="30" y="50" width="164" height="40" rx="6" fill="#2dd4bf"/>
+    <text x="50" y="78" font-family="monospace" font-size="18" font-weight="700" fill="#09090b">54.7%</text>
+    <text x="210" y="78" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8">Passed</text>
+    
+    <!-- Fail bar -->
+    <rect x="30" y="110" width="136" height="40" rx="6" fill="#fb923c"/>
+    <text x="50" y="138" font-family="monospace" font-size="18" font-weight="700" fill="#09090b">45.3%</text>
+    <text x="210" y="138" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8">Risk</text>
+    
+    <text x="30" y="180" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">79 emotionally vulnerable scenarios</text>
+  </g>
+  
+  <text x="80" y="580" font-family="monospace" font-size="18" fill="#64748b">ikwe.ai/emotional-safety-gap</text>
+  
+  <defs>
+    <radialGradient id="purpleGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="tealGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
