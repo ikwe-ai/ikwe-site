@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WikiBear Was the Warning We Laughed At | Ikwe.ai</title>
+  <meta name="description" content="How a 2014 Conan O'Brien sketch accidentally predicted AI's deepest trust failure. The danger of placing uncurated knowledge inside objects of implicit trust.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="WikiBear Was the Warning We Laughed At">
+  <meta property="og:description" content="How a 2014 Conan O'Brien sketch accidentally predicted AI's deepest trust failure.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ikwe.ai/blog/wikibear">
+  <meta property="og:image" content="https://ikwe.ai/og/wikibear-og.png">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WikiBear Was the Warning We Laughed At">
+  <meta name="twitter:description" content="How a 2014 Conan O'Brien sketch accidentally predicted AI's deepest trust failure.">
+  <meta name="twitter:image" content="https://ikwe.ai/og/wikibear-og.png">
+  <meta name="twitter:creator" content="@Ladyinvisible">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://ladyinvsible.medium.com/wikibear-was-the-warning-we-laughed-at-86d348d2c49f">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  
+  <style>
+:root {
+  --bg: #09090b;
+  --bg2: #111113;
+  --bg3: #18181b;
+  --text: #eaeaf0;
+  --text2: rgba(234,234,240,.7);
+  --text3: rgba(234,234,240,.5);
+  --purple: #a78bfa;
+  --purple-dim: rgba(167,139,250,.15);
+  --teal: #2dd4bf;
+  --coral: #fb7185;
+  --gold: #fbbf24;
+  --border: rgba(255,255,255,.08);
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.article-container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+/* Nav */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(9,9,11,.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.brand img {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: var(--text2);
+  font-size: .9rem;
+  transition: color .15s;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-toggle span {
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-menu.open { display: flex; }
+
+.mobile-menu a {
+  color: var(--text2);
+  font-size: .95rem;
+}
+
+/* Article Header */
+.article-header {
+  padding: 120px 0 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.article-tag {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: var(--purple-dim);
+  color: var(--purple);
+}
+
+.article-date {
+  font-size: .9rem;
+  color: var(--text3);
+}
+
+.article-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.article-subtitle {
+  font-size: 1.25rem;
+  color: var(--text2);
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* Article Body */
+.article-body {
+  padding: 48px 0 80px;
+}
+
+.article-body p {
+  margin-bottom: 1.5em;
+  color: var(--text2);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.article-body h2 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 2.5em 0 1em;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.article-body h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 2em 0 .75em;
+  color: var(--text);
+}
+
+.article-body strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.article-body em {
+  font-style: italic;
+}
+
+.article-body ul, .article-body ol {
+  margin: 1.5em 0;
+  padding-left: 1.5em;
+  color: var(--text2);
+}
+
+.article-body li {
+  margin-bottom: .5em;
+  line-height: 1.7;
+}
+
+.article-body blockquote {
+  border-left: 3px solid var(--purple);
+  padding-left: 24px;
+  margin: 2em 0;
+  font-style: italic;
+  color: var(--text2);
+}
+
+.article-body hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 3em 0;
+}
+
+/* Callout boxes */
+.callout {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin: 2em 0;
+}
+
+.callout p {
+  margin-bottom: 0;
+}
+
+/* Chain example */
+.chain {
+  font-family: var(--font-mono);
+  font-size: .9rem;
+  color: var(--coral);
+  background: var(--bg2);
+  padding: 16px 24px;
+  border-radius: 6px;
+  margin: 1.5em 0;
+  text-align: center;
+}
+
+/* Article Footer */
+.article-footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 0;
+}
+
+.author-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.author-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--purple-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--purple);
+  flex-shrink: 0;
+}
+
+.author-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.author-info p {
+  color: var(--text3);
+  font-size: .9rem;
+  margin-bottom: 12px;
+}
+
+.author-links {
+  display: flex;
+  gap: 16px;
+}
+
+.author-links a {
+  font-size: .85rem;
+  color: var(--purple);
+  transition: color .15s;
+}
+
+.author-links a:hover {
+  color: var(--teal);
+}
+
+/* Cross-links */
+.cross-links {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.cross-links h4 {
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text3);
+  margin-bottom: 16px;
+}
+
+.cross-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: border-color .15s, background .15s;
+}
+
+.cross-link:hover {
+  border-color: var(--purple);
+  background: var(--bg3);
+}
+
+.cross-link-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--purple-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cross-link-icon svg {
+  width: 20px;
+  height: 20px;
+  color: var(--purple);
+}
+
+.cross-link-text {
+  flex: 1;
+}
+
+.cross-link-label {
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text3);
+  margin-bottom: 2px;
+}
+
+.cross-link-title {
+  font-size: .95rem;
+  color: var(--text);
+}
+
+/* Footer */
+.footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 48px 0 32px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.footer-brand p {
+  color: var(--text3);
+  font-size: .9rem;
+  margin-top: 12px;
+  max-width: 280px;
+}
+
+.footer-col {
+  min-width: 120px;
+}
+
+.footer-title {
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  font-size: .9rem;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-nav a {
+  color: var(--text3);
+  font-size: .9rem;
+  transition: color .15s;
+}
+
+.footer-nav a:hover {
+  color: var(--text);
+}
+
+.footer-bottom {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-bottom p {
+  color: var(--text3);
+  font-size: .85rem;
+}
+
+.footer-bottom a {
+  color: var(--text3);
+  font-size: .85rem;
+  transition: color .15s;
+}
+
+.footer-bottom a:hover {
+  color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .article-header { padding: 100px 0 32px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .author-card { flex-direction: column; }
+}
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/"><img src="ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+    <div class="nav-links">
+      <a href="emotional-safety-gap.html">The Gap</a>
+      <a href="research.html">Research</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="inquiry.html">Contact</a>
+    </div>
+    <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="mobile-menu">
+      <a href="emotional-safety-gap.html">The Gap</a>
+      <a href="research.html">Research</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="inquiry.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <article>
+    <header class="article-header">
+      <div class="article-container">
+        <div class="article-meta">
+          <span class="article-tag">Analysis</span>
+          <span class="article-date">January 19, 2026</span>
+        </div>
+        <h1 class="article-title">WikiBear Was the Warning We Laughed At</h1>
+        <p class="article-subtitle">How a 2014 Conan O'Brien sketch accidentally predicted AI's deepest trust failure</p>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <div class="article-container">
+        
+        <p>In 2014, Conan O'Brien debuted a recurring sketch called WikiBear: a plush teddy bear "powered by Wikipedia" that answered children's innocent questions with cheerful accuracy — then plunged straight into nightmare fuel.</p>
+
+        <p>Ask about Dumbo?</p>
+
+        <p>WikiBear explains the flying elephant… then calmly details how members of the Heaven's Gate cult believed a spaceship followed Comet Hale-Bopp, leading 39 people to commit mass suicide.</p>
+
+        <p>Deadpan. Unblinking. Zero hesitation.</p>
+
+        <p>The audience howled.</p>
+
+        <p>A cuddly toy reciting Wikipedia? Obviously catastrophic. Hilarious in its absurdity.</p>
+
+        <p>A decade later, the punchline has quietly become architecture.</p>
+
+        <hr>
+
+        <h2>What WikiBear Really Exposed</h2>
+
+        <p>On the surface, WikiBear lampooned early internet-connected toys — real products that scraped unfiltered information without safeguards.</p>
+
+        <p>But the sketch's real insight was sharper:</p>
+
+        <p><strong>The danger of placing uncurated knowledge inside objects of implicit trust.</strong></p>
+
+        <p>A teddy bear isn't neutral.<br>
+        A friendly voice isn't neutral.<br>
+        A "helper" that looks safe and speaks confidently short-circuits skepticism.</p>
+
+        <p>We don't interrogate it like a browser tab.<br>
+        We don't evaluate it like a search result.</p>
+
+        <p>We believe it.</p>
+
+        <p>WikiBear was funny because it violated that trust immediately — on purpose. We laughed because we knew better.</p>
+
+        <hr>
+
+        <h2>Why the Joke Lands Differently in 2026</h2>
+
+        <p>Today's AI goes far beyond retrieval.</p>
+
+        <p>Large language models don't just fetch facts. They narrate, infer relevance, personalize responses, and perform authority. They're embedded in:</p>
+
+        <ul>
+          <li>children's toys</li>
+          <li>voice companions</li>
+          <li>classrooms</li>
+          <li>educational platforms</li>
+          <li>mental-health chatbots</li>
+          <li>emotional support tools</li>
+        </ul>
+
+        <p>Unlike Wikipedia's static pages, these systems role-play. They speak as teachers, guides, friends, caretakers.</p>
+
+        <p>And children — and many adults — don't experience them the way they experience social media. They don't feel like "other people."</p>
+
+        <p>They feel like something that knows and cares.</p>
+
+        <p>That shift changes everything.</p>
+
+        <hr>
+
+        <h2>This Isn't About "Bad" Outputs — It's About Misplaced Authority</h2>
+
+        <p>Most AI safety debates focus on hallucinations, bias, or factual accuracy.</p>
+
+        <p>WikiBear points to a more fundamental failure:</p>
+
+        <p><strong>We are handing interpretive authority to systems that cannot responsibly hold it.</strong></p>
+
+        <p>When an AI smoothly connects:</p>
+
+        <div class="chain">Dumbo → elephant → flight → Heaven's Gate → mass suicide</div>
+
+        <p>That isn't a glitch.</p>
+
+        <p>It's what happens when probabilistic next-token prediction is mistaken for wisdom, empathy, or judgment.</p>
+
+        <p>AI has:</p>
+
+        <ul>
+          <li>no moral intuition</li>
+          <li>no developmental awareness</li>
+          <li>no sense of emotional readiness</li>
+          <li>no understanding of when <em>not</em> to continue a line of thought</li>
+        </ul>
+
+        <p>Unless we explicitly design those boundaries.</p>
+
+        <p>Children outsource judgment to confidence.<br>
+        Vulnerable users defer to warmth.<br>
+        Tone and interface signal safety before a single word is processed.</p>
+
+        <p>Trust arrives pre-loaded.</p>
+
+        <hr>
+
+        <h2>This Is Worse Than Giving Kids Social Media</h2>
+
+        <p>Social media is harmful — but it has one crucial distinction.</p>
+
+        <p>Kids know social media is other people.</p>
+
+        <p>AI doesn't feel like people. It feels like:</p>
+
+        <ul>
+          <li>a teacher</li>
+          <li>a helper</li>
+          <li>a guide</li>
+          <li>something that knows</li>
+        </ul>
+
+        <p>That difference matters.</p>
+
+        <p>When judgment gets outsourced to a system that sounds caring but lacks responsibility, harm doesn't require misinformation.</p>
+
+        <p>It only requires misplaced trust.</p>
+
+        <hr>
+
+        <h2>Guardrails Aren't Censorship — They're the Product</h2>
+
+        <p>Children don't need unlimited information.<br>
+        Neither do most adults.</p>
+
+        <p>They need:</p>
+
+        <ul>
+          <li>sequencing</li>
+          <li>relevance</li>
+          <li>emotional containment</li>
+          <li>developmental scaffolding</li>
+          <li>role clarity</li>
+        </ul>
+
+        <p>An AI inside a toy should not behave like an AI inside a search engine.<br>
+        An AI inside a companion should not default to researcher mode.<br>
+        An AI speaking to a child should not speak the same way it speaks to an adult.</p>
+
+        <p>This isn't about limiting intelligence.</p>
+
+        <p><strong>It's about placing intelligence responsibly.</strong></p>
+
+        <p>Every time we embed unbounded AI into trusted form factors, we make a choice:</p>
+
+        <ul>
+          <li>novelty over care</li>
+          <li>capability over context</li>
+          <li>speed over earned trust</li>
+        </ul>
+
+        <p>WikiBear was comedy screaming: <em>Think this through.</em></p>
+
+        <p>We laughed.<br>
+        Then we built it anyway.</p>
+
+        <hr>
+
+        <h2>The Question That Defines the Next Decade</h2>
+
+        <p>As AI moves into bedrooms, therapy sessions, and playgrounds, the real question isn't:</p>
+
+        <p><em>Can AI answer this?</em></p>
+
+        <p>It's:</p>
+
+        <p><strong>Who decides what voice AI is allowed to speak from?</strong></p>
+
+        <p>Parents?<br>
+        Designers?<br>
+        Companies?<br>
+        Regulators?</p>
+
+        <p>Or — by default — no one?</p>
+
+        <p>Until we answer that, WikiBear isn't nostalgia.</p>
+
+        <p>It's a warning.</p>
+
+        <p>And the next version won't be a joke.</p>
+
+      </div>
+    </div>
+
+    <footer class="article-footer">
+      <div class="article-container">
+        <div class="author-card">
+          <div class="author-avatar">S</div>
+          <div class="author-info">
+            <h4>Stephanie Stranko</h4>
+            <p>Founder & CEO, Ikwe.ai — researching behavioral emotional safety in conversational AI systems.</p>
+            <div class="author-links">
+              <a href="https://x.com/Ladyinvisible" target="_blank" rel="noopener">@Ladyinvisible</a>
+              <a href="https://ladyinvsible.medium.com" target="_blank" rel="noopener">Medium</a>
+              <a href="about.html">About</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="cross-links">
+          <h4>Continue Reading</h4>
+          
+          <a href="https://ladyinvsible.medium.com/wikibear-was-the-warning-we-laughed-at-86d348d2c49f" class="cross-link" target="_blank" rel="noopener">
+            <div class="cross-link-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+            </div>
+            <div class="cross-link-text">
+              <div class="cross-link-label">Canonical Version</div>
+              <div class="cross-link-title">Read on Medium →</div>
+            </div>
+          </a>
+
+          <a href="https://x.com/Ladyinvisible/status/2013633320660115798" class="cross-link" target="_blank" rel="noopener">
+            <div class="cross-link-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+            </div>
+            <div class="cross-link-text">
+              <div class="cross-link-label">Discussion</div>
+              <div class="cross-link-title">Join the thread on X →</div>
+            </div>
+          </a>
+
+          <a href="emotional-safety-gap.html" class="cross-link">
+            <div class="cross-link-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+            </div>
+            <div class="cross-link-text">
+              <div class="cross-link-label">Research</div>
+              <div class="cross-link-title">The Emotional Safety Gap →</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/"><img src="ikwe_logo_dark.png" alt="ikwe.ai" style="height:32px;width:32px;border-radius:50%;margin-right:8px;">ikwe.ai</a>
+        <p>Behavioral emotional safety evaluation for conversational AI. Measuring what happens when systems meet vulnerability.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">Research</div>
+        <nav class="footer-nav">
+          <a href="emotional-safety-gap.html">The Gap</a>
+          <a href="research.html">Methodology</a>
+          <a href="blog.html">Blog</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">Company</div>
+        <nav class="footer-nav">
+          <a href="about.html">About</a>
+          <a href="founder.html">Founder</a>
+          <a href="partner.html">Partner</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">Connect</div>
+        <nav class="footer-nav">
+          <a href="inquiry.html">Contact</a>
+          <a href="support.html">Support</a>
+          <a href="https://x.com/Ladyinvisible" target="_blank" rel="noopener">X / Twitter</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Visible Healing Inc. (Ikwe.ai)</p>
+      <div>
+        <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
