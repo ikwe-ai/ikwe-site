@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ikwe.ai — Emotional Safety Audit (One-Off)</title>
+  <meta name="description" content="A focused, one-off emotional risk audit for AI products that interact with humans. 90-minute review + written Risk Map. $2,500." />
+  <style>
+    :root{
+      --bg:#0b0b10; --card:#12121a; --text:#f2f2f7; --muted:#b6b6c7;
+      --line:rgba(255,255,255,.12); --accent:#7c5cff; --accent2:#2ee6a6;
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --radius:20px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:var(--sans); color:var(--text);
+      background:
+        radial-gradient(1200px 500px at 15% 10%, rgba(124,92,255,.25), transparent 60%),
+        radial-gradient(900px 450px at 85% 20%, rgba(46,230,166,.14), transparent 55%),
+        radial-gradient(1000px 700px at 60% 90%, rgba(124,92,255,.12), transparent 60%),
+        var(--bg);
+      line-height:1.45;
+    }
+    a{color:inherit}
+    .wrap{max-width:980px; margin:0 auto; padding:28px 18px 64px}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      padding:10px 6px 18px; border-bottom:1px solid var(--line);
+    }
+    .brand{
+      display:flex; flex-direction:column; gap:2px;
+    }
+    .brand .kicker{
+      font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted);
+    }
+    .brand .name{font-weight:700; font-size:16px}
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      border:1px solid var(--line); border-radius:999px; padding:9px 12px;
+      background:rgba(255,255,255,.04);
+      font-size:13px; color:var(--muted);
+    }
+    .dot{width:8px; height:8px; border-radius:50%; background:var(--accent2); box-shadow:0 0 18px rgba(46,230,166,.6)}
+    header{padding:34px 6px 18px}
+    h1{
+      margin:0 0 12px; font-size:42px; letter-spacing:-.02em;
+    }
+    .sub{
+      margin:0; color:var(--muted); font-size:18px; max-width:820px;
+    }
+    .ctaRow{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px; border-radius:14px; border:1px solid var(--line);
+      background:rgba(255,255,255,.04); text-decoration:none; font-weight:600;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(124,92,255,.95), rgba(124,92,255,.55));
+      border-color:rgba(124,92,255,.6);
+      box-shadow:0 18px 45px rgba(124,92,255,.22);
+    }
+    .btn small{font-weight:600; color:rgba(255,255,255,.85)}
+    .grid{
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:16px;
+      padding:18px 6px 0;
+    }
+    @media (max-width: 860px){ .grid{grid-template-columns:1fr} h1{font-size:34px} }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px 18px 16px;
+    }
+    .card h2{margin:0 0 8px; font-size:18px}
+    .card p{margin:0; color:var(--muted)}
+    ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    li{margin:6px 0}
+    .badgeRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
+    .badge{
+      font-family:var(--mono); font-size:12px; color:rgba(255,255,255,.86);
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.25);
+      padding:8px 10px; border-radius:999px;
+    }
+    .price{
+      font-size:34px; font-weight:800; letter-spacing:-.02em; margin:6px 0 6px;
+    }
+    .fine{font-size:13px; color:var(--muted)}
+    .section{padding:16px 6px 0}
+    .sectionTitle{
+      display:flex; align-items:center; justify-content:space-between; gap:14px; margin:16px 0 10px;
+    }
+    .sectionTitle h3{margin:0; font-size:16px}
+    .divider{height:1px; background:var(--line); margin:14px 0 0}
+    .twoCol{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    @media (max-width: 860px){ .twoCol{grid-template-columns:1fr} }
+    .quote{
+      border-left:3px solid rgba(124,92,255,.7);
+      padding:10px 12px; margin-top:12px;
+      background:rgba(124,92,255,.08);
+      border-radius:12px;
+      color:rgba(255,255,255,.88);
+    }
+    .faq details{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px 14px;
+      background:rgba(255,255,255,.03);
+      margin-top:10px;
+    }
+    .faq summary{cursor:pointer; font-weight:700}
+    footer{padding:28px 6px 0; color:var(--muted); font-size:13px}
+    .mono{font-family:var(--mono)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="kicker">Ikwe.ai</div>
+        <div class="name">Emotional Safety Audit — One-Off</div>
+      </div>
+      <div class="pill"><span class="dot"></span> limited spots • 5 business day turnaround</div>
+    </div>
+
+    <header>
+      <h1>Find the emotional failure points <br/>before your AI ships.</h1>
+      <p class="sub">
+        A focused, one-off review for AI products that interact with humans—chatbots, companions, coaching, support, HR, education.
+        You get a clear Risk Map, what to fix now, and what signals to monitor as you scale.
+      </p>
+
+      <div class="ctaRow">
+        <a class="btn primary" href="mailto:YOUR_EMAIL_HERE?subject=Ikwe%20Emotional%20Safety%20Audit%20-%20Request&body=Hi%20Stephanie%2C%0A%0AI%20want%20to%20book%20an%20Ikwe%20Emotional%20Safety%20Audit.%0A%0AProduct%3A%20%0AWebsite%2Fdemo%3A%20%0AWhat%20it%20does%3A%20%0AAudience%3A%20%0ATimeline%20to%20ship%3A%20%0A%0AThanks%2C%0A">
+          Book the audit <small>→</small>
+        </a>
+        <a class="btn" href="#whats-included">See deliverables</a>
+        <a class="btn" href="#faq">FAQ</a>
+      </div>
+
+      <div class="badgeRow">
+        <div class="badge">interaction-level risk analysis</div>
+        <div class="badge">trust calibration & timing</div>
+        <div class="badge">failure-mode mapping</div>
+        <div class="badge">non-fluffy, actionable</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Who this is for</h2>
+        <p>If your system talks to people, it can quietly cause harm without “breaking.” This audit is for teams who want to reduce human risk and increase trust without turning their roadmap into a compliance circus.</p>
+        <ul>
+          <li>AI companions, therapists/coaches, support agents, community bots</li>
+          <li>HR / education / workplace tools using LLMs or agentic flows</li>
+          <li>Founders preparing for launch, pilots, enterprise sales, or partnerships</li>
+        </ul>
+        <div class="quote">
+          <strong>What you’re buying:</strong> judgment + structure around emotional risk—where intent and “good UX” still fail under stress.
+        </div>
+      </div>
+
+      <div class="card" aria-label="Pricing card">
+        <h2>Price</h2>
+        <div class="price">$2,500</div>
+        <p class="fine">One-off engagement • no retainer required</p>
+        <div class="divider"></div>
+        <div style="margin-top:12px">
+          <h2 style="margin-top:0">Timeline</h2>
+          <ul>
+            <li>Schedule within 3–7 days (as available)</li>
+            <li>Risk Map delivered within 5 business days after the call</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="whats-included" class="section">
+      <div class="sectionTitle">
+        <h3>What’s included</h3>
+      </div>
+
+      <div class="twoCol">
+        <div class="card">
+          <h2>1) 90-minute live audit</h2>
+          <p>We walk through your product flows and pinpoint where emotional miscalibration happens—especially under stress, ambiguity, attachment, rejection, or crisis language.</p>
+          <ul>
+            <li>Core user journeys + edge cases</li>
+            <li>“Trust breaks” that don’t show in metrics</li>
+            <li>Where the system escalates, invalidates, or displaces agency</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>2) Written Risk Map</h2>
+          <p>A concise, practical document you can hand to product/engineering. No fluff—just what matters.</p>
+          <ul>
+            <li>5–10 prioritized risk points (severity × likelihood)</li>
+            <li>Suggested mitigations (design, prompts, policies, UX gates)</li>
+            <li>Monitoring signals to track post-launch</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="twoCol" style="margin-top:16px">
+        <div class="card">
+          <h2>3) Safety Signals & Guardrails</h2>
+          <p>What to watch for in user behavior and model responses—so you don’t get surprised by “rare” cases that become reputational events.</p>
+          <ul>
+            <li>early warning language patterns</li>
+            <li>drift / escalation indicators</li>
+            <li>simple gating suggestions you can ship fast</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>4) Next Steps (your roadmap, simplified)</h2>
+          <p>Clear “fix now / fix next / don’t overbuild” guidance so you can move quickly without gambling with human outcomes.</p>
+          <ul>
+            <li>what changes have the highest leverage</li>
+            <li>what can wait</li>
+            <li>what not to promise yet</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sectionTitle">
+        <h3>How it works</h3>
+      </div>
+      <div class="card">
+        <ul>
+          <li><strong>Step 1 — Request:</strong> email with a short description + link/demo access (if available).</li>
+          <li><strong>Step 2 — Prep:</strong> I review your core flows and any docs you share (lightweight, focused).</li>
+          <li><strong>Step 3 — Live Audit:</strong> 90 minutes on Zoom.</li>
+          <li><strong>Step 4 — Delivery:</strong> written Risk Map within 5 business days.</li>
+        </ul>
+        <p class="fine" style="margin-top:10px">
+          Optional add-on (if needed): <span class="mono">$750</span> follow-up call (60 minutes) to validate fixes or review revised flows.
+        </p>
+      </div>
+    </div>
+
+    <div class="section faq" id="faq">
+      <div class="sectionTitle">
+        <h3>FAQ</h3>
+      </div>
+
+      <details>
+        <summary>Is this compliance or therapy?</summary>
+        <p class="fine" style="margin-top:10px">
+          Neither. This is interaction-level emotional risk analysis for AI systems—focused on how language systems shape human state, agency, and trust in real conditions.
+        </p>
+      </details>
+
+      <details>
+        <summary>What do you need from us?</summary>
+        <p class="fine" style="margin-top:10px">
+          A short product overview, your core user journeys, and either a demo link or screenshots. If you have prompt templates or policy docs, great—but not required.
+        </p>
+      </details>
+
+      <details>
+        <summary>What if we’re pre-launch / stealth?</summary>
+        <p class="fine" style="margin-top:10px">
+          Totally fine. This audit works especially well pre-launch. NDA is available on request.
+        </p>
+      </details>
+
+      <details>
+        <summary>What outcomes should we expect?</summary>
+        <p class="fine" style="margin-top:10px">
+          You’ll leave with prioritized risk points, practical mitigations, and monitoring signals—so you can ship with fewer blind spots and stronger trust posture.
+        </p>
+      </details>
+    </div>
+
+    <div class="section">
+      <div class="card">
+        <h2>Ready?</h2>
+        <p>
+          If your product is about to touch real humans, it’s worth knowing where it can quietly fail.
+          Email to request a slot:
+          <strong><a href="mailto:YOUR_EMAIL_HERE?subject=Ikwe%20Emotional%20Safety%20Audit%20-%20Request">YOUR_EMAIL_HERE</a></strong>
+        </p>
+        <div class="ctaRow" style="margin-top:14px">
+          <a class="btn primary" href="mailto:YOUR_EMAIL_HERE?subject=Ikwe%20Emotional%20Safety%20Audit%20-%20Request&body=Hi%20Stephanie%2C%0A%0AI%20want%20to%20book%20an%20Ikwe%20Emotional%20Safety%20Audit.%0A%0AProduct%3A%20%0AWebsite%2Fdemo%3A%20%0AWhat%20it%20does%3A%20%0AAudience%3A%20%0ATimeline%20to%20ship%3A%20%0A%0AThanks%2C%0A">
+            Request a slot <small>→</small>
+          </a>
+          <a class="btn" href="#whats-included">Review deliverables</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div>© <span class="mono">Ikwe.ai</span> • Emotional Safety Audit (One-Off)</div>
+      <div style="margin-top:6px">Replace <span class="mono">YOUR_EMAIL_HERE</span> with your email. Optional: add Calendly link to the button if you want scheduling.</div>
+    </footer>
+  </div>
+</body>
+</html>
