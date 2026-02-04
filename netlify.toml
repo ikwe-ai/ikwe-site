@@ -1,0 +1,51 @@
+# Netlify Configuration for ikwe.ai
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # No build process needed for static site
+  publish = "."
+
+[[headers]]
+  # Apply security headers to all pages
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  # Cache static assets for 1 year
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  # Cache images for 1 year
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  # Redirect /partner to /enterprise (301 permanent)
+  from = "/partner"
+  to = "/enterprise"
+  status = 301
+  force = true
+
+[[redirects]]
+  # SPA fallback - handle 404s gracefully
+  from = "/*"
+  to = "/404.html"
+  status = 404
