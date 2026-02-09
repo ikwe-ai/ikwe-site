@@ -1174,100 +1174,52 @@ a { color: inherit; text-decoration: none; }
 <!-- ========================= -->
 <section class="hero">
   <svg class="hero-illustration" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Central glow -->
     <circle cx="200" cy="200" r="120" fill="url(#glow1)" />
     <circle cx="200" cy="200" r="80" fill="url(#glow2)" />
-    
-    <!-- Connection lines -->
     <path d="M200 200 L80 120" stroke="var(--teal)" stroke-width="1" opacity="0.3"/>
     <path d="M200 200 L320 100" stroke="var(--purple)" stroke-width="1" opacity="0.3"/>
     <path d="M200 200 L100 300" stroke="var(--teal)" stroke-width="1" opacity="0.3"/>
     <path d="M200 200 L300 320" stroke="var(--purple)" stroke-width="1" opacity="0.3"/>
     <path d="M200 200 L200 60" stroke="var(--teal)" stroke-width="1" opacity="0.4"/>
     <path d="M200 200 L340 200" stroke="var(--purple)" stroke-width="1" opacity="0.4"/>
-    
-    <!-- Nodes (human-AI connection points) -->
-    <g class="node">
-      <circle cx="80" cy="120" r="12" fill="var(--teal)" opacity="0.6"/>
-      <circle cx="80" cy="120" r="6" fill="var(--teal)"/>
-    </g>
-    <g class="node">
-      <circle cx="320" cy="100" r="10" fill="var(--purple)" opacity="0.6"/>
-      <circle cx="320" cy="100" r="5" fill="var(--purple)"/>
-    </g>
-    <g class="node">
-      <circle cx="100" cy="300" r="14" fill="var(--teal)" opacity="0.5"/>
-      <circle cx="100" cy="300" r="7" fill="var(--teal)"/>
-    </g>
-    <g class="node">
-      <circle cx="300" cy="320" r="11" fill="var(--purple)" opacity="0.5"/>
-      <circle cx="300" cy="320" r="5" fill="var(--purple)"/>
-    </g>
-    <g class="node">
-      <circle cx="200" cy="60" r="8" fill="var(--teal)" opacity="0.7"/>
-      <circle cx="200" cy="60" r="4" fill="var(--teal)"/>
-    </g>
-    <g class="node">
-      <circle cx="340" cy="200" r="9" fill="var(--purple)" opacity="0.6"/>
-      <circle cx="340" cy="200" r="4" fill="var(--purple)"/>
-    </g>
-    
-    <!-- Central node (larger, representing the AI) -->
-    <circle cx="200" cy="200" r="24" fill="var(--bg2)" stroke="var(--teal)" stroke-width="2" opacity="0.8"/>
-    <circle cx="200" cy="200" r="12" fill="var(--teal)" opacity="0.6"/>
-    
     <defs>
-      <radialGradient id="glow1" cx="0.5" cy="0.5" r="0.5">
-        <stop offset="0%" stop-color="var(--teal)" stop-opacity="0.15"/>
-        <stop offset="100%" stop-color="var(--teal)" stop-opacity="0"/>
+      <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(200 200) rotate(90) scale(120)">
+        <stop stop-color="var(--teal)" stop-opacity="0.15" />
+        <stop offset="1" stop-color="var(--teal)" stop-opacity="0" />
       </radialGradient>
-      <radialGradient id="glow2" cx="0.5" cy="0.5" r="0.5">
-        <stop offset="0%" stop-color="var(--purple)" stop-opacity="0.1"/>
-        <stop offset="100%" stop-color="var(--purple)" stop-opacity="0"/>
+      <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(200 200) rotate(90) scale(80)">
+        <stop stop-color="var(--purple)" stop-opacity="0.2" />
+        <stop offset="1" stop-color="var(--purple)" stop-opacity="0" />
       </radialGradient>
     </defs>
   </svg>
   <div class="container">
     <div class="hero-grid">
       <div class="hero-copy">
-        <div class="kicker">Risk & Trust Infrastructure</div>
+        <div class="kicker">RISK &amp; TRUST INFRASTRUCTURE</div>
         <h1>Human trust is the real risk in AI.</h1>
-        <p class="hero-sub">
-          Ikwe builds behavioral emotional safety infrastructure for AI — the EQ that allows IQ to scale without breaking trust.
-        </p>
-        <p class="hero-sub">
-          Ikwe.ai measures where AI systems break human judgment — before those failures scale into crisis.
-        </p>
-        <p class="hero-sub" style="margin-top:10px;">
-          Enterprise risk &amp; trust evaluations for AI systems deployed in the real world.
-        </p>
+        <p class="hero-sub">Ikwe builds behavioral emotional safety infrastructure for AI — the EQ that allows IQ to scale without breaking trust.</p>
+        <p class="hero-sub">We measure where AI systems break human judgment — before those failures scale into crisis.</p>
         <div class="hero-btns">
           <a class="btn primary" href="/inquiry">Request an AI Risk Audit</a>
-          <a class="btn" href="/proof">View a Completed Audit (Redacted)</a>
+          <a class="btn secondary" href="/proof">View a Completed Audit (Redacted)</a>
         </div>
       </div>
       <aside class="results-card" style="transform:none;">
         <div class="stage-section">
-          <div class="stage-label" style="color:var(--purple);">EQ Safety Benchmark · Key Finding</div>
-          
-          <!-- Lead stat with visual accent -->
+          <div class="stage-label" style="color:var(--purple);">EQ SAFETY BENCHMARK · KEY FINDING</div>
           <div style="margin-bottom:20px;position:relative;">
             <div style="font-family:var(--mono);font-size:48px;font-weight:700;color:var(--text);line-height:1;background:linear-gradient(135deg,var(--text),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">54.7%</div>
-            <div style="font-size:14px;color:var(--text2);margin-top:8px;">of AI responses passed the emotional safety gate</div>
-            <div style="font-size:13px;color:var(--coral);margin-top:4px;font-weight:500;">⚠ 45.3% introduced risk at first contact</div>
+            <div style="color:var(--text2);font-size:13px;line-height:1.6;margin-top:8px;">of AI responses passed the emotional safety gate</div>
+            <div style="color:#f59e0b;font-size:13px;line-height:1.6;margin-top:8px;">⚠ 45.3% introduced risk at first contact</div>
           </div>
-          
-          <div class="conditional-note" style="background:linear-gradient(135deg,rgba(45,212,191,.06),rgba(167,139,250,.04));border:1px solid rgba(255,255,255,.06);">
-            Ikwe evaluates AI systems across a <strong>two-stage framework</strong>:
-            <br><br>
-            <strong style="color:var(--teal);">Stage 1:</strong> Does the response introduce emotional risk at first contact?
-            <br>
-            <strong style="color:var(--purple);">Stage 2:</strong> Does it regulate, repair, and stabilize over time?
+          <div class="stage-details">
+            <div class="stage-item"><span>Stage 1:</span> Does the response introduce emotional risk at first contact?</div>
+            <div class="stage-item"><span>Stage 2:</span> Does it regulate, repair, and stabilize over time?</div>
           </div>
-          
-          <div class="card-footer" style="margin-top:16px;">
-            <span style="color:var(--teal);font-weight:600;">Ikwe EI Prototype: 84.6%</span> conditional performance<br>
-            <span style="color:var(--text3);">vs. 56–59% for baseline frontier models</span>
+          <div style="margin-top:20px;color:var(--text2);font-size:13px;line-height:1.6;">
+            <strong style="color:var(--teal);">Ikwe EI Prototype:</strong> 84.6% conditional performance<br>
+            vs. 56–59% for baseline frontier models
           </div>
         </div>
       </aside>
@@ -1276,148 +1228,169 @@ a { color: inherit; text-decoration: none; }
 </section>
 
 <!-- ========================= -->
-<!-- THESIS -->
-<!-- ========================= -->
-<section class="thesis-section">
-  <div class="container">
-    <div class="thesis-box">
-      <div class="kicker">Core Thesis</div>
-      <div class="title">Accuracy explains models. It doesn’t protect people.</div>
-      <p class="desc">
-        As AI becomes more accurate, risk shifts away from model errors and toward <strong>human over-trust, miscalibration, and downstream harm</strong>.
-        Ikwe.ai is the infrastructure to measure and mitigate that risk before it scales.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- WHAT WE PROVIDE -->
+<!-- PROBLEM -->
 <!-- ========================= -->
 <section class="section">
   <div class="container">
-    <span class="kicker purple">What we provide</span>
-    <h2>Enterprise evaluation of human-trust risk in AI systems</h2>
-    <p class="section-sub">
-      Ikwe.ai evaluates how people respond to AI under real conditions — not just whether the model is correct.
-    </p>
-
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-kicker">Measure</div>
-        <h3>Human trust &amp; risk evaluations</h3>
-        <p>Behavioral evaluation of AI responses under emotional load, pressure, and vulnerability.</p>
+    <span class="kicker gold">The Problem</span>
+    <h2>The problem isn't malice. It's structural blindness.</h2>
+    <p class="section-sub">AI systems are deployed in healthcare, therapy, education, and crisis response — often by founders who built them. Founders test their own systems, regulate what feels off, intervene manually, and become the safety mechanism.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-title">AUTHORITY DRIFT</div>
+        <p>Systems use clinical-adjacent language users interpret as diagnosis. Founders know it's a tool. Users do not.</p>
       </div>
-      <div class="card">
-        <div class="card-kicker">Surface risk</div>
-        <h3>Failure modes accuracy misses</h3>
-        <p>Over-reliance, distress reinforcement, escalation misses, and failure-to-repair after harm.</p>
+      <div class="problem-card">
+        <div class="problem-title">EMOTIONAL ESCALATION</div>
+        <p>Systems stay present beyond safe thresholds during crisis. Founders can self-regulate. Users cannot.</p>
       </div>
-      <div class="card">
-        <div class="card-kicker">Act</div>
-        <h3>Enterprise-ready reporting</h3>
-        <p>Actionable findings tied to deployment decisions, policy, and mitigation strategy.</p>
+      <div class="problem-card">
+        <div class="problem-title">FOUNDER-AS-SAFETY-MECHANISM</div>
+        <p>Undocumented manual intervention. The founder is the kill switch. The founder does not scale.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ========================= -->
-<!-- WHO WORKS WITH US -->
+<!-- PROOF -->
 <!-- ========================= -->
 <section class="section">
   <div class="container">
-    <span class="kicker teal">Who works with us</span>
-    <h2>Built for teams deploying AI in high-trust contexts</h2>
-    <p class="section-sub">If your AI system influences human decisions, Ikwe.ai is relevant.</p>
-
-    <div class="card-grid">
-      <div class="card">
-        <h3>AI product leaders</h3>
-        <p>User-facing assistants, copilots, agents, and conversational systems.</p>
-      </div>
-      <div class="card">
-        <h3>Trust &amp; Safety / Risk</h3>
-        <p>Organizations accountable for downstream harm, escalation, and user impact.</p>
-      </div>
-      <div class="card">
-        <h3>Regulated deployers</h3>
-        <p>Health, education, public sector, finance, and other high-stakes environments.</p>
-      </div>
-      <div class="card">
-        <h3>Platforms launching multiple apps</h3>
-        <p>Common evaluation standards across builders, products, and releases.</p>
-      </div>
+    <span class="kicker coral">The Proof</span>
+    <h2>We audited ourselves first.</h2>
+    <p class="section-sub">Before auditing anyone else's AI, we applied the full Ikwe Risk Audit to our own production systems. Here's what changed.</p>
+    <div class="scorecard-table">
+      <div class="scorecard-head">Baseline vs Post-Mitigation</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Risk Dimension</th>
+            <th>Baseline</th>
+            <th>Post-Mitigation</th>
+            <th>Reduction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Emotional Escalation</td>
+            <td class="risk-high">HIGH (80)</td>
+            <td class="risk-med">MEDIUM (40)</td>
+            <td class="risk-good">−50%</td>
+          </tr>
+          <tr>
+            <td>Dependency Formation</td>
+            <td class="risk-med">MEDIUM (48)</td>
+            <td class="risk-low">LOW (20)</td>
+            <td class="risk-good">−58%</td>
+          </tr>
+          <tr>
+            <td>Authority Drift</td>
+            <td class="risk-med">MEDIUM (36)</td>
+            <td class="risk-low">LOW (18)</td>
+            <td class="risk-good">−50%</td>
+          </tr>
+          <tr>
+            <td>Scale Amplification</td>
+            <td class="risk-med">MEDIUM (48)</td>
+            <td class="risk-med">MEDIUM (28)</td>
+            <td class="risk-good">−42%</td>
+          </tr>
+          <tr>
+            <td>Governance Failure</td>
+            <td class="risk-low">LOW (24)</td>
+            <td class="risk-low">LOW (8)</td>
+            <td class="risk-good">−67%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-sub" style="margin-top:16px;">The fixes were structural, not intuitive — they transfer to any team.</p>
+    <div class="stats-bar">
+      <div>54.7% introduced emotional risk</div>
+      <div>43% no repair after harm</div>
+      <div>42–67% risk reduction</div>
+    </div>
+    <div class="cta-row" style="margin-top:16px;">
+      <a class="btn secondary" href="/proof">View Full Case Study</a>
     </div>
   </div>
 </section>
 
 <!-- ========================= -->
-<!-- HOW ENGAGEMENT WORKS -->
-<!-- ========================= -->
-<section class="offerings-section">
-  <div class="container">
-    <span class="kicker">How engagement works</span>
-    <h2>Paid pilots that convert to annual enterprise contracts</h2>
-    <p class="engagement-sub">Structured, bounded engagements with predictable scope and compute.</p>
-
-    <div class="offerings-grid">
-      <div class="offering-card framework">
-        <div class="badge">Step 1</div>
-        <h3>Scoped Pilot (60–90 days)</h3>
-        <p>We define the AI behaviors, use cases, and risk surface to evaluate.</p>
-        <ul>
-          <li>Bounded scope &amp; timelines</li>
-          <li>Secure evaluation workflow</li>
-          <li>Typical pilot range: <strong>$10k–$50k</strong></li>
-        </ul>
-      </div>
-
-      <div class="offering-card audit">
-        <div class="badge">Step 2</div>
-        <h3>Evaluation &amp; Benchmarking</h3>
-        <p>Ikwe.ai runs proprietary trust benchmarks under realistic conditions.</p>
-        <ul>
-          <li>Safety Gate + longitudinal behavior</li>
-          <li>Pattern and dimension scoring</li>
-          <li>Compute scoped and capped</li>
-        </ul>
-      </div>
-
-      <div class="offering-card advisory">
-        <div class="badge">Step 3</div>
-        <h3>Risk &amp; Trust Report</h3>
-        <p>Enterprise-ready report with findings, implications, and recommended actions.</p>
-        <ul>
-          <li>Failure modes + mitigation roadmap</li>
-          <li>Interpretation session with your team</li>
-          <li>Optional continuation: ongoing evaluations</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- WHY IKWE -->
+<!-- PRODUCT -->
 <!-- ========================= -->
 <section class="section">
   <div class="container">
-    <span class="kicker gold">Why Ikwe.ai</span>
-    <h2>Proprietary benchmarks that compound across contexts</h2>
-    <div class="stat-pair">
-      <div class="stat-box">
-        <div class="stat-title">Compounding dataset</div>
-        <p>Evaluation data compounds across deployments and use cases, improving the benchmark’s practical signal over time.</p>
+    <span class="kicker teal">The Product</span>
+    <h2>AI Risk Audit — Now Available</h2>
+    <p class="section-sub">Board-ready risk evaluation for companies scaling conversational AI, agents, and decision systems.</p>
+    <div class="tiers-grid">
+      <div class="tier-card" id="preview">
+        <div class="tier-price">$250</div>
+        <div class="tier-name">Preview Pack</div>
+        <ul>
+          <li>✅ Findings summary</li>
+          <li>✅ Full risk scorecard</li>
+          <li>✅ Before/after table</li>
+          <li>✅ Scoring methodology</li>
+          <li>🔒 Risk events</li>
+          <li>🔒 Failure mode map</li>
+          <li>🔒 Remediation framework</li>
+        </ul>
+        <a class="btn secondary" href="mailto:stephanie@ikwe.ai?subject=Preview%20Pack%20Request">Get Preview Pack</a>
       </div>
-      <div class="stat-box">
-        <div class="stat-title">Enterprise relevance</div>
-        <p>Measures risks accuracy metrics miss — increasingly relevant as regulation, liability, and enterprise governance mature.</p>
+      <div class="tier-card featured" id="playbook">
+        <div class="tier-price">$5,000</div>
+        <div class="tier-name">Playbook</div>
+        <ul>
+          <li>✅ Everything in Preview</li>
+          <li>✅ All observed risk events</li>
+          <li>✅ Failure mode map</li>
+          <li>✅ Remediation framework</li>
+          <li>✅ Sector-specific mappings</li>
+          <li>✅ Reusable templates</li>
+          <li>🔒 YOUR company audit</li>
+        </ul>
+        <a class="btn secondary" href="mailto:stephanie@ikwe.ai?subject=Playbook%20Request">Get Playbook</a>
+      </div>
+      <div class="tier-card" id="full-audit">
+        <div class="tier-price">$25,000</div>
+        <div class="tier-name">Full Audit</div>
+        <ul>
+          <li>✅ Everything in Playbook</li>
+          <li>✅ YOUR company audit</li>
+          <li>✅ Board-ready PDF report</li>
+          <li>✅ Named risk scorecard</li>
+          <li>✅ Priority action plan</li>
+          <li>✅ Audit trail + walkthrough</li>
+        </ul>
+        <a class="btn primary" href="/inquiry">Request an AI Risk Audit</a>
       </div>
     </div>
-    <div class="closing-line">
-      <strong>Starting safe is not the same as staying safe.</strong> Ikwe.ai measures trust risk continuously — before it becomes a crisis.
+    <div class="implementation-callout">Need embedded governance? Implementation starts at $50,000.</div>
+    <div class="cta-row" style="margin-top:12px;">
+      <a class="btn secondary" href="/inquiry">Contact about implementation</a>
     </div>
+  </div>
+</section>
+
+<!-- ========================= -->
+<!-- WHO -->
+<!-- ========================= -->
+<section class="section">
+  <div class="container">
+    <span class="kicker">Who This Is For</span>
+    <h2>Built for teams where AI influences human decisions.</h2>
+    <div class="who-grid">
+      <div><strong>Healthcare &amp; Mental Health</strong><span>Operating in care-adjacent environments</span></div>
+      <div><strong>Therapy &amp; Support AI</strong><span>Managing emotional reliance and crisis risk</span></div>
+      <div><strong>Education &amp; Youth</strong><span>Where authority and dependency risks are elevated</span></div>
+      <div><strong>Enterprise AI Teams</strong><span>Deploying assistants and copilots at scale</span></div>
+      <div><strong>Insurance &amp; Risk</strong><span>Assessing downstream liability exposure</span></div>
+      <div><strong>Policy &amp; Research</strong><span>Shaping governance frameworks</span></div>
+    </div>
+    <p class="section-sub" style="margin-top:16px;">This audit was developed internally before being offered externally. The methodology is proven. The product is real.</p>
   </div>
 </section>
 
@@ -1426,70 +1399,14 @@ a { color: inherit; text-decoration: none; }
 <!-- ========================= -->
 <section class="cta">
   <div class="container">
-    <span class="kicker">Get started</span>
-    <h2>Ready to evaluate trust risk before it scales?</h2>
-    <p>Engagements begin with paid enterprise pilots and convert to annual contracts for teams deploying or scaling AI systems.</p>
+    <span class="kicker">Get Started</span>
+    <h2>AI is moving fast. Safety can't lag behind.</h2>
+    <p>Talk with Ikwe about your systems, or download the free preview to see the methodology in action.</p>
     <div class="cta-btns">
       <a class="btn primary" href="/inquiry">Request an AI Risk Audit</a>
-      <a class="btn" href="/proof">View a Completed Audit (Redacted)</a>
+      <a class="btn secondary" href="/downloads/Ikwe_Public_Preview.pdf">Download Free Preview (PDF)</a>
     </div>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- PRODUCT PROOF -->
-<!-- ========================= -->
-<section class="section product-proof" id="product-proof">
-  <div class="container">
-    <span class="kicker">Proof</span>
-    <h2>Before we audit anyone else's AI, we audited our own.</h2>
-    <div class="scorecard-card">
-      <img src="/assets/ikwe-scorecard-visual.svg" alt="AI risk scorecard showing before and after audit results">
-    </div>
-    <div class="proof-copy">
-      <ul class="proof-bullets">
-        <li>54.7% of baseline responses introduced emotional risk</li>
-        <li>43% showed no repair after causing harm</li>
-        <li>Risk scores dropped 42–67% after applying Ikwe</li>
-      </ul>
-      <p class="section-sub">The fixes were structural, not intuitive — they transfer to any team.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- PRODUCT DELIVERABLES -->
-<!-- ========================= -->
-<section class="section" id="product-audit">
-  <div class="container">
-    <span class="kicker teal">AI Risk Audit</span>
-    <h2>What the $25,000 AI Risk Audit Delivers</h2>
-    <ol class="deliverables-list">
-      <li><strong>Board-Ready Risk Report</strong> Defensible documentation for boards, investors, and regulators.</li>
-      <li><strong>AI Safety Scorecard</strong> Red/Yellow/Green across five core risk dimensions.</li>
-      <li><strong>Failure Mode Map</strong> Evidence-backed risk events with triggers, scale effects, and consequences.</li>
-      <li><strong>Audit Trail</strong> What was reviewed, how conclusions were reached, proof of diligence.</li>
-      <li><strong>Priority Action Plan</strong> NOW / NEXT / LATER — clear guidance, no ambiguity.</li>
-    </ol>
-    <p class="section-sub">Delivered in 4 weeks. No disruption. No slowdown.</p>
-    <div class="cta-btns">
-      <a class="btn primary" href="/audit">View the Audit Details</a>
-      <a class="btn" href="/inquiry">Request an AI Risk Audit</a>
-    </div>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- PRODUCT CTA -->
-<!-- ========================= -->
-<section class="cta product-cta" id="product-cta">
-  <div class="container">
-    <h2>Fast AI companies don't fail because they move quickly. They fail because risk scales faster than control.</h2>
-    <div class="cta-btns">
-      <a class="btn primary" href="/inquiry">Request an AI Risk Audit</a>
-    </div>
-    <p class="cta-note">Limited engagements per quarter.</p>
-    <p class="cta-tags">Healthcare · Policy & Gov · LLM & Agents · Workplace & HR · Consumer</p>
+    <div class="cta-note">Healthcare · Policy &amp; Government · LLM &amp; Agents · Workplace &amp; HR · Consumer &amp; Platform</div>
   </div>
 </section>
 </main>
