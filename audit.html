@@ -76,6 +76,15 @@ h2{font-family:'DM Serif Display',serif;font-size:28px;color:var(--ch);margin-bo
 h3{font-size:17px;font-weight:700;color:var(--ch);margin-bottom:8px}
 p{margin-bottom:12px;color:var(--gy)}
 
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+.tier{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:16px}
+.tier .price{font-size:22px;font-weight:800;color:var(--ch);margin-bottom:6px}
+.tier .name{font-weight:700;color:var(--ch);margin-bottom:6px}
+.tier .desc{font-size:14px;color:var(--gy);margin-bottom:12px}
+.tier .cta{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:8px;border:1px solid var(--bd);font-weight:700;font-size:13px;color:var(--ch)}
+.tier .cta.primary{background:var(--ac);color:#fff;border-color:var(--ac)}
+.tier .cta:hover{background:#f3f4f6}
+
 .scorecard{margin:24px auto;max-width:680px;border-radius:12px;overflow:hidden;border:1px solid var(--bd);background:#fff}
 .scorecard .sc-header{background:var(--dk);padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
 .scorecard .sc-header span:first-child{font-size:12px;letter-spacing:0.1em;color:var(--ac);font-weight:600}
@@ -181,7 +190,7 @@ p{margin-bottom:12px;color:var(--gy)}
       <a href="/proof" class="nav-link">Proof</a>
       <a href="/enterprise" class="nav-link">Partner</a>
       <a href="/support" class="nav-link highlight">Support</a>
-      <a href="/inquiry" class="nav-btn">Contact</a>
+      <a href="/inquiry" class="nav-btn">Request an AI Risk Audit</a>
     </div>
     <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -208,7 +217,7 @@ p{margin-bottom:12px;color:var(--gy)}
       <a href="/proof">Proof</a>
       <a href="/enterprise">Partner</a>
       <a href="/support" class="highlight">Support the Research</a>
-      <a href="/inquiry" class="mobile-cta">Contact Us</a>
+      <a href="/inquiry" class="mobile-cta">Request an AI Risk Audit</a>
     </div>
   </div>
 </nav>
@@ -216,6 +225,7 @@ p{margin-bottom:12px;color:var(--gy)}
 <div class="hero">
   <div class="logo">IKWE.AI</div>
   <h1>Scale your AI — without scaling the risk that can take you down.</h1>
+  <p class="sub">Ikwe builds behavioral emotional safety infrastructure for AI — the EQ that allows IQ to scale without breaking trust.</p>
   <p class="sub">Board-ready AI risk audits for companies scaling conversational AI, agents, and decision systems.</p>
   <p class="proof-line">This audit was developed internally before being offered externally.</p>
   <a href="/inquiry" class="btn accent">Request an AI Risk Audit</a>
@@ -253,6 +263,34 @@ p{margin-bottom:12px;color:var(--gy)}
 
 <section class="alt">
   <div class="wrap">
+    <h2>Choose your access level</h2>
+    <div class="tiers">
+      <div class="tier" id="preview">
+        <div class="price">$250</div>
+        <div class="name">Preview Pack</div>
+        <div class="desc">Findings summary, full risk scorecard, before/after table, methodology.</div>
+        <a class="cta" href="mailto:stephanie@ikwe.ai?subject=Preview%20Pack%20Request">Get Preview Pack</a>
+      </div>
+      <div class="tier" id="playbook">
+        <div class="price">$5,000</div>
+        <div class="name">Playbook</div>
+        <div class="desc">Everything in Preview plus risk events, failure mode map, remediation framework, sector mappings.</div>
+        <a class="cta" href="mailto:stephanie@ikwe.ai?subject=Playbook%20Request">Get Playbook</a>
+      </div>
+      <div class="tier">
+        <div class="price">$25,000</div>
+        <div class="name">Full Audit</div>
+        <div class="desc">Your systems. Your scores. Board-ready report delivered in 4 weeks.</div>
+        <a class="cta primary" href="/inquiry">Request an AI Risk Audit</a>
+      </div>
+      <div class="tier">
+        <div class="price">$50,000+</div>
+        <div class="name">Implementation</div>
+        <div class="desc">Embedded governance, ongoing re-audits, and monitoring support.</div>
+        <a class="cta" href="/inquiry">Request Scope</a>
+      </div>
+    </div>
+
     <h2>What the $25,000 AI Risk Audit Delivers</h2>
     <div class="deliverables">
       <div class="del"><h3>Board-Ready Risk Report</h3><p>Defensible documentation for boards, investors, and regulators.</p></div>
@@ -288,7 +326,7 @@ p{margin-bottom:12px;color:var(--gy)}
 <footer class="footer">
   <div class="wrap">
     <div class="footer-name">ikwe.ai</div>
-    <div style="margin-top:6px;color:var(--gy)">Behavioral emotional safety infrastructure for AI.</div>
+    <div style="margin-top:6px;color:var(--gy)">Ikwe builds behavioral emotional safety infrastructure for AI — the EQ that allows IQ to scale without breaking trust.</div>
     <div style="margin-top:6px;color:var(--gy)">© 2026 Visible Healing Inc. · Des Moines, Iowa</div>
     <div class="footer-links">
       <a href="/audit">Audit</a> · <a href="/proof">Proof</a> · <a href="/about">About</a> · <a href="/research">Research</a> · <a href="/inquiry">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
