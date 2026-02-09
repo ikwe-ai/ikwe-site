@@ -3,535 +3,201 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Risk & Harm Pattern Audit | Ikwe.ai</title>
-  <meta name="description" content="A scoped, paid engagement that shows where AI risk is forming early — and where teams can still intervene.">
+  <title>AI Risk Audit | Ikwe.ai</title>
+  <meta name="description" content="Scale your AI — without scaling the risk that can take you down. Board-ready AI risk audits delivered in 4 weeks.">
   <link rel="canonical" href="https://ikwe.ai/audit">
   <meta name="robots" content="index, follow">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ikwe.ai/audit">
   <meta property="og:site_name" content="Ikwe.ai">
-  <meta property="og:title" content="Risk & Harm Pattern Audit | Ikwe.ai">
-  <meta property="og:description" content="A scoped engagement showing where AI risk forms early and where teams can intervene.">
+  <meta property="og:title" content="AI Risk Audit | Ikwe.ai">
+  <meta property="og:description" content="Scale your AI — without scaling the risk that can take you down. Board-ready AI risk audits delivered in 4 weeks.">
   <meta property="og:image" content="https://ikwe.ai/og/ikwe-default.png">
 
   <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
   <style>
-:root {
-  --bg: #09090b;
-  --bg2: #0f1014;
-  --bg3: #16181d;
-  --text: #eaeaf0;
-  --text2: rgba(234,234,240,.7);
-  --text3: rgba(234,234,240,.6);
-  --purple: #a78bfa;
-  --purple-dim: rgba(167,139,250,.12);
-  --teal: #2dd4bf;
-  --teal-dim: rgba(45,212,191,.1);
-  --border: rgba(255,255,255,.06);
-  --border2: rgba(255,255,255,.1);
-  --serif: 'Fraunces', Georgia, serif;
-  --sans: 'DM Sans', system-ui, sans-serif;
-  --mono: 'Space Mono', monospace;
-}
+:root { --ch:#16161D;--dk:#1A1A2E;--tl:#16697A;--ac:#489FB5;--rd:#E63946;--gn:#06D6A0;--wm:#FFA62B;--yl:#F4D35E;--bg:#FAFAFA;--tx:#111827;--gy:#6B7280;--bd:#E5E7EB;--lb:#F8FAFC; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',system-ui,sans-serif;color:var(--tx);background:var(--bg);line-height:1.7}
+a{color:inherit;text-decoration:none}
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--sans);
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
+.nav{position:sticky;top:0;z-index:100;background:#0f1014;border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-family:'DM Serif Display',serif;font-weight:700;color:#fff}
+.brand img{width:32px;height:32px;border-radius:50%}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-link{padding:10px 14px;border-radius:8px;font-size:.9rem;font-weight:600;color:rgba(234,234,240,.7)}
+.nav-link:hover{background:rgba(255,255,255,.06);color:#fff}
+.nav-btn{padding:10px 18px;border-radius:8px;font-size:.9rem;font-weight:700;color:#000;background:var(--ac);margin-left:8px}
 
-h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; }
-a { color: inherit; text-decoration: none; }
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
 
-.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-.narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+.hero{background:linear-gradient(145deg,#16161D 0%,#1A1A2E 40%,#16697A 100%);padding:80px 24px 64px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--ac);opacity:0.3}
+.hero .logo{font-size:12px;letter-spacing:0.2em;color:var(--ac);font-weight:700;margin-bottom:18px}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(30px,5vw,44px);color:#fff;line-height:1.2;margin-bottom:14px}
+.hero .sub{font-size:17px;color:#cbd5e1;max-width:580px;margin:0 auto 8px}
+.hero .proof-line{font-size:14px;color:var(--ac);font-weight:500;margin-bottom:28px;font-style:italic}
+.btn{display:inline-block;padding:14px 32px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;transition:all 0.2s}
+.btn.accent{background:var(--ac);color:#fff}
+.btn.accent:hover{background:var(--tl)}
 
-/* NAV */
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(9,9,11,.98);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: 1.05rem;
-}
-.brand img { width: 32px; height: 32px; border-radius: 50%; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-.nav-link {
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: .9rem;
-  font-weight: 500;
-  color: var(--text2);
-  transition: all .15s;
-}
-.nav-link:hover {
-  background: rgba(255,255,255,.06);
-  color: var(--text);
-}
-.nav-btn {
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: .9rem;
-  font-weight: 600;
-  color: #000;
-  background: var(--purple);
-  margin-left: 8px;
-  transition: all .15s;
-}
-.nav-btn:hover {
-  background: #b89dfc;
-  transform: translateY(-1px);
-}
+.proof-bar{background:var(--dk);padding:32px 24px;text-align:center;border-bottom:1px solid rgba(72,159,181,0.2)}
+.proof-bar .stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.proof-bar .stat .num{font-size:32px;font-weight:800;color:var(--ac)}
+.proof-bar .stat .label{font-size:12px;color:#9CA3AF;max-width:200px;margin-top:4px}
 
-/* HERO */
-.hero {
-  padding: 80px 0 64px;
-  border-bottom: 1px solid var(--border);
-  text-align: center;
-}
-.kicker {
-  display: inline-block;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-bottom: 12px;
-}
-.hero h1 {
-  font-size: clamp(2rem, 4vw, 2.5rem);
-  margin-bottom: 16px;
-}
-.hero .subtitle {
-  font-size: 1.1rem;
-  color: var(--text2);
-  line-height: 1.7;
-  max-width: 680px;
-  margin: 0 auto;
-}
+section{padding:56px 24px}
+section.alt{background:#fff}
+section.dark{background:var(--dk);color:#fff}
+h2{font-family:'DM Serif Display',serif;font-size:28px;color:var(--ch);margin-bottom:18px;line-height:1.3}
+h3{font-size:17px;font-weight:700;color:var(--ch);margin-bottom:8px}
+p{margin-bottom:12px;color:var(--gy)}
 
-/* SECTION */
-.section {
-  padding: 64px 0;
-  border-bottom: 1px solid var(--border);
-}
-.section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 16px;
-}
-.section p {
-  color: var(--text2);
-  line-height: 1.8;
-  margin-bottom: 16px;
-}
-.section p:last-child {
-  margin-bottom: 0;
-}
-.section strong {
-  color: var(--text);
-}
+.scorecard{margin:24px auto;max-width:680px;border-radius:12px;overflow:hidden;border:1px solid var(--bd);background:#fff}
+.scorecard .sc-header{background:var(--dk);padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.scorecard .sc-header span:first-child{font-size:12px;letter-spacing:0.1em;color:var(--ac);font-weight:600}
+.scorecard .sc-header span:last-child{font-size:15px;font-weight:700;color:#fff}
+.scorecard .sc-body{padding:20px}
+.sc-labels,.sc-row{display:grid;grid-template-columns:180px 1fr 1fr;gap:0}
+.sc-labels{font-size:11px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.06em;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.sc-row{padding:12px 0;border-bottom:1px solid #F3F4F6;align-items:center}
+.sc-row:last-child{border-bottom:none}
+.sc-dim{font-size:14px;font-weight:600;color:#1A1A2E}
+.sc-cell{display:flex;align-items:center;justify-content:center;gap:8px}
+.sc-num{font-size:16px;font-weight:800;color:#111827}
+.badge{display:inline-flex;align-items:center;justify-content:center;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:0.04em;min-width:64px}
+.badge.high{background:#FEE2E2;color:#991B1B}
+.badge.med{background:#FEF3C7;color:#92400E}
+.badge.low{background:#D1FAE5;color:#065F46}
+.reduction{display:inline-flex;align-items:center;justify-content:center;padding:3px 8px;border-radius:4px;font-size:12px;font-weight:700;background:#ECFDF5;color:#059669}
+.sc-footer{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:#F8FAFC;border-top:1px solid var(--bd);font-size:12px;color:#9CA3AF;font-style:italic}
 
-/* DELIVERABLES */
-.deliverables {
-  display: grid;
-  gap: 20px;
-  margin-top: 28px;
-}
-.deliverable {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px;
-}
-.deliverable h3 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  color: var(--teal);
-}
-.deliverable p {
-  font-size: 14px;
-  color: var(--text2);
-  line-height: 1.7;
-  margin: 0;
-}
+.deliverables{display:grid;gap:14px;margin-top:16px}
+.del{padding:16px 18px;border:1px solid var(--bd);border-radius:12px;background:#fff}
+.del h3{color:var(--ch)}
+.del p{margin:0}
 
-/* STEPS */
-.steps {
-  margin-top: 28px;
-}
-.step {
-  margin-bottom: 24px;
-  padding-left: 36px;
-  position: relative;
-}
-.step:last-child {
-  margin-bottom: 0;
-}
-.step::before {
-  content: attr(data-num);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--teal-dim);
-  color: var(--teal);
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.step h3 {
-  font-size: 1rem;
-  margin-bottom: 8px;
-}
-.step p {
-  font-size: 14px;
-  color: var(--text2);
-  line-height: 1.7;
-  margin: 0;
-}
+.pricing-card{border:1px solid var(--bd);border-radius:14px;background:#fff;padding:20px;margin-top:20px}
+.price{font-size:32px;font-weight:800;color:var(--ch);margin-bottom:6px}
+.price-note{font-size:13px;color:var(--gy)}
+.timeline{margin-top:12px;font-size:14px;color:var(--gy)}
 
-/* WHO LIST */
-.who-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-  margin-top: 28px;
-}
-.who-item {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 18px 20px;
-  font-size: 14px;
-  color: var(--text2);
-  line-height: 1.6;
-}
-.who-item strong {
-  color: var(--text);
-}
+.cta{padding:64px 24px;text-align:center;background:var(--dk);color:#fff}
+.cta h2{color:#fff}
+.cta p{color:#cbd5e1}
+.cta .btn{margin-top:12px}
 
-/* CTA */
-.cta {
-  padding: 80px 0;
-  text-align: center;
-}
-.cta h2 {
-  font-size: 1.7rem;
-  margin-bottom: 16px;
-}
-.cta p {
-  color: var(--text2);
-  font-size: 16px;
-  max-width: 520px;
-  margin: 0 auto 32px;
-}
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 1rem;
-  background: var(--purple);
-  color: #000;
-  transition: all .2s;
-  border: none;
-  cursor: pointer;
-}
-.btn:hover {
-  background: #b89dfc;
-  transform: translateY(-2px);
-}
-.cta-note {
-  font-size: 13px;
-  color: var(--text3);
-  margin-top: 12px;
-}
+.footer{padding:40px 0 48px;border-top:1px solid var(--bd);background:#fff;text-align:center}
+.footer-name{font-family:'DM Serif Display',serif;font-weight:700;color:var(--ch)}
+.footer-links{margin-top:10px;color:var(--gy);font-size:13px}
+.footer-links a{color:var(--gy)}
+.footer-links a:hover{color:var(--tl)}
 
-/* FOOTER */
-.footer {
-  padding: 48px 0 64px;
-  border-top: 1px solid var(--border);
-  font-size: .85rem;
-  color: var(--text3);
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.5fr repeat(4, 1fr);
-  gap: 32px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-.footer-logo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-.footer-logo span {
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--text);
-}
-.footer-tagline {
-  color: var(--text2);
-  margin-bottom: 12px;
-}
-.footer-legal {
-  font-size: .8rem;
-}
-.footer-title {
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 14px;
-}
-.footer-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.footer-nav a {
-  color: var(--text3);
-  transition: color .2s;
-}
-.footer-nav a:hover {
-  color: var(--purple);
-}
-
-@media (max-width: 900px) {
-  .nav-links { display: none; }
-  .footer-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 520px) {
-  .footer-grid { grid-template-columns: 1fr; }
+@media(max-width:600px){
+  .proof-bar .stats{flex-direction:column;gap:20px}
+  .sc-labels,.sc-row{grid-template-columns:120px 1fr 1fr}
 }
   </style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
     <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
     <div class="nav-links">
-      <a href="/research" class="nav-link">Research</a>
+      <a href="/audit" class="nav-link">Audit</a>
+      <a href="/proof" class="nav-link">Proof</a>
       <a href="/about" class="nav-link">About</a>
-      <a href="/enterprise" class="nav-link">For Teams</a>
       <a href="/inquiry" class="nav-btn">Request Audit</a>
     </div>
   </div>
 </nav>
 
-<main>
-<!-- HERO -->
-<section class="hero">
-  <div class="container narrow">
-    <span class="kicker">What You Buy</span>
-    <h1>Risk & Harm Pattern Audit</h1>
-    <p class="subtitle">
-      A scoped, paid engagement that shows where AI risk is forming early — and where teams can still intervene.
-    </p>
+<div class="hero">
+  <div class="logo">IKWE.AI</div>
+  <h1>Scale your AI — without scaling the risk that can take you down.</h1>
+  <p class="sub">Board-ready AI risk audits for companies scaling conversational AI, agents, and decision systems.</p>
+  <p class="proof-line">This audit was developed internally before being offered externally.</p>
+  <a href="/inquiry" class="btn accent">Request an AI Risk Audit</a>
+</div>
+
+<div class="proof-bar">
+  <div class="stats">
+    <div class="stat"><div class="num">54.7%</div><div class="label">of baseline AI responses introduced emotional risk</div></div>
+    <div class="stat"><div class="num">43%</div><div class="label">showed no repair behavior after causing harm</div></div>
+    <div class="stat"><div class="num">42–67%</div><div class="label">risk reduction after applying Ikwe</div></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Proof: We Audited Ourselves First</h2>
+    <div class="scorecard">
+      <div class="sc-header">
+        <span>IKWE.AI</span>
+        <span>Baseline vs Post-Mitigation</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-labels"><span>Risk Dimension</span><span>Baseline</span><span>Post-Mitigation</span></div>
+        <div class="sc-row"><div class="sc-dim">Emotional Escalation</div><div class="sc-cell"><span class="sc-num">80</span><span class="badge high">HIGH</span></div><div class="sc-cell"><span class="sc-num">40</span><span class="badge med">MED</span><span class="reduction">-50%</span></div></div>
+        <div class="sc-row"><div class="sc-dim">Dependency Formation</div><div class="sc-cell"><span class="sc-num">48</span><span class="badge med">MED</span></div><div class="sc-cell"><span class="sc-num">20</span><span class="badge low">LOW</span><span class="reduction">-58%</span></div></div>
+        <div class="sc-row"><div class="sc-dim">Authority Drift</div><div class="sc-cell"><span class="sc-num">36</span><span class="badge med">MED</span></div><div class="sc-cell"><span class="sc-num">18</span><span class="badge low">LOW</span><span class="reduction">-50%</span></div></div>
+        <div class="sc-row"><div class="sc-dim">Scale Amplification</div><div class="sc-cell"><span class="sc-num">48</span><span class="badge med">MED</span></div><div class="sc-cell"><span class="sc-num">28</span><span class="badge med">MED</span><span class="reduction">-42%</span></div></div>
+        <div class="sc-row"><div class="sc-dim">Governance Failure</div><div class="sc-cell"><span class="sc-num">24</span><span class="badge low">LOW</span></div><div class="sc-cell"><span class="sc-num">8</span><span class="badge low">LOW</span><span class="reduction">-67%</span></div></div>
+      </div>
+      <div class="sc-footer"><span>Internal deployment audit. Anonymized.</span><span>ikwe.ai</span></div>
+    </div>
+    <p style="text-align:center;font-size:14px;margin-top:8px;color:var(--gy)">The fixes were <strong>structural, not intuitive</strong> — they transfer to any team.</p>
   </div>
 </section>
 
-<!-- WHAT THIS IS -->
-<section class="section">
-  <div class="container narrow">
-    <h2>What this audit does</h2>
-    <p>
-      Most AI safety reviews look at isolated outputs or post-incident failures. This audit looks at how risk forms over time, across real interaction trajectories.
-    </p>
-    <p>
-      The goal is not to score your system. The goal is to give you time — earlier visibility so decisions can change outcomes.
-    </p>
-  </div>
-</section>
-
-<!-- DELIVERABLES -->
-<section class="section">
-  <div class="container narrow">
-    <h2>Deliverables</h2>
-
+<section class="alt">
+  <div class="wrap">
+    <h2>What the $25,000 AI Risk Audit Delivers</h2>
     <div class="deliverables">
-      <div class="deliverable">
-        <h3>Risk Pattern Map</h3>
-        <p>A visual map showing where harm and escalation begin across interaction trajectories.</p>
-      </div>
-
-      <div class="deliverable">
-        <h3>Early Signal Indicators</h3>
-        <p>The specific signals that appear before incidents and are missed by standard safety checks.</p>
-      </div>
-
-      <div class="deliverable">
-        <h3>Intervention Points</h3>
-        <p>Clear points where teams can act earlier — product, policy, monitoring, or deployment changes.</p>
-      </div>
-
-      <div class="deliverable">
-        <h3>Executive Readout</h3>
-        <p>A working session translating findings into decisions your team can make immediately.</p>
-      </div>
+      <div class="del"><h3>Board-Ready Risk Report</h3><p>Defensible documentation for boards, investors, and regulators.</p></div>
+      <div class="del"><h3>AI Safety Scorecard</h3><p>Red/Yellow/Green across five core risk dimensions.</p></div>
+      <div class="del"><h3>Failure Mode Map</h3><p>Evidence-backed risk events with triggers, scale effects, and consequences.</p></div>
+      <div class="del"><h3>Audit Trail</h3><p>What was reviewed, how conclusions were reached, proof of diligence.</p></div>
+      <div class="del"><h3>Priority Action Plan</h3><p>NOW / NEXT / LATER — clear guidance, no ambiguity.</p></div>
+    </div>
+    <div class="pricing-card">
+      <div class="price">$25,000</div>
+      <div class="price-note">Board-ready audit. Fixed scope. One-time fee.</div>
+      <div class="timeline">Timeline: 4 weeks. No disruption. No slowdown.</div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="section">
-  <div class="container narrow">
-    <h2>How it works</h2>
-
-    <div class="steps">
-      <div class="step" data-num="1">
-        <h3>Scope (1–2 weeks)</h3>
-        <p>We align on the product surface, use cases, and highest-risk interaction pathways.</p>
-      </div>
-
-      <div class="step" data-num="2">
-        <h3>Analysis</h3>
-        <p>We analyze interaction trajectories and evaluation scenarios to surface early risk patterns.</p>
-      </div>
-
-      <div class="step" data-num="3">
-        <h3>Readout</h3>
-        <p>You receive the audit deliverables and a live working session.</p>
-      </div>
-    </div>
-
-    <p style="margin-top: 28px;">
-      If the audit is valuable, teams may expand into ongoing evaluation or advisory support. <strong>There is no long-term commitment required to start.</strong>
-    </p>
+<section>
+  <div class="wrap">
+    <h2>Why external audits matter</h2>
+    <p>Founders are structurally constrained by proximity, incentives, and cognitive load. Internal teams normalize risk over time.</p>
+    <p>Ikwe surfaces the failure modes you do not see while you are shipping.</p>
   </div>
 </section>
 
-<!-- WHO THIS IS FOR -->
-<section class="section">
-  <div class="container narrow">
-    <h2>Who this is for</h2>
-    <p>
-      This audit is designed for teams deploying AI in high-trust or high-impact contexts, including:
-    </p>
-
-    <div class="who-list">
-      <div class="who-item">
-        <strong>AI product and platform teams</strong>
-      </div>
-      <div class="who-item">
-        <strong>Trust & Safety or risk owners</strong>
-      </div>
-      <div class="who-item">
-        <strong>Regulated or sensitive deployments</strong>
-      </div>
-      <div class="who-item">
-        <strong>Organizations accountable for real-world outcomes</strong>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
 <section class="cta">
-  <div class="container">
-    <h2>Start with a Risk & Harm Pattern Audit</h2>
-    <p>Engagements begin with a scoped audit. No long-term commitment required.</p>
-    <a href="/inquiry" class="btn">Request a Risk Audit</a>
-    <p class="cta-note">Audits are scoped based on product surface and risk exposure.</p>
+  <div class="wrap">
+    <h2>Request an AI Risk Audit (Limited engagements per quarter)</h2>
+    <p>We schedule a short intake and deliver a board-ready audit in 4 weeks.</p>
+    <a href="/inquiry" class="btn accent">Request an AI Risk Audit</a>
   </div>
 </section>
-</main>
 
 <footer class="footer">
-  <div class="footer-grid">
-    <div class="footer-col">
-      <div class="footer-logo">
-        <img src="/ikwe_logo_dark.png" alt="ikwe.ai logo">
-        <span>ikwe.ai</span>
-      </div>
-      <p class="footer-tagline">Early risk detection for AI teams.</p>
-      <p class="footer-legal">© 2026 Visible Healing Inc.<br>Des Moines, Iowa</p>
-    </div>
-
-    <div class="footer-col">
-      <div class="footer-title">Research</div>
-      <div class="footer-nav">
-        <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
-        <a href="/research">Methodology</a>
-        <a href="/full-report">Full Report</a>
-
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <div class="footer-title">Company</div>
-      <div class="footer-nav">
-        <a href="/about">About</a>
-        <a href="/founder">Founder</a>
-        <a href="/blog">Blog</a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <div class="footer-title">Work With Us</div>
-      <div class="footer-nav">
-        <a href="/audit">Risk Audit</a>
-        <a href="/enterprise">For Teams</a>
-        <a href="/partner">Partner</a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <div class="footer-title">Connect</div>
-      <div class="footer-nav">
-        <a href="/inquiry">Contact</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
-      </div>
+  <div class="wrap">
+    <div class="footer-name">ikwe.ai</div>
+    <div style="margin-top:6px;color:var(--gy)">Behavioral emotional safety infrastructure for AI.</div>
+    <div style="margin-top:6px;color:var(--gy)">© 2026 Visible Healing Inc. · Des Moines, Iowa</div>
+    <div class="footer-links">
+      <a href="/audit">Audit</a> · <a href="/proof">Proof</a> · <a href="/about">About</a> · <a href="/research">Research</a> · <a href="/inquiry">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
     </div>
   </div>
 </footer>
-
 </body>
 </html>
