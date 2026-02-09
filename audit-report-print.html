@@ -675,20 +675,42 @@ p {
 
   <p>The following structural changes were implemented to address identified risk events. These are not prompt-level patches — they are governance-layer modifications that change how the system behaves under stress.</p>
 
-  <h2>1. Safety Gate Protocol</h2>
-  <p>Implemented a two-stage evaluation framework. Stage 1 evaluates whether the response introduces emotional risk at first contact. Stage 2 evaluates whether the system regulates, repairs, and stabilizes over time. Responses must pass both stages.</p>
-
-  <h2>2. Escalation Circuit Breaker</h2>
-  <p>Added behavioral detection for emotional intensity matching. When the system detects it is amplifying rather than regulating user distress, it triggers a de-escalation protocol that shifts response strategy from mirroring to grounding.</p>
-
-  <h2>3. Authority Boundary Enforcement</h2>
-  <p>Established explicit epistemic boundaries. The system now flags when it lacks sufficient context to provide directional guidance and redirects to appropriate human support rather than defaulting to advisory mode.</p>
-
-  <h2>4. Dependency Detection &amp; Redirect</h2>
-  <p>Implemented session-level monitoring for dependency formation signals. When reliance patterns are detected, the system initiates gentle redirects toward human support networks rather than reinforcing the AI-as-support loop.</p>
-
-  <h2>5. Structural Governance (Founder Decoupling)</h2>
-  <p>Replaced single-point-of-failure safety review with documented governance protocols that operate independently of any individual. Safety evaluation criteria are now embedded in system-level checks rather than human review gates.</p>
+  <table class="scorecard">
+    <thead>
+      <tr>
+        <th>Fix</th>
+        <th>Problem Solved</th>
+        <th>Effect (Δ)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Safety Gate Protocol</strong></td>
+        <td>Introduced structured safety checks at first contact and over time.</td>
+        <td><span class="change">−50% to −58%</span></td>
+      </tr>
+      <tr>
+        <td><strong>Escalation Circuit Breaker</strong></td>
+        <td>Stops amplification loops by shifting from mirroring to grounding.</td>
+        <td><span class="change">−50%</span></td>
+      </tr>
+      <tr>
+        <td><strong>Authority Boundary Enforcement</strong></td>
+        <td>Prevents advisory overreach under ambiguity.</td>
+        <td><span class="change">−50%</span></td>
+      </tr>
+      <tr>
+        <td><strong>Dependency Detection &amp; Redirect</strong></td>
+        <td>Detects reliance and routes users to human support.</td>
+        <td><span class="change">−58%</span></td>
+      </tr>
+      <tr>
+        <td><strong>Structural Governance</strong></td>
+        <td>Removes single‑point‑of‑failure safety review.</td>
+        <td><span class="change">−67%</span></td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="callout callout-lilac">
     <p>These five fixes reduced measured risk by 42–67% across all five behavioral dimensions. The largest improvement was in Governance Failure (−67%), validating that structural fixes outperform individual monitoring.</p>
