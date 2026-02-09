@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Board Brief | Ikwe.ai</title>
+  <meta name="description" content="Board-ready AI risk posture brief. Executive summary, scorecard highlights, and critical findings.">
+  <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+:root{--bg:#09090b;--bg2:#0f1014;--bg3:#16181d;--text:#eaeaf0;--text2:rgba(234,234,240,.7);--text3:rgba(234,234,240,.6);--purple:#a78bfa;--purple-dim:rgba(167,139,250,.12);--coral:#fb923c;--gold:#fbbf24;--green:#22c55e;--red:#f87171;--teal:#2dd4bf;--teal-dim:rgba(45,212,191,.1);--teal-glow:rgba(45,212,191,.08);--border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.1);--serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'Space Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.15;letter-spacing:-.01em}a{color:inherit;text-decoration:none}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}.narrow{max-width:760px;margin:0 auto;padding:0 24px}
+.kicker{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:10px}.kicker.teal{color:var(--teal)}.kicker.gold{color:var(--gold)}.kicker.coral{color:var(--coral)}
+.nav{position:sticky;top:0;z-index:100;background:rgba(9,9,11,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav .container{max-width:1200px}.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--text);text-decoration:none}.brand img{width:32px;height:32px;border-radius:50%}
+.nav-links{display:flex;align-items:center;gap:4px}.nav-link{padding:10px 14px;border-radius:8px;font-size:.9rem;font-weight:500;color:var(--text2);transition:all .15s;text-decoration:none}.nav-link:hover{background:rgba(255,255,255,.06);color:var(--text)}.nav-link.highlight{color:var(--purple)}
+.nav-btn{padding:10px 20px;border-radius:8px;font-size:.9rem;font-weight:600;color:#0b0b10;background:var(--teal);text-decoration:none;margin-left:8px;transition:all .15s}.nav-btn:hover{background:#16697A;color:#fff}
+.section{padding:64px 0;border-top:1px solid var(--border)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;font-weight:600;font-size:.9rem;border:1px solid rgba(22,105,122,.25);background:transparent;color:var(--text);cursor:pointer;transition:all .2s;text-decoration:none}.btn:hover{transform:translateY(-1px);background:rgba(22,105,122,.12);color:#fff}
+.btn.primary{border-color:var(--teal);background:var(--teal);color:#0b0b10}.btn.primary:hover{background:#16697A;color:#fff}
+.btn.secondary{border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--text)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}
+.stat{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:16px;text-align:center}
+.stat .num{font-family:var(--mono);font-size:26px;font-weight:700;line-height:1}
+.stat .lab{font-size:12px;color:var(--text3);margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px}
+.card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:16px}
+.card h3{font-size:14px;margin-bottom:6px}
+.card p{font-size:13px;color:var(--text2);line-height:1.6}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.footer{padding:48px 0 64px;border-top:1px solid var(--border);font-size:.85rem;color:var(--text3)}
+.footer-grid{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:32px}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px}.footer-logo img{width:32px;height:32px;border-radius:50%}.footer-logo span{font-family:var(--serif);font-weight:700;font-size:1rem;color:var(--text)}
+.footer-tagline{font-size:13px;color:var(--text3);line-height:1.6;margin-bottom:12px}.footer-legal{font-size:12px}
+.footer-title{font-weight:700;color:var(--text);margin-bottom:14px;font-size:.9rem}
+.footer-nav{display:flex;flex-direction:column;gap:10px}.footer-nav a{color:var(--text3);transition:color .2s}.footer-nav a:hover{color:var(--teal)}
+@media(max-width:900px){.nav-links{display:none}.stats,.grid,.footer-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav class="nav"><div class="container"><div class="nav-inner">
+  <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+  <div class="nav-links">
+    <a href="/about" class="nav-link">About</a>
+    <a href="/audit" class="nav-link">Audit</a>
+    <a href="/proof" class="nav-link">Proof</a>
+    <a href="/enterprise" class="nav-link">Partner</a>
+    <a href="/support" class="nav-link highlight">Support</a>
+    <a href="/inquiry" class="nav-btn">Request an AI Risk Audit</a>
+  </div>
+</div></div></nav>
+
+<main>
+<section class="section" style="border-top:none;padding-top:72px;background:radial-gradient(ellipse at 50% 0%, var(--teal-glow) 0%, transparent 60%)">
+  <div class="narrow">
+    <span class="kicker">Board Brief</span>
+    <h1>AI Risk Posture — Board Brief</h1>
+    <p style="font-size:1rem;color:var(--text2);max-width:60ch;line-height:1.7">A concise, board-ready summary of risk posture, scorecard shifts, and critical findings from a completed audit.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="/downloads/Ikwe_Board_Brief.pdf">Download Board Brief (PDF)</a>
+      <a class="btn secondary" href="/audit">See Audit Tiers</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="kicker gold">Key Signals</span>
+    <h2>What the brief captures.</h2>
+    <div class="stats">
+      <div class="stat"><div class="num" style="color:var(--red)">54.7%</div><div class="lab">Introduced emotional risk</div></div>
+      <div class="stat"><div class="num" style="color:var(--gold)">43%</div><div class="lab">No repair behavior</div></div>
+      <div class="stat"><div class="num" style="color:var(--green)">42–67%</div><div class="lab">Risk reduction post-mitigation</div></div>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Scorecard Delta</h3><p>Baseline vs post-mitigation across five dimensions with percentage reduction.</p></div>
+      <div class="card"><h3>Critical Finding</h3><p>Recognition is not safety: emotionally fluent systems still introduce harm without regulation.</p></div>
+      <div class="card"><h3>Failure Classes</h3><p>Authority drift, emotional escalation, and founder-as-safety-mechanism.</p></div>
+      <div class="card"><h3>Board Summary</h3><p>One-page risk posture summary for governance and diligence.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer"><div class="container"><div class="footer-grid">
+  <div class="footer-col"><div class="footer-logo"><img src="/ikwe_logo_dark.png" alt="ikwe.ai" width="32" height="32"><span>ikwe.ai</span></div><p class="footer-tagline">Behavioral emotional safety infrastructure for AI.</p><p class="footer-legal">© 2026 Visible Healing Inc. · Des Moines, Iowa</p></div>
+  <div class="footer-col"><div class="footer-title">Research</div><div class="footer-nav"><a href="/emotional-safety-gap">Emotional Safety Gap</a><a href="/research">Methodology</a><a href="/full-report">Full Report</a></div></div>
+  <div class="footer-col"><div class="footer-title">Company</div><div class="footer-nav"><a href="/about">About</a><a href="/audit">Audit</a><a href="/proof">Proof</a><a href="/support">Support</a></div></div>
+  <div class="footer-col"><div class="footer-title">Products</div><div class="footer-nav"><a href="/preview">Preview</a><a href="/playbook">Playbook</a><a href="/audit">Full Audit</a><a href="/enterprise">Enterprise</a></div></div>
+  <div class="footer-col"><div class="footer-title">Connect</div><div class="footer-nav"><a href="/inquiry">Request an Audit</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div>
+</div></div></footer>
+</body>
+</html>
