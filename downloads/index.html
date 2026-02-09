@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download Access | Ikwe.ai</title>
+  <meta name="description" content="Access Ikwe sample audit outputs. Enter the access code to download." />
+  <meta property="og:title" content="Ikwe Downloads" />
+  <meta property="og:description" content="Access Ikwe sample audit outputs." />
+  <meta property="og:image" content="https://ikwe.ai/og_image.png" />
+  <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #09090b; --bg2: #0f1014; --bg3: #16181d;
+  --text: #eaeaf0; --text2: rgba(234,234,240,.7); --text3: rgba(234,234,240,.6);
+  --purple: #a78bfa; --coral: #fb923c; --gold: #fbbf24; --green: #22c55e; --red: #f87171;
+  --teal: #2dd4bf; --teal-glow: rgba(45,212,191,.08);
+  --border: rgba(255,255,255,.06); --border2: rgba(255,255,255,.1);
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'Space Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.15; letter-spacing: -.01em; }
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.kicker { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--purple); margin-bottom: 10px; }
+
+.nav { position: sticky; top: 0; z-index: 100; background: rgba(9,9,11,.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav .container { max-width: 1200px; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-weight: 700; font-size: 1.05rem; color: var(--text); text-decoration: none; }
+.brand img { width: 32px; height: 32px; border-radius: 50%; }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-link { padding: 10px 14px; border-radius: 8px; font-size: .9rem; font-weight: 500; color: var(--text2); background: none; border: none; cursor: pointer; transition: all .15s; display: inline-flex; align-items: center; gap: 4px; text-decoration: none; }
+.nav-link:hover { background: rgba(255,255,255,.06); color: var(--text); }
+.nav-btn { padding: 10px 20px; border-radius: 8px; font-size: .9rem; font-weight: 600; color: #0b0b10; background: var(--teal); text-decoration: none; margin-left: 8px; transition: all .15s; }
+.nav-btn:hover { background: #16697A; color: #fff; transform: translateY(-1px); }
+
+.section { padding: 64px 0; border-top: 1px solid var(--border); }
+.hero { padding: 56px 0 32px; background: radial-gradient(ellipse at 50% 0%, var(--teal-glow) 0%, transparent 60%); }
+.hero h1 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); margin-bottom: 12px; }
+.hero p { color: var(--text2); max-width: 58ch; }
+
+.form-card { background: var(--bg2); border: 1px solid var(--border2); border-radius: 16px; padding: 28px; max-width: 640px; }
+.label { font-size: 13px; color: var(--text3); margin: 8px 0 6px; display: block; }
+.input { width: 100%; background: var(--bg3); border: 1px solid var(--border2); color: var(--text); padding: 12px 14px; border-radius: 10px; font-size: 14px; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: .9rem; border: 1px solid rgba(22,105,122,.25); background: transparent; color: var(--text); cursor: pointer; transition: all .2s ease; text-decoration: none; }
+.btn.primary { border-color: var(--teal); background: var(--teal); color: #0b0b10; }
+.btn.primary:hover { background: #16697A; color: #fff; box-shadow: 0 4px 20px rgba(22,105,122,.25); }
+.btn.secondary { border-color: rgba(255,255,255,.12); background: rgba(255,255,255,.04); color: var(--text); }
+.btn.secondary:hover { background: rgba(255,255,255,.08); color: #fff; }
+
+.download-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 24px; }
+.download-card { background: var(--bg2); border: 1px solid var(--border2); border-radius: 14px; padding: 18px; }
+.download-card h3 { font-size: 16px; margin-bottom: 6px; }
+.download-card p { font-size: 13px; color: var(--text3); margin-bottom: 12px; }
+
+.hidden { display: none; }
+.error { color: #f87171; font-size: 13px; margin-top: 8px; }
+.success { color: var(--green); font-size: 13px; margin-top: 8px; }
+
+.footer { border-top: 1px solid var(--border); padding: 40px 0; margin-top: 32px; }
+.footer .footer-grid { display: grid; grid-template-columns: 1.3fr repeat(3,1fr); gap: 24px; }
+.footer a { color: var(--text2); font-size: .9rem; display: block; margin: 6px 0; }
+.footer-title { font-weight: 700; margin-bottom: 8px; }
+@media (max-width: 900px) { .download-grid { grid-template-columns: 1fr; } .footer .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .footer .footer-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+      <div class="nav-links">
+        <a class="nav-link" href="/research">Research</a>
+        <a class="nav-link" href="/about">About</a>
+        <a class="nav-link" href="/audit">Audit</a>
+        <a class="nav-link" href="/proof">Proof</a>
+        <a class="nav-link" href="/partner">Partner</a>
+        <a class="nav-link" href="/support">Support</a>
+        <a class="nav-btn" href="/inquiry">Request an AI Risk Audit</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <span class="kicker">Downloads</span>
+      <h1>Access the sample audit outputs.</h1>
+      <p>Enter the access code to download the Public Preview, Board Brief, and Full Sample Audit Report. These are redacted examples — the real audit is tailored to your systems.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="form-card">
+        <h2 style="font-size:20px;margin-bottom:6px;">Enter access code</h2>
+        <p style="font-size:14px;color:var(--text3);">We refresh this code regularly to keep the latest versions in circulation.</p>
+        <form name="downloads-access" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return handleUnlock(event)">
+          <input type="hidden" name="form-name" value="downloads-access" />
+          <p class="hidden">
+            <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+          </p>
+          <label class="label" for="email">Email</label>
+          <input id="email" name="email" type="email" class="input" placeholder="you@company.com" required>
+          <label class="label" for="access">Access code</label>
+          <input id="access" name="access" type="password" class="input" placeholder="Access code" required>
+          <div class="actions">
+            <button class="btn primary" type="submit">Unlock Downloads</button>
+            <a class="btn secondary" href="/inquiry">Request an AI Risk Audit</a>
+          </div>
+          <div id="unlock-error" class="error hidden">Incorrect code. Please try again.</div>
+          <div id="unlock-success" class="success hidden">Access granted. Downloads are now visible below.</div>
+        </form>
+      </div>
+
+      <div id="downloads" class="download-grid hidden" style="margin-top:28px;">
+        <div class="download-card" id="public-preview">
+          <h3>Public Preview (PDF)</h3>
+          <p>Findings summary, scorecard, and before/after table. Public, redacted.</p>
+          <a class="btn secondary" href="/downloads/ikwe_public_preview.pdf" download>Download Preview</a>
+        </div>
+        <div class="download-card" id="board-brief">
+          <h3>Board Brief (PDF)</h3>
+          <p>Condensed audit summary for executives and decision-makers.</p>
+          <a class="btn secondary" href="/downloads/ikwe_board_brief.pdf" download>Download Board Brief</a>
+        </div>
+        <div class="download-card" id="audit-report">
+          <h3>Full Sample Audit Report (PDF)</h3>
+          <p>Complete redacted audit sample — methodology, scorecard, and fixes.</p>
+          <a class="btn secondary" href="/downloads/ikwe_audit_report.pdf" download>Download Sample Report</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-title">ikwe.ai</div>
+        <div style="color:var(--text2);font-size:.88rem;">Behavioral emotional safety infrastructure for AI.</div>
+        <div style="margin-top:12px;">© 2026 Visible Healing Inc. · Des Moines, Iowa</div>
+      </div>
+      <div>
+        <div class="footer-title">Research</div>
+        <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+        <a href="/research">Methodology</a>
+        <a href="/full-report">Full Report</a>
+      </div>
+      <div>
+        <div class="footer-title">Company</div>
+        <a href="/about">About</a>
+        <a href="/audit">Audit</a>
+        <a href="/proof">Proof</a>
+        <a href="/support">Support</a>
+      </div>
+      <div>
+        <div class="footer-title">Connect</div>
+        <a href="/inquiry">Request an AI Risk Audit</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const ACCESS_CODE = 'REPLACE_WITH_PASSWORD';
+    function handleUnlock(event) {
+      event.preventDefault();
+      const input = document.getElementById('access');
+      const error = document.getElementById('unlock-error');
+      const success = document.getElementById('unlock-success');
+      const downloads = document.getElementById('downloads');
+      if (input.value.trim() === ACCESS_CODE) {
+        downloads.classList.remove('hidden');
+        error.classList.add('hidden');
+        success.classList.remove('hidden');
+        return true;
+      }
+      error.classList.remove('hidden');
+      success.classList.add('hidden');
+      return false;
+    }
+  </script>
+</body>
+</html>
