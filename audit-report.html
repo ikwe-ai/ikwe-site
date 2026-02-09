@@ -2,13 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-@font-face { font-family: 'SansFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'); font-weight: 400; }
-@font-face { font-family: 'SansFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'); font-weight: 700; }
-@font-face { font-family: 'SerifFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf'); font-weight: 400; }
-@font-face { font-family: 'SerifFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf'); font-weight: 700; }
-@font-face { font-family: 'MonoFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf'); font-weight: 400; }
-@font-face { font-family: 'MonoFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf'); font-weight: 700; }
 
 /* ═══ IKWE PDF TOKEN SYSTEM ═══ */
 :root {
@@ -26,6 +23,9 @@
 
   /* Accent */
   --teal: #2FD7C4;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --serif: 'Fraunces', Georgia, serif;
+  --mono: 'Space Mono', monospace;
 
   /* Risk status */
   --risk-high: #E04F5F;
@@ -43,19 +43,19 @@
   margin: 56px 48px;
   @bottom-left {
     content: "Ikwe AI Risk Audit";
-    font-family: 'MonoFont', monospace;
+    font-family: var(--mono);
     font-size: 8pt;
     color: var(--slate);
   }
   @bottom-center {
     content: counter(page);
-    font-family: 'MonoFont', monospace;
+    font-family: var(--mono);
     font-size: 8pt;
     color: var(--slate);
   }
   @bottom-right {
     content: "Sample — Redacted for External Distribution";
-    font-family: 'MonoFont', monospace;
+    font-family: var(--mono);
     font-size: 8pt;
     color: var(--slate);
   }
@@ -71,7 +71,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: 'SansFont', sans-serif;
+  font-family: var(--sans);
   font-size: 11.5pt;
   line-height: 1.55;
   color: var(--ink);
@@ -95,7 +95,7 @@ body {
   position: absolute;
   top: 40px;
   right: 48px;
-  font-family: 'MonoFont', monospace;
+  font-family: var(--mono);
   font-size: 8pt;
   color: var(--slate);
   letter-spacing: .08em;
@@ -114,14 +114,14 @@ body {
   border-radius: 50%;
 }
 .cover-logo-row span {
-  font-family: 'SerifFont', Georgia, serif;
+  font-family: var(--serif);
   font-size: 18pt;
   font-weight: 700;
   color: var(--navy);
 }
 
 .cover h1 {
-  font-family: 'SerifFont', Georgia, serif;
+  font-family: var(--serif);
   font-size: 36pt;
   font-weight: 800;
   color: var(--ink);
@@ -147,7 +147,7 @@ body {
 }
 
 .cover-meta {
-  font-family: 'MonoFont', monospace;
+  font-family: var(--mono);
   font-size: 9pt;
   color: var(--slate);
   line-height: 2;
@@ -196,7 +196,7 @@ body {
 }
 
 h1 {
-  font-family: 'SerifFont', Georgia, serif;
+  font-family: var(--serif);
   font-size: 22pt;
   font-weight: 800;
   color: var(--ink);
@@ -238,7 +238,7 @@ p {
 }
 
 .kicker {
-  font-family: 'MonoFont', monospace;
+  font-family: var(--mono);
   font-size: 8pt;
   font-weight: 700;
   letter-spacing: .12em;
@@ -316,7 +316,7 @@ p {
 /* Risk status badges */
 .badge {
   display: inline-block;
-  font-family: 'MonoFont', monospace;
+  font-family: var(--mono);
   font-size: 8pt;
   font-weight: 700;
   padding: 3px 8px;
@@ -330,7 +330,7 @@ p {
 
 /* Change indicator */
 .change {
-  font-family: 'MonoFont', monospace;
+  font-family: var(--mono);
   font-size: 10pt;
   font-weight: 700;
   color: #1a7a42;
@@ -351,7 +351,7 @@ p {
   margin-bottom: 8px;
 }
 .risk-event-id {
-  font-family: 'MonoFont', monospace;
+  font-family: var(--mono);
   font-size: 9pt;
   font-weight: 700;
   color: var(--slate);
@@ -380,7 +380,7 @@ p {
   font-size: 10pt;
 }
 .redacted-label {
-  font-family: 'MonoFont', monospace;
+  font-family: var(--mono);
   font-size: 8pt;
   color: var(--slate);
   letter-spacing: .08em;
@@ -401,7 +401,7 @@ p {
   text-align: center;
 }
 .stat-box .num {
-  font-family: 'MonoFont', monospace;
+  font-family: var(--mono);
   font-size: 22pt;
   font-weight: 700;
   line-height: 1;

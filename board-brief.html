@@ -2,33 +2,33 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-@font-face { font-family: 'SansFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'); font-weight: 400; }
-@font-face { font-family: 'SansFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'); font-weight: 700; }
-@font-face { font-family: 'SerifFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf'); font-weight: 400; }
-@font-face { font-family: 'SerifFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf'); font-weight: 700; }
-@font-face { font-family: 'MonoFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf'); font-weight: 400; }
-@font-face { font-family: 'MonoFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf'); font-weight: 700; }
 
 :root {
   --ink: #0B0D12; --paper: #F7F8FA; --slate: #8A8F98; --white: #FFFFFF;
   --navy: #1C1F3A; --coral: #F7A89A; --gold: #F5D88C; --lilac: #BFA7F8;
   --teal: #2FD7C4;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --serif: 'Fraunces', Georgia, serif;
+  --mono: 'Space Mono', monospace;
   --risk-high: #E04F5F; --risk-mod: #F0B849; --risk-low: #3FBF7F;
   --border: rgba(11, 13, 18, 0.12); --table-header: #EEF1F5;
 }
 
 @page { size: letter; margin: 48px 44px; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'SansFont', sans-serif; font-size: 9.5pt; line-height: 1.45; color: var(--ink); background: var(--paper); }
+body { font-family: var(--sans); font-size: 9.5pt; line-height: 1.45; color: var(--ink); background: var(--paper); }
 
 .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
 .header-left { display: flex; align-items: center; gap: 8px; }
 .header-left img { width: 28px; height: 28px; border-radius: 50%; }
-.header-left span { font-family: 'SerifFont', serif; font-size: 13pt; font-weight: 700; color: var(--navy); }
-.header-right { text-align: right; font-family: 'MonoFont', monospace; font-size: 7.5pt; color: var(--slate); }
+.header-left span { font-family: var(--serif); font-size: 13pt; font-weight: 700; color: var(--navy); }
+.header-right { text-align: right; font-family: var(--mono); font-size: 7.5pt; color: var(--slate); }
 
-h1 { font-family: 'SerifFont', serif; font-size: 20pt; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+h1 { font-family: var(--serif); font-size: 20pt; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
 .h1-accent { width: 36px; height: 2px; background: var(--teal); margin-bottom: 12px; }
 
 .brief-meta { font-size: 8.5pt; color: var(--slate); margin-bottom: 12px; }
@@ -37,33 +37,33 @@ h1 { font-family: 'SerifFont', serif; font-size: 20pt; font-weight: 700; color: 
 .two-col { display: flex; gap: 20px; }
 .col { flex: 1; }
 
-h2 { font-size: 10pt; font-weight: 700; color: var(--navy); margin-top: 12px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: .04em; }
+h2 { font-size: 10pt; font-weight: 700; color: var(--navy); margin-top: 12px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: .04em; font-family: var(--mono); }
 
 .stat-strip { display: flex; gap: 8px; margin: 8px 0; }
 .stat-pill { flex: 1; background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 8px 10px; text-align: center; }
-.stat-pill .num { font-family: 'MonoFont', monospace; font-size: 16pt; font-weight: 700; line-height: 1; }
+.stat-pill .num { font-family: var(--mono); font-size: 16pt; font-weight: 700; line-height: 1; }
 .stat-pill .lab { font-size: 7pt; color: var(--slate); margin-top: 2px; }
 
 table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 8.5pt; border: 1px solid var(--border); }
 thead th { background: var(--table-header); color: var(--navy); font-weight: 700; padding: 6px 8px; text-align: left; border-bottom: 1px solid var(--border); font-size: 8pt; }
 tbody td { background: var(--white); padding: 6px 8px; border-bottom: 1px solid rgba(11,13,18,.06); }
 .dim-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
-.badge { font-family: 'MonoFont', monospace; font-size: 6.5pt; font-weight: 700; padding: 2px 5px; border-radius: 3px; }
+.badge { font-family: var(--mono); font-size: 6.5pt; font-weight: 700; padding: 2px 5px; border-radius: 3px; }
 .badge-high { background: rgba(224,79,95,.1); color: var(--risk-high); }
 .badge-mod { background: rgba(240,184,73,.1); color: #b8860b; }
 .badge-low { background: rgba(63,191,127,.1); color: #1a7a42; }
-.change { font-family: 'MonoFont', monospace; font-size: 8.5pt; font-weight: 700; color: #1a7a42; }
+.change { font-family: var(--mono); font-size: 8.5pt; font-weight: 700; color: #1a7a42; }
 
 .callout { background: var(--white); border-left: 3px solid var(--teal); padding: 8px 12px; margin: 8px 0; font-size: 9pt; font-weight: 700; color: var(--ink); }
 
-.footer { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-family: 'MonoFont', monospace; font-size: 7pt; color: var(--slate); }
+.footer { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-family: var(--mono); font-size: 7pt; color: var(--slate); }
 </style>
 </head>
 <body>
 
 <div class="header">
   <div class="header-left">
-    <img src="/mnt/user-data/uploads/ikwe-logo.png" alt="">
+    <img src="/ikwe_logo_dark.png" alt="">
     <span>ikwe.ai</span>
   </div>
   <div class="header-right">
