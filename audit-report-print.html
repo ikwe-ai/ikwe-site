@@ -312,6 +312,18 @@ p {
   margin-right: 8px;
   vertical-align: middle;
 }
+/* Risk status dots */
+.risk-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.risk-high { background: var(--risk-high); }
+.risk-mod { background: var(--risk-mod); }
+.risk-low { background: var(--risk-low); }
 
 /* Risk status badges */
 .badge {
@@ -343,12 +355,15 @@ p {
   border-radius: 10px;
   padding: 16px 20px;
   margin: 12px 0;
+  border-left: 4px solid rgba(11,13,18,.08);
 }
 .risk-event-header {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 8px;
+  border-left: 3px solid rgba(11,13,18,.12);
+  padding-left: 8px;
 }
 .risk-event-id {
   font-family: var(--mono);
@@ -526,41 +541,41 @@ p {
     <tbody>
       <tr>
         <td><span class="dim-dot" style="background:var(--coral)"></span><strong>Emotional Escalation</strong></td>
-        <td>80</td>
+        <td><span class="risk-dot risk-high"></span>80</td>
         <td><span class="badge badge-high">High</span></td>
-        <td>40</td>
+        <td><span class="risk-dot risk-mod"></span>40</td>
         <td><span class="badge badge-mod">Moderate</span></td>
         <td><span class="change">−50%</span></td>
       </tr>
       <tr>
         <td><span class="dim-dot" style="background:var(--lilac)"></span><strong>Dependency Formation</strong></td>
-        <td>48</td>
+        <td><span class="risk-dot risk-mod"></span>48</td>
         <td><span class="badge badge-mod">Moderate</span></td>
-        <td>20</td>
+        <td><span class="risk-dot risk-low"></span>20</td>
         <td><span class="badge badge-low">Low</span></td>
         <td><span class="change">−58%</span></td>
       </tr>
       <tr>
         <td><span class="dim-dot" style="background:var(--navy)"></span><strong>Authority Drift</strong></td>
-        <td>36</td>
+        <td><span class="risk-dot risk-mod"></span>36</td>
         <td><span class="badge badge-mod">Moderate</span></td>
-        <td>18</td>
+        <td><span class="risk-dot risk-low"></span>18</td>
         <td><span class="badge badge-low">Low</span></td>
         <td><span class="change">−50%</span></td>
       </tr>
       <tr>
         <td><span class="dim-dot" style="background:var(--gold)"></span><strong>Scale Amplification</strong></td>
-        <td>48</td>
+        <td><span class="risk-dot risk-mod"></span>48</td>
         <td><span class="badge badge-mod">Moderate</span></td>
-        <td>28</td>
+        <td><span class="risk-dot risk-mod"></span>28</td>
         <td><span class="badge badge-mod">Moderate</span></td>
         <td><span class="change">−42%</span></td>
       </tr>
       <tr>
         <td><span class="dim-dot" style="background:var(--teal)"></span><strong>Governance Failure</strong></td>
-        <td>24</td>
+        <td><span class="risk-dot risk-low"></span>24</td>
         <td><span class="badge badge-low">Low</span></td>
-        <td>8</td>
+        <td><span class="risk-dot risk-low"></span>8</td>
         <td><span class="badge badge-low">Low</span></td>
         <td><span class="change">−67%</span></td>
       </tr>
@@ -585,7 +600,7 @@ p {
   <p>The following risk events were identified during extended vulnerability testing. Each represents a specific behavioral failure pattern that creates measurable harm potential.</p>
 
   <div class="risk-event">
-    <div class="risk-event-header">
+    <div class="risk-event-header" style="border-left-color:var(--coral);">
       <span class="risk-event-id">RE-001</span>
       <span class="dim-dot" style="background:var(--coral)"></span>
       <span class="risk-event-title">Emotional Validation Spiral</span>
@@ -598,7 +613,7 @@ p {
   </div>
 
   <div class="risk-event">
-    <div class="risk-event-header">
+    <div class="risk-event-header" style="border-left-color:var(--navy);">
       <span class="risk-event-id">RE-002</span>
       <span class="dim-dot" style="background:var(--navy)"></span>
       <span class="risk-event-title">Authority Drift Under Ambiguity</span>
@@ -611,7 +626,7 @@ p {
   </div>
 
   <div class="risk-event">
-    <div class="risk-event-header">
+    <div class="risk-event-header" style="border-left-color:var(--lilac);">
       <span class="risk-event-id">RE-003</span>
       <span class="dim-dot" style="background:var(--lilac)"></span>
       <span class="risk-event-title">Dependency Formation Pattern</span>
@@ -624,7 +639,7 @@ p {
   </div>
 
   <div class="risk-event">
-    <div class="risk-event-header">
+    <div class="risk-event-header" style="border-left-color:var(--gold);">
       <span class="risk-event-id">RE-004</span>
       <span class="dim-dot" style="background:var(--gold)"></span>
       <span class="risk-event-title">Scale Amplification Risk</span>
@@ -637,7 +652,7 @@ p {
   </div>
 
   <div class="risk-event">
-    <div class="risk-event-header">
+    <div class="risk-event-header" style="border-left-color:var(--teal);">
       <span class="risk-event-id">RE-005</span>
       <span class="dim-dot" style="background:var(--teal)"></span>
       <span class="risk-event-title">Founder-as-Safety-Mechanism</span>
