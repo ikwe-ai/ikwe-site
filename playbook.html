@@ -58,6 +58,10 @@ a{color:inherit;text-decoration:none}
 .locked-item{padding:10px 0;opacity:.45}
 .locked-item span{font-size:13px;color:var(--text3)}
 .locked-item .tier{color:var(--teal);font-family:var(--mono);font-weight:700;font-size:11px;margin-left:8px}
+.use-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+.use-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:16px}
+.use-card h4{font-family:var(--sans);font-size:13px;margin-bottom:6px}
+.use-card p{font-size:12px;color:var(--text3);line-height:1.6}
 
 /* RISK EVENTS */
 .re-grid{display:flex;flex-direction:column;gap:12px;margin:20px 0}
@@ -100,6 +104,9 @@ a{color:inherit;text-decoration:none}
 .cta-box a.cbtn{display:inline-block;padding:14px 40px;background:var(--teal);color:#0b0b10;font-weight:700;font-size:15px;border-radius:10px;text-decoration:none;transition:all .2s}
 .cta-box a.cbtn:hover{background:#16697A;color:#fff}
 .cta-box .note{font-size:12px;color:var(--text3);margin-top:14px}
+.cta-row{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:14px}
+.btn.secondary{padding:12px 20px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--text);font-weight:600;font-size:.95rem;text-decoration:none;transition:all .2s}
+.btn.secondary:hover{background:rgba(255,255,255,.08);color:#fff}
 
 .upsell{background:var(--bg2);padding:24px;border-radius:12px;border:1px solid var(--border);margin:16px 0}
 .upsell h3{font-family:var(--sans);font-size:14px;color:var(--teal);font-weight:700;margin-bottom:6px}
@@ -123,6 +130,7 @@ a{color:inherit;text-decoration:none}
   .nav-links{display:none}
   .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
   .data-table,.sector-table{overflow-x:auto;display:block}
+  .use-grid{grid-template-columns:1fr}
 }
   </style>
 </head>
@@ -165,6 +173,25 @@ a{color:inherit;text-decoration:none}
   <div class="item"><span class="check">✅</span><h3>Remediation framework</h3><p>Issue-to-fix mapping for every failure class. NOW / NEXT / LATER prioritization.</p></div>
   <div class="item"><span class="check">✅</span><h3>Sector-specific risk mappings</h3><p>5 dimensions × 5 sectors. Risk severity rated for Healthcare, Policy/Gov, LLM/Agents, Workplace, Consumer.</p></div>
   <div class="item"><span class="check">✅</span><h3>Reusable templates</h3><p>Audit checklist, scoring worksheet, risk event template, board summary template.</p></div>
+</div></section>
+
+<section class="section"><div class="narrow">
+  <span class="kicker gold">How Teams Use It</span>
+  <h2 style="font-size:20px;margin-bottom:4px">What happens in the first 30 days.</h2>
+  <div class="use-grid">
+    <div class="use-card">
+      <h4>Week 1 — Map risks</h4>
+      <p>Apply the risk event library and scorecard to your current system behavior.</p>
+    </div>
+    <div class="use-card">
+      <h4>Week 2 — Align owners</h4>
+      <p>Assign remediation owners using the NOW/NEXT/LATER framework.</p>
+    </div>
+    <div class="use-card">
+      <h4>Week 3–4 — Implement gates</h4>
+      <p>Instrument safety thresholds and documentation before scaling further.</p>
+    </div>
+  </div>
 </div></section>
 
 <!-- RISK EVENTS -->
@@ -303,7 +330,10 @@ a{color:inherit;text-decoration:none}
     <div class="popular">MOST POPULAR</div>
     <div class="price">$5,000</div>
     <div class="terms">PDF delivery within 48 hours</div>
-    <a href="mailto:stephanie@ikwe.ai?subject=Playbook%20Request" class="cbtn">Get Playbook →</a>
+    <div class="cta-row">
+      <a href="/audit#playbook" class="cbtn">View Playbook Options →</a>
+      <a href="/inquiry" class="btn secondary">Request an AI Risk Audit</a>
+    </div>
     <p class="note">Includes all risk events, failure modes, sector mappings, remediation framework, and reusable templates.</p>
   </div>
 

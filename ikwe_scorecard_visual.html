@@ -3,66 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ikwe.ai — AI Risk Audits for Behavioral Emotional Safety</title>
-  <meta name="description" content="Board-ready AI risk audits for companies scaling conversational AI, agents, and decision systems. 54.7% of AI responses introduce emotional risk. We catch it before it costs you.">
-  <meta property="og:site_name" content="Ikwe.ai">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ikwe.ai">
-  <meta property="og:image" content="/og/ikwe-scorecard-og.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta property="og:description" content="Behavioral emotional safety infrastructure for AI. Board-ready audits starting at $250.">
-  <meta property="og:title" content="Ikwe.ai — AI Risk Audits">
+<title>Ikwe Risk Scorecard — Before / After</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'DM Sans',system-ui,sans-serif; background:#fff; display:flex; justify-content:center; align-items:center; min-height:100vh; padding:40px; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: #fff;
+  display: flex; justify-content: center; align-items: center;
+  min-height: 100vh; padding: 40px;
+}
 .card {
-  max-width:680px; width:100%; background:#fff; border-radius:16px;
-  box-shadow:0 1px 3px rgba(0,0,0,0.08); border:1px solid #E5E7EB;
-  overflow:hidden;
+  max-width: 680px; width: 100%; background: #fff; border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #E5E7EB;
+  overflow: hidden;
 }
 .header {
-  background:#1A1A2E; padding:24px 32px;
-  display:flex; justify-content:space-between; align-items:center;
+  background: #09090b; padding: 24px 32px;
+  display: flex; justify-content: space-between; align-items: center;
 }
-.header .brand { font-size:12px; letter-spacing:0.12em; color:#489FB5; font-weight:600; }
-.header .title { font-size:18px; font-weight:700; color:#fff; }
-.body { padding:28px 32px 20px; }
+.header .brand {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px; letter-spacing: 0.12em;
+  color: #2dd4bf; font-weight: 700;
+}
+.header .title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 17px; font-weight: 700; color: #eaeaf0;
+}
+.body { padding: 28px 32px 20px; }
 .labels {
-  display:grid; grid-template-columns:160px 1fr 1fr; gap:0;
-  margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #E5E7EB;
+  display: grid; grid-template-columns: 160px 1fr 1fr; gap: 0;
+  margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #E5E7EB;
 }
-.labels span { font-size:11px; font-weight:600; color:#9CA3AF; letter-spacing:0.06em; text-transform:uppercase; }
-.labels span:nth-child(2), .labels span:nth-child(3) { text-align:center; }
+.labels span {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px; font-weight: 700; color: #9CA3AF;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.labels span:nth-child(2), .labels span:nth-child(3) { text-align: center; }
 .row {
-  display:grid; grid-template-columns:160px 1fr 1fr; gap:0; align-items:center;
-  padding:12px 0; border-bottom:1px solid #F3F4F6;
+  display: grid; grid-template-columns: 160px 1fr 1fr; gap: 0; align-items: center;
+  padding: 12px 0; border-bottom: 1px solid #F3F4F6;
 }
-.row:last-child { border-bottom:none; }
-.dim { font-size:14px; font-weight:600; color:#1A1A2E; }
-.score-cell { text-align:center; display:flex; align-items:center; justify-content:center; gap:8px; }
+.row:last-child { border-bottom: none; }
+.dim { font-size: 14px; font-weight: 600; color: #09090b; }
+.score-cell { text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; }
 .badge {
-  display:inline-flex; align-items:center; justify-content:center;
-  padding:4px 10px; border-radius:6px; font-size:11px; font-weight:700;
-  letter-spacing:0.04em; min-width:64px;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 4px 10px; border-radius: 6px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.04em; min-width: 64px;
 }
-.badge.high { background:#FEE2E2; color:#991B1B; }
-.badge.medium { background:#FEF3C7; color:#92400E; }
-.badge.low { background:#D1FAE5; color:#065F46; }
-.num { font-size:18px; font-weight:800; color:#1A1A2E; }
-.arrow { font-size:16px; color:#16697A; font-weight:600; position:relative; }
-.arrow::after { content:'→'; }
+.badge.high { background: #FEE2E2; color: #991B1B; }
+.badge.medium { background: #FEF3C7; color: #92400E; }
+.badge.low { background: #D1FAE5; color: #065F46; }
+.num {
+  font-family: 'Space Mono', monospace;
+  font-size: 18px; font-weight: 700; color: #09090b;
+}
 .reduction {
-  display:inline-flex; align-items:center; justify-content:center;
-  padding:3px 8px; border-radius:4px; font-size:12px; font-weight:700;
-  background:#ECFDF5; color:#059669;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 3px 8px; border-radius: 4px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px; font-weight: 700;
+  background: #ECFDF5; color: #059669;
 }
 .footer-note {
-  padding:16px 32px; background:#F8FAFC; border-top:1px solid #E5E7EB;
-  display:flex; justify-content:space-between; align-items:center;
+  padding: 16px 32px; background: #F8FAFC; border-top: 1px solid #E5E7EB;
+  display: flex; justify-content: space-between; align-items: center;
 }
-.footer-note .note { font-size:12px; color:#9CA3AF; font-style:italic; }
-.footer-note .tag { font-size:11px; color:#489FB5; font-weight:600; }
+.footer-note .note {
+  font-size: 12px; color: #9CA3AF; font-style: italic;
+}
+.footer-note .tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px; color: #2dd4bf; font-weight: 700;
+}
 </style>
 </head>
 <body>
@@ -80,71 +98,36 @@ body { font-family:'DM Sans',system-ui,sans-serif; background:#fff; display:flex
     
     <div class="row">
       <div class="dim">Emotional Escalation</div>
-      <div class="score-cell">
-        <span class="num">80</span>
-        <span class="badge high">HIGH</span>
-      </div>
-      <div class="score-cell">
-        <span class="num">40</span>
-        <span class="badge medium">MEDIUM</span>
-        <span class="reduction">-50%</span>
-      </div>
+      <div class="score-cell"><span class="num">80</span><span class="badge high">HIGH</span></div>
+      <div class="score-cell"><span class="num">40</span><span class="badge medium">MEDIUM</span><span class="reduction">-50%</span></div>
     </div>
     
     <div class="row">
       <div class="dim">Dependency Formation</div>
-      <div class="score-cell">
-        <span class="num">48</span>
-        <span class="badge medium">MEDIUM</span>
-      </div>
-      <div class="score-cell">
-        <span class="num">20</span>
-        <span class="badge low">LOW</span>
-        <span class="reduction">-58%</span>
-      </div>
+      <div class="score-cell"><span class="num">48</span><span class="badge medium">MEDIUM</span></div>
+      <div class="score-cell"><span class="num">20</span><span class="badge low">LOW</span><span class="reduction">-58%</span></div>
     </div>
     
     <div class="row">
       <div class="dim">Authority Drift</div>
-      <div class="score-cell">
-        <span class="num">36</span>
-        <span class="badge medium">MEDIUM</span>
-      </div>
-      <div class="score-cell">
-        <span class="num">18</span>
-        <span class="badge low">LOW</span>
-        <span class="reduction">-50%</span>
-      </div>
+      <div class="score-cell"><span class="num">36</span><span class="badge medium">MEDIUM</span></div>
+      <div class="score-cell"><span class="num">18</span><span class="badge low">LOW</span><span class="reduction">-50%</span></div>
     </div>
     
     <div class="row">
       <div class="dim">Scale Amplification</div>
-      <div class="score-cell">
-        <span class="num">48</span>
-        <span class="badge medium">MEDIUM</span>
-      </div>
-      <div class="score-cell">
-        <span class="num">28</span>
-        <span class="badge medium">MEDIUM</span>
-        <span class="reduction">-42%</span>
-      </div>
+      <div class="score-cell"><span class="num">48</span><span class="badge medium">MEDIUM</span></div>
+      <div class="score-cell"><span class="num">28</span><span class="badge medium">MEDIUM</span><span class="reduction">-42%</span></div>
     </div>
     
     <div class="row">
       <div class="dim">Governance Failure</div>
-      <div class="score-cell">
-        <span class="num">24</span>
-        <span class="badge low">LOW</span>
-      </div>
-      <div class="score-cell">
-        <span class="num">8</span>
-        <span class="badge low">LOW</span>
-        <span class="reduction">-67%</span>
-      </div>
+      <div class="score-cell"><span class="num">24</span><span class="badge low">LOW</span></div>
+      <div class="score-cell"><span class="num">8</span><span class="badge low">LOW</span><span class="reduction">-67%</span></div>
     </div>
   </div>
   <div class="footer-note">
-    <span class="note">Internal deployment audit. Anonymized.</span>
+    <span class="note">Internal deployment audit · Anonymized · EQ Benchmark v2.1</span>
     <span class="tag">ikwe.ai</span>
   </div>
 </div>
