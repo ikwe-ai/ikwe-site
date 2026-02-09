@@ -1167,10 +1167,16 @@ a { color: inherit; text-decoration: none; }
 
 /* CTA */
 .cta {
-  padding: 80px 0;
+  padding: 64px 0 52px;
   border-top: 1px solid var(--border);
   text-align: center;
   background: radial-gradient(ellipse at center, var(--purple-glow) 0%, transparent 60%);
+}
+.cta.hero {
+  padding: 64px 0 48px;
+  border-top: none;
+  border-bottom: 1px solid var(--border);
+  background: radial-gradient(ellipse at 50% 0%, rgba(45,212,191,.08) 0%, transparent 55%);
 }
 .cta h2 {
   font-size: 1.7rem;
@@ -1180,14 +1186,18 @@ a { color: inherit; text-decoration: none; }
   color: var(--text2);
   font-size: 16px;
   max-width: 480px;
-  margin: 0 auto 32px;
+  margin: 0 auto 18px;
   line-height: 1.7;
+}
+.cta-note {
+  margin-top: 14px;
 }
 .cta-btns {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 /* CLOSING */
