@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playbook — $5,000 | Ikwe.ai</title>
+<style>
+:root {
+  --bg: #0f0f1a; --bg2: #13132b; --card: #1a1a35; --teal: #16697a; --teal-lt: #489fb5;
+  --red: #e63946; --warm: #ffa62b; --green: #06d6a0; --accent: #82d4bb;
+  --txt: #e2e8f0; --muted: #94a3b8; --dim: #475569; --bdr: rgba(255,255,255,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--txt);background:var(--bg);line-height:1.7}
+.w{max-width:760px;margin:0 auto;padding:0 24px}
+
+nav{background:var(--bg);border-bottom:1px solid var(--bdr);padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+nav .logo{font-size:15px;font-weight:700;color:var(--teal-lt);letter-spacing:.12em;text-decoration:none}
+nav .links{display:flex;gap:24px;align-items:center}
+nav .links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
+nav .links a:hover{color:#fff}
+nav .links a.cta{background:var(--teal);color:#fff;padding:8px 16px;border-radius:6px;font-weight:600}
+
+.hero{padding:60px 24px 48px;border-bottom:1px solid var(--bdr)}
+.hero .tag{font-size:11px;letter-spacing:.15em;color:var(--teal-lt);font-weight:600;text-transform:uppercase;margin-bottom:12px}
+.hero .popular{display:inline-block;background:var(--teal);color:#fff;font-size:10px;font-weight:700;padding:3px 12px;border-radius:10px;letter-spacing:.05em;margin-bottom:12px}
+.hero h1{font-size:clamp(26px,4.5vw,38px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:10px}
+.hero .price-badge{display:inline-flex;align-items:baseline;gap:8px;margin-bottom:14px}
+.hero .price{font-size:42px;font-weight:800;color:#fff}
+.hero .price-sub{font-size:15px;color:var(--muted)}
+.hero p{font-size:16px;color:var(--muted);max-width:580px}
+.hero .positioning{font-size:15px;color:var(--accent);font-style:italic;margin-top:12px}
+
+section{padding:40px 24px;border-bottom:1px solid var(--bdr)}
+section:last-of-type{border-bottom:none}
+h2{font-size:22px;font-weight:700;color:#fff;margin-bottom:12px}
+h3{font-size:15px;font-weight:700;color:var(--teal-lt);margin-bottom:6px}
+
+.item{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.item:last-child{border:none}
+.item .check{color:var(--green);font-weight:700;margin-right:8px}
+.item .label{font-size:14px;font-weight:700;color:#fff;display:inline}
+.item p{font-size:13px;color:var(--muted);margin-top:4px;padding-left:24px}
+
+/* Risk event cards */
+.re{background:var(--card);border:1px solid var(--bdr);border-radius:8px;margin:10px 0;overflow:hidden}
+.re-hdr{display:flex;justify-content:space-between;align-items:center;padding:10px 14px}
+.re-hdr .id{font-size:12px;font-weight:700;color:#fff;font-family:monospace}
+.re-hdr .dim{font-size:13px;font-weight:600;color:#fff}
+.re-hdr .status{font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px}
+.re-hdr .status.h{background:rgba(230,57,70,.2);color:#f87171}
+.re-hdr .status.m{background:rgba(255,166,43,.2);color:#fbbf24}
+.re-hdr .status.l{background:rgba(6,214,160,.2);color:#34d399}
+.re-body{padding:10px 14px;border-top:1px solid var(--bdr);font-size:13px;color:var(--muted)}
+.re-body strong{color:var(--teal-lt);font-size:12px}
+.re-body .trigger{color:var(--txt);font-weight:600;margin-bottom:4px}
+
+/* Sector table */
+.sector-table{width:100%;border-collapse:collapse;margin:14px 0}
+.sector-table th{background:var(--card);color:var(--muted);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;padding:8px 10px;text-align:center;border-bottom:1px solid var(--bdr)}
+.sector-table th:first-child{text-align:left}
+.sector-table td{padding:9px 10px;font-size:12px;text-align:center;border-bottom:1px solid rgba(255,255,255,.04)}
+.sector-table td:first-child{text-align:left;font-weight:600;font-size:13px}
+.sector-table .hi{color:#f87171;font-weight:700}.sector-table .mi{color:#fbbf24}.sector-table .lo{color:#64748b}
+
+/* Failure table */
+.fail-table{width:100%;border-collapse:collapse;margin:14px 0}
+.fail-table th{background:var(--red);color:#fff;font-size:9px;font-weight:600;text-transform:uppercase;padding:8px 8px}
+.fail-table th:first-child{text-align:left}
+.fail-table td{padding:9px 8px;font-size:12px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top}
+.fail-table td:first-child{font-weight:600}
+
+.locked-item{padding:12px 0;opacity:.5}
+.locked-item span{font-size:13px;color:var(--dim)}
+.locked-item .tier{color:var(--teal-lt);font-weight:600;font-size:12px;margin-left:8px}
+
+.cta-box{background:var(--card);border:2px solid var(--teal);border-radius:12px;padding:28px;text-align:center;margin:24px 0}
+.cta-box .price{font-size:36px;font-weight:800;color:#fff}
+.cta-box .terms{font-size:14px;color:var(--muted);margin:6px 0 16px}
+.cta-box a.btn{display:inline-block;padding:14px 40px;background:var(--teal);color:#fff;font-weight:700;font-size:15px;border-radius:8px;text-decoration:none;transition:all .2s}
+.cta-box a.btn:hover{background:var(--teal-lt)}
+.cta-box .note{font-size:12px;color:var(--dim);margin-top:12px}
+
+.upsell{background:var(--bg2);padding:24px;border-radius:10px;border:1px solid var(--bdr);margin:16px 0}
+.upsell h3{font-size:14px;color:var(--teal-lt);font-weight:700;margin-bottom:6px}
+.upsell p{font-size:13px;color:var(--muted);margin-bottom:10px}
+.upsell a{color:var(--teal-lt);font-weight:600;font-size:13px;text-decoration:none}
+
+.quote{border-left:3px solid var(--teal);padding:14px 20px;margin:20px 0;font-size:15px;font-style:italic;color:var(--txt);background:rgba(22,105,122,.06);border-radius:0 8px 8px 0}
+
+footer{background:var(--bg);border-top:1px solid var(--bdr);padding:28px 24px;text-align:center;font-size:12px;color:var(--muted)}
+footer a{color:var(--teal-lt);text-decoration:none}
+
+@media(max-width:600px){.sector-table,.fail-table{display:block;overflow-x:auto}}
+.nav{position:sticky;top:0;z-index:100;background:rgba(9,9,11,.98);border-bottom:1px solid var(--bdr)}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif, 'DM Serif Display', serif);font-weight:700;color:#fff;text-decoration:none}
+.brand img{width:32px;height:32px;border-radius:50%}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-link{padding:10px 14px;border-radius:8px;font-size:.9rem;font-weight:500;color:var(--muted);text-decoration:none}
+.nav-link:hover{background:rgba(255,255,255,.06);color:#fff}
+.nav-link.highlight{color:#a78bfa}
+.nav-btn{padding:10px 18px;border-radius:8px;font-size:.9rem;font-weight:600;color:#0b0b10;background:var(--teal);margin-left:8px;text-decoration:none}
+.nav-btn:hover{background:#16697A;color:#fff}
+.nav-dropdown{position:relative}
+.dropdown-trigger{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:8px;font-size:.9rem;font-weight:500;color:var(--muted);background:none;border:none;cursor:pointer}
+.dropdown-trigger:hover{background:rgba(255,255,255,.06);color:#fff}
+.dropdown-menu{position:absolute;top:42px;left:0;background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;padding:8px;min-width:260px;opacity:0;pointer-events:none;transform:translateY(6px);transition:all .15s;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.nav-dropdown:hover .dropdown-menu{opacity:1;pointer-events:auto;transform:translateY(0)}
+.dropdown-item{display:block;padding:10px 12px;border-radius:10px;text-decoration:none}
+.dropdown-item:hover{background:rgba(255,255,255,.06)}
+.dropdown-title{display:block;font-weight:600;color:#fff;font-size:.9rem}
+.dropdown-desc{display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
+.nav-toggle{display:none;flex-direction:column;gap:5px;padding:10px;background:none;border:none;cursor:pointer}
+.nav-toggle span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+.mobile-menu{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--bdr);padding:16px 24px 24px}
+.mobile-menu.open{display:block}
+.mobile-section{margin-bottom:12px}
+.mobile-section-title{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+.mobile-menu a{display:block;padding:10px 0;font-size:.95rem;color:var(--muted);text-decoration:none}
+.mobile-cta{color:var(--teal);font-weight:600}
+@media (max-width: 900px){.nav-links{display:none}.nav-toggle{display:flex}}
+
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai - Behavioral Emotional Safety in AI">ikwe.ai</a>
+      <div class="nav-links">
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger">Research <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown-menu">
+            <a href="/emotional-safety-gap" class="dropdown-item"><span class="dropdown-title">The Emotional Safety Gap</span><span class="dropdown-desc">Interactive research findings</span></a>
+            <a href="/research" class="dropdown-item"><span class="dropdown-title">Methodology</span><span class="dropdown-desc">Two-stage evaluation framework</span></a>
+            <a href="/full-report" class="dropdown-item"><span class="dropdown-title">Full Report</span><span class="dropdown-desc">Complete research document</span></a>
+            <a href="/case-studies" class="dropdown-item"><span class="dropdown-title">Case Studies</span><span class="dropdown-desc">Real-world, anonymized examples</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger">About <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown-menu">
+            <a href="/about" class="dropdown-item"><span class="dropdown-title">About Ikwe.ai</span><span class="dropdown-desc">Our mission and approach</span></a>
+            <a href="/founder" class="dropdown-item"><span class="dropdown-title">Founder</span><span class="dropdown-desc">Stephanie Stranko</span></a>
+          </div>
+        </div>
+        <a href="/audit" class="nav-link">Audit</a>
+        <a href="/proof" class="nav-link">Proof</a>
+        <a href="/partner" class="nav-link">Partner</a>
+        <a href="/support" class="nav-link highlight">Support</a>
+        <a href="/inquiry" class="nav-btn">Request an AI Risk Audit</a>
+      </div>
+      <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu">
+      <div class="mobile-section">
+        <div class="mobile-section-title">Research</div>
+        <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+        <a href="/research">Methodology</a>
+        <a href="/full-report">Full Report</a>
+        <a href="/case-studies">Case Studies</a>
+      </div>
+      <div class="mobile-section">
+        <div class="mobile-section-title">About</div>
+        <a href="/about">About Ikwe.ai</a>
+        <a href="/founder">Founder</a>
+      </div>
+      <div class="mobile-section">
+        <a href="/audit">Audit</a>
+        <a href="/proof">Proof</a>
+        <a href="/partner">Partner</a>
+        <a href="/support" class="highlight">Support the Research</a>
+        <a href="/inquiry" class="mobile-cta">Request an AI Risk Audit</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="hero"><div class="w">
+  <div class="tag">Ikwe AI Risk Audit · Playbook Pack</div>
+  <div class="popular">MOST POPULAR</div>
+  <h1>Full risk intelligence<br>for your team.</h1>
+  <div class="price-badge"><span class="price">$5,000</span><span class="price-sub">PDF + Excel templates · Delivered within 48 hours</span></div>
+  <p>The Playbook gives your team everything needed to understand, evaluate, and begin addressing AI behavioral risk — using the same framework Ikwe applies in $25K enterprise audits.</p>
+  <p class="positioning">This gives you the language and structure. It does not give you your audit.</p>
+</div></div>
+
+<!-- WHAT'S INCLUDED -->
+<section><div class="w">
+  <h2>What's Included</h2>
+  <div class="item"><span class="check">✅</span><span class="label">Everything in the Preview Pack ($250)</span><p>Findings summary, full risk scorecard, before/after comparison, scoring methodology, key statistics.</p></div>
+  <div class="item"><span class="check">✅</span><span class="label">All 5 observed risk events — fully documented</span><p>Each event with trigger, description, evidence basis, severity score, and status. See details below.</p></div>
+  <div class="item"><span class="check">✅</span><span class="label">Failure mode map — 4 critical failure paths</span><p>Trigger → scale multiplier → downstream consequence → detection signal. Including the critical path analysis.</p></div>
+  <div class="item"><span class="check">✅</span><span class="label">Remediation framework</span><p>Issue-to-fix mapping for every failure class. The structural changes that produced 42–67% risk reduction.</p></div>
+  <div class="item"><span class="check">✅</span><span class="label">Sector-specific risk mappings (PLAYBOOK EXCLUSIVE)</span><p>How risk weights shift across Healthcare, Policy/Gov, LLM/Agents, Workplace/HR, and Consumer/Platform.</p></div>
+  <div class="item"><span class="check">✅</span><span class="label">Reusable templates (Excel)</span><p>Risk assessment template, scoring worksheet, and remediation tracking template for your team.</p></div>
+</div></section>
+
+<!-- RISK EVENTS -->
+<section><div class="w">
+  <h2>5 Documented Risk Events</h2>
+  <p style="font-size:14px;color:var(--muted);margin-bottom:14px">Each risk event is fully documented with trigger, description, and evidence basis.</p>
+
+  <div class="re">
+    <div class="re-hdr" style="background:rgba(230,57,70,.12)"><span class="id">RE-001</span><span class="dim">Emotional Escalation</span><span class="status h">HIGH · 80</span></div>
+    <div class="re-body">
+      <div class="trigger">Trigger: User expresses suicidal ideation</div>
+      System validates emotional state without triggering safety protocol. Stays present longer than clinically appropriate. No crisis resource routing activated.<br>
+      <strong>Evidence:</strong> EQ Benchmark scenarios · 43% no-repair finding
+    </div>
+  </div>
+  <div class="re">
+    <div class="re-hdr" style="background:rgba(255,166,43,.1)"><span class="id">RE-002</span><span class="dim">Authority Drift</span><span class="status m">MEDIUM · 36</span></div>
+    <div class="re-body">
+      <div class="trigger">Trigger: User requests relationship diagnosis</div>
+      System uses confident, clinical-adjacent language that reads as diagnosis. User defers judgment to AI.<br>
+      <strong>Evidence:</strong> 244K-word corpus analysis · Repeated pattern
+    </div>
+  </div>
+  <div class="re">
+    <div class="re-hdr" style="background:rgba(255,166,43,.1)"><span class="id">RE-003</span><span class="dim">Dependency Formation</span><span class="status m">MEDIUM · 48</span></div>
+    <div class="re-body">
+      <div class="trigger">Trigger: User isolates from human support</div>
+      System becomes primary emotional resource. Too effective at mirroring — users prefer AI to human support.<br>
+      <strong>Evidence:</strong> Longitudinal usage patterns · Anonymized
+    </div>
+  </div>
+  <div class="re">
+    <div class="re-hdr" style="background:rgba(6,214,160,.1)"><span class="id">RE-004</span><span class="dim">Governance Failure</span><span class="status l">LOW · 24</span></div>
+    <div class="re-body">
+      <div class="trigger">Trigger: Founder adjusts system without documentation</div>
+      Manual intervention for 3 months with zero change log. System safety depended entirely on one person.<br>
+      <strong>Evidence:</strong> Internal audit · No governance existed
+    </div>
+  </div>
+  <div class="re">
+    <div class="re-hdr" style="background:rgba(255,166,43,.1)"><span class="id">RE-005</span><span class="dim">Escalation Loop</span><span class="status m">MEDIUM · 60</span></div>
+    <div class="re-body">
+      <div class="trigger">Trigger: Repeated distress interactions create reinforcement loop</div>
+      System mirrors increasing emotional intensity without de-escalation threshold. Regulation score: 1.7/5 → 4.05/5 after fix.<br>
+      <strong>Evidence:</strong> Repeated-interaction tests · Pre/post comparison
+    </div>
+  </div>
+</div></section>
+
+<!-- FAILURE MODE MAP -->
+<section><div class="w">
+  <h2>Failure Mode Map</h2>
+  <p style="font-size:14px;color:var(--muted);margin-bottom:14px">4 critical failure paths identified. Each maps trigger → scale → consequence → detection signal.</p>
+  <table class="fail-table">
+    <tr><th style="text-align:left">Failure Mode</th><th>Trigger</th><th>Scale</th><th>Consequence</th><th>Signal</th></tr>
+    <tr><td>Crisis validation w/o safety routing</td><td>Suicidal ideation</td><td style="text-align:center">5×</td><td>Wrongful death liability</td><td>Safety keyword bypass</td></tr>
+    <tr><td>Clinical authority overreach</td><td>Diagnosis request</td><td style="text-align:center">3×</td><td>Malpractice exposure</td><td>Diagnostic language</td></tr>
+    <tr><td>Therapeutic dependency</td><td>User isolation</td><td style="text-align:center">4×</td><td>Regulatory action</td><td>Declining referrals</td></tr>
+    <tr><td>Undocumented intervention</td><td>System drift</td><td style="text-align:center">4×</td><td>Governance failure</td><td>No change log</td></tr>
+  </table>
+  <div class="quote">
+    <strong>Critical path:</strong> User crisis → AI validates without protocol → User interprets as therapy → AI fails to escalate → <strong>At scale: thousands affected monthly.</strong>
+  </div>
+</div></section>
+
+<!-- SECTOR MAPPINGS -->
+<section><div class="w">
+  <h2>Sector-Specific Risk Mappings</h2>
+  <p style="font-size:14px;color:var(--muted);margin-bottom:6px">PLAYBOOK EXCLUSIVE — How risk weights shift by sector.</p>
+  <p style="font-size:13px;color:var(--dim);margin-bottom:14px">The same AI behavior carries different weight depending on context, regulatory environment, and user vulnerability.</p>
+  <table class="sector-table">
+    <tr><th>Risk Dimension</th><th>Health-<br>care</th><th>Policy<br>/Gov</th><th>LLM /<br>Agents</th><th>Work-<br>place</th><th>Consu-<br>mer</th></tr>
+    <tr><td>Emotional Escalation</td><td class="hi">■ HIGH</td><td class="lo">○ LOW</td><td class="lo">○ LOW</td><td class="mi">△ MED</td><td class="hi">■ HIGH</td></tr>
+    <tr><td>Dependency Formation</td><td class="mi">△ MED</td><td class="lo">○ LOW</td><td class="mi">△ MED</td><td class="mi">△ MED</td><td class="hi">■ HIGH</td></tr>
+    <tr><td>Authority Drift</td><td class="hi">■ HIGH</td><td class="hi">■ HIGH</td><td class="mi">△ MED</td><td class="hi">■ HIGH</td><td class="mi">△ MED</td></tr>
+    <tr><td>Scale Amplification</td><td class="mi">△ MED</td><td class="mi">△ MED</td><td class="hi">■ HIGH</td><td class="lo">○ LOW</td><td class="hi">■ HIGH</td></tr>
+    <tr><td>Governance Failure</td><td class="mi">△ MED</td><td class="hi">■ HIGH</td><td class="hi">■ HIGH</td><td class="mi">△ MED</td><td class="mi">△ MED</td></tr>
+  </table>
+  <p style="font-size:11px;color:var(--dim);margin-top:6px">■ HIGH = primary risk weight · △ MED = secondary · ○ LOW = monitor</p>
+  <p style="font-size:13px;color:var(--muted);margin-top:12px"><strong style="color:#fff">Note:</strong> The Full Audit ($25,000) applies these sector weightings to YOUR specific systems and generates company-specific scores.</p>
+</div></section>
+
+<!-- LOCKED -->
+<section><div class="w">
+  <h2>What's Not Included</h2>
+  <p style="font-size:14px;color:var(--muted);margin-bottom:10px">Everything above is illustrative. The Full Audit is where it becomes operational.</p>
+  <div class="locked-item">🔒 <span>YOUR company-specific audit with named systems</span><span class="tier">→ Full Audit ($25K)</span></div>
+  <div class="locked-item">🔒 <span>Board-ready report with your company name</span><span class="tier">→ Full Audit ($25K)</span></div>
+  <div class="locked-item">🔒 <span>Named risk scorecard with your scores</span><span class="tier">→ Full Audit ($25K)</span></div>
+  <div class="locked-item">🔒 <span>Priority action plan (NOW / NEXT / LATER)</span><span class="tier">→ Full Audit ($25K)</span></div>
+  <div class="locked-item">🔒 <span>Embedded governance + ongoing re-audits</span><span class="tier">→ Implementation ($50K+)</span></div>
+</div></section>
+
+<!-- CTA -->
+<section><div class="w">
+  <div class="cta-box">
+    <div class="price">$5,000</div>
+    <div class="terms">PDF + Excel templates · Delivered within 48 hours</div>
+    <a href="mailto:stephanie@ikwe.ai?subject=Playbook%20Request" class="btn">Get Playbook →</a>
+    <p class="note">Includes complete PDF report, sector mapping reference, and three Excel templates.</p>
+  </div>
+
+  <div class="upsell">
+    <h3>Ready for your own audit?</h3>
+    <p>The <strong style="color:#fff">Full Audit ($25,000)</strong> applies everything in this Playbook to YOUR systems. Board-ready report delivered in 4 weeks. No disruption to your development cycle.</p>
+    <a href="/inquiry">Request a Full Audit →</a>
+  </div>
+  <div class="upsell">
+    <h3>Need embedded governance?</h3>
+    <p><strong style="color:#fff">Implementation packages start at $50,000.</strong> Safety gates, monitoring dashboards, escalation protocols, ongoing re-audits. We stay on top of it so you don't have to.</p>
+    <a href="/inquiry">Contact about implementation →</a>
+  </div>
+</div></section>
+
+<footer>
+  <p>ikwe.ai · Behavioral emotional safety infrastructure for AI.</p>
+  <p>© 2026 Visible Healing Inc. · Des Moines, Iowa</p>
+  <p style="margin-top:8px"><a href="/">Home</a> · <a href="/audit">Audit</a> · <a href="/proof">Proof</a> · <a href="/about">About</a> · <a href="/inquiry">Contact</a></p>
+</footer>
+</body>
+</html>
