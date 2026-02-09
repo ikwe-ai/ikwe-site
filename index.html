@@ -3,33 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ikwe.ai — The Missing Emotional Safety Layer for AI</title>
-  <meta name="description" content="Operational safety infrastructure for AI systems already shaping human decisions. Real evidence, defensible safeguards, and proactive governance.">
+  <title>Ikwe.ai — AI Risk Audits</title>
+  <meta name="description" content="Board-ready AI risk audits for companies scaling conversational AI, agents, and decision systems.">
   <link rel="canonical" href="https://ikwe.ai/">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="Ikwe.ai">
-  <meta name="keywords" content="AI safety, AI risk detection, early risk signals, AI harm prevention, trajectory analysis, AI trust infrastructure">
+  <meta name="keywords" content="AI risk audit, AI safety scorecard, AI risk assessment, AI governance, AI audit">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ikwe.ai/">
   <meta property="og:site_name" content="Ikwe.ai">
-  <meta property="og:title" content="The Missing Emotional Safety Layer for AI | Ikwe.ai">
-  <meta property="og:description" content="Operational safety infrastructure for AI systems already shaping human decisions. Evidence over abstraction.">
+  <meta property="og:title" content="AI Risk Audits | Ikwe.ai">
+  <meta property="og:description" content="Board-ready AI risk audits for companies scaling conversational AI, agents, and decision systems.">
   <meta property="og:image" content="https://ikwe.ai/og/ikwe-default.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Ikwe.ai - Early Risk Detection for AI Teams">
+  <meta property="og:image:alt" content="Ikwe.ai - AI Risk Audits">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter/X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@ikaborot">
   <meta name="twitter:creator" content="@ikaborot">
-  <meta name="twitter:title" content="The Missing Emotional Safety Layer for AI | Ikwe.ai">
-  <meta name="twitter:description" content="Operational safety infrastructure for AI systems already shaping human decisions.">
+  <meta name="twitter:title" content="AI Risk Audits | Ikwe.ai">
+  <meta name="twitter:description" content="Board-ready AI risk audits for companies scaling conversational AI, agents, and decision systems.">
   <meta name="twitter:image" content="https://ikwe.ai/og/ikwe-default.png">
-  <meta name="twitter:image:alt" content="Ikwe.ai - Early Risk Detection for AI Teams">
+  <meta name="twitter:image:alt" content="Ikwe.ai - AI Risk Audits">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/ikwe_logo_dark.png">
@@ -44,7 +44,7 @@
     "name": "Ikwe.ai",
     "url": "https://ikwe.ai",
     "logo": "https://ikwe.ai/ikwe_logo_dark.png",
-    "description": "Operational safety infrastructure for AI systems already shaping human decisions.",
+    "description": "Board-ready AI risk audits for companies scaling conversational AI, agents, and decision systems.",
     "foundingDate": "2025",
     "founder": {
       "@type": "Person",
@@ -385,14 +385,13 @@ a { color: inherit; text-decoration: none; }
 /* HERO */
 .hero {
   padding: 100px 0 80px;
-  background: radial-gradient(ellipse at 30% 0%, var(--purple-glow) 0%, transparent 50%),
-              radial-gradient(ellipse at 70% 100%, var(--teal-glow) 0%, transparent 50%);
+  background: #1A1A2E;
   position: relative;
   overflow: hidden;
   text-align: center;
 }
 .hero-content {
-  max-width: 820px;
+  max-width: 860px;
   margin: 0 auto;
 }
 .hero-title {
@@ -409,6 +408,11 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 14px;
   animation: fadeInUp 0.6s ease-out 0.1s both;
 }
+.hero-content .hero-sub {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .hero-sub strong { color: var(--text); }
 .hero-btns {
   display: flex;
@@ -423,6 +427,18 @@ a { color: inherit; text-decoration: none; }
 .section {
   padding: 72px 0;
   border-top: 1px solid var(--border);
+}
+.section.light {
+  background: #ffffff;
+  color: #11111a;
+}
+.section.light .section-sub,
+.section.light .proof-bullets li,
+.section.light p {
+  color: #4b4b5a;
+}
+.section.light h2 {
+  color: #11111a;
 }
 .section h2 {
   font-size: clamp(1.4rem, 2.2vw, 1.7rem);
@@ -444,6 +460,81 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
+}
+.scorecard-wrap {
+  background: #ffffff;
+  border: 1px solid #e6e6ef;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 16px 40px rgba(10, 10, 15, 0.08);
+}
+.scorecard-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+.scorecard-copy {
+  max-width: 720px;
+  margin: 32px auto 0;
+  text-align: center;
+}
+.proof-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 18px auto 12px;
+  display: grid;
+  gap: 10px;
+  max-width: 640px;
+}
+.proof-bullets li {
+  font-size: 15px;
+  color: var(--text2);
+}
+.deliverables-list {
+  margin: 24px auto 0;
+  max-width: 760px;
+  padding-left: 20px;
+  color: var(--text2);
+  display: grid;
+  gap: 12px;
+}
+.deliverables-list li {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.deliverables-list strong {
+  color: var(--text);
+  margin-right: 6px;
+}
+.section.light .deliverables-list strong {
+  color: #11111a;
+}
+.who-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px auto 0;
+  max-width: 760px;
+  display: grid;
+  gap: 12px;
+}
+.who-list li {
+  font-size: 15px;
+  color: var(--text2);
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.cta-note {
+  font-size: 14px;
+  color: var(--text3);
+  margin-top: 16px;
+}
+.cta-tags {
+  font-size: 13px;
+  color: var(--text3);
+  margin-top: 10px;
 }
 .proof-item {
   background: var(--bg2);
@@ -605,6 +696,28 @@ a { color: inherit; text-decoration: none; }
   font-size: .85rem;
   color: var(--text3);
 }
+.footer-simple {
+  text-align: center;
+  display: grid;
+  gap: 14px;
+}
+.footer-name {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+.footer-links {
+  font-size: .85rem;
+  color: var(--text3);
+}
+.footer-links a {
+  color: var(--text3);
+  transition: color .2s;
+}
+.footer-links a:hover {
+  color: var(--purple);
+}
 .footer-grid {
   display: grid;
   grid-template-columns: 1.5fr repeat(4, 1fr);
@@ -695,534 +808,107 @@ a { color: inherit; text-decoration: none; }
 <nav class="nav">
   <div class="container">
     <div class="nav-inner">
-      <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
-
-      <div class="nav-links">
-        <div class="nav-dropdown">
-          <button class="dropdown-trigger">Research <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="dropdown-menu">
-            <a href="/emotional-safety-gap" class="dropdown-item">
-              <span class="dropdown-title">The Emotional Safety Gap</span>
-              <span class="dropdown-desc">Interactive research findings</span>
-            </a>
-            <a href="/research" class="dropdown-item">
-              <span class="dropdown-title">Methodology</span>
-              <span class="dropdown-desc">Two-stage evaluation framework</span>
-            </a>
-            <a href="/full-report" class="dropdown-item">
-              <span class="dropdown-title">Full Report</span>
-              <span class="dropdown-desc">Complete research document</span>
-            </a>
-            <a href="/case-studies" class="dropdown-item">
-              <span class="dropdown-title">Case Studies</span>
-              <span class="dropdown-desc">Real-world, anonymized examples</span>
-            </a>
-            <a href="/research-and-evidence" class="dropdown-item">
-              <span class="dropdown-title">Research & Evidence</span>
-              <span class="dropdown-desc">Methodology and artifacts</span>
-            </a>
-            <a href="/trust-and-governance" class="dropdown-item">
-              <span class="dropdown-title">Trust & Governance</span>
-              <span class="dropdown-desc">Accountability and compliance</span>
-            </a>
-
-          </div>
-        </div>
-
+      <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>      <div class="nav-links">
+        <a href="/audit" class="nav-link">Audit</a>
+        <a href="/proof" class="nav-link">Proof</a>
         <a href="/about" class="nav-link">About</a>
-        <a href="/enterprise" class="nav-link">For Teams</a>
         <a href="/inquiry" class="nav-btn">Request Audit</a>
       </div>
 
-      <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+      <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu"> onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
 
-    <div class="mobile-menu">
-      <div class="mobile-section">
-        <div class="mobile-section-title">Research</div>
-        <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
-        <a href="/research">Methodology</a>
-        <a href="/full-report">Full Report</a>
-        <a href="/case-studies">Case Studies</a>
-        <a href="/research-and-evidence">Research & Evidence</a>
-        <a href="/trust-and-governance">Trust & Governance</a>
-      </div>
-      <div class="mobile-section">
-        <a href="/about">About</a>
-        <a href="/enterprise">For Teams</a>
-        <a href="/inquiry" class="mobile-cta">Request Audit</a>
-      </div>
+        <div class="mobile-menu">
+      <a href="/audit">Audit</a>
+      <a href="/proof">Proof</a>
+      <a href="/about">About</a>
+      <a href="/inquiry" class="mobile-cta">Request Audit</a>
     </div>
   </div>
 </nav>
 
 <main>
-<!-- ========================= -->
-<!-- HERO -->
-<!-- ========================= -->
 <section class="hero">
+  <div class="container hero-content">
+    <div class="kicker">IKWE.AI</div>
+    <h1 class="hero-title">AI risk scales faster than you can see it. Ikwe catches it before it costs you.</h1>
+    <p class="hero-sub">Board-ready AI risk audits for companies scaling conversational AI, agents, and decision systems.</p>
+    <div class="hero-btns">
+      <a class="btn primary" href="/inquiry">Request an AI Risk Audit</a>
+    </div>
+  </div>
+</section>
+
+<section class="section light" id="proof">
   <div class="container">
-    <div class="hero-content">
-      <div class="kicker">Emotional Safety Infrastructure</div>
-      <h1 class="hero-title">Emotional safety infrastructure for AI systems.</h1>
-      <p class="hero-sub">
-        AI is already shaping decisions in healthcare, therapy, education, and crisis moments.
-        Ikwe adds the missing layer that governs, monitors, and intervenes before harm occurs.
-      </p>
-      <p class="hero-sub">
-        Not a chatbot. Not a feature. <strong>Governance infrastructure for cognition.</strong>
-      </p>
-      <div class="hero-btns">
-        <a class="btn primary" href="#how-it-works">See How Ikwe Works</a>
-        <a class="btn" href="/case-studies">View Evidence & Case Studies</a>
-      </div>
+    <div class="scorecard-wrap">
+      <img class="scorecard-img" src="/assets/ikwe-scorecard-visual.svg" alt="AI risk scorecard showing before and after audit results">
+    </div>
+    <div class="scorecard-copy">
+      <h2>Before we audit anyone else's AI, we audited our own.</h2>
+      <ul class="proof-bullets">
+        <li>54.7% of baseline responses introduced emotional risk</li>
+        <li>43% showed no repair after causing harm</li>
+        <li>Risk scores dropped 42–67% after applying Ikwe</li>
+      </ul>
+      <p class="section-sub">The fixes were structural, not intuitive — they transfer to any team.</p>
     </div>
   </div>
 </section>
 
-<!-- ========================= -->
-<!-- PROBLEM: TIMING -->
-<!-- ========================= -->
-<section class="section">
-  <div class="container narrow">
-    <span class="kicker">The Problem</span>
-    <h2>AI is being used where humans are most vulnerable.</h2>
-    <p class="section-sub">
-      AI is already used for emotional support, therapy-adjacent conversations, education, and decision-making — often without consistent safeguards.
-    </p>
-    <p class="section-sub" style="margin-top: 16px;">
-      Adoption has outpaced our ability to contextualize emotional reliance, monitor cumulative risk, intervene during crisis moments,
-      and prove responsible governance. Most harm isn’t malicious. It’s unmonitored drift.
-    </p>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- SAFETY PYRAMID -->
-<!-- ========================= -->
-<section class="section">
-  <div class="container narrow">
-    <span class="kicker">Core Framework</span>
-    <h2>The Ikwe AI Safety Pyramid</h2>
-    <div class="proof-list">
-      <div class="proof-item">
-        <strong>Policy (Foundation)</strong> benchmarks, standards, and definitions for emotionally safe behavior before deployment
-      </div>
-      <div class="proof-item">
-        <strong>Compliance (Middle Layer)</strong> continuous monitoring of behavior over time to detect drift and governance gaps
-      </div>
-      <div class="proof-item">
-        <strong>Crisis (Top Layer)</strong> real-time intervention paths when users enter distress, dependency, or crisis states
-      </div>
-    </div>
-    <p class="section-sub" style="margin-top: 24px;">
-      Ikwe connects all three layers into a living feedback loop — prevention before incident response.
-    </p>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- PROOF: WHAT IKWE SHOWS -->
-<!-- ========================= -->
-<section class="section">
-  <div class="container narrow">
-    <span class="kicker teal">What Ikwe's Work Shows</span>
-    <h2>Risk signals appear early—before standard checks surface them.</h2>
-
-    <figure class="timeline-visual" style="margin:28px auto 0; max-width:860px;">
-      <svg viewBox="0 0 960 360" width="100%" height="auto" role="img" aria-label="Before and after timeline showing early risk detection with Ikwe">
-        <defs>
-          <!-- Background + stroke styles -->
-          <linearGradient id="bgGlow" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#a78bfa" stop-opacity="0.10"/>
-            <stop offset="1" stop-color="#2dd4bf" stop-opacity="0.08"/>
-          </linearGradient>
-
-          <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.35"/>
-          </filter>
-
-          <style>
-            .card { fill: rgba(15,16,20,0.92); stroke: rgba(255,255,255,0.10); stroke-width: 1; }
-            .muted { fill: rgba(234,234,240,0.70); font: 500 14px 'DM Sans', system-ui, sans-serif; }
-            .title { fill: rgba(234,234,240,0.92); font: 700 18px 'Fraunces', Georgia, serif; letter-spacing: -0.01em; }
-            .kicker { fill: rgba(234,234,240,0.60); font: 700 11px 'Space Mono', ui-monospace, monospace; letter-spacing: 0.12em; text-transform: uppercase; }
-            .laneLabel { fill: rgba(234,234,240,0.80); font: 700 14px 'DM Sans', system-ui, sans-serif; }
-            .line { stroke: rgba(255,255,255,0.14); stroke-width: 2; }
-            .lineTeal { stroke: rgba(45,212,191,0.60); stroke-width: 3; }
-            .node { fill: rgba(9,9,11,1); stroke: rgba(255,255,255,0.18); stroke-width: 2; }
-            .nodeTeal { fill: rgba(9,9,11,1); stroke: rgba(45,212,191,0.95); stroke-width: 3; }
-            .nodeRed { fill: rgba(9,9,11,1); stroke: rgba(248,113,113,0.95); stroke-width: 3; }
-            .tag { fill: rgba(255,255,255,0.06); stroke: rgba(255,255,255,0.10); stroke-width: 1; }
-            .tagText { fill: rgba(234,234,240,0.75); font: 600 12px 'DM Sans', system-ui, sans-serif; }
-            .callout { fill: rgba(45,212,191,0.10); stroke: rgba(45,212,191,0.20); stroke-width: 1; }
-            .calloutText { fill: rgba(234,234,240,0.80); font: 600 12px 'DM Sans', system-ui, sans-serif; }
-          </style>
-        </defs>
-
-        <!-- Outer card -->
-        <rect x="20" y="20" rx="18" ry="18" width="920" height="320" class="card" filter="url(#softShadow)"/>
-        <rect x="20" y="20" rx="18" ry="18" width="920" height="320" fill="url(#bgGlow)" opacity="0.65"/>
-
-        <!-- Header -->
-        <text x="56" y="68" class="kicker">Show, don't tell</text>
-        <text x="56" y="100" class="title">Earlier visibility creates an intervention window</text>
-        <text x="56" y="126" class="muted">Without trajectory-level signals, risk is often detected after escalation. With Ikwe, teams can act earlier.</text>
-
-        <!-- Lane labels -->
-        <text x="56" y="170" class="laneLabel">Without Ikwe</text>
-        <text x="56" y="260" class="laneLabel">With Ikwe</text>
-
-        <!-- Lane 1 baseline -->
-        <line x1="200" y1="176" x2="884" y2="176" class="line"/>
-        <!-- Nodes lane 1 -->
-        <circle cx="250" cy="176" r="10" class="node"/>
-        <circle cx="390" cy="176" r="10" class="node"/>
-        <circle cx="540" cy="176" r="10" class="node"/>
-        <circle cx="720" cy="176" r="10" class="nodeRed"/>
-        <!-- Node labels lane 1 -->
-        <text x="232" y="202" class="muted">Interaction 1</text>
-        <text x="372" y="202" class="muted">Interaction 5</text>
-        <text x="522" y="202" class="muted">Interaction 12</text>
-        <text x="676" y="202" class="muted">Escalation detected</text>
-
-        <!-- Tag lane 1 -->
-        <rect x="740" y="156" rx="10" ry="10" width="150" height="28" class="tag"/>
-        <text x="754" y="175" class="tagText">Detected too late</text>
-
-        <!-- Lane 2 baseline (teal) -->
-        <line x1="200" y1="266" x2="884" y2="266" class="lineTeal"/>
-        <!-- Nodes lane 2 -->
-        <circle cx="250" cy="266" r="10" class="node"/>
-        <circle cx="360" cy="266" r="10" class="nodeTeal"/>
-        <circle cx="520" cy="266" r="10" class="nodeTeal"/>
-        <circle cx="720" cy="266" r="10" class="node"/>
-        <!-- Labels lane 2 -->
-        <text x="232" y="292" class="muted">Interaction 1</text>
-        <text x="322" y="292" class="muted">Early signal</text>
-        <text x="474" y="292" class="muted">Intervention</text>
-        <text x="690" y="292" class="muted">Outcome shifts</text>
-
-        <!-- Intervention window bracket -->
-        <path d="M 360 238 L 360 246 M 360 246 L 520 246 M 520 246 L 520 238"
-              stroke="rgba(45,212,191,0.75)" stroke-width="2" fill="none"/>
-        <rect x="378" y="212" rx="10" ry="10" width="180" height="26" class="callout"/>
-        <text x="392" y="230" class="calloutText">Intervention window opens</text>
-
-        <!-- Footer metric -->
-        <text x="56" y="328" class="muted">
-          Primary metric: <tspan fill="rgba(234,234,240,0.92)" font-weight="700">ΔT</tspan> — time between first detectable risk signal and escalation.
-        </text>
-      </svg>
-
-      <figcaption style="margin-top:10px; font-size:13px; color: rgba(234,234,240,.6); text-align:center;">
-        Ikwe increases ΔT — more time means more options, and different decisions change outcomes.
-      </figcaption>
-    </figure>
-
-    <div class="proof-list">
-      <div class="proof-item">
-        <strong>Early signals are detectable</strong> at the trajectory level, not just in single outputs
-      </div>
-      <div class="proof-item">
-        <strong>Risk patterns repeat</strong> across cases, contexts, and deployment types
-      </div>
-      <div class="proof-item">
-        <strong>Standard checks miss them</strong> because they evaluate outputs, not trajectories
-      </div>
-      <div class="proof-item">
-        <strong>Earlier visibility changes decisions</strong>—increasing time to intervene before escalation
-      </div>
-    </div>
-
-    <p class="section-sub" style="margin-top: 28px; text-align: center; font-size: 14px; color: var(--text3);">
-      Ikwe doesn't predict outcomes. Ikwe changes <strong>when</strong> teams see risk—and timing changes outcomes.
-    </p>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- EVIDENCE -->
-<!-- ========================= -->
-<section class="section">
-  <div class="container narrow">
-    <span class="kicker teal">Evidence</span>
-    <h2>Real systems. Real risks. Real safeguards.</h2>
-    <p class="section-sub">
-      Ikwe uses de-identified, redacted, pattern-based evidence drawn from real deployments, audits, and research environments.
-    </p>
-
-    <div class="link-cards">
-      <a class="link-card" href="/case-studies">
-        <strong>Case Studies</strong>
-        Three anonymized, non-hypothetical examples of risk detection and intervention.
-      </a>
-      <a class="link-card" href="/research-and-evidence">
-        <strong>Research & Evidence</strong>
-        Methodology, redaction ethics, and example artifacts.
-      </a>
-      <a class="link-card" href="/trust-and-governance">
-        <strong>Trust & Governance</strong>
-        How Ikwe supports accountability, compliance, and defensible safeguards.
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- OFFER -->
-<!-- ========================= -->
-<section class="section" id="how-it-works">
-  <div class="container narrow">
-    <span class="kicker">How Ikwe Works</span>
-    <h2>Three layers of safety infrastructure</h2>
-
-    <div class="offer-grid">
-      <div class="offer-card">
-        <h3>Safety Audit & Benchmark</h3>
-        <p class="desc">
-          A structured evaluation of how your AI behaves in emotionally sensitive, high-risk, and human-impact contexts.
-        </p>
-        <div class="section-block">
-          <div class="label">What you get</div>
-          <ul>
-            <li>Risk classification by severity and likelihood</li>
-            <li>Intervention gaps and escalation failures</li>
-            <li>Board- and compliance-ready documentation</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="offer-card">
-        <h3>Compliance & Monitoring Layer</h3>
-        <p class="desc">
-          Continuous monitoring to ensure safety remains visible as systems scale and change.
-        </p>
-        <div class="section-block">
-          <div class="label">What you get</div>
-          <ul>
-            <li>Risk drift alerts across sessions</li>
-            <li>Trend dashboards and incident logs</li>
-            <li>Evidence of proactive governance</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="offer-card">
-        <h3>Crisis & Intervention Runtime</h3>
-        <p class="desc">
-          Real-time safety response when interactions cross predefined thresholds.
-        </p>
-        <div class="section-block">
-          <div class="label">What you get</div>
-          <ul>
-            <li>Escalation protocols and guardrails</li>
-            <li>Human review pathways</li>
-            <li>Audit trails for every intervention</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <p class="section-sub" style="margin-top: 32px; text-align: center;">
-      Engagements typically begin with a scoped pilot (60–90 days) and can expand into ongoing monitoring and advisory work.
-    </p>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- WHAT IKWE PROVIDES -->
-<!-- ========================= -->
-<section class="section">
-  <div class="container narrow">
-    <span class="kicker">What Ikwe Provides</span>
-    <h2>Concrete capabilities teams can deploy</h2>
-    <div class="proof-list">
-      <div class="proof-item">
-        <strong>AI safety audits</strong> to identify emotional, cognitive, and crisis-related risks in existing systems
-      </div>
-      <div class="proof-item">
-        <strong>Real-time safety gates</strong> that activate based on user state, not static rules
-      </div>
-      <div class="proof-item">
-        <strong>Longitudinal risk monitoring</strong> that surfaces patterns only visible over time
-      </div>
-      <div class="proof-item">
-        <strong>Crisis escalation pathways</strong> with clear intervention routes when thresholds are crossed
-      </div>
-      <div class="proof-item">
-        <strong>Governance and documentation</strong> for regulators, insurers, and clinical review
-      </div>
-      <div class="proof-item">
-        <strong>Embedded infrastructure</strong> that integrates into existing products without rebuilds
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- WHO THIS IS FOR -->
-<!-- ========================= -->
-<section class="section">
-  <div class="container narrow">
-    <span class="kicker">Who This Is For</span>
-    <h2>Built for teams deploying AI in high-trust contexts</h2>
-    <p class="section-sub" style="margin-bottom: 28px;">
-      If your AI system influences human decisions, Ikwe is relevant.
-    </p>
-
-    <div class="proof-list">
-      <div class="proof-item">
-        <strong>Healthcare & mental health platforms</strong> operating in care-adjacent environments
-      </div>
-      <div class="proof-item">
-        <strong>Therapy & support AI providers</strong> managing emotional reliance and crisis risk
-      </div>
-      <div class="proof-item">
-        <strong>Education & youth-facing products</strong> where authority and dependency risks are elevated
-      </div>
-      <div class="proof-item">
-        <strong>Enterprise AI teams</strong> deploying assistants and copilots at scale
-      </div>
-      <div class="proof-item">
-        <strong>Insurance & risk partners</strong> assessing downstream liability exposure
-      </div>
-      <div class="proof-item">
-        <strong>Policy & research institutions</strong> shaping governance frameworks
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- BUSINESS MODEL -->
-<!-- ========================= -->
-<section class="section">
-  <div class="container narrow">
-    <span class="kicker">Deployment Model</span>
-    <h2>How Ikwe is deployed</h2>
-    <p class="section-sub">
-      Ikwe is licensed as infrastructure and embedded into existing systems. Engagements typically include a safety audit and baseline
-      assessment, embedded monitoring and crisis safeguards, and ongoing compliance support. Revenue scales with system depth, not user volume.
-    </p>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- TRUST & GOVERNANCE -->
-<!-- ========================= -->
-<section class="section">
-  <div class="container narrow">
-    <span class="kicker">Trust & Governance</span>
-    <h2>Built for trust-critical environments</h2>
-    <div class="proof-list">
-      <div class="proof-item">
-        <strong>Evidence-based methodology</strong> grounded in real-world system behavior
-      </div>
-      <div class="proof-item">
-        <strong>Ethical redaction standards</strong> that protect users and partners
-      </div>
-      <div class="proof-item">
-        <strong>Designed for regulated spaces</strong> including healthcare, policy, and safety-critical deployments
-      </div>
-      <div class="proof-item">
-        <strong>Prepared for evolving governance</strong> with audit-ready documentation
-      </div>
-    </div>
-    <p class="section-sub" style="margin-top: 20px;">
-      Policy shouldn’t be a surprise. It should be built in.
-    </p>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- ORIGIN -->
-<!-- ========================= -->
-<section class="section">
-  <div class="container narrow">
-    <span class="kicker">Origin</span>
-    <h2>Founded in Des Moines. Built for the real world.</h2>
-    <p class="section-sub">
-      Ikwe was founded by Stephanie Stranko, an Iowa-grown technologist working at the intersection of emotional intelligence, AI systems,
-      and human safety. Built from lived experience, research, and direct exposure to system failure — Ikwe exists to make sure we don’t wait
-      for harm before acting.
-    </p>
-    <p class="section-sub" style="margin-top: 12px;">
-      This work doesn’t happen in theory labs. It happens where people live.
-    </p>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!-- CTA -->
-<!-- ========================= -->
-<section class="cta">
+<section class="section" id="audit">
   <div class="container">
-    <span class="kicker">Get Started</span>
-    <h2>AI is moving fast. Safety can’t lag behind.</h2>
-    <p>Talk with Ikwe or explore the evidence pack to see how governance becomes operational.</p>
+    <h2>What the $25,000 AI Risk Audit Delivers</h2>
+    <ol class="deliverables-list">
+      <li><strong>Board-Ready Risk Report</strong> Defensible documentation for boards, investors, and regulators.</li>
+      <li><strong>AI Safety Scorecard</strong> Red/Yellow/Green across five core risk dimensions.</li>
+      <li><strong>Failure Mode Map</strong> Evidence-backed risk events with triggers, scale effects, and consequences.</li>
+      <li><strong>Audit Trail</strong> What was reviewed, how conclusions were reached, proof of diligence.</li>
+      <li><strong>Priority Action Plan</strong> NOW / NEXT / LATER — clear guidance, no ambiguity.</li>
+    </ol>
+    <p class="section-sub">Delivered in 4 weeks. No disruption. No slowdown.</p>
+    <div class="hero-btns">
+      <a class="btn primary" href="/inquiry">Request an AI Risk Audit</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="who">
+  <div class="container">
+    <h2>Who This Is For</h2>
+    <p class="section-sub">Built for AI companies scaling faster than their safeguards.</p>
+    <ul class="who-list">
+      <li>Post-seed / post-YC / pre-Series B startups</li>
+      <li>Teams shipping conversational AI, agents, therapy, or education systems</li>
+      <li>Companies preparing for diligence, platform review, or regulatory scrutiny</li>
+      <li>Anyone whose AI influences human decisions, emotions, or behavior at scale</li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta" id="cta">
+  <div class="container">
+    <h2>Fast AI companies don't fail because they move quickly. They fail because risk scales faster than control.</h2>
     <div class="cta-btns">
-      <a class="btn primary" href="/inquiry">Talk With Ikwe</a>
-      <a class="btn" href="/research-and-evidence">View Evidence Pack</a>
+      <a class="btn primary" href="/inquiry">Request an AI Risk Audit</a>
     </div>
+    <p class="cta-note">Limited engagements per quarter.</p>
+    <p class="cta-tags">Healthcare · Policy & Gov · LLM & Agents · Workplace & HR · Consumer</p>
   </div>
 </section>
 </main>
 
 <footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col footer-brand">
-        <div class="footer-logo">
-          <img src="/ikwe_logo_dark.png" alt="ikwe.ai logo" loading="lazy">
-          <span>ikwe.ai</span>
-        </div>
-        <p class="footer-tagline">Early risk detection for AI teams.</p>
-        <p class="footer-legal">© 2026 Visible Healing Inc.<br>Des Moines, Iowa</p>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-title">Research</div>
-        <div class="footer-nav">
-          <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
-          <a href="/research">Methodology</a>
-          <a href="/full-report">Full Report</a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-title">Company</div>
-        <div class="footer-nav">
-          <a href="/about">About</a>
-          <a href="/founder">Founder</a>
-          <a href="/faq">FAQ</a>
-          <a href="/blog">Blog</a>
-          <a href="/press">Press Kit</a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-title">Support</div>
-        <div class="footer-nav">
-          <a href="/support">Support the Research</a>
-          <a href="/enterprise">Enterprise</a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-title">Connect</div>
-        <div class="footer-nav">
-          <a href="/inquiry">Contact</a>
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-        </div>
-      </div>
+  <div class="container footer-simple">
+    <div class="footer-brandline">
+      <div class="footer-name">ikwe.ai</div>
+      <div class="footer-tagline">Behavioral emotional safety infrastructure for AI.</div>
+      <div class="footer-legal">© 2026 Visible Healing Inc. · Des Moines, Iowa</div>
     </div>
-
-    <div class="footer-bottom">
-      <p class="footer-citation"><strong>Cite:</strong> Ikwe.ai. (2026). <em>Early Risk Detection for AI Teams.</em> Visible Healing Inc. <a href="https://ikwe.ai">ikwe.ai</a></p>
+    <div class="footer-links">
+      <a href="/audit">Audit</a> · <a href="/proof">Proof</a> · <a href="/about">About</a> · <a href="/research">Research</a> · <a href="/inquiry">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
     </div>
   </div>
 </footer>

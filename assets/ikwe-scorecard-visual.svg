@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-label="Ikwe AI risk scorecard before and after audit">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .card { fill: #f7f7fb; stroke: #e3e3ee; stroke-width: 2; }
+      .title { font: 700 38px 'DM Sans', Arial, sans-serif; fill: #11111a; }
+      .subtitle { font: 600 18px 'DM Sans', Arial, sans-serif; fill: #5b5b6a; text-transform: uppercase; letter-spacing: 2px; }
+      .label { font: 600 20px 'DM Sans', Arial, sans-serif; fill: #222233; }
+      .metric { font: 700 22px 'DM Sans', Arial, sans-serif; fill: #11111a; }
+      .note { font: 500 16px 'DM Sans', Arial, sans-serif; fill: #6a6a78; }
+      .pill { font: 700 14px 'DM Sans', Arial, sans-serif; fill: #11111a; }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1400" height="820" rx="24"/>
+
+  <text class="subtitle" x="80" y="90">AI Safety Scorecard</text>
+  <text class="title" x="80" y="140">Before vs After Ikwe Risk Audit</text>
+  <text class="note" x="80" y="180">Redacted internal audit summary • 948 evaluated responses</text>
+
+  <rect class="card" x="80" y="230" width="580" height="520" rx="18"/>
+  <rect class="card" x="740" y="230" width="580" height="520" rx="18"/>
+
+  <text class="label" x="120" y="280">Before Audit</text>
+  <text class="label" x="780" y="280">After Audit</text>
+
+  <g>
+    <rect x="120" y="320" width="120" height="30" rx="15" fill="#fde2e2"/>
+    <text class="pill" x="145" y="341">High Risk</text>
+
+    <rect x="260" y="320" width="120" height="30" rx="15" fill="#fff4d6"/>
+    <text class="pill" x="290" y="341">Med Risk</text>
+
+    <rect x="400" y="320" width="120" height="30" rx="15" fill="#ddf8e5"/>
+    <text class="pill" x="435" y="341">Low Risk</text>
+  </g>
+
+  <g>
+    <rect x="780" y="320" width="120" height="30" rx="15" fill="#fde2e2"/>
+    <text class="pill" x="805" y="341">High Risk</text>
+
+    <rect x="920" y="320" width="120" height="30" rx="15" fill="#fff4d6"/>
+    <text class="pill" x="950" y="341">Med Risk</text>
+
+    <rect x="1060" y="320" width="120" height="30" rx="15" fill="#ddf8e5"/>
+    <text class="pill" x="1095" y="341">Low Risk</text>
+  </g>
+
+  <g>
+    <text class="metric" x="120" y="410">Emotional Risk</text>
+    <rect x="120" y="430" width="460" height="16" rx="8" fill="#fde2e2"/>
+    <rect x="120" y="430" width="260" height="16" rx="8" fill="#ef4444"/>
+    <text class="note" x="120" y="465">54.7% of baseline responses introduced emotional risk</text>
+
+    <text class="metric" x="120" y="520">Repair After Harm</text>
+    <rect x="120" y="540" width="460" height="16" rx="8" fill="#fff4d6"/>
+    <rect x="120" y="540" width="200" height="16" rx="8" fill="#f59e0b"/>
+    <text class="note" x="120" y="575">43% showed no repair after causing harm</text>
+
+    <text class="metric" x="120" y="630">Risk Score Delta</text>
+    <rect x="120" y="650" width="460" height="16" rx="8" fill="#e4e7ff"/>
+    <rect x="120" y="650" width="120" height="16" rx="8" fill="#6366f1"/>
+    <text class="note" x="120" y="685">High variance, low guardrail reliability</text>
+  </g>
+
+  <g>
+    <text class="metric" x="780" y="410">Emotional Risk</text>
+    <rect x="780" y="430" width="460" height="16" rx="8" fill="#fde2e2"/>
+    <rect x="780" y="430" width="150" height="16" rx="8" fill="#ef4444"/>
+    <text class="note" x="780" y="465">Risk scores dropped 42–67% after applying Ikwe</text>
+
+    <text class="metric" x="780" y="520">Repair After Harm</text>
+    <rect x="780" y="540" width="460" height="16" rx="8" fill="#fff4d6"/>
+    <rect x="780" y="540" width="320" height="16" rx="8" fill="#f59e0b"/>
+    <text class="note" x="780" y="575">Repair coverage improved across scenarios</text>
+
+    <text class="metric" x="780" y="630">Risk Score Delta</text>
+    <rect x="780" y="650" width="460" height="16" rx="8" fill="#ddf8e5"/>
+    <rect x="780" y="650" width="360" height="16" rx="8" fill="#10b981"/>
+    <text class="note" x="780" y="685">Structural fixes transferred across systems</text>
+  </g>
+</svg>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ikwe AI Risk Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root { --ch:#16161D;--dk:#1A1A2E;--tl:#16697A;--ac:#489FB5;--rd:#E63946;--gn:#06D6A0;--wm:#FFA62B;--yl:#F4D35E;--bg:#FAFAFA;--tx:#111827;--gy:#6B7280;--bd:#E5E7EB;--lb:#F8FAFC; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',system-ui,sans-serif;color:var(--tx);background:var(--bg);line-height:1.7}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+
+/* Hero */
+.hero{background:linear-gradient(145deg,#16161D 0%,#1A1A2E 40%,#16697A 100%);padding:72px 24px 56px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--ac);opacity:0.3}
+.hero .logo{font-size:13px;letter-spacing:0.2em;color:var(--ac);font-weight:700;margin-bottom:20px}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(30px,5vw,44px);color:#fff;line-height:1.2;margin-bottom:14px}
+.hero .sub{font-size:17px;color:#9CA3AF;max-width:520px;margin:0 auto 8px}
+.hero .proof-line{font-size:14px;color:var(--ac);font-weight:500;margin-bottom:28px;font-style:italic}
+
+/* Proof Bar */
+.proof-bar{background:var(--dk);padding:32px 24px;text-align:center;border-bottom:1px solid rgba(72,159,181,0.2)}
+.proof-bar .stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.proof-bar .stat .num{font-size:32px;font-weight:800;color:var(--ac)}
+.proof-bar .stat .label{font-size:12px;color:#9CA3AF;max-width:160px;margin-top:4px}
+
+/* Section */
+section{padding:48px 24px}
+section.alt{background:#fff}
+section.dark{background:var(--dk);color:#fff}
+h2{font-family:'DM Serif Display',serif;font-size:28px;color:var(--ch);margin-bottom:18px;line-height:1.3}
+h3{font-size:17px;font-weight:700;color:var(--ch);margin-bottom:8px}
+p{margin-bottom:12px}
+
+/* Scorecard */
+.scorecard{margin:24px auto;max-width:680px;border-radius:12px;overflow:hidden;border:1px solid var(--bd);background:#fff}
+.scorecard .sc-header{background:var(--dk);padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.scorecard .sc-header span:first-child{font-size:12px;letter-spacing:0.1em;color:var(--ac);font-weight:600}
+.scorecard .sc-header span:last-child{font-size:15px;font-weight:700;color:#fff}
+.sc-body{padding:0}
+.sc-labels{display:grid;grid-template-columns:150px 1fr 1fr;padding:8px 16px;background:#F8FAFC;border-bottom:1px solid var(--bd)}
+.sc-labels span{font-size:11px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.05em}
+.sc-labels span:not(:first-child){text-align:center}
+.sc-row{display:grid;grid-template-columns:150px 1fr 1fr;padding:10px 16px;border-bottom:1px solid #F3F4F6;align-items:center}
+.sc-row:last-child{border:none}
+.sc-dim{font-size:13px;font-weight:600;color:var(--ch)}
+.sc-cell{text-align:center;display:flex;align-items:center;justify-content:center;gap:6px}
+.sc-num{font-size:17px;font-weight:800;color:var(--ch)}
+.badge{display:inline-block;padding:3px 8px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:0.03em}
+.badge.high{background:#FEE2E2;color:#991B1B}
+.badge.med{background:#FEF3C7;color:#92400E}
+.badge.low{background:#D1FAE5;color:#065F46}
+.reduction{font-size:12px;font-weight:700;color:var(--gn);background:#ECFDF5;padding:2px 6px;border-radius:3px}
+.sc-footer{padding:12px 16px;background:#F8FAFC;border-top:1px solid var(--bd);display:flex;justify-content:space-between;font-size:12px;color:#9CA3AF}
+
+/* Tiers */
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin:28px 0}
+.tier{border-radius:12px;padding:28px 24px;border:1px solid var(--bd);background:#fff;position:relative;transition:all 0.2s}
+.tier:hover{border-color:var(--ac);box-shadow:0 4px 20px rgba(22,105,122,0.1)}
+.tier.featured{border-color:var(--tl);border-width:2px;background:linear-gradient(180deg,#F8FDFE 0%,#fff 100%)}
+.tier.featured::before{content:'MOST POPULAR';position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--tl);color:#fff;font-size:10px;font-weight:700;padding:3px 12px;border-radius:10px;letter-spacing:0.05em}
+.tier .price{font-size:28px;font-weight:800;color:var(--ch);margin-bottom:4px}
+.tier .name{font-size:15px;font-weight:700;color:var(--tl);margin-bottom:4px}
+.tier .desc{font-size:13px;color:var(--gy);margin-bottom:14px;line-height:1.5}
+.tier ul{list-style:none;padding:0;margin-bottom:16px}
+.tier li{font-size:13px;padding:4px 0;color:var(--tx)}
+.tier li.locked{color:#C0C0C0;text-decoration:line-through}
+.tier .cta{display:block;text-align:center;padding:10px;border-radius:6px;font-weight:700;font-size:13px;text-decoration:none;transition:all 0.2s}
+.tier .cta.primary{background:var(--tl);color:#fff}
+.tier .cta.primary:hover{background:var(--ac)}
+.tier .cta.secondary{background:#F0F0F0;color:var(--ch)}
+.tier .cta.secondary:hover{background:#E0E0E0}
+.tier .cta.dark{background:var(--dk);color:#fff}
+.tier .cta.dark:hover{background:var(--ch)}
+
+/* Deliverables */
+.del{border-left:3px solid var(--tl);padding:12px 0 12px 18px;margin-bottom:16px}
+.del h3{color:var(--tl);font-size:15px;margin-bottom:4px}
+.del p{font-size:13px;color:var(--gy);margin:0}
+
+/* Quote */
+.quote{border-left:3px solid var(--tl);padding:16px 24px;margin:24px 0;font-size:15px;font-style:italic;color:var(--ch);background:#F8FDFE}
+.quote .attr{font-size:12px;color:var(--gy);font-style:normal;margin-top:8px}
+
+/* Bottom CTA */
+.bottom-cta{background:var(--dk);padding:56px 24px;text-align:center}
+.bottom-cta h2{color:#fff;margin-bottom:10px}
+.bottom-cta p{color:#9CA3AF;margin-bottom:24px;font-size:15px}
+.btn{display:inline-block;padding:14px 32px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;transition:all 0.2s}
+.btn.accent{background:var(--ac);color:#fff}
+.btn.accent:hover{background:var(--tl)}
+.btn.outline{border:2px solid var(--ac);color:var(--ac);margin-left:12px}
+.btn.outline:hover{background:var(--ac);color:#fff}
+.sectors{margin-top:16px;font-size:12px;color:#6B7280}
+
+@media(max-width:600px){
+  .proof-bar .stats{flex-direction:column;gap:20px}
+  .tiers{grid-template-columns:1fr}
+  .sc-labels,.sc-row{grid-template-columns:120px 1fr 1fr}
+  .btn.outline{margin-left:0;margin-top:8px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="logo">IKWE.AI</div>
+  <h1>AI risk scales faster than<br>you can see it.</h1>
+  <p class="sub">Board-ready AI risk audits for companies scaling conversational AI, agents, and decision systems.</p>
+  <p class="proof-line">This audit was developed internally before being offered externally.</p>
+  <a href="mailto:stephanie@ikwe.ai?subject=AI%20Risk%20Audit" class="btn accent">Request an Audit →</a>
+</div>
+
+<div class="proof-bar">
+  <div class="stats">
+    <div class="stat"><div class="num">54.7%</div><div class="label">of baseline AI responses introduced emotional risk</div></div>
+    <div class="stat"><div class="num">43%</div><div class="label">showed no repair behavior after causing harm</div></div>
+    <div class="stat"><div class="num">42–67%</div><div class="label">risk reduction after applying Ikwe</div></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Proof: We Audited Ourselves First</h2>
+    
+    <div class="scorecard">
+      <div class="sc-header">
+        <span>IKWE.AI</span>
+        <span>Baseline vs Post-Mitigation</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-labels"><span>Risk Dimension</span><span>Baseline</span><span>Post-Mitigation</span></div>
+        <div class="sc-row"><div class="sc-dim">Emotional Escalation</div><div class="sc-cell"><span class="sc-num">80</span><span class="badge high">HIGH</span></div><div class="sc-cell"><span class="sc-num">40</span><span class="badge med">MED</span><span class="reduction">-50%</span></div></div>
+        <div class="sc-row"><div class="sc-dim">Dependency Formation</div><div class="sc-cell"><span class="sc-num">48</span><span class="badge med">MED</span></div><div class="sc-cell"><span class="sc-num">20</span><span class="badge low">LOW</span><span class="reduction">-58%</span></div></div>
+        <div class="sc-row"><div class="sc-dim">Authority Drift</div><div class="sc-cell"><span class="sc-num">36</span><span class="badge med">MED</span></div><div class="sc-cell"><span class="sc-num">18</span><span class="badge low">LOW</span><span class="reduction">-50%</span></div></div>
+        <div class="sc-row"><div class="sc-dim">Scale Amplification</div><div class="sc-cell"><span class="sc-num">48</span><span class="badge med">MED</span></div><div class="sc-cell"><span class="sc-num">28</span><span class="badge med">MED</span><span class="reduction">-42%</span></div></div>
+        <div class="sc-row"><div class="sc-dim">Governance Failure</div><div class="sc-cell"><span class="sc-num">24</span><span class="badge low">LOW</span></div><div class="sc-cell"><span class="sc-num">8</span><span class="badge low">LOW</span><span class="reduction">-67%</span></div></div>
+      </div>
+      <div class="sc-footer"><span>Internal deployment audit. Anonymized.</span><span>ikwe.ai</span></div>
+    </div>
+
+    <p style="text-align:center;color:var(--gy);font-size:14px;margin-top:8px">The fixes were <strong>structural, not intuitive</strong> — they transfer to any team.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>Choose Your Access Level</h2>
+    <p style="color:var(--gy)">Everything is real. Nothing is fabricated. What changes is visibility, specificity, and transferability.</p>
+    
+    <div class="tiers">
+      <div class="tier">
+        <div class="price">$250</div>
+        <div class="name">Preview Pack</div>
+        <div class="desc">Understand the methodology. See a completed scorecard. Evaluate if this is right for your team.</div>
+        <ul>
+          <li>✅ Findings summary</li>
+          <li>✅ Full risk scorecard</li>
+          <li>✅ Before/after table</li>
+          <li>✅ Scoring methodology</li>
+          <li class="locked">Risk events (locked)</li>
+          <li class="locked">Failure mode map (locked)</li>
+          <li class="locked">Remediation framework (locked)</li>
+        </ul>
+        <a href="mailto:stephanie@ikwe.ai?subject=Preview%20Pack" class="cta secondary">Get Preview Pack →</a>
+      </div>
+      
+      <div class="tier featured">
+        <div class="price">$5,000</div>
+        <div class="name">Playbook</div>
+        <div class="desc">Full risk intelligence for your team. Sector mappings, templates, frameworks. Save this for when you need it.</div>
+        <ul>
+          <li>✅ Everything in Preview</li>
+          <li>✅ All observed risk events</li>
+          <li>✅ Failure mode map</li>
+          <li>✅ Remediation framework</li>
+          <li>✅ Sector-specific mappings</li>
+          <li>✅ Reusable templates</li>
+          <li class="locked">YOUR company audit (locked)</li>
+        </ul>
+        <a href="mailto:stephanie@ikwe.ai?subject=Playbook%20Pack" class="cta primary">Get Playbook →</a>
+      </div>
+      
+      <div class="tier">
+        <div class="price">$25,000</div>
+        <div class="name">Full Audit</div>
+        <div class="desc">Your systems. Your scores. Your board-ready report. Delivered in 4 weeks.</div>
+        <ul>
+          <li>✅ Everything in Playbook</li>
+          <li>✅ YOUR company audit</li>
+          <li>✅ Board-ready PDF report</li>
+          <li>✅ Named risk scorecard</li>
+          <li>✅ Priority action plan</li>
+          <li>✅ Audit trail documentation</li>
+          <li>✅ Walkthrough session</li>
+        </ul>
+        <a href="mailto:stephanie@ikwe.ai?subject=Full%20Audit%20Inquiry" class="cta dark">Request Audit →</a>
+      </div>
+    </div>
+    
+    <div class="quote">
+      Need embedded governance, ongoing re-audits, or multi-system coverage?<br>
+      <strong>Implementation packages start at $50,000.</strong> We stay on top of it so you don't have to.
+      <div class="attr"><a href="mailto:stephanie@ikwe.ai?subject=Implementation%20Inquiry" style="color:var(--tl)">Contact us about implementation →</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What the $25K Audit Delivers</h2>
+    <div class="del"><h3>Board-Ready Risk Report</h3><p>Defensible documentation for boards, investors, platform partners, and regulators.</p></div>
+    <div class="del"><h3>AI Safety Scorecard</h3><p>Red / Yellow / Green across five dimensions: Authority Drift, Emotional Escalation, Dependency Formation, Scale Amplification, Governance Failure.</p></div>
+    <div class="del"><h3>Observed Risk Events & Failure Mode Map</h3><p>Evidence-backed risk events with triggers, escalation paths, and external consequences.</p></div>
+    <div class="del"><h3>Regulator-Style Audit Trail</h3><p>What was reviewed, how conclusions were reached, proof of diligence.</p></div>
+    <div class="del"><h3>Priority Action Plan</h3><p>NOW — must address. NEXT — before scaling. LATER — monitor as exposure grows.</p></div>
+    <p style="color:var(--gy);font-size:14px;margin-top:8px"><strong>Timeline:</strong> Week 1 intake → Weeks 2-3 analysis → Week 4 delivery + walkthrough</p>
+  </div>
+</section>
+
+<div class="bottom-cta">
+  <div class="wrap">
+    <h2>Fast AI companies don't fail because they move quickly.</h2>
+    <p>They fail because risk scales faster than control. Ikwe exists to close that gap.</p>
+    <a href="mailto:stephanie@ikwe.ai?subject=AI%20Risk%20Audit" class="btn accent">Request an Audit →</a>
+    <a href="mailto:stephanie@ikwe.ai?subject=Preview%20Pack" class="btn outline">Start with Preview ($250) →</a>
+    <p class="sectors">Healthcare · Policy & Government · LLM & Agents · Workplace & HR · Consumer & Platform</p>
+    <p style="font-size:12px;color:#4B5563;margin-top:12px">Limited engagements per quarter.</p>
+  </div>
+</div>
+
+</body>
+</html>
