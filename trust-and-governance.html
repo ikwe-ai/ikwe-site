@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trust & Governance | Ikwe.ai</title>
+  <meta name="description" content="Ikwe provides accountable, defensible safety governance grounded in real-world system behavior.">
+  <link rel="canonical" href="https://ikwe.ai/trust-and-governance">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ikwe.ai/trust-and-governance">
+  <meta property="og:site_name" content="Ikwe.ai">
+  <meta property="og:title" content="Trust & Governance | Ikwe.ai">
+  <meta property="og:description" content="Accountable, defensible safety governance grounded in real-world system behavior.">
+  <meta property="og:image" content="https://ikwe.ai/og/ikwe-default.png">
+
+  <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #09090b;
+  --bg2: #0f1014;
+  --bg3: #16181d;
+  --text: #eaeaf0;
+  --text2: rgba(234,234,240,.7);
+  --text3: rgba(234,234,240,.6);
+  --purple: #a78bfa;
+  --purple-dim: rgba(167,139,250,.12);
+  --teal: #2dd4bf;
+  --border: rgba(255,255,255,.06);
+  --border2: rgba(255,255,255,.1);
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'Space Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; }
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9,9,11,.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+.brand img { width: 32px; height: 32px; border-radius: 50%; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--text2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all .15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link:hover {
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+}
+.nav-link.highlight { color: var(--purple); }
+.nav-link.highlight:hover { background: var(--purple-dim); }
+.nav-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+  color: #000;
+  background: var(--purple);
+  text-decoration: none;
+  margin-left: 8px;
+  transition: all .15s;
+}
+.nav-btn:hover { background: #b89dfc; transform: translateY(-1px); }
+
+.nav-dropdown { position: relative; }
+.dropdown-trigger {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--text2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all .15s;
+}
+.dropdown-trigger:hover { background: rgba(255,255,255,.06); color: var(--text); }
+.dropdown-trigger svg { transition: transform .2s; }
+.nav-dropdown:hover .dropdown-trigger svg { transform: rotate(180deg); }
+
+.dropdown-menu {
+  position: absolute;
+  top: 42px;
+  left: 0;
+  min-width: 240px;
+  background: rgba(15,16,20,0.98);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  padding: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: all .2s;
+  box-shadow: 0 20px 40px rgba(0,0,0,.35);
+}
+.nav-dropdown:hover .dropdown-menu { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.dropdown-item {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--text2);
+  transition: all .15s;
+}
+.dropdown-item:hover { background: rgba(255,255,255,.06); color: var(--text); }
+.dropdown-title { display: block; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.dropdown-desc { display: block; font-size: 12px; color: var(--text3); }
+
+.mobile-toggle { display: none; }
+.mobile-menu { display: none; }
+
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .nav-btn { display: none; }
+  .mobile-toggle {
+    display: block;
+    background: none;
+    border: 0;
+    color: var(--text);
+    font-size: 22px;
+    cursor: pointer;
+  }
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 24px 24px;
+    border-top: 1px solid var(--border);
+    background: rgba(9,9,11,.98);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-section-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-top: 8px;
+  }
+  .mobile-menu a { color: var(--text2); }
+  .mobile-cta {
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: var(--purple);
+    color: #000;
+    font-weight: 600;
+  }
+}
+
+.hero {
+  padding: 80px 0 56px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.kicker {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-size: clamp(2.1rem, 4.2vw, 2.8rem);
+  margin-bottom: 16px;
+}
+.hero .subtitle {
+  font-size: 1.05rem;
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--border);
+}
+.section h2 { font-size: 1.6rem; margin-bottom: 16px; }
+.section p { color: var(--text2); line-height: 1.8; margin-bottom: 16px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 16px;
+  padding: 24px;
+}
+.card h3 { font-size: 1.1rem; color: var(--teal); margin-bottom: 10px; }
+.card ul { list-style: none; padding: 0; }
+.card li { font-size: 14px; color: var(--text2); padding: 6px 0; }
+
+.callout {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 14px;
+  padding: 20px;
+  color: var(--text2);
+  font-size: 14px;
+}
+
+.cta {
+  padding: 72px 0;
+  text-align: center;
+  background: radial-gradient(ellipse at center, rgba(167,139,250,.1) 0%, transparent 60%);
+}
+.cta h2 { font-size: 1.6rem; margin: 8px 0 16px; }
+.cta p { color: var(--text2); max-width: 640px; margin: 0 auto 24px; }
+.cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--border2);
+}
+.btn.primary { background: var(--purple); color: #000; border-color: var(--purple); }
+
+.footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+}
+.footer-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 10px;
+}
+.footer-nav a {
+  display: block;
+  color: var(--text2);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+}
+.footer-brand img { width: 32px; height: 32px; border-radius: 50%; }
+.footer-tagline { color: var(--text2); font-size: 14px; margin-bottom: 10px; }
+.footer-legal { color: var(--text3); font-size: 12px; }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai logo">ikwe.ai</a>
+      <div class="nav-links">
+        <a href="/emotional-safety-gap" class="nav-link">The Gap</a>
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger">Research <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown-menu">
+            <a href="/research" class="dropdown-item">
+              <span class="dropdown-title">Methodology</span>
+              <span class="dropdown-desc">Interactive research findings</span>
+            </a>
+            <a href="/research-summary" class="dropdown-item">
+              <span class="dropdown-title">Research Summary</span>
+              <span class="dropdown-desc">Downloadable PDF summary</span>
+            </a>
+            <a href="/full-report" class="dropdown-item">
+              <span class="dropdown-title">Full Report</span>
+              <span class="dropdown-desc">Complete research document</span>
+            </a>
+          </div>
+        </div>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+      </div>
+      <a href="/inquiry" class="nav-btn">Request Audit</a>
+      <button class="mobile-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">☰</button>
+    </div>
+    <div class="mobile-menu">
+      <div class="mobile-section-title">Research</div>
+      <a href="/emotional-safety-gap">The Gap</a>
+      <a href="/research">Methodology</a>
+      <a href="/research-summary">Research Summary</a>
+      <a href="/full-report">Full Report</a>
+      <div class="mobile-section-title">Company</div>
+      <a href="/about">About</a>
+      <a href="/faq">FAQ</a>
+      <a href="/inquiry" class="mobile-cta">Request Audit</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="kicker">Trust & Governance</div>
+      <h1>Accountability built for real-world AI</h1>
+      <p class="subtitle">Ikwe is built for environments where trust, safety, and accountability matter. Our work is grounded in real-world system behavior, not hypothetical risk models.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="narrow">
+      <span class="kicker">Governance</span>
+      <h2>Defensible safeguards for high-trust systems</h2>
+      <p>When AI influences human decisions, the risk is not just technical. It is behavioral, reputational, legal, and clinical. Ikwe creates the documentation and audit trails teams need to show responsible governance before incidents occur.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Audit-ready evidence</h3>
+          <ul>
+            <li>Clear risk classifications and severity levels</li>
+            <li>Documented intervention gaps</li>
+            <li>Before and after safeguards</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Ongoing compliance</h3>
+          <ul>
+            <li>Continuous monitoring and drift detection</li>
+            <li>Time-series risk trends</li>
+            <li>Incident logs with context</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Human escalation</h3>
+          <ul>
+            <li>Clear intervention pathways</li>
+            <li>Escalation protocols tied to thresholds</li>
+            <li>Documentation for legal review</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="narrow">
+      <span class="kicker">Trust</span>
+      <h2>Prevention over incident response</h2>
+      <p>Most failures never become public. But quiet failures are still failures. Ikwe helps teams see risk earlier, intervene before harm, and prove they acted responsibly.</p>
+      <div class="callout">Additional internal research, live system audits, and longitudinal studies are available under NDA for partners and investors.</div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <div class="kicker">Ready to Act</div>
+      <h2>Build governance that holds up under scrutiny</h2>
+      <p>Ikwe provides defensible evidence and operational safeguards for AI systems in high-stakes environments.</p>
+      <div class="cta-btns">
+        <a class="btn primary" href="/inquiry">Request a Risk Audit</a>
+        <a class="btn" href="/research-and-evidence">Research & Evidence</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="/ikwe_logo_dark.png" alt="ikwe.ai logo">ikwe.ai</div>
+        <div class="footer-tagline">Early risk detection for AI teams.</div>
+        <div class="footer-legal">© 2026 Visible Healing Inc.<br>Des Moines, Iowa</div>
+      </div>
+      <div>
+        <div class="footer-title">Research</div>
+        <div class="footer-nav">
+          <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+          <a href="/research">Methodology</a>
+          <a href="/full-report">Full Report</a>
+          <a href="/research-and-evidence">Research & Evidence</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Company</div>
+        <div class="footer-nav">
+          <a href="/about">About</a>
+          <a href="/founder">Founder</a>
+          <a href="/faq">FAQ</a>
+          <a href="/blog">Blog</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Contact</div>
+        <div class="footer-nav">
+          <a href="/inquiry">Request Audit</a>
+          <a href="/trust-and-governance">Trust & Governance</a>
+          <a href="/case-studies">Case Studies</a>
+        </div>
+        <div style="margin-top:12px;"><a href="mailto:research@ikwe.ai" style="color: var(--purple);">research@ikwe.ai</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

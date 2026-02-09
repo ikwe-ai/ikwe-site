@@ -3,7 +3,7 @@
   <!-- Core Pages -->
   <url>
     <loc>https://ikwe.ai/</loc>
-    <lastmod>2026-01-19</lastmod>
+    <lastmod>2026-02-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -34,6 +34,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ikwe.ai/research-and-evidence</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ikwe.ai/explorer</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -50,6 +56,18 @@
   <url>
     <loc>https://ikwe.ai/partner</loc>
     <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ikwe.ai/case-studies</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ikwe.ai/trust-and-governance</loc>
+    <lastmod>2026-02-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
