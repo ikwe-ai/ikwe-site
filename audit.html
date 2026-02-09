@@ -71,6 +71,28 @@ a { color: inherit; text-decoration: none; }
 .proof-stat { background: var(--bg2); border: 1px solid var(--border2); border-radius: 12px; padding: 20px; text-align: center; }
 .proof-stat .num { font-family: var(--mono); font-size: 28px; font-weight: 700; line-height: 1; }
 .proof-stat .label { font-size: 13px; color: var(--text3); margin-top: 6px; }
+.proof-compact { padding: 0 0 20px; border-top: none; margin-top: -8px; }
+.proof-compact .proof-bar { margin-top: 8px; }
+
+/* STICKY CTA */
+.sticky-cta {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 200;
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(9,9,11,.92);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+}
+.sticky-cta .btn {
+  padding: 10px 14px;
+  font-size: .85rem;
+}
 
 /* SCORECARD */
 .scorecard { background: var(--bg2); border: 1px solid var(--border2); border-radius: 14px; overflow: hidden; margin: 28px 0; }
@@ -156,6 +178,12 @@ a { color: inherit; text-decoration: none; }
   .process-grid { grid-template-columns: 1fr; }
   .who-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .sticky-cta {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    justify-content: center;
+  }
 }
   </style>
 </head>
@@ -195,7 +223,7 @@ a { color: inherit; text-decoration: none; }
 </section>
 
 <!-- PROOF BAR -->
-<section style="padding:0 0 32px;border-top:1px solid var(--border)">
+<section class="proof-compact">
   <div class="container">
     <div class="proof-bar">
       <div class="proof-stat"><div class="num" style="color:var(--red)">54.7%</div><div class="label">of AI responses introduced emotional risk</div></div>
@@ -381,6 +409,11 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 </footer>
+
+<div class="sticky-cta" aria-label="Quick actions">
+  <a class="btn primary" href="/inquiry">Request an Audit</a>
+  <a class="btn secondary" href="#tiers">See Tiers</a>
+</div>
 
 </body>
 </html>
