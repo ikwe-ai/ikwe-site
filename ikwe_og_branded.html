@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:630px;background:#09090b;font-family:'DM Sans',system-ui,sans-serif;color:#eaeaf0;display:flex;overflow:hidden}
+.left{width:440px;padding:48px 40px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(180deg,#09090b,#0f1014)}
+.right{flex:1;padding:36px 40px;display:flex;flex-direction:column;justify-content:center}
+.logo{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:#2dd4bf;letter-spacing:.12em;margin-bottom:20px}
+.tag{display:inline-block;background:#2dd4bf;color:#09090b;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;padding:4px 12px;border-radius:4px;margin-bottom:16px;letter-spacing:.05em}
+h1{font-family:'Fraunces',Georgia,serif;font-size:32px;font-weight:700;color:#eaeaf0;line-height:1.15;margin-bottom:16px;letter-spacing:-.01em}
+.sub{font-size:14px;color:rgba(234,234,240,.7);line-height:1.6;margin-bottom:24px}
+.stat{display:flex;gap:20px;margin-bottom:16px}
+.s{text-align:center;flex:1}
+.s .n{font-family:'Space Mono',monospace;font-size:26px;font-weight:700}
+.s .l{font-size:10px;color:rgba(234,234,240,.6);margin-top:2px}
+.url{font-family:'Space Mono',monospace;font-size:12px;color:rgba(234,234,240,.45);margin-top:16px}
+.sc{background:#0f1014;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;width:100%}
+.sc-h{background:#16181d;padding:10px 16px;display:flex;justify-content:space-between;font-size:11px;border-bottom:1px solid rgba(255,255,255,.06)}
+.sc-h span:first-child{font-family:'Space Mono',monospace;color:#2dd4bf;font-weight:700;letter-spacing:.1em}
+.sc-h span:last-child{color:#eaeaf0;font-weight:600}
+table{width:100%;border-collapse:collapse}
+th{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;color:rgba(234,234,240,.45);text-transform:uppercase;letter-spacing:.04em;padding:8px 12px;text-align:center;background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06)}
+th:first-child{text-align:left}
+td{padding:10px 12px;font-size:13px;text-align:center;border-bottom:1px solid rgba(255,255,255,.04)}
+td:first-child{text-align:left;font-weight:600;font-size:12px}
+.score{font-family:'Space Mono',monospace;font-size:16px;font-weight:700}
+.badge{display:inline-block;padding:2px 6px;border-radius:4px;font-family:'Space Mono',monospace;font-size:9px;font-weight:700}
+.bh{background:rgba(248,113,113,.12);color:#f87171}
+.bm{background:rgba(251,191,36,.12);color:#fbbf24}
+.bl{background:rgba(34,197,94,.12);color:#22c55e}
+.red{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#22c55e;background:rgba(34,197,94,.1);padding:2px 6px;border-radius:4px}
+</style></head><body>
+<div class="left">
+  <div class="logo">IKWE.AI</div>
+  <div class="tag">AI RISK AUDIT</div>
+  <h1>Human trust is the real risk in AI.</h1>
+  <div class="sub">Board-ready risk audits for companies scaling conversational AI, agents, and decision systems.</div>
+  <div class="stat">
+    <div class="s"><div class="n" style="color:#f87171">54.7%</div><div class="l">emotional risk</div></div>
+    <div class="s"><div class="n" style="color:#fbbf24">43%</div><div class="l">no repair</div></div>
+    <div class="s"><div class="n" style="color:#22c55e">42–67%</div><div class="l">reduction</div></div>
+  </div>
+  <div class="url">ikwe.ai/audit</div>
+</div>
+<div class="right">
+  <div class="sc">
+    <div class="sc-h"><span>IKWE.AI</span><span>Baseline → Post-Mitigation</span></div>
+    <table>
+      <tr><th>Risk Dimension</th><th>Baseline</th><th>Post-Mitigation</th><th>Change</th></tr>
+      <tr><td>Emotional Escalation</td><td><span class="score" style="color:#f87171">80</span> <span class="badge bh">HIGH</span></td><td><span class="score" style="color:#fbbf24">40</span> <span class="badge bm">MED</span></td><td><span class="red">−50%</span></td></tr>
+      <tr><td>Dependency Formation</td><td><span class="score" style="color:#fbbf24">48</span> <span class="badge bm">MED</span></td><td><span class="score" style="color:#22c55e">20</span> <span class="badge bl">LOW</span></td><td><span class="red">−58%</span></td></tr>
+      <tr><td>Authority Drift</td><td><span class="score" style="color:#fbbf24">36</span> <span class="badge bm">MED</span></td><td><span class="score" style="color:#22c55e">18</span> <span class="badge bl">LOW</span></td><td><span class="red">−50%</span></td></tr>
+      <tr><td>Scale Amplification</td><td><span class="score" style="color:#fbbf24">48</span> <span class="badge bm">MED</span></td><td><span class="score" style="color:#fbbf24">28</span> <span class="badge bm">MED</span></td><td><span class="red">−42%</span></td></tr>
+      <tr><td>Governance Failure</td><td><span class="score" style="color:#22c55e">24</span> <span class="badge bl">LOW</span></td><td><span class="score" style="color:#22c55e">8</span> <span class="badge bl">LOW</span></td><td><span class="red">−67%</span></td></tr>
+    </table>
+  </div>
+</div>
+</body></html>
