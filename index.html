@@ -427,18 +427,24 @@ a { color: inherit; text-decoration: none; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   padding: 12px 22px;
   border-radius: 10px;
   font-weight: 600;
   font-size: .9rem;
-  border: 1px solid var(--border2);
-  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(22, 105, 122, 0.25);
+  background: transparent;
   color: var(--text);
   cursor: pointer;
   transition: all .2s ease;
-  will-change: transform;
+  text-decoration: none;
 }
-.btn:hover { transform: translateY(-2px) scale(1.02); background: rgba(255,255,255,.06); box-shadow: 0 4px 12px rgba(0,0,0,.3); }
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(22, 105, 122, 0.12);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(22, 105, 122, 0.18);
+}
 .btn.primary {
   border-color: var(--teal);
   background: var(--teal);
@@ -448,6 +454,15 @@ a { color: inherit; text-decoration: none; }
   background: #16697A;
   color: #fff;
   box-shadow: 0 4px 20px rgba(22, 105, 122, 0.25);
+}
+.btn.secondary {
+  border-color: rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+}
+.btn.secondary:hover {
+  background: rgba(255,255,255,.08);
+  color: #fff;
 }
 .btn.teal {
   border-color: rgba(45,212,191,.35);
