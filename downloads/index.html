@@ -173,20 +173,38 @@ a { color: inherit; text-decoration: none; }
 
   <script>
     const ACCESS_CODE = 'REPLACE_WITH_PASSWORD';
-    function handleUnlock(event) {
+    async function handleUnlock(event) {
       event.preventDefault();
+      const form = event.target;
       const input = document.getElementById('access');
       const error = document.getElementById('unlock-error');
       const success = document.getElementById('unlock-success');
       const downloads = document.getElementById('downloads');
-      if (input.value.trim() === ACCESS_CODE) {
-        downloads.classList.remove('hidden');
-        error.classList.add('hidden');
-        success.classList.remove('hidden');
-        return true;
+      const code = input.value.trim();
+
+      if (code !== ACCESS_CODE) {
+        error.classList.remove('hidden');
+        success.classList.add('hidden');
+        return false;
       }
-      error.classList.remove('hidden');
-      success.classList.add('hidden');
+
+      try {
+        const data = new FormData(form);
+        await fetch('/', { method: 'POST', body: data });
+      } catch (e) {
+        // Even if submission fails, allow access
+      }
+
+      downloads.classList.remove('hidden');
+      error.classList.add('hidden');
+      success.classList.remove('hidden');
+
+      if (location.hash) {
+        const target = document.querySelector(location.hash);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
       return false;
     }
   </script>
