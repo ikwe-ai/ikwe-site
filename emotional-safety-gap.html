@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Emotional Safety Gap | Ikwe.ai</title>
-  <meta name="description" content="The emotional safety gap is the difference between how AI systems are expected to respond to distress and how they actually respond. Only 54.7% passed the Safety Gate. Among failures, 43% showed no corrective behavior.">
+  <meta name="description" content="The emotional safety gap is the difference between expected safeguards and real AI behavior under emotional load. Evidence-based findings, redacted examples, and a two-stage safety benchmark.">
   <link rel="canonical" href="https://ikwe.ai/emotional-safety-gap">
   <meta name="robots" content="index, follow, max-image-preview:large">
   
@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://ikwe.ai/emotional-safety-gap">
   <meta property="og:site_name" content="Ikwe.ai">
   <meta property="og:title" content="The Emotional Safety Gap">
-  <meta property="og:description" content="How AI actually behaves when people are emotionally vulnerable — tested across 12 categories from public datasets.">
+  <meta property="og:description" content="How AI behaves under emotional load — an evidence-based benchmark with redacted, real-world examples and safety findings.">
   <meta property="og:image" content="https://ikwe.ai/og/ikwe-safety-gap.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -24,7 +24,7 @@
   <meta name="twitter:creator" content="@ikaborot">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Emotional Safety Gap">
-  <meta name="twitter:description" content="How AI actually behaves when people are emotionally vulnerable — tested across 12 categories.">
+  <meta name="twitter:description" content="How AI behaves under emotional load — an evidence-based benchmark with redacted examples and safety findings.">
   <meta name="twitter:image" content="https://ikwe.ai/og/ikwe-safety-gap.png">
   
   <link rel="icon" type="image/png" href="ikwe_logo_dark.png">
@@ -309,6 +309,7 @@ button{font-family:inherit}
 .footer-nav a{color:var(--text3);transition:color .15s}
 .footer-nav a:hover{color:var(--text)}
 .footer .email{color:var(--purple);cursor:pointer}
+.footnote{font-size:.78rem;color:var(--text3);margin-top:16px}
 
 @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}.sidebar{display:none}.main{padding:32px 24px;max-width:100%}.stat-grid,.stage-grid,.pattern-grid,.resources-grid{grid-template-columns:1fr}.explorer-cta{flex-direction:column;text-align:center}}
 @media(max-width:900px){.footer-grid{grid-template-columns:repeat(2,1fr);gap:28px}.footer-brand{grid-column:1/-1}}@media(max-width:520px){.footer-grid{grid-template-columns:1fr;gap:24px}}
@@ -316,14 +317,6 @@ button{font-family:inherit}
   <script defer data-domain="ikwe.ai" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
-
-<!-- UNDER REVIEW BANNER -->
-<div style="background: linear-gradient(135deg, rgba(251,146,60,0.15), rgba(251,146,60,0.08)); border-bottom: 2px solid rgba(251,146,60,0.3); padding: 16px 24px; text-align: center;">
-  <div style="max-width: 1080px; margin: 0 auto; color: rgba(234,234,240,0.95); font-family: 'DM Sans', system-ui, sans-serif;">
-    <strong style="color: #fb923c; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">⚠️ Under Review</strong>
-    <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.6;">This page contains research data currently under accuracy review. Updated findings will be published soon. For current information, see <a href="/" style="color: #a78bfa; text-decoration: underline;">homepage</a> or <a href="/audit" style="color: #a78bfa; text-decoration: underline;">audit page</a>.</p>
-  </div>
-</div>
 
 <nav class="nav">
   <div class="container">
@@ -477,17 +470,19 @@ button{font-family:inherit}
     <div class="page active" id="page-overview">
       <section class="section">
         <span class="kicker coral">The Emotional Safety Gap</span>
-        <h2>Recognition ≠ Safety</h2>
+        <h2>Evidence, not abstraction</h2>
         <div class="accent coral"></div>
-        <div class="prose"><p>An AI can name emotion, articulate empathy, and still behave unsafely under emotional load. The most dangerous failures don't look toxic—they look supportive while mirroring distress, reinforcing false beliefs, or missing escalation signals.</p></div>
+        <div class="prose"><p>An AI can name emotion, articulate empathy, and still behave unsafely under emotional load. The most dangerous failures don't look toxic — they look supportive while mirroring distress, reinforcing false beliefs, or missing escalation signals.</p></div>
+        <div class="prose"><p>These findings are drawn from real-world research and audits, using de-identified, redacted, and pattern-based evidence. We never expose user identities, proprietary systems, or sensitive clinical data. See <a href="/research-and-evidence" style="color:var(--purple);">Research &amp; Evidence</a> for methodology and artifacts.</p></div>
         <div class="callout"><strong>"Safety isn't the first reply. It's the trajectory."</strong></div>
+        <div class="footnote">Data current as of February 2026. Figures reflect real evaluations across 312 responses and 79 scenarios; identifying details are redacted.</div>
       </section>
       
       <section class="section">
         <span class="kicker gold">What We Found</span>
         <h2>Key Findings</h2>
         <div class="accent gold"></div>
-        <p class="prose" style="margin-bottom:24px;"><strong>The emotional safety gap</strong> is the difference between how AI systems are expected to respond to distress and how they actually respond in practice. We use a two-stage evaluation: first checking if responses introduce risk at first contact (Safety Gate), then measuring behavioral stability for those that pass.</p>
+        <p class="prose" style="margin-bottom:24px;"><strong>The emotional safety gap</strong> is the difference between expected safeguards and actual behavior in emotionally sensitive contexts. We use a two-stage evaluation: first checking if responses introduce risk at first contact (Safety Gate), then measuring behavioral stability for those that pass.</p>
         <div class="stat-grid">
           
           <!-- 54.7% Card with Example -->
@@ -744,6 +739,8 @@ button{font-family:inherit}
             <a href="/explorer" class="resource-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg><span>Scenario Explorer</span></a>
             <a href="/press" class="resource-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg><span>Press Kit</span></a>
             <a href="/Ikwe_Research_Summary.pdf" onclick="if(typeof window.plausible==='function'){try{window.plausible('Report_Download',{props:{file:'Ikwe_Research_Summary.pdf'}});}catch(e){}}" class="resource-item" download><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg><span>Download Summary (PDF)</span></a>
+            <a href="/research-and-evidence" class="resource-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2m5-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Research & Evidence</span></a>
+            <a href="/trust-and-governance" class="resource-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 2.21-1.79 4-4 4H4v-4a4 4 0 014-4 4 4 0 014 4zm0 0c0 2.21 1.79 4 4 4h4v-4a4 4 0 00-4-4 4 4 0 00-4 4z"></path></svg><span>Trust & Governance</span></a>
             <a href="/report" class="resource-item locked" id="pdf-resource"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg><span>Request Full Report Access</span></a>
           </div>
         </div>
@@ -772,6 +769,8 @@ button{font-family:inherit}
           <a href="/research">Methodology</a>
           <a href="/full-report">Full Report</a>
           <a href="/research-summary">Research Summary</a>
+          <a href="/case-studies">Case Studies</a>
+          <a href="/trust-and-governance">Trust & Governance</a>
         </div>
       </div>
 
@@ -779,6 +778,8 @@ button{font-family:inherit}
         <div class="footer-title">Company</div>
         <div class="footer-nav">
           <a href="/about">About</a>
+          <a href="/case-studies">Case Studies</a>
+          <a href="/trust-and-governance">Trust & Governance</a>
           <a href="/founder">Founder</a>
           <a href="/faq">FAQ</a>
           <a href="/blog">Blog</a>
