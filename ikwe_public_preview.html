@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face{font-family:'SF';src:url('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf');font-weight:400}
+@font-face{font-family:'SF';src:url('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf');font-weight:700}
+@font-face{font-family:'Serif';src:url('/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf');font-weight:400}
+@font-face{font-family:'Serif';src:url('/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf');font-weight:700}
+@font-face{font-family:'Mono';src:url('/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf');font-weight:400}
+@font-face{font-family:'Mono';src:url('/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf');font-weight:700}
+:root{--ink:#0B0D12;--paper:#F7F8FA;--slate:#8A8F98;--white:#FFFFFF;--navy:#1C1F3A;--coral:#F7A89A;--gold:#F5D88C;--lilac:#BFA7F8;--teal:#2FD7C4;--risk-high:#E04F5F;--risk-mod:#F0B849;--risk-low:#3FBF7F;--border:rgba(11,13,18,.12);--brl:rgba(11,13,18,.06)}
+@page{size:letter;margin:44px 44px 48px 44px;
+  @bottom-left{content:"Ikwe AI · Public Preview";font-family:'Mono';font-size:7pt;color:#aaa}
+  @bottom-center{content:counter(page);font-family:'Mono';font-size:7pt;color:#aaa}
+  @bottom-right{content:"ikwe.ai/audit";font-family:'Mono';font-size:7pt;color:#aaa}
+}
+@page:first{margin:0;@bottom-left{content:none}@bottom-center{content:none}@bottom-right{content:none}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'SF',sans-serif;font-size:9.5pt;line-height:1.5;color:var(--ink);background:var(--paper)}
+
+/* COVER */
+.cover{page-break-after:always}
+.cv-top{display:flex;justify-content:space-between;align-items:center;padding:28px 48px;border-bottom:1px solid var(--border)}
+.cv-brand{display:flex;align-items:center;gap:9px}
+.cv-brand img{width:32px;height:32px;border-radius:50%}
+.cv-brand span{font-family:'Serif';font-size:14pt;font-weight:700;color:var(--navy)}
+.cv-class{font-family:'Mono';font-size:7pt;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;background:rgba(47,215,196,.08);padding:3px 8px;border-radius:3px;border:1px solid rgba(47,215,196,.2)}
+.cv-body{padding:60px 48px 0 48px}
+.cv-body h1{font-family:'Serif';font-size:30pt;font-weight:700;color:var(--ink);line-height:1.1;letter-spacing:-.02em}
+.cv-accent{width:44px;height:3px;background:var(--teal);margin:18px 0;border-radius:2px}
+.cv-sub{font-size:11pt;color:var(--slate);line-height:1.5;max-width:420px;margin-bottom:24px}
+.cv-cols{display:flex;gap:20px;margin-bottom:24px}
+.cv-col{flex:1;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:14px 16px}
+.cv-col h3{font-size:8.5pt;font-weight:700;color:var(--navy);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.cv-col li{font-size:8.5pt;color:#555;line-height:1.4;margin-bottom:3px;padding-left:10px;position:relative}
+.cv-col li::before{content:"·";position:absolute;left:0;color:var(--teal);font-weight:700}
+.cv-col ul{list-style:none}
+.cv-meta{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:12px 16px;max-width:100%}
+.cv-mg{display:flex;flex-wrap:wrap;gap:0}
+.cv-cell{flex:1;min-width:33%;padding:5px 0;font-size:8pt;border-bottom:1px solid var(--brl)}
+.cv-cell .l{font-family:'Mono';font-size:6.5pt;font-weight:700;color:var(--slate);letter-spacing:.03em;display:block}
+.cv-spacer{height:100px}
+.cv-btm{padding:18px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.cv-btm-l{font-family:'Mono';font-size:7pt;color:var(--slate);letter-spacing:.03em}
+.cv-seal{width:36px;height:36px;border-radius:50%;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;opacity:.3;border:2px solid var(--border)}
+.cv-seal .q{width:100%;height:100%}
+
+/* PAGES */
+.pg{page-break-after:always}.pg:last-child{page-break-after:auto}
+.shdr{background:var(--navy);color:var(--white);margin:-44px -44px 20px -44px;padding:18px 44px;display:flex;align-items:baseline;gap:12px}
+.sn{font-family:'Mono';font-size:7.5pt;font-weight:700;letter-spacing:.12em;opacity:.5}
+.st{font-family:'Serif';font-size:17pt;font-weight:700;letter-spacing:-.01em}
+.sa{width:28px;height:2px;background:var(--teal);margin-left:auto;margin-top:5px;border-radius:1px}
+h2{font-size:11.5pt;font-weight:700;color:var(--navy);margin-top:16px;margin-bottom:4px}
+h3{font-size:10pt;font-weight:700;color:var(--navy);margin-top:10px;margin-bottom:3px}
+p{margin-bottom:6px}
+.lead{font-family:'Serif';font-size:12pt;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:8px}
+.co{background:var(--white);border-left:3px solid var(--teal);border-radius:5px;padding:10px 14px;margin:8px 0}
+.co p{font-size:9.5pt;font-weight:700;color:var(--ink);margin:0;line-height:1.35}
+.co .s{font-size:8pt;font-weight:400;color:var(--slate);margin-top:2px}
+.co-c{border-left-color:var(--coral)}.co-g{border-left-color:var(--gold)}.co-l{border-left-color:var(--lilac)}
+.ss{display:flex;gap:8px;margin:10px 0}
+.sc{flex:1;background:var(--white);border:1px solid var(--border);border-radius:6px;padding:12px 8px;text-align:center}
+.sc .n{font-family:'Mono';font-size:20pt;font-weight:700;line-height:1}
+.sc .lb{font-size:7.5pt;color:var(--slate);margin-top:3px;line-height:1.2}
+table.t{width:100%;border-collapse:collapse;margin:8px 0;border:1px solid var(--border);page-break-inside:avoid}
+.t thead th{background:#EEF1F5;color:var(--navy);font-weight:700;font-size:8pt;padding:7px 9px;text-align:left;border-bottom:1px solid var(--border)}
+.t tbody td{background:var(--white);padding:7px 9px;border-bottom:1px solid var(--brl);font-size:9pt;vertical-align:middle}
+.d{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:4px;vertical-align:middle}
+.b{font-family:'Mono';font-size:6pt;font-weight:700;padding:2px 5px;border-radius:3px;text-transform:uppercase;letter-spacing:.03em}
+.bh{background:rgba(224,79,95,.1);color:var(--risk-high)}.bm{background:rgba(240,184,73,.1);color:#b8860b}.bl{background:rgba(63,191,127,.1);color:#1a7a42}
+.ch{font-family:'Mono';font-size:9pt;font-weight:700;color:#1a7a42}
+.c2{display:flex;gap:16px}.c2 .c{flex:1}
+.hr{border:none;border-top:1px solid var(--border);margin:14px 0}
+.fn{font-size:7.5pt;color:var(--slate);font-style:italic;margin-top:8px;padding-top:6px;border-top:1px solid var(--brl)}
+
+/* REDACTED BLOCKS */
+.redacted{display:inline-block;background:rgba(11,13,18,.82);color:rgba(11,13,18,.82);padding:1px 18px;border-radius:3px}
+.redact-block{background:repeating-linear-gradient(135deg,#eee,#eee 2px,#f5f5f5 2px,#f5f5f5 6px);border:1px dashed #ccc;border-radius:6px;padding:16px 20px;margin:8px 0;text-align:center;page-break-inside:avoid}
+.redact-block .rb-label{font-family:'Mono';font-size:7pt;color:var(--slate);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.redact-block .rb-title{font-family:'Serif';font-size:11pt;font-weight:700;color:var(--navy);margin-bottom:2px}
+.redact-block .rb-unlock{font-size:8pt;color:var(--teal);font-weight:700}
+
+/* TIER TABLE */
+table.tier{width:100%;border-collapse:collapse;margin:8px 0;border:1px solid var(--border);page-break-inside:avoid}
+.tier thead th{background:var(--navy);color:var(--white);font-weight:700;font-size:7.5pt;padding:8px 7px;text-align:center;letter-spacing:.03em}
+.tier thead th:first-child{text-align:left;width:32%}
+.tier tbody td{background:var(--white);padding:6px 7px;border-bottom:1px solid var(--brl);font-size:8pt;text-align:center;vertical-align:middle}
+.tier tbody td:first-child{text-align:left;font-weight:600;color:var(--navy)}
+.tier .price{font-family:'Mono';font-size:7pt;color:var(--teal);font-weight:700}
+.tier .yes{color:var(--teal);font-weight:700}
+.tier .no{color:#ccc}
+
+/* CTA */
+.cta{background:var(--navy);color:var(--white);border-radius:7px;padding:16px 20px;margin-top:12px;text-align:center;page-break-inside:avoid}
+.cta h3{color:var(--white);margin:0 0 3px;font-size:12pt}
+.cta p{color:rgba(255,255,255,.6);font-size:8.5pt;margin:0}
+.cta .u{font-family:'Mono';font-size:10pt;color:var(--teal);margin-top:6px}
+
+/* CONTENT LIST */
+.cl{margin:8px 0}
+.cl-item{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--brl);page-break-inside:avoid}
+.cl-num{font-family:'Mono';font-size:9pt;font-weight:700;color:var(--teal);width:20px;flex-shrink:0;padding-top:1px}
+.cl-body{flex:1}
+.cl-body strong{font-size:9.5pt;color:var(--navy);display:block;margin-bottom:1px}
+.cl-body p{margin:0;font-size:8.5pt;color:#555;line-height:1.35}
+.cl-tier{font-family:'Mono';font-size:6.5pt;font-weight:700;padding:2px 6px;border-radius:3px;flex-shrink:0;align-self:flex-start;margin-top:2px}
+.cl-free{background:rgba(47,215,196,.1);color:var(--teal)}
+.cl-250{background:rgba(245,216,140,.15);color:#b8860b}
+.cl-5k{background:rgba(191,167,248,.12);color:#7c5cc4}
+.cl-25k{background:rgba(247,168,154,.1);color:#c0564a}
+
+.br{display:flex;align-items:center;gap:6px;margin:5px 0}
+.br-l{font-size:7.5pt;font-weight:700;color:var(--navy);width:90px;flex-shrink:0;text-align:right}
+.br-t{flex:1;height:14px;background:#eee;border-radius:7px;position:relative;overflow:hidden}
+.br-f{height:100%;border-radius:7px}.br-a{height:100%;border-radius:7px;position:absolute;top:0;left:0}
+.br-v{font-family:'Mono';font-size:7pt;font-weight:700;width:28px;text-align:right;flex-shrink:0}
+</style>
+</head>
+<body>
+
+<!-- ═══ COVER ═══ -->
+<div class="cover">
+  <div class="cv-top">
+    <div class="cv-brand"><img src="/mnt/user-data/uploads/ikwe-logo.png" alt=""><span>ikwe.ai</span></div>
+    <div class="cv-class">Public Preview</div>
+  </div>
+  <div class="cv-body">
+    <h1>AI Risk Audit</h1>
+    <div class="cv-accent"></div>
+    <p class="cv-sub">What we found when we audited our own AI — before auditing anyone else's. This preview shows high-level findings. Full details unlock at higher tiers.</p>
+
+    <div class="cv-cols">
+      <div class="cv-col">
+        <h3>What You See Here</h3>
+        <ul>
+          <li>High-level findings and risk posture</li>
+          <li>Before/after risk reduction summary</li>
+          <li>Methodology overview</li>
+          <li>Deliverable descriptions</li>
+        </ul>
+      </div>
+      <div class="cv-col">
+        <h3>What Unlocks at Higher Tiers</h3>
+        <ul>
+          <li>Full risk scorecard with scoring math</li>
+          <li>Observed risk events with triggers &amp; evidence</li>
+          <li>Failure mode map with scale effects</li>
+          <li>Remediation framework &amp; governance rules</li>
+          <li>Company-specific implementation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-meta">
+      <div class="cv-mg">
+        <div class="cv-cell"><span class="l">Audit Date</span>February 2026</div>
+        <div class="cv-cell"><span class="l">Sector</span>Healthcare AI</div>
+        <div class="cv-cell"><span class="l">Systems</span>3 AI Systems</div>
+        <div class="cv-cell"><span class="l">Methodology</span>EQ Safety Benchmark v2.1</div>
+        <div class="cv-cell"><span class="l">Data Basis</span>948 responses / 79 scenarios</div>
+        <div class="cv-cell"><span class="l">Access Level</span>Public Preview</div>
+      </div>
+    </div>
+  </div>
+  <div class="cv-spacer"></div>
+  <div class="cv-btm">
+    <div class="cv-btm-l">ikwe.ai · stephanie@ikwe.ai</div>
+    <div class="cv-seal"><div class="q" style="background:#1C1F3A"></div><div class="q" style="background:#F7A89A"></div><div class="q" style="background:#BFA7F8"></div><div class="q" style="background:#F5D88C"></div></div>
+  </div>
+</div>
+
+<!-- ═══ PAGE 2: KEY FINDINGS ═══ -->
+<div class="pg">
+  <div class="shdr"><span class="sn">01</span><span class="st">What We Found</span><div class="sa"></div></div>
+
+  <p class="lead">Founders are structurally blind. Not from incompetence — from proximity. Your expertise fills gaps users will fall through.</p>
+
+  <p>Across three production AI systems and 948 evaluated responses, the audit surfaced three structural failure classes:</p>
+
+  <div class="co co-c"><p>Authority drift normalized by founder context</p><div class="s">Systems presented clinical-adjacent language users interpreted as diagnosis. The founder's domain expertise masked the gap.</div></div>
+
+  <div class="co co-l"><p>Emotional escalation founders could self-regulate but users could not</p><div class="s">Systems remained present beyond safe thresholds. Founders intervened manually — users had no such circuit breaker.</div></div>
+
+  <div class="co co-g"><p>Founder-as-safety-mechanism</p><div class="s">Undocumented manual intervention acting as an invisible kill switch. Safety depended on one person's availability, not structural governance.</div></div>
+
+  <div class="ss">
+    <div class="sc"><div class="n" style="color:var(--risk-high)">54.7%</div><div class="lb">of baseline responses<br>introduced emotional risk<br>despite appearing supportive</div></div>
+    <div class="sc"><div class="n" style="color:var(--risk-mod)">43%</div><div class="lb">showed no repair<br>behavior after<br>causing harm</div></div>
+  </div>
+
+  <h2>Risk Reduction After Applying Ikwe</h2>
+
+  <table class="t">
+    <thead><tr><th style="width:26%">Dimension</th><th style="width:14%">Baseline</th><th style="width:18%">Post-Mitigation</th><th style="width:10%">Δ</th></tr></thead>
+    <tbody>
+      <tr><td><span class="d" style="background:var(--coral)"></span><strong>Emotional Escalation</strong></td><td><span class="b bh">High</span> 80</td><td><span class="b bm">Mod</span> 40</td><td><span class="ch">−50%</span></td></tr>
+      <tr><td><span class="d" style="background:var(--lilac)"></span><strong>Dependency Formation</strong></td><td><span class="b bm">Mod</span> 48</td><td><span class="b bl">Low</span> 20</td><td><span class="ch">−58%</span></td></tr>
+      <tr><td><span class="d" style="background:var(--navy)"></span><strong>Authority Drift</strong></td><td><span class="b bm">Mod</span> 36</td><td><span class="b bl">Low</span> 18</td><td><span class="ch">−50%</span></td></tr>
+      <tr><td><span class="d" style="background:var(--gold)"></span><strong>Scale Amplification</strong></td><td><span class="b bm">Mod</span> 48</td><td><span class="b bm">Mod</span> 28</td><td><span class="ch">−42%</span></td></tr>
+      <tr><td><span class="d" style="background:var(--teal)"></span><strong>Governance Failure</strong></td><td><span class="b bl">Low</span> 24</td><td><span class="b bl">Low</span> 8</td><td><span class="ch">−67%</span></td></tr>
+    </tbody>
+  </table>
+
+  <p style="font-size:7.5pt;color:var(--slate);margin:4px 0">Faded = baseline. Solid = post-mitigation. Shorter = safer.</p>
+  <div style="margin:4px 0">
+    <div class="br"><div class="br-l">Escalation</div><div class="br-t"><div class="br-f" style="width:80%;background:rgba(224,79,95,.2)"></div><div class="br-a" style="width:40%;background:var(--risk-low);opacity:.7"></div></div><div class="br-v" style="color:var(--risk-high)">80</div><div class="br-v" style="color:#1a7a42">→40</div></div>
+    <div class="br"><div class="br-l">Dependency</div><div class="br-t"><div class="br-f" style="width:48%;background:rgba(240,184,73,.2)"></div><div class="br-a" style="width:20%;background:var(--risk-low);opacity:.7"></div></div><div class="br-v" style="color:var(--risk-mod)">48</div><div class="br-v" style="color:#1a7a42">→20</div></div>
+    <div class="br"><div class="br-l">Authority</div><div class="br-t"><div class="br-f" style="width:36%;background:rgba(240,184,73,.2)"></div><div class="br-a" style="width:18%;background:var(--risk-low);opacity:.7"></div></div><div class="br-v" style="color:var(--risk-mod)">36</div><div class="br-v" style="color:#1a7a42">→18</div></div>
+    <div class="br"><div class="br-l">Scale</div><div class="br-t"><div class="br-f" style="width:48%;background:rgba(240,184,73,.2)"></div><div class="br-a" style="width:28%;background:var(--risk-mod);opacity:.4"></div></div><div class="br-v" style="color:var(--risk-mod)">48</div><div class="br-v" style="color:#b8860b">→28</div></div>
+    <div class="br"><div class="br-l">Governance</div><div class="br-t"><div class="br-f" style="width:24%;background:rgba(63,191,127,.15)"></div><div class="br-a" style="width:8%;background:var(--risk-low);opacity:.7"></div></div><div class="br-v" style="color:var(--risk-low)">24</div><div class="br-v" style="color:#1a7a42">→8</div></div>
+  </div>
+
+  <div class="co"><p>The fixes were structural, not intuitive — they transfer to any team.</p></div>
+</div>
+
+<!-- ═══ PAGE 3: WHAT YOU'RE NOT SEEING ═══ -->
+<div class="pg">
+  <div class="shdr"><span class="sn">02</span><span class="st">What You're Not Seeing</span><div class="sa"></div></div>
+
+  <p>This preview shows high-level findings. The full audit contains layered content that unlocks at each tier:</p>
+
+  <div class="cl">
+    <div class="cl-item"><div class="cl-num">1</div><div class="cl-body"><strong>Why We Audited Ourselves</strong><p>Failure classes and founder blind spots</p></div><div class="cl-tier cl-free">This Preview</div></div>
+    <div class="cl-item"><div class="cl-num">2</div><div class="cl-body"><strong>Systems Under Audit</strong><p>System inventory, exposure ratings, scale stages</p></div><div class="cl-tier cl-250">$250</div></div>
+    <div class="cl-item"><div class="cl-num">3</div><div class="cl-body"><strong>Risk Scorecard — Baseline</strong><p>Five-dimension scoring with formula and posture assessment</p></div><div class="cl-tier cl-250">$250</div></div>
+    <div class="cl-item"><div class="cl-num">4</div><div class="cl-body"><strong>Observed Risk Events</strong><p>Triggers, evidence, risk scores for 5 identified events (RE-001 through RE-005)</p></div><div class="cl-tier cl-5k">$5,000</div></div>
+    <div class="cl-item"><div class="cl-num">5</div><div class="cl-body"><strong>Remediation Framework</strong><p>Issue → miss → fix table with governance rules</p></div><div class="cl-tier cl-5k">$5,000</div></div>
+    <div class="cl-item"><div class="cl-num">6</div><div class="cl-body"><strong>Failure Mode Map</strong><p>Critical failure paths and scale effects</p></div><div class="cl-tier cl-5k">$5,000</div></div>
+    <div class="cl-item"><div class="cl-num">7</div><div class="cl-body"><strong>Priority Actions</strong><p>Company-specific NOW / NEXT / LATER plan</p></div><div class="cl-tier cl-25k">$25,000</div></div>
+    <div class="cl-item"><div class="cl-num">—</div><div class="cl-body"><strong>Company-Specific Implementation</strong><p>Your systems, your scores, your report</p></div><div class="cl-tier cl-25k">$25,000</div></div>
+  </div>
+
+  <h2>Sample of Redacted Content</h2>
+
+  <div class="redact-block">
+    <div class="rb-label">Redacted</div>
+    <div class="rb-title">Risk Scorecard — Full Five-Dimension Assessment</div>
+    <div class="rb-unlock">Available in Preview Pack ($250) or higher</div>
+  </div>
+
+  <div class="redact-block">
+    <div class="rb-label">Redacted</div>
+    <div class="rb-title">Observed Risk Events RE-001 through RE-005</div>
+    <div class="rb-unlock">Available in Playbook ($5,000) or higher</div>
+  </div>
+
+  <div class="redact-block">
+    <div class="rb-label">Redacted</div>
+    <div class="rb-title">Company-Specific Implementation &amp; Governance Rules</div>
+    <div class="rb-unlock">Available in Full Audit ($25,000)</div>
+  </div>
+</div>
+
+<!-- ═══ PAGE 4: ACCESS TIERS + CTA ═══ -->
+<div class="pg">
+  <div class="shdr"><span class="sn">03</span><span class="st">Access Tiers</span><div class="sa"></div></div>
+
+  <table class="tier">
+    <thead>
+      <tr><th></th><th>Preview Pack<br><span class="price">$250</span></th><th>Playbook<br><span class="price">$5,000</span></th><th>Full Audit<br><span class="price">$25,000</span></th><th>Implementation<br><span class="price">$50K+</span></th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Findings Summary</td><td class="yes">■</td><td class="yes">■</td><td class="yes">■</td><td class="yes">■</td></tr>
+      <tr><td>Before/After Table</td><td class="yes">■</td><td class="yes">■</td><td class="yes">■</td><td class="yes">■</td></tr>
+      <tr><td>Risk Scorecard</td><td class="yes">■</td><td class="yes">■</td><td class="yes">■</td><td class="yes">■</td></tr>
+      <tr><td>Observed Risk Events</td><td class="no">—</td><td class="yes">■</td><td class="yes">■</td><td class="yes">■</td></tr>
+      <tr><td>Failure Mode Map</td><td class="no">—</td><td class="yes">■</td><td class="yes">■</td><td class="yes">■</td></tr>
+      <tr><td>Remediation Framework</td><td class="no">—</td><td class="yes">■</td><td class="yes">■</td><td class="yes">■</td></tr>
+      <tr><td>Sector-Specific Mappings</td><td class="no">—</td><td class="yes">■</td><td class="yes">■</td><td class="yes">■</td></tr>
+      <tr><td><strong>YOUR Company Audit</strong></td><td class="no">—</td><td class="no">—</td><td class="yes">■</td><td class="yes">■</td></tr>
+      <tr><td>Board-Ready Report</td><td class="no">—</td><td class="no">—</td><td class="yes">■</td><td class="yes">■</td></tr>
+      <tr><td>Embedded Governance</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="yes">■</td></tr>
+      <tr><td>Ongoing Re-Audits</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="yes">■</td></tr>
+    </tbody>
+  </table>
+
+  <div class="cta">
+    <h3>Ready to See More?</h3>
+    <p>Preview Pack ($250) · Playbook ($5,000) · Full Audit ($25,000)</p>
+    <div class="u">ikwe.ai/audit</div>
+  </div>
+
+  <hr class="hr">
+
+  <h2>Methodology</h2>
+  <p>All findings derived from the EQ Safety Benchmark v2.1 — a two-stage evaluation protocol that measures behavioral safety across five dimensions. Stage 1 (Safety Gate) determines whether a response introduces emotional risk at first contact. Stage 2 (Quality Dimensions) evaluates regulation, repair, and stabilization over sustained interactions.</p>
+
+  <p>This audit evaluated 948 responses across 79 vulnerability scenarios, testing multi-turn interactions where standard content safety benchmarks show no signal. The evaluation framework is the only assessment tool that measures behavioral patterns across turns, not just single-response content filtering.</p>
+
+  <div class="co"><p>The question is not whether your AI can recognize emotions. The question is whether your AI's behavioral pattern creates safety or risk over time — and whether you can prove it to a board.</p></div>
+
+  <div class="fn">Ikwe.ai · Visible Healing Inc. · EQ Safety Benchmark v2.1 · February 2026. This is a public preview. Full audit contents are available at tiered access levels. Contact stephanie@ikwe.ai for enterprise inquiries.</div>
+</div>
+
+</body>
+</html>

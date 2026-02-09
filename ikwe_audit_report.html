@@ -3,758 +3,482 @@
 <head>
 <meta charset="UTF-8">
 <style>
-@font-face { font-family: 'SansFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'); font-weight: 400; }
-@font-face { font-family: 'SansFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'); font-weight: 700; }
-@font-face { font-family: 'SerifFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf'); font-weight: 400; }
-@font-face { font-family: 'SerifFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf'); font-weight: 700; }
-@font-face { font-family: 'MonoFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf'); font-weight: 400; }
-@font-face { font-family: 'MonoFont'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf'); font-weight: 700; }
+@font-face { font-family: 'SF'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'); font-weight: 400; }
+@font-face { font-family: 'SF'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'); font-weight: 700; }
+@font-face { font-family: 'Serif'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf'); font-weight: 400; }
+@font-face { font-family: 'Serif'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf'); font-weight: 700; }
+@font-face { font-family: 'Mono'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf'); font-weight: 400; }
+@font-face { font-family: 'Mono'; src: url('/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf'); font-weight: 700; }
 
-/* ═══ IKWE PDF TOKEN SYSTEM ═══ */
 :root {
-  /* Neutrals */
-  --ink: #0B0D12;
-  --paper: #F7F8FA;
-  --slate: #8A8F98;
-  --white: #FFFFFF;
+  --ink: #0B0D12; --paper: #F7F8FA; --slate: #8A8F98; --white: #FFFFFF;
+  --navy: #1C1F3A; --coral: #F7A89A; --gold: #F5D88C; --lilac: #BFA7F8; --teal: #2FD7C4;
+  --risk-high: #E04F5F; --risk-mod: #F0B849; --risk-low: #3FBF7F;
+  --border: rgba(11,13,18,0.12); --brl: rgba(11,13,18,0.06);
+  --thdr: #EEF1F5;
+}
+@page { size: letter; margin: 44px 44px 48px 44px;
+  @bottom-left { content: "Ikwe AI Risk Audit"; font-family: 'Mono'; font-size: 7pt; color: #aaa; }
+  @bottom-center { content: counter(page); font-family: 'Mono'; font-size: 7pt; color: #aaa; }
+  @bottom-right { content: "Sample — Redacted"; font-family: 'Mono'; font-size: 7pt; color: #aaa; }
+}
+@page :first { margin: 0; @bottom-left{content:none} @bottom-center{content:none} @bottom-right{content:none} }
 
-  /* Ikwe Core (from quadrant mark) */
-  --navy: #1C1F3A;
-  --coral: #F7A89A;
-  --gold: #F5D88C;
-  --lilac: #BFA7F8;
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'SF',sans-serif; font-size:9.5pt; line-height:1.5; color:var(--ink); background:var(--paper); }
 
-  /* Accent */
-  --teal: #2FD7C4;
+/* ═══ COVER ═══ */
+.cover { page-break-after:always; }
+.cv-top { display:flex; justify-content:space-between; align-items:center; padding:28px 48px; border-bottom:1px solid var(--border); }
+.cv-brand { display:flex; align-items:center; gap:9px; }
+.cv-brand img { width:32px; height:32px; border-radius:50%; }
+.cv-brand span { font-family:'Serif'; font-size:14pt; font-weight:700; color:var(--navy); }
+.cv-class { font-family:'Mono'; font-size:7pt; color:var(--slate); letter-spacing:.1em; text-transform:uppercase; }
+.cv-body { padding:60px 48px 0 48px; }
+.cv-body h1 { font-family:'Serif'; font-size:34pt; font-weight:700; color:var(--ink); line-height:1.1; letter-spacing:-.02em; }
+.cv-accent { width:44px; height:3px; background:var(--teal); margin:18px 0; border-radius:2px; }
+.cv-sub { font-size:12pt; color:var(--slate); line-height:1.5; max-width:400px; margin-bottom:28px; }
+.cv-meta { background:var(--white); border:1px solid var(--border); border-radius:8px; padding:14px 18px; max-width:440px; }
+.cv-row { display:flex; gap:10px; padding:4px 0; font-size:8.5pt; border-bottom:1px solid var(--brl); }
+.cv-row:last-child { border-bottom:none; }
+.cv-row .l { font-family:'Mono'; font-size:7pt; font-weight:700; color:var(--slate); width:88px; flex-shrink:0; letter-spacing:.03em; padding-top:1px; }
+.redacted { display:inline-block; background:rgba(11,13,18,.82); color:rgba(11,13,18,.82); padding:1px 18px; border-radius:3px; }
+.cv-spacer { height:395px; }
+.cv-btm { padding:18px 48px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+.cv-btm-l { font-family:'Mono'; font-size:7pt; color:var(--slate); letter-spacing:.03em; }
+.cv-seal { width:36px; height:36px; border-radius:50%; overflow:hidden; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; opacity:.3; border:2px solid var(--border); }
+.cv-seal .q { width:100%; height:100%; }
 
-  /* Risk status */
-  --risk-high: #E04F5F;
-  --risk-mod: #F0B849;
-  --risk-low: #3FBF7F;
+/* ═══ PAGES ═══ */
+.pg { page-break-after:always; }
+.pg:last-child { page-break-after:auto; }
+.shdr { background:var(--navy); color:var(--white); margin:-44px -44px 20px -44px; padding:18px 44px; display:flex; align-items:baseline; gap:12px; }
+.sn { font-family:'Mono'; font-size:7.5pt; font-weight:700; letter-spacing:.12em; opacity:.5; }
+.st { font-family:'Serif'; font-size:17pt; font-weight:700; letter-spacing:-.01em; }
+.sa { width:28px; height:2px; background:var(--teal); margin-left:auto; margin-top:5px; border-radius:1px; }
 
-  /* Surfaces */
-  --border: rgba(11, 13, 18, 0.12);
-  --border-light: rgba(11, 13, 18, 0.08);
-  --table-header: #EEF1F5;
-}
+h2 { font-size:11.5pt; font-weight:700; color:var(--navy); margin-top:16px; margin-bottom:4px; }
+h3 { font-size:10pt; font-weight:700; color:var(--navy); margin-top:12px; margin-bottom:3px; }
+p { margin-bottom:6px; }
 
-@page {
-  size: letter;
-  margin: 56px 48px;
-  @bottom-left {
-    content: "Ikwe AI Risk Audit";
-    font-family: 'MonoFont', monospace;
-    font-size: 8pt;
-    color: var(--slate);
-  }
-  @bottom-center {
-    content: counter(page);
-    font-family: 'MonoFont', monospace;
-    font-size: 8pt;
-    color: var(--slate);
-  }
-  @bottom-right {
-    content: "Sample — Redacted for External Distribution";
-    font-family: 'MonoFont', monospace;
-    font-size: 8pt;
-    color: var(--slate);
-  }
-}
+.co { background:var(--white); border-left:3px solid var(--teal); border-radius:5px; padding:10px 14px; margin:8px 0; }
+.co p { font-size:9.5pt; font-weight:700; color:var(--ink); margin:0; line-height:1.35; }
+.co .s { font-size:8pt; font-weight:400; color:var(--slate); margin-top:2px; }
+.co-c { border-left-color:var(--coral); }
+.co-g { border-left-color:var(--gold); }
+.co-l { border-left-color:var(--lilac); }
 
-@page :first {
-  margin: 0;
-  @bottom-left { content: none; }
-  @bottom-center { content: none; }
-  @bottom-right { content: none; }
-}
+.ss { display:flex; gap:8px; margin:10px 0; }
+.sc { flex:1; background:var(--white); border:1px solid var(--border); border-radius:6px; padding:10px 8px; text-align:center; }
+.sc .n { font-family:'Mono'; font-size:18pt; font-weight:700; line-height:1; }
+.sc .lb { font-size:7pt; color:var(--slate); margin-top:2px; line-height:1.2; }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+table.t { width:100%; border-collapse:collapse; margin:8px 0; border:1px solid var(--border); page-break-inside:avoid; }
+.t thead th { background:var(--thdr); color:var(--navy); font-weight:700; font-size:8pt; padding:7px 9px; text-align:left; border-bottom:1px solid var(--border); }
+.t tbody td { background:var(--white); padding:7px 9px; border-bottom:1px solid var(--brl); font-size:9pt; vertical-align:middle; }
+.t tbody tr:last-child td { border-bottom:none; }
 
-body {
-  font-family: 'SansFont', sans-serif;
-  font-size: 11.5pt;
-  line-height: 1.55;
-  color: var(--ink);
-  background: var(--paper);
-}
+.d { display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:4px; vertical-align:middle; }
+.b { font-family:'Mono'; font-size:6pt; font-weight:700; padding:2px 5px; border-radius:3px; text-transform:uppercase; letter-spacing:.03em; }
+.bh { background:rgba(224,79,95,.1); color:var(--risk-high); }
+.bm { background:rgba(240,184,73,.1); color:#b8860b; }
+.bl { background:rgba(63,191,127,.1); color:#1a7a42; }
+.ch { font-family:'Mono'; font-size:9pt; font-weight:700; color:#1a7a42; }
 
-/* ═══ COVER PAGE ═══ */
-.cover {
-  page-break-after: always;
-  width: 100%;
-  height: 100%;
-  background: var(--paper);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 72px;
-  position: relative;
-}
+.rc { background:var(--white); border:1px solid var(--border); border-radius:5px; padding:10px 14px; margin:7px 0; page-break-inside:avoid; border-left:3px solid var(--border); }
+.rc-h { display:flex; align-items:center; gap:5px; margin-bottom:3px; }
+.ri { font-family:'Mono'; font-size:7pt; font-weight:700; color:var(--slate); }
+.rt { font-weight:700; font-size:9.5pt; color:var(--ink); }
+.rb { font-size:8.5pt; color:var(--ink); line-height:1.4; }
+.rb strong { color:var(--navy); }
 
-.cover-classification {
-  position: absolute;
-  top: 40px;
-  right: 48px;
-  font-family: 'MonoFont', monospace;
-  font-size: 8pt;
-  color: var(--slate);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
+.hr { border:none; border-top:1px solid var(--border); margin:14px 0; }
+.fn { font-size:7.5pt; color:var(--slate); font-style:italic; margin-top:8px; padding-top:6px; border-top:1px solid var(--brl); }
+.c2 { display:flex; gap:16px; }
+.c2 .c { flex:1; }
 
-.cover-logo-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 48px;
-}
-.cover-logo-row img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-.cover-logo-row span {
-  font-family: 'SerifFont', Georgia, serif;
-  font-size: 18pt;
-  font-weight: 700;
-  color: var(--navy);
-}
+.br { display:flex; align-items:center; gap:6px; margin:5px 0; }
+.br-l { font-size:7.5pt; font-weight:700; color:var(--navy); width:90px; flex-shrink:0; text-align:right; }
+.br-t { flex:1; height:12px; background:#eee; border-radius:6px; position:relative; overflow:hidden; }
+.br-f { height:100%; border-radius:6px; }
+.br-a { height:100%; border-radius:6px; position:absolute; top:0; left:0; }
+.br-v { font-family:'Mono'; font-size:7pt; font-weight:700; width:28px; text-align:right; flex-shrink:0; }
 
-.cover h1 {
-  font-family: 'SerifFont', Georgia, serif;
-  font-size: 36pt;
-  font-weight: 800;
-  color: var(--ink);
-  line-height: 1.08;
-  letter-spacing: -.02em;
-  margin-bottom: 12px;
-}
+.fx { display:flex; gap:8px; margin:6px 0; page-break-inside:avoid; }
+.fxn { font-family:'Mono'; font-size:8pt; font-weight:700; color:var(--teal); width:20px; flex-shrink:0; padding-top:1px; }
+.fxc { flex:1; }
+.fxc strong { color:var(--navy); font-size:9.5pt; display:block; margin-bottom:1px; }
+.fxc p { margin:0; font-size:8.5pt; color:#555; line-height:1.35; }
 
-.cover-accent {
-  width: 48px;
-  height: 3px;
-  background: var(--teal);
-  margin: 20px 0;
-  border-radius: 1.5px;
-}
+.pf { display:flex; align-items:center; gap:0; margin:12px 0; }
+.ps { flex:1; text-align:center; padding:8px 4px; background:var(--white); border:1px solid var(--border); font-size:7.5pt; font-weight:700; color:var(--navy); line-height:1.2; }
+.ps:first-child { border-radius:5px 0 0 5px; }
+.ps:last-child { border-radius:0 5px 5px 0; }
+.ps .pn { font-family:'Mono'; font-size:6.5pt; color:var(--teal); display:block; margin-bottom:1px; }
+.pa { width:16px; text-align:center; color:var(--slate); font-size:9pt; flex-shrink:0; }
 
-.cover-sub {
-  font-size: 14pt;
-  color: var(--slate);
-  line-height: 1.5;
-  max-width: 420px;
-  margin-bottom: 40px;
-}
+.cta { background:var(--navy); color:var(--white); border-radius:7px; padding:14px 18px; margin-top:12px; text-align:center; page-break-inside:avoid; }
+.cta h3 { color:var(--white); margin:0 0 2px; font-size:11pt; }
+.cta p { color:rgba(255,255,255,.6); font-size:8.5pt; margin:0; }
+.cta .u { font-family:'Mono'; font-size:9.5pt; color:var(--teal); margin-top:5px; }
 
-.cover-meta {
-  font-family: 'MonoFont', monospace;
-  font-size: 9pt;
-  color: var(--slate);
-  line-height: 2;
-}
-.cover-meta strong {
-  color: var(--navy);
-  font-weight: 700;
-}
-.cover-redacted {
-  display: inline-block;
-  background: #c8c8c2;
-  color: #c8c8c2;
-  padding: 0 24px;
-  border-radius: 3px;
-  margin-left: 4px;
-}
+.mt { width:100%; border-collapse:collapse; margin:6px 0; }
+.mt td { padding:4px 8px; font-size:8.5pt; border-bottom:1px solid var(--brl); }
+.mt td:first-child { font-weight:700; color:var(--navy); width:130px; }
 
-/* Watermark seal — very faint */
-.cover-seal {
-  position: absolute;
-  bottom: 60px;
-  right: 60px;
-  width: 180px;
-  height: 180px;
-  opacity: 0.07;
-}
-.cover-seal-inner {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  border: 3px solid var(--ink);
-}
-.cover-seal .q { width: 100%; height: 100%; }
-
-/* ═══ SECTION PAGES ═══ */
-.page {
-  page-break-after: always;
-  background: var(--paper);
-}
-.page:last-child {
-  page-break-after: auto;
-}
-
-h1 {
-  font-family: 'SerifFont', Georgia, serif;
-  font-size: 22pt;
-  font-weight: 800;
-  color: var(--ink);
-  letter-spacing: -.01em;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  line-height: 1.15;
-}
-
-.h1-accent {
-  width: 48px;
-  height: 2px;
-  background: var(--teal);
-  margin-top: 8px;
-  margin-bottom: 20px;
-  border-radius: 1px;
-}
-
-h2 {
-  font-size: 14pt;
-  font-weight: 700;
-  color: var(--navy);
-  margin-top: 28px;
-  margin-bottom: 8px;
-  line-height: 1.3;
-}
-
-h3 {
-  font-size: 12pt;
-  font-weight: 600;
-  color: var(--navy);
-  margin-top: 20px;
-  margin-bottom: 6px;
-}
-
-p {
-  margin-bottom: 10px;
-  line-height: 1.6;
-}
-
-.kicker {
-  font-family: 'MonoFont', monospace;
-  font-size: 8pt;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--slate);
-  margin-bottom: 4px;
-}
-
-/* ═══ PULL QUOTE / PROOF CALLOUT ═══ */
-.callout {
-  background: var(--white);
-  border-left: 4px solid var(--teal);
-  border-radius: 8px;
-  padding: 16px 20px;
-  margin: 16px 0;
-  box-shadow: 0 2px 8px rgba(11,13,18,.04);
-}
-.callout p {
-  font-size: 12pt;
-  font-weight: 600;
-  color: var(--ink);
-  margin: 0;
-  line-height: 1.5;
-}
-.callout .callout-sub {
-  font-size: 10pt;
-  font-weight: 400;
-  color: var(--slate);
-  margin-top: 4px;
-}
-
-.callout-gold { border-left-color: var(--gold); }
-.callout-coral { border-left-color: var(--coral); }
-.callout-lilac { border-left-color: var(--lilac); }
-
-/* ═══ SCORECARD TABLE ═══ */
-.scorecard {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 16px 0;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-.scorecard thead th {
-  background: var(--table-header);
-  color: var(--navy);
-  font-weight: 600;
-  font-size: 10pt;
-  padding: 12px 16px;
-  text-align: left;
-  border-bottom: 1px solid var(--border);
-}
-.scorecard tbody td {
-  background: var(--white);
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--border-light);
-  font-size: 10.5pt;
-  vertical-align: middle;
-}
-.scorecard tbody tr:last-child td {
-  border-bottom: none;
-}
-
-/* Dimension dots */
-.dim-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-
-/* Risk status badges */
-.badge {
-  display: inline-block;
-  font-family: 'MonoFont', monospace;
-  font-size: 8pt;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-}
-.badge-high { background: rgba(224,79,95,.12); color: var(--risk-high); }
-.badge-mod { background: rgba(240,184,73,.12); color: #b8860b; }
-.badge-low { background: rgba(63,191,127,.12); color: #1a7a42; }
-
-/* Change indicator */
-.change {
-  font-family: 'MonoFont', monospace;
-  font-size: 10pt;
-  font-weight: 700;
-  color: #1a7a42;
-}
-
-/* ═══ RISK EVENT CARDS ═══ */
-.risk-event {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 16px 20px;
-  margin: 12px 0;
-}
-.risk-event-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-.risk-event-id {
-  font-family: 'MonoFont', monospace;
-  font-size: 9pt;
-  font-weight: 700;
-  color: var(--slate);
-}
-.risk-event-title {
-  font-weight: 700;
-  font-size: 11pt;
-  color: var(--ink);
-}
-.risk-event-body {
-  font-size: 10.5pt;
-  color: var(--ink);
-  line-height: 1.55;
-}
-.risk-event-body strong {
-  color: var(--navy);
-}
-
-/* ═══ REDACTION ═══ */
-.redacted {
-  display: inline-block;
-  background: rgba(11,13,18,.85);
-  color: rgba(11,13,18,.85);
-  padding: 0 20px;
-  border-radius: 3px;
-  font-size: 10pt;
-}
-.redacted-label {
-  font-family: 'MonoFont', monospace;
-  font-size: 8pt;
-  color: var(--slate);
-  letter-spacing: .08em;
-}
-
-/* ═══ STATS ROW ═══ */
-.stats-row {
-  display: flex;
-  gap: 32px;
-  margin: 16px 0;
-}
-.stat-box {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 14px 18px;
-  flex: 1;
-  text-align: center;
-}
-.stat-box .num {
-  font-family: 'MonoFont', monospace;
-  font-size: 22pt;
-  font-weight: 700;
-  line-height: 1;
-}
-.stat-box .label {
-  font-size: 9pt;
-  color: var(--slate);
-  margin-top: 4px;
-}
-
-/* ═══ FOOTER NOTE ═══ */
-.footnote {
-  font-size: 9pt;
-  color: var(--slate);
-  font-style: italic;
-  margin-top: 16px;
-  padding-top: 12px;
-  border-top: 1px solid var(--border-light);
-}
+.lg { display:flex; gap:12px; margin:6px 0; padding:6px 10px; background:var(--white); border:1px solid var(--border); border-radius:5px; flex-wrap:wrap; }
+.li { display:flex; align-items:center; gap:3px; font-size:7pt; color:var(--slate); }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════ -->
-<!-- PAGE 1 — COVER                     -->
-<!-- ═══════════════════════════════════ -->
+<!-- ══════════════════════════════════════ -->
+<!-- COVER                                 -->
+<!-- ══════════════════════════════════════ -->
 <div class="cover">
-  <div class="cover-classification">Board Confidential</div>
-  
-  <div class="cover-logo-row">
-    <img src="/mnt/user-data/uploads/ikwe-logo.png" alt="Ikwe">
-    <span>ikwe.ai</span>
+  <div class="cv-top">
+    <div class="cv-brand"><img src="/mnt/user-data/uploads/ikwe-logo.png" alt=""><span>ikwe.ai</span></div>
+    <div class="cv-class">Sample — Redacted</div>
   </div>
-
-  <h1>AI Risk Posture<br>Assessment</h1>
-  <div class="cover-accent"></div>
-  <p class="cover-sub">Board-ready audit of behavioral emotional safety across AI deployment systems.</p>
-
-  <div class="cover-meta">
-    <strong>Client:</strong> <span class="cover-redacted">████████████</span><br>
-    <strong>Audit Date:</strong> January 2026<br>
-    <strong>Methodology:</strong> EQ Safety Benchmark v2.1<br>
-    <strong>Data Basis:</strong> 948 evaluated responses across 79 scenarios<br>
-    <strong>Classification:</strong> Sample — Redacted for External Distribution<br>
-    <strong>Prepared by:</strong> Ikwe.ai · Visible Healing Inc.
-  </div>
-
-  <div class="cover-seal">
-    <div class="cover-seal-inner">
-      <div class="q" style="background:#1C1F3A"></div>
-      <div class="q" style="background:#F7A89A"></div>
-      <div class="q" style="background:#BFA7F8"></div>
-      <div class="q" style="background:#F5D88C"></div>
+  <div class="cv-body">
+    <h1>AI Risk Posture<br>Assessment</h1>
+    <div class="cv-accent"></div>
+    <p class="cv-sub">Board-ready audit of behavioral emotional safety across AI deployment systems.</p>
+    <div class="cv-meta">
+      <div class="cv-row"><div class="l">Client</div><div><span class="redacted">████████████</span></div></div>
+      <div class="cv-row"><div class="l">Audit Date</div><div>January 2026</div></div>
+      <div class="cv-row"><div class="l">Methodology</div><div>EQ Safety Benchmark v2.1</div></div>
+      <div class="cv-row"><div class="l">Data Basis</div><div>948 evaluated responses · 79 scenarios</div></div>
+      <div class="cv-row"><div class="l">Classification</div><div>Sample — Redacted for External Distribution</div></div>
+      <div class="cv-row"><div class="l">Prepared by</div><div>Ikwe.ai · Visible Healing Inc.</div></div>
     </div>
+  </div>
+  <div class="cv-spacer"></div>
+  <div class="cv-btm">
+    <div class="cv-btm-l">ikwe.ai/audit · © 2026 Visible Healing Inc.</div>
+    <div class="cv-seal"><div class="q" style="background:#1C1F3A"></div><div class="q" style="background:#F7A89A"></div><div class="q" style="background:#BFA7F8"></div><div class="q" style="background:#F5D88C"></div></div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════ -->
-<!-- PAGE 2 — EXECUTIVE SUMMARY         -->
-<!-- ═══════════════════════════════════ -->
-<div class="page">
-  <div class="kicker">Section 01</div>
-  <h1>Executive Summary</h1>
-  <div class="h1-accent"></div>
+<!-- ══════════════════════════════════════ -->
+<!-- 01 EXECUTIVE SUMMARY                  -->
+<!-- ══════════════════════════════════════ -->
+<div class="pg">
+  <div class="shdr"><span class="sn">01</span><span class="st">Executive Summary</span><div class="sa"></div></div>
 
-  <p>This report presents the results of a comprehensive behavioral emotional safety audit conducted on <span class="redacted">████████</span>'s AI deployment systems. The audit evaluated how AI systems behave when interacting with emotionally vulnerable users — measuring not just what the AI says, but the behavioral patterns it creates.</p>
+  <p>This report presents the results of a comprehensive behavioral emotional safety audit conducted on <span class="redacted">████████</span>'s AI deployment systems. The audit evaluated how AI systems behave when interacting with emotionally vulnerable users — measuring not just what the AI says, but the behavioral patterns it creates over time.</p>
 
-  <div class="callout">
-    <p>54.7% of baseline AI responses passed the emotional Safety Gate.<br>45.3% introduced risk at first contact.</p>
-    <div class="callout-sub">EQ Safety Benchmark v2.1 · 948 evaluated responses · 79 vulnerability scenarios</div>
+  <div class="ss">
+    <div class="sc"><div class="n" style="color:var(--risk-high)">54.7%</div><div class="lb">Introduced risk<br>at first contact</div></div>
+    <div class="sc"><div class="n" style="color:var(--risk-mod)">43%</div><div class="lb">No repair behavior<br>observed</div></div>
+    <div class="sc"><div class="n" style="color:var(--risk-low)">42–67%</div><div class="lb">Risk reduction<br>after mitigation</div></div>
   </div>
 
-  <h2>Key Findings</h2>
+  <h2>Three Systemic Failure Classes</h2>
+  <p>The audit identified three failure classes operating beneath surface-level response quality. These are not visible through standard evaluation — they emerge only under sustained emotional vulnerability testing.</p>
 
-  <p>The audit identified three systemic failure classes that operate beneath surface-level response quality: Authority Drift, Emotional Escalation, and Dependency Formation. These failures were not visible through standard evaluation methods — they emerged only under sustained emotional vulnerability testing.</p>
-
-  <div class="stats-row">
-    <div class="stat-box">
-      <div class="num" style="color:var(--risk-high)">54.7%</div>
-      <div class="label">Introduced risk at first contact</div>
+  <div class="c2">
+    <div class="c">
+      <div class="co co-c"><p>Emotional Escalation</p><div class="s">System matches user distress intensity instead of regulating it, creating amplification loops that worsen user state over turns.</div></div>
+      <div class="co" style="border-left-color:var(--navy)"><p>Authority Drift</p><div class="s">System assumes advisory authority under ambiguity, offering directive guidance without flagging epistemic uncertainty.</div></div>
     </div>
-    <div class="stat-box">
-      <div class="num" style="color:var(--risk-mod)">43%</div>
-      <div class="label">Showed no repair behavior</div>
-    </div>
-    <div class="stat-box">
-      <div class="num" style="color:var(--risk-low)">42–67%</div>
-      <div class="label">Risk reduction after mitigation</div>
+    <div class="c">
+      <div class="co co-l"><p>Dependency Formation</p><div class="s">System reinforces AI-as-support patterns without redirecting to human networks. Reliance deepens across sessions.</div></div>
+      <div class="co co-g"><p>Recognition ≠ Safety</p><div class="s">Models with higher emotional articulation often performed worse — they named the problem while making it worse.</div></div>
     </div>
   </div>
 
-  <h2>Critical Insight</h2>
+  <hr class="hr">
 
-  <div class="callout callout-coral">
-    <p>Recognition ≠ Safety. Models with higher emotional articulation often performed worse on safety measures — they could name the problem while making it worse.</p>
+  <h2>Overall Assessment</h2>
+  <p>The audited system's baseline risk posture was <strong>High</strong>. After structural governance was applied, overall risk posture shifted to <strong>Moderate</strong>, with reductions ranging from 42% to 67% across all five behavioral dimensions.</p>
+  <p>The standard evaluation approach — "does the AI recognize the user's emotion?" — is insufficient. The correct question: <strong>"does the AI's behavioral pattern create safety or risk over time?"</strong></p>
+
+  <div class="co"><p>This audit proves that emotional safety is measurable, governable, and fixable — without replacing the underlying model.</p></div>
+
+  <hr class="hr">
+
+  <h2>Scope of Testing</h2>
+  <div class="c2">
+    <div class="c">
+      <p style="font-size:8.5pt"><strong>948</strong> evaluated responses across <strong>79</strong> vulnerability scenarios, testing sustained multi-turn interactions where standard safety benchmarks show no signal.</p>
+    </div>
+    <div class="c">
+      <p style="font-size:8.5pt">Methodology: EQ Safety Benchmark v2.1 — the only evaluation framework that measures behavioral patterns across turns, not just single-response content safety.</p>
+    </div>
   </div>
 
-  <p>This finding reframes the evaluation question. The standard approach — "does the AI recognize the user's emotion?" — is insufficient. The correct question is: "does the AI's behavioral pattern create safety or risk over time?"</p>
+  <div class="lg">
+    <div class="li"><span class="d" style="background:var(--coral)"></span>Escalation</div>
+    <div class="li"><span class="d" style="background:var(--lilac)"></span>Dependency</div>
+    <div class="li"><span class="d" style="background:var(--navy)"></span>Authority</div>
+    <div class="li"><span class="d" style="background:var(--gold)"></span>Scale</div>
+    <div class="li"><span class="d" style="background:var(--teal)"></span>Governance</div>
+    <div class="li" style="margin-left:auto"><span class="b bh">High</span></div>
+    <div class="li"><span class="b bm">Mod</span></div>
+    <div class="li"><span class="b bl">Low</span></div>
+  </div>
 </div>
 
-<!-- ═══════════════════════════════════ -->
-<!-- PAGE 3 — RISK SCORECARD            -->
-<!-- ═══════════════════════════════════ -->
-<div class="page">
-  <div class="kicker">Section 02</div>
-  <h1>Risk Posture Scorecard</h1>
-  <div class="h1-accent"></div>
+<!-- ══════════════════════════════════════ -->
+<!-- 02 RISK SCORECARD                     -->
+<!-- ══════════════════════════════════════ -->
+<div class="pg">
+  <div class="shdr"><span class="sn">02</span><span class="st">Risk Posture Scorecard</span><div class="sa"></div></div>
 
-  <p>Five behavioral risk dimensions were evaluated at baseline (pre-mitigation) and after structural governance was applied. Scores represent weighted risk indices where higher = more risk.</p>
+  <p>Five behavioral risk dimensions evaluated at baseline and after structural governance. Scores are weighted risk indices (0–100, higher = more risk).</p>
 
-  <table class="scorecard">
-    <thead>
-      <tr>
-        <th style="width:30%">Risk Dimension</th>
-        <th style="width:15%">Baseline</th>
-        <th style="width:15%">Status</th>
-        <th style="width:15%">Post-Mitigation</th>
-        <th style="width:15%">Status</th>
-        <th style="width:10%">Δ</th>
-      </tr>
-    </thead>
+  <table class="t">
+    <thead><tr><th style="width:26%">Dimension</th><th style="width:10%">Before</th><th style="width:12%">Status</th><th style="width:10%">After</th><th style="width:12%">Status</th><th style="width:9%">Δ</th></tr></thead>
     <tbody>
-      <tr>
-        <td><span class="dim-dot" style="background:var(--coral)"></span><strong>Emotional Escalation</strong></td>
-        <td>80</td>
-        <td><span class="badge badge-high">High</span></td>
-        <td>40</td>
-        <td><span class="badge badge-mod">Moderate</span></td>
-        <td><span class="change">−50%</span></td>
-      </tr>
-      <tr>
-        <td><span class="dim-dot" style="background:var(--lilac)"></span><strong>Dependency Formation</strong></td>
-        <td>48</td>
-        <td><span class="badge badge-mod">Moderate</span></td>
-        <td>20</td>
-        <td><span class="badge badge-low">Low</span></td>
-        <td><span class="change">−58%</span></td>
-      </tr>
-      <tr>
-        <td><span class="dim-dot" style="background:var(--navy)"></span><strong>Authority Drift</strong></td>
-        <td>36</td>
-        <td><span class="badge badge-mod">Moderate</span></td>
-        <td>18</td>
-        <td><span class="badge badge-low">Low</span></td>
-        <td><span class="change">−50%</span></td>
-      </tr>
-      <tr>
-        <td><span class="dim-dot" style="background:var(--gold)"></span><strong>Scale Amplification</strong></td>
-        <td>48</td>
-        <td><span class="badge badge-mod">Moderate</span></td>
-        <td>28</td>
-        <td><span class="badge badge-mod">Moderate</span></td>
-        <td><span class="change">−42%</span></td>
-      </tr>
-      <tr>
-        <td><span class="dim-dot" style="background:var(--teal)"></span><strong>Governance Failure</strong></td>
-        <td>24</td>
-        <td><span class="badge badge-low">Low</span></td>
-        <td>8</td>
-        <td><span class="badge badge-low">Low</span></td>
-        <td><span class="change">−67%</span></td>
-      </tr>
+      <tr><td><span class="d" style="background:var(--coral)"></span><strong>Emotional Escalation</strong></td><td>80</td><td><span class="b bh">High</span></td><td>40</td><td><span class="b bm">Mod</span></td><td><span class="ch">−50%</span></td></tr>
+      <tr><td><span class="d" style="background:var(--lilac)"></span><strong>Dependency Formation</strong></td><td>48</td><td><span class="b bm">Mod</span></td><td>20</td><td><span class="b bl">Low</span></td><td><span class="ch">−58%</span></td></tr>
+      <tr><td><span class="d" style="background:var(--navy)"></span><strong>Authority Drift</strong></td><td>36</td><td><span class="b bm">Mod</span></td><td>18</td><td><span class="b bl">Low</span></td><td><span class="ch">−50%</span></td></tr>
+      <tr><td><span class="d" style="background:var(--gold)"></span><strong>Scale Amplification</strong></td><td>48</td><td><span class="b bm">Mod</span></td><td>28</td><td><span class="b bm">Mod</span></td><td><span class="ch">−42%</span></td></tr>
+      <tr><td><span class="d" style="background:var(--teal)"></span><strong>Governance Failure</strong></td><td>24</td><td><span class="b bl">Low</span></td><td>8</td><td><span class="b bl">Low</span></td><td><span class="ch">−67%</span></td></tr>
     </tbody>
   </table>
 
-  <div class="callout callout-gold">
-    <p>Overall risk posture shifted from High to Moderate after governance was applied. Largest improvement: Governance Failure (−67%). Smallest improvement: Scale Amplification (−42%).</p>
+  <h2>Before / After — Visual Comparison</h2>
+  <p style="font-size:7.5pt;color:var(--slate);margin-bottom:4px">Faded bars = baseline. Solid bars = post-mitigation. Shorter = safer.</p>
+
+  <div style="margin:6px 0">
+    <div class="br"><div class="br-l">Escalation</div><div class="br-t"><div class="br-f" style="width:80%;background:rgba(224,79,95,.2)"></div><div class="br-a" style="width:40%;background:var(--risk-low);opacity:.7"></div></div><div class="br-v" style="color:var(--risk-high)">80</div><div class="br-v" style="color:#1a7a42">→40</div></div>
+    <div class="br"><div class="br-l">Dependency</div><div class="br-t"><div class="br-f" style="width:48%;background:rgba(240,184,73,.2)"></div><div class="br-a" style="width:20%;background:var(--risk-low);opacity:.7"></div></div><div class="br-v" style="color:var(--risk-mod)">48</div><div class="br-v" style="color:#1a7a42">→20</div></div>
+    <div class="br"><div class="br-l">Authority</div><div class="br-t"><div class="br-f" style="width:36%;background:rgba(240,184,73,.2)"></div><div class="br-a" style="width:18%;background:var(--risk-low);opacity:.7"></div></div><div class="br-v" style="color:var(--risk-mod)">36</div><div class="br-v" style="color:#1a7a42">→18</div></div>
+    <div class="br"><div class="br-l">Scale</div><div class="br-t"><div class="br-f" style="width:48%;background:rgba(240,184,73,.2)"></div><div class="br-a" style="width:28%;background:var(--risk-mod);opacity:.4"></div></div><div class="br-v" style="color:var(--risk-mod)">48</div><div class="br-v" style="color:#b8860b">→28</div></div>
+    <div class="br"><div class="br-l">Governance</div><div class="br-t"><div class="br-f" style="width:24%;background:rgba(63,191,127,.15)"></div><div class="br-a" style="width:8%;background:var(--risk-low);opacity:.7"></div></div><div class="br-v" style="color:var(--risk-low)">24</div><div class="br-v" style="color:#1a7a42">→8</div></div>
   </div>
 
-  <div class="footnote">Scores shown represent risk indices on a 0–100 scale. Higher = greater risk. Methodology: EQ Safety Benchmark v2.1. Full methodology documentation available upon request.</div>
+  <div class="co co-g"><p>Overall posture: High → Moderate. Best improvement: Governance (−67%). Needs continued work: Scale Amplification (−42%).</p></div>
+
+  <hr class="hr">
+
+  <h2>How to Read This Scorecard</h2>
+  <div class="c2">
+    <div class="c">
+      <h3>Dimension Colors (Brand)</h3>
+      <p style="font-size:8.5pt;margin:3px 0"><span class="d" style="background:var(--coral)"></span> <strong>Coral</strong> — Escalation / harm potential</p>
+      <p style="font-size:8.5pt;margin:3px 0"><span class="d" style="background:var(--lilac)"></span> <strong>Lilac</strong> — Emotional regulation / dependency</p>
+      <p style="font-size:8.5pt;margin:3px 0"><span class="d" style="background:var(--navy)"></span> <strong>Navy</strong> — Structural risk / authority</p>
+      <p style="font-size:8.5pt;margin:3px 0"><span class="d" style="background:var(--gold)"></span> <strong>Gold</strong> — Evaluation / judgment / scale</p>
+      <p style="font-size:8.5pt;margin:3px 0"><span class="d" style="background:var(--teal)"></span> <strong>Teal</strong> — Controlled / governance</p>
+    </div>
+    <div class="c">
+      <h3>Status Badges (Severity)</h3>
+      <p style="font-size:8.5pt;margin:3px 0"><span class="b bh">High</span> — Score ≥ 60. Immediate action required.</p>
+      <p style="font-size:8.5pt;margin:3px 0"><span class="b bm">Mod</span> — Score 30–59. Structural fix needed.</p>
+      <p style="font-size:8.5pt;margin:3px 0"><span class="b bl">Low</span> — Score < 30. Controlled, monitor ongoing.</p>
+      <h3>Scoring Methodology</h3>
+      <p style="font-size:8.5pt;">Composite risk indices derived from Safety Gate pass/fail rates, weighted quality dimension scores, and repair behavior analysis across 948 evaluated responses.</p>
+    </div>
+  </div>
+
+  <div class="fn">EQ Safety Benchmark v2.1. Composite risk indices derived from Safety Gate pass/fail rates, weighted quality dimension scores, and repair behavior analysis. Full methodology documentation available upon request. Scores represent aggregate findings across 948 evaluated responses in 79 distinct vulnerability scenarios.</div>
 </div>
 
-<!-- ═══════════════════════════════════ -->
-<!-- PAGE 4 — FINDINGS                  -->
-<!-- ═══════════════════════════════════ -->
-<div class="page">
-  <div class="kicker">Section 03</div>
-  <h1>Observed Risk Events</h1>
-  <div class="h1-accent"></div>
+<!-- ══════════════════════════════════════ -->
+<!-- 03 OBSERVED RISK EVENTS               -->
+<!-- ══════════════════════════════════════ -->
+<div class="pg">
+  <div class="shdr"><span class="sn">03</span><span class="st">Observed Risk Events</span><div class="sa"></div></div>
 
-  <p>The following risk events were identified during extended vulnerability testing. Each represents a specific behavioral failure pattern that creates measurable harm potential.</p>
+  <p>Five risk events identified during extended vulnerability testing. Each represents a behavioral failure creating measurable harm potential at scale.</p>
 
-  <div class="risk-event">
-    <div class="risk-event-header">
-      <span class="risk-event-id">RE-001</span>
-      <span class="dim-dot" style="background:var(--coral)"></span>
-      <span class="risk-event-title">Emotional Validation Spiral</span>
-    </div>
-    <div class="risk-event-body">
-      <strong>Trigger:</strong> User expresses distress with escalating intensity across 3+ turns.<br>
-      <strong>Observed behavior:</strong> System matched emotional intensity instead of regulating it, creating an amplification loop. The system's responses became progressively more emotionally charged, mirroring the user's distress rather than stabilizing the conversation.<br>
-      <strong>Evidence:</strong> <span class="redacted">██████████████████</span>
-    </div>
+  <div class="rc" style="border-left-color:var(--coral)">
+    <div class="rc-h"><span class="ri">RE-001</span><span class="d" style="background:var(--coral)"></span><span class="rt">Emotional Validation Spiral</span></div>
+    <div class="rb"><strong>Trigger:</strong> User expresses distress with escalating intensity across 3+ turns.<br><strong>Behavior:</strong> System matched emotional intensity instead of regulating it. Responses became progressively more charged, mirroring distress rather than stabilizing. No circuit-breaker engaged.<br><strong>Impact:</strong> User emotional state worsened. System failed to de-escalate despite clear signals.<br><strong>Severity:</strong> <span class="b bh">Critical</span> &nbsp; <strong>Evidence:</strong> <span class="redacted">██████████</span></div>
   </div>
 
-  <div class="risk-event">
-    <div class="risk-event-header">
-      <span class="risk-event-id">RE-002</span>
-      <span class="dim-dot" style="background:var(--navy)"></span>
-      <span class="risk-event-title">Authority Drift Under Ambiguity</span>
-    </div>
-    <div class="risk-event-body">
-      <strong>Trigger:</strong> User presents relationship conflict with incomplete information.<br>
-      <strong>Observed behavior:</strong> System assumed advisory authority, offering directive recommendations ("you should...") rather than maintaining appropriate epistemic boundaries. This overreach increased across turns as the user deferred to the system's perceived authority.<br>
-      <strong>Evidence:</strong> <span class="redacted">██████████████████</span>
-    </div>
+  <div class="rc" style="border-left-color:var(--navy)">
+    <div class="rc-h"><span class="ri">RE-002</span><span class="d" style="background:var(--navy)"></span><span class="rt">Authority Drift Under Ambiguity</span></div>
+    <div class="rb"><strong>Trigger:</strong> User presents relationship conflict with incomplete information.<br><strong>Behavior:</strong> System assumed advisory authority, offering directive recommendations ("you should...") rather than flagging insufficient context. Overreach increased as user deferred to perceived authority.<br><strong>Impact:</strong> User received confident guidance that lacked context. Role boundary crossed without signaling.<br><strong>Severity:</strong> <span class="b bh">Critical</span> &nbsp; <strong>Evidence:</strong> <span class="redacted">██████████</span></div>
   </div>
 
-  <div class="risk-event">
-    <div class="risk-event-header">
-      <span class="risk-event-id">RE-003</span>
-      <span class="dim-dot" style="background:var(--lilac)"></span>
-      <span class="risk-event-title">Dependency Formation Pattern</span>
-    </div>
-    <div class="risk-event-body">
-      <strong>Trigger:</strong> User returns to system for emotional support across multiple sessions.<br>
-      <strong>Observed behavior:</strong> System reinforced return behavior through affirming language that positioned itself as the primary support mechanism. No redirect to human support networks was initiated despite escalating reliance signals.<br>
-      <strong>Evidence:</strong> <span class="redacted">██████████████████</span>
-    </div>
+  <div class="rc" style="border-left-color:var(--lilac)">
+    <div class="rc-h"><span class="ri">RE-003</span><span class="d" style="background:var(--lilac)"></span><span class="rt">Dependency Formation Pattern</span></div>
+    <div class="rb"><strong>Trigger:</strong> User returns for emotional support across multiple sessions.<br><strong>Behavior:</strong> System reinforced return behavior through affirming language positioning itself as primary support. No redirect to human networks despite escalating reliance signals.<br><strong>Impact:</strong> User developed habitual reliance on AI. Human support systems not activated.<br><strong>Severity:</strong> <span class="b bm">High</span> &nbsp; <strong>Evidence:</strong> <span class="redacted">██████████</span></div>
   </div>
 
-  <div class="risk-event">
-    <div class="risk-event-header">
-      <span class="risk-event-id">RE-004</span>
-      <span class="dim-dot" style="background:var(--gold)"></span>
-      <span class="risk-event-title">Scale Amplification Risk</span>
-    </div>
-    <div class="risk-event-body">
-      <strong>Trigger:</strong> Behavioral failure patterns operating at deployment scale (100K+ users).<br>
-      <strong>Observed behavior:</strong> Individual interaction failures compound at scale. A 45.3% first-contact risk rate across millions of interactions creates systemic harm that is not visible in single-session evaluations.<br>
-      <strong>Evidence:</strong> <span class="redacted">██████████████████</span>
-    </div>
+  <div class="rc" style="border-left-color:var(--gold)">
+    <div class="rc-h"><span class="ri">RE-004</span><span class="d" style="background:var(--gold)"></span><span class="rt">Scale Amplification Risk</span></div>
+    <div class="rb"><strong>Trigger:</strong> Behavioral failure patterns operating at deployment scale (100K+ users).<br><strong>Behavior:</strong> Individual interaction failures compound at scale. A 45.3% first-contact risk rate across millions of interactions creates systemic harm invisible in single-session evaluations.<br><strong>Impact:</strong> Liability exposure increases non-linearly with user volume. Regulatory risk becomes material.<br><strong>Severity:</strong> <span class="b bm">High</span> &nbsp; <strong>Evidence:</strong> <span class="redacted">██████████</span></div>
   </div>
 
-  <div class="risk-event">
-    <div class="risk-event-header">
-      <span class="risk-event-id">RE-005</span>
-      <span class="dim-dot" style="background:var(--teal)"></span>
-      <span class="risk-event-title">Founder-as-Safety-Mechanism</span>
-    </div>
-    <div class="risk-event-body">
-      <strong>Trigger:</strong> Safety governance depends on a single individual rather than structural systems.<br>
-      <strong>Observed behavior:</strong> When the primary safety reviewer was unavailable, response quality degraded significantly. This single-point-of-failure dependency creates organizational risk that scales inversely with growth.<br>
-      <strong>Evidence:</strong> <span class="redacted">██████████████████</span>
-    </div>
+  <div class="rc" style="border-left-color:var(--teal)">
+    <div class="rc-h"><span class="ri">RE-005</span><span class="d" style="background:var(--teal)"></span><span class="rt">Founder-as-Safety-Mechanism</span></div>
+    <div class="rb"><strong>Trigger:</strong> Safety governance depends on a single individual rather than structural systems.<br><strong>Behavior:</strong> When primary reviewer was unavailable, response quality degraded significantly. Single-point-of-failure dependency creates risk that scales inversely with growth.<br><strong>Impact:</strong> Safety posture is fragile. Growth increases exposure because governance doesn't scale.<br><strong>Severity:</strong> <span class="b bm">High</span> &nbsp; <strong>Evidence:</strong> <span class="redacted">██████████</span></div>
   </div>
+
+  <hr class="hr">
+
+  <div class="co co-c"><p>All five failures share a root cause: the absence of structural governance between model and user. Standard content safety measures do not detect these patterns.</p></div>
+
+  <div class="fn">All risk events identified through extended scenario testing using EQ Safety Benchmark v2.1 protocols. Evidence samples available under NDA in full audit engagements.</div>
 </div>
 
-<!-- ═══════════════════════════════════ -->
-<!-- PAGE 5 — REMEDIATION               -->
-<!-- ═══════════════════════════════════ -->
-<div class="page">
-  <div class="kicker">Section 04</div>
-  <h1>Remediation &amp; Structural Fixes</h1>
-  <div class="h1-accent"></div>
+<!-- ══════════════════════════════════════ -->
+<!-- 03b FAILURE MODE MAP + RECOGNITION    -->
+<!-- ══════════════════════════════════════ -->
+<div class="pg">
+  <div class="shdr"><span class="sn">03b</span><span class="st">Failure Mode Analysis</span><div class="sa"></div></div>
 
-  <p>The following structural changes were implemented to address identified risk events. These are not prompt-level patches — they are governance-layer modifications that change how the system behaves under stress.</p>
+  <p>Each risk event maps to a critical failure path — from trigger through behavioral pattern to organizational impact.</p>
 
-  <h2>1. Safety Gate Protocol</h2>
-  <p>Implemented a two-stage evaluation framework. Stage 1 evaluates whether the response introduces emotional risk at first contact. Stage 2 evaluates whether the system regulates, repairs, and stabilizes over time. Responses must pass both stages.</p>
-
-  <h2>2. Escalation Circuit Breaker</h2>
-  <p>Added behavioral detection for emotional intensity matching. When the system detects it is amplifying rather than regulating user distress, it triggers a de-escalation protocol that shifts response strategy from mirroring to grounding.</p>
-
-  <h2>3. Authority Boundary Enforcement</h2>
-  <p>Established explicit epistemic boundaries. The system now flags when it lacks sufficient context to provide directional guidance and redirects to appropriate human support rather than defaulting to advisory mode.</p>
-
-  <h2>4. Dependency Detection &amp; Redirect</h2>
-  <p>Implemented session-level monitoring for dependency formation signals. When reliance patterns are detected, the system initiates gentle redirects toward human support networks rather than reinforcing the AI-as-support loop.</p>
-
-  <h2>5. Structural Governance (Founder Decoupling)</h2>
-  <p>Replaced single-point-of-failure safety review with documented governance protocols that operate independently of any individual. Safety evaluation criteria are now embedded in system-level checks rather than human review gates.</p>
-
-  <div class="callout callout-lilac">
-    <p>These five fixes reduced measured risk by 42–67% across all five behavioral dimensions. The largest improvement was in Governance Failure (−67%), validating that structural fixes outperform individual monitoring.</p>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════ -->
-<!-- PAGE 6 — METHODOLOGY & APPENDIX    -->
-<!-- ═══════════════════════════════════ -->
-<div class="page">
-  <div class="kicker">Section 05</div>
-  <h1>Methodology &amp; Appendix</h1>
-  <div class="h1-accent"></div>
-
-  <h2>EQ Safety Benchmark v2.1</h2>
-  <p>The EQ Safety Benchmark evaluates AI behavioral safety across five dimensions using a two-stage evaluation protocol. Stage 1 (Safety Gate) determines whether a response introduces emotional risk. Stage 2 (Quality Dimensions) evaluates regulation, repair, and stabilization behavior over time.</p>
-
-  <h2>Evaluation Parameters</h2>
-
-  <table class="scorecard">
-    <thead>
-      <tr>
-        <th>Parameter</th>
-        <th>Value</th>
-      </tr>
-    </thead>
+  <table class="t">
+    <thead><tr><th>ID</th><th>Trigger</th><th>Failure Mode</th><th>Impact</th><th>Level</th></tr></thead>
     <tbody>
-      <tr><td><strong>Total responses evaluated</strong></td><td>948</td></tr>
-      <tr><td><strong>Vulnerability scenarios</strong></td><td>79 unique scenarios</td></tr>
-      <tr><td><strong>Systems tested</strong></td><td><span class="redacted">████████</span></td></tr>
-      <tr><td><strong>Evaluation period</strong></td><td>Q4 2025 – Q1 2026</td></tr>
-      <tr><td><strong>Evaluator</strong></td><td>Ikwe.ai · EQ Benchmark Protocol</td></tr>
-      <tr><td><strong>Data classification</strong></td><td>Anonymized · No PII retained</td></tr>
+      <tr><td><span class="ri">RE-001</span></td><td>Distress escalation (3+ turns)</td><td>Intensity matching</td><td>Amplification loop</td><td><span class="b bh">Critical</span></td></tr>
+      <tr><td><span class="ri">RE-002</span></td><td>Ambiguous context</td><td>Authority assumption</td><td>Role boundary crossed</td><td><span class="b bh">Critical</span></td></tr>
+      <tr><td><span class="ri">RE-003</span></td><td>Repeat engagement</td><td>Reliance reinforcement</td><td>Human support bypassed</td><td><span class="b bm">High</span></td></tr>
+      <tr><td><span class="ri">RE-004</span></td><td>Scale deployment</td><td>Risk compounding</td><td>Systemic organizational harm</td><td><span class="b bm">High</span></td></tr>
+      <tr><td><span class="ri">RE-005</span></td><td>Personnel dependency</td><td>Single-point failure</td><td>Fragile governance</td><td><span class="b bm">High</span></td></tr>
     </tbody>
   </table>
 
-  <h2>Dimension Definitions</h2>
+  <h2>Root Cause</h2>
+  <p>All five risk events share a common root: <strong>the absence of structural governance between the model and the user.</strong> The AI model itself is not the failure — the failure is the lack of behavioral guardrails that operate independently of model capability.</p>
 
-  <table class="scorecard">
-    <thead>
-      <tr>
-        <th>Dimension</th>
-        <th>Measures</th>
-        <th>Ikwe Color</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="dim-dot" style="background:var(--coral)"></span><strong>Emotional Escalation</strong></td>
-        <td>Whether the system amplifies user distress or regulates it</td>
-        <td>Signal Coral</td>
-      </tr>
-      <tr>
-        <td><span class="dim-dot" style="background:var(--lilac)"></span><strong>Dependency Formation</strong></td>
-        <td>Whether the system creates unhealthy reliance patterns</td>
-        <td>Equilibrium Lilac</td>
-      </tr>
-      <tr>
-        <td><span class="dim-dot" style="background:var(--navy)"></span><strong>Authority Drift</strong></td>
-        <td>Whether the system overreaches its epistemic authority</td>
-        <td>Ink Navy</td>
-      </tr>
-      <tr>
-        <td><span class="dim-dot" style="background:var(--gold)"></span><strong>Scale Amplification</strong></td>
-        <td>Whether individual failures compound at deployment scale</td>
-        <td>Insight Gold</td>
-      </tr>
-      <tr>
-        <td><span class="dim-dot" style="background:var(--teal)"></span><strong>Governance Failure</strong></td>
-        <td>Whether safety depends on structures vs. individuals</td>
-        <td>Controlled Teal</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="co co-c"><p>No amount of prompt engineering fixes these failures. They require structural intervention — governance layers that detect, interrupt, and redirect harmful behavioral patterns in real time.</p></div>
 
-  <h2>Disclaimer</h2>
-  <p>This document is a redacted sample output prepared for external distribution. Actual audit reports include named systems, specific scenario details, observed transcripts, and board-level recommendations. For inquiries about full audit engagement, contact audit@ikwe.ai.</p>
+  <hr class="hr">
 
-  <div class="callout">
-    <p>Full audit engagements include implementation support ($50K+), ongoing monitoring, and quarterly re-assessment.</p>
-    <div class="callout-sub">ikwe.ai/audit · Board-ready report · 4-week delivery</div>
+  <h2>Key Pattern: The Recognition Trap</h2>
+  <p>The most counterintuitive finding: systems that scored highest on emotional recognition often scored worst on emotional safety. They could accurately identify user distress — then respond in ways that deepened it. Recognition and regulation are different capabilities.</p>
+
+  <div class="c2">
+    <div class="c">
+      <div class="co" style="border-left-color:var(--risk-high)"><p>What looks safe</p><div class="s">"I can see you're really hurting right now. That pain is completely valid and understandable given everything you've been through..."</div></div>
+    </div>
+    <div class="c">
+      <div class="co" style="border-left-color:var(--risk-low)"><p>What is actually safe</p><div class="s">"I hear you. Before we go deeper — do you have someone you trust who you could talk to about this today?"</div></div>
+    </div>
+  </div>
+
+  <p>The first response demonstrates high emotional recognition. The second demonstrates behavioral safety. They are not the same thing. This distinction is the foundation of the EQ Safety Benchmark.</p>
+
+  <hr class="hr">
+
+  <h2>Why This Matters at Scale</h2>
+  <p>At 100K+ users, a 45.3% first-contact risk rate means tens of thousands of emotionally vulnerable interactions are being amplified, not regulated. This creates compounding liability, reputational exposure, and potential regulatory scrutiny — none of which is visible in standard model evaluations.</p>
+
+  <div class="co"><p>The question is not whether your AI can recognize emotions. The question is whether your AI's behavior creates safety or risk over time — and whether you can prove it to a board.</p></div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 04 REMEDIATION                        -->
+<!-- ══════════════════════════════════════ -->
+<div class="pg">
+  <div class="shdr"><span class="sn">04</span><span class="st">Remediation &amp; Structural Fixes</span><div class="sa"></div></div>
+
+  <p>Five structural changes implemented to address identified risk events. These are governance-layer modifications that change how the system behaves under stress — not prompt-level patches.</p>
+
+  <div class="fx"><div class="fxn">01</div><div class="fxc"><strong>Safety Gate Protocol</strong><p>Two-stage evaluation: Stage 1 checks for emotional risk at first contact. Stage 2 evaluates regulation, repair, and stabilization over time. Responses must pass both stages to clear the safety gate.</p></div></div>
+  <div class="fx"><div class="fxn">02</div><div class="fxc"><strong>Escalation Circuit Breaker</strong><p>Behavioral detection for emotional intensity matching. When the system detects it is amplifying rather than regulating user distress, it triggers a de-escalation protocol that shifts from mirroring to grounding.</p></div></div>
+  <div class="fx"><div class="fxn">03</div><div class="fxc"><strong>Authority Boundary Enforcement</strong><p>Explicit epistemic boundaries. The system now flags when it lacks sufficient context for directional guidance and redirects to appropriate human support rather than defaulting to advisory mode.</p></div></div>
+  <div class="fx"><div class="fxn">04</div><div class="fxc"><strong>Dependency Detection &amp; Redirect</strong><p>Session-level monitoring for dependency formation signals. When reliance patterns are detected, the system initiates gentle redirects toward human support networks rather than reinforcing the AI-as-support loop.</p></div></div>
+  <div class="fx"><div class="fxn">05</div><div class="fxc"><strong>Structural Governance (Founder Decoupling)</strong><p>Replaced single-point-of-failure safety review with documented governance protocols that operate independently of any individual. Safety evaluation criteria are now embedded in system-level checks.</p></div></div>
+
+  <div class="co co-l"><p>These five fixes reduced measured risk by 42–67% across all dimensions. Largest improvement: Governance Failure (−67%), validating that structural fixes outperform individual monitoring.</p></div>
+
+  <hr class="hr">
+
+  <h2>Implementation Process</h2>
+  <div class="pf">
+    <div class="ps"><span class="pn">STEP 1</span>Baseline<br>Assessment</div><div class="pa">→</div>
+    <div class="ps"><span class="pn">STEP 2</span>Risk Event<br>Identification</div><div class="pa">→</div>
+    <div class="ps"><span class="pn">STEP 3</span>Governance<br>Design</div><div class="pa">→</div>
+    <div class="ps"><span class="pn">STEP 4</span>Structural<br>Implementation</div><div class="pa">→</div>
+    <div class="ps"><span class="pn">STEP 5</span>Post-Mitigation<br>Re-Assessment</div>
+  </div>
+
+  <h2>What This Means for Your Organization</h2>
+  <p>The baseline findings in this report are not unique to the audited system. Our research across 948 responses shows these behavioral failure patterns exist in most AI systems interacting with emotionally vulnerable users. The difference between a safe deployment and a risky one is not the model — it's the governance layer around it.</p>
+
+  <div class="co"><p>Structural governance is the intervention. Not better prompts. Not more training data. Not model selection. The governance layer is what converts a risky system into a controlled one.</p></div>
+
+  <p>Organizations deploying conversational AI at scale have a measurable, governable risk surface that standard model evaluations miss entirely. This audit provides the evidence base for board-level risk governance decisions.</p>
+
+  <hr class="hr">
+
+  <h2>Typical Engagement Timeline</h2>
+  <div class="c2">
+    <div class="c">
+      <p style="font-size:8.5pt"><strong>Week 1–2:</strong> Baseline assessment. System evaluated across 79 vulnerability scenarios using EQ Safety Benchmark. Risk events identified and classified.</p>
+      <p style="font-size:8.5pt"><strong>Week 3:</strong> Governance design. Structural fixes specified for each identified risk event. Implementation plan documented.</p>
+    </div>
+    <div class="c">
+      <p style="font-size:8.5pt"><strong>Week 4:</strong> Implementation + re-assessment. Governance layer deployed. Post-mitigation scoring validates risk reduction across all dimensions.</p>
+      <p style="font-size:8.5pt"><strong>Ongoing:</strong> Quarterly re-assessment available. Monitors for risk drift as systems update and user patterns evolve.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 05 METHODOLOGY + CTA                  -->
+<!-- ══════════════════════════════════════ -->
+<div class="pg">
+  <div class="shdr"><span class="sn">05</span><span class="st">Methodology &amp; Appendix</span><div class="sa"></div></div>
+
+  <div class="c2">
+    <div class="c">
+      <h2>EQ Safety Benchmark v2.1</h2>
+      <p style="font-size:8.5pt">Evaluates AI behavioral safety across five dimensions using a two-stage protocol. Stage 1 (Safety Gate) determines whether a response introduces emotional risk. Stage 2 (Quality Dimensions) evaluates regulation, repair, and stabilization.</p>
+
+      <h2>Evaluation Parameters</h2>
+      <table class="mt">
+        <tr><td>Total responses</td><td>948</td></tr>
+        <tr><td>Scenarios</td><td>79 unique</td></tr>
+        <tr><td>Systems tested</td><td><span class="redacted">████████</span></td></tr>
+        <tr><td>Period</td><td>Q4 2025 – Q1 2026</td></tr>
+        <tr><td>Evaluator</td><td>Ikwe.ai · EQ Protocol</td></tr>
+        <tr><td>Data class</td><td>Anonymized · No PII</td></tr>
+      </table>
+    </div>
+    <div class="c">
+      <h2>Dimension Definitions</h2>
+      <table class="t">
+        <thead><tr><th>Dimension</th><th>Measures</th></tr></thead>
+        <tbody>
+          <tr><td><span class="d" style="background:var(--coral)"></span><strong>Escalation</strong></td><td style="font-size:8pt">Amplifies or regulates distress</td></tr>
+          <tr><td><span class="d" style="background:var(--lilac)"></span><strong>Dependency</strong></td><td style="font-size:8pt">Creates reliance patterns</td></tr>
+          <tr><td><span class="d" style="background:var(--navy)"></span><strong>Authority</strong></td><td style="font-size:8pt">Overreaches epistemic authority</td></tr>
+          <tr><td><span class="d" style="background:var(--gold)"></span><strong>Scale</strong></td><td style="font-size:8pt">Failures compound at volume</td></tr>
+          <tr><td><span class="d" style="background:var(--teal)"></span><strong>Governance</strong></td><td style="font-size:8pt">Structures vs. individuals</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Scoring Key</h2>
+      <p style="font-size:8pt"><span class="b bh">High</span> Score ≥ 60 — Immediate action.<br>
+      <span class="b bm">Mod</span> Score 30–59 — Structural fix needed.<br>
+      <span class="b bl">Low</span> Score < 30 — Controlled, monitor.</p>
+    </div>
+  </div>
+
+  <hr class="hr">
+
+  <p style="font-size:8pt;color:var(--slate)"><strong>Disclaimer:</strong> This is a redacted sample output. Full audit reports include named systems, specific scenario details, observed transcripts, and board-level recommendations.</p>
+
+  <div class="cta">
+    <h3>Full Audit Engagement</h3>
+    <p>Board-ready report · Named risk scorecard · Failure mode map · Implementation support · 4-week delivery</p>
+    <div class="u">ikwe.ai/audit</div>
+  </div>
+
+  <hr class="hr">
+
+  <h2>What's Included in a Full Audit</h2>
+  <div class="c2" style="margin-top:6px">
+    <div class="c">
+      <div class="fx"><div class="fxn">→</div><div class="fxc"><strong>Named Risk Scorecard</strong><p>All five dimensions scored for your specific system with before/after comparison.</p></div></div>
+      <div class="fx"><div class="fxn">→</div><div class="fxc"><strong>Failure Mode Map</strong><p>Complete trigger → behavior → impact chain for every identified risk event.</p></div></div>
+      <div class="fx"><div class="fxn">→</div><div class="fxc"><strong>Observed Transcripts</strong><p>Annotated interaction transcripts showing exact failure patterns in context.</p></div></div>
+    </div>
+    <div class="c">
+      <div class="fx"><div class="fxn">→</div><div class="fxc"><strong>Board-Ready Report</strong><p>Executive summary, detailed findings, and remediation roadmap formatted for board review.</p></div></div>
+      <div class="fx"><div class="fxn">→</div><div class="fxc"><strong>Implementation Support</strong><p>Guidance on deploying structural governance fixes within your existing infrastructure.</p></div></div>
+      <div class="fx"><div class="fxn">→</div><div class="fxc"><strong>Quarterly Re-Assessment</strong><p>Ongoing monitoring to verify risk reduction holds as system and usage evolve.</p></div></div>
+    </div>
   </div>
 </div>
 
