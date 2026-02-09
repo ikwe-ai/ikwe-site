@@ -114,6 +114,13 @@ footer a{color:var(--teal-lt);text-decoration:none}
 .mobile-cta{color:var(--teal);font-weight:600}
 @media (max-width: 900px){.nav-links{display:none}.nav-toggle{display:flex}}
 
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:10px;font-weight:600;font-size:.9rem;border:1px solid rgba(22,105,122,.25);background:transparent;color:var(--txt);text-decoration:none;transition:all .2s ease}
+.btn:hover{transform:translateY(-1px);background:rgba(22,105,122,.12);color:#fff;box-shadow:0 4px 16px rgba(22,105,122,.18)}
+.btn.primary{border-color:var(--teal);background:var(--teal);color:#0b0b10}
+.btn.primary:hover{background:#16697A;color:#fff;box-shadow:0 4px 20px rgba(22,105,122,.25)}
+.btn.secondary{border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--txt)}
+.btn.secondary:hover{background:rgba(255,255,255,.08);color:#fff}
+
 </style>
 </head>
 <body>
@@ -240,5 +247,16 @@ footer a{color:var(--teal-lt);text-decoration:none}
   <p>© 2026 Visible Healing Inc. · Des Moines, Iowa</p>
   <p style="margin-top:8px"><a href="/">Home</a> · <a href="/audit">Audit</a> · <a href="/proof">Proof</a> · <a href="/about">About</a> · <a href="/inquiry">Contact</a></p>
 </footer>
+<section class="cta">
+  <div class="w">
+    <h2>Ready for a company-specific audit?</h2>
+    <p>Apply the framework to your systems with a board-ready AI Risk Audit.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="/inquiry">Request an AI Risk Audit</a>
+      <a class="btn secondary" href="/audit">View All Tiers</a>
+    </div>
+  </div>
+</section>
+
 </body>
 </html>
