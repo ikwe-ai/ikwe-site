@@ -328,6 +328,36 @@ section.light .impl strong { color: var(--text-dark); }
   .site-nav-placeholder .nav-links { gap: 12px; }
   .site-nav-placeholder .nav-links a { font-size: 12px; }
 }
+.nav{position:sticky;top:0;z-index:100;background:rgba(9,9,11,.98);border-bottom:1px solid var(--border)}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:'DM Serif Display',serif;font-weight:700;color:#fff;text-decoration:none}
+.brand img{width:32px;height:32px;border-radius:50%}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-link{padding:10px 14px;border-radius:8px;font-size:.9rem;font-weight:500;color:var(--text-muted);text-decoration:none}
+.nav-link:hover{background:rgba(255,255,255,.06);color:#fff}
+.nav-link.highlight{color:#a78bfa}
+.nav-btn{padding:10px 18px;border-radius:8px;font-size:.9rem;font-weight:600;color:#0b0b10;background:var(--teal);margin-left:8px;text-decoration:none}
+.nav-btn:hover{background:#16697A;color:#fff}
+.nav-dropdown{position:relative}
+.dropdown-trigger{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:8px;font-size:.9rem;font-weight:500;color:var(--text-muted);background:none;border:none;cursor:pointer}
+.dropdown-trigger:hover{background:rgba(255,255,255,.06);color:#fff}
+.dropdown-menu{position:absolute;top:42px;left:0;background:var(--bg-section);border:1px solid var(--border);border-radius:12px;padding:8px;min-width:260px;opacity:0;pointer-events:none;transform:translateY(6px);transition:all .15s;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.nav-dropdown:hover .dropdown-menu{opacity:1;pointer-events:auto;transform:translateY(0)}
+.dropdown-item{display:block;padding:10px 12px;border-radius:10px;text-decoration:none}
+.dropdown-item:hover{background:rgba(255,255,255,.06)}
+.dropdown-title{display:block;font-weight:600;color:#fff;font-size:.9rem}
+.dropdown-desc{display:block;color:var(--text-muted);font-size:.78rem;margin-top:2px}
+.nav-toggle{display:none;flex-direction:column;gap:5px;padding:10px;background:none;border:none;cursor:pointer}
+.nav-toggle span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+.mobile-menu{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-section);border-bottom:1px solid var(--border);padding:16px 24px 24px}
+.mobile-menu.open{display:block}
+.mobile-section{margin-bottom:12px}
+.mobile-section-title{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:8px}
+.mobile-menu a{display:block;padding:10px 0;font-size:.95rem;color:var(--text-muted);text-decoration:none}
+.mobile-cta{color:var(--teal);font-weight:600}
+@media (max-width: 900px){.nav-links{display:none}.nav-toggle{display:flex}}
+
 </style>
 </head>
 <body>
@@ -350,7 +380,7 @@ section.light .impl strong { color: var(--text-dark); }
   <h1>AI risk scales faster than<br>you can see it.</h1>
   <p class="sub">Board-ready AI risk audits for companies scaling conversational AI, agents, and decision systems.</p>
   <p class="proof-line">This audit was developed internally before being offered externally.</p>
-  <a href="mailto:stephanie@ikwe.ai?subject=AI%20Risk%20Audit%20Inquiry" class="btn btn-primary">Request an Audit →</a>
+  <a href="/inquiry" class="btn btn-primary">Request an AI Risk Audit →</a>
   <a href="#tiers" class="btn btn-outline">See Pricing ↓</a>
 </div>
 
@@ -408,7 +438,7 @@ section.light .impl strong { color: var(--text-dark); }
           <li class="locked">Failure mode map (locked)</li>
           <li class="locked">Remediation framework (locked)</li>
         </ul>
-        <a href="mailto:stephanie@ikwe.ai?subject=Preview%20Pack%20Request" class="tier-cta secondary">Get Preview Pack →</a>
+        <a href="/preview" class="tier-cta secondary">Get Preview Pack →</a>
       </div>
 
       <div class="tier featured">
@@ -424,7 +454,7 @@ section.light .impl strong { color: var(--text-dark); }
           <li>✅ Reusable templates</li>
           <li class="locked">YOUR company audit (locked)</li>
         </ul>
-        <a href="mailto:stephanie@ikwe.ai?subject=Playbook%20Request" class="tier-cta primary">Get Playbook →</a>
+        <a href="/playbook" class="tier-cta primary">Get Playbook →</a>
       </div>
 
       <div class="tier">
@@ -440,14 +470,14 @@ section.light .impl strong { color: var(--text-dark); }
           <li>✅ Audit trail</li>
           <li>✅ Walkthrough session</li>
         </ul>
-        <a href="mailto:stephanie@ikwe.ai?subject=Full%20Audit%20Inquiry" class="tier-cta secondary">Request Audit →</a>
+        <a href="/inquiry" class="tier-cta secondary">Request Audit →</a>
       </div>
     </div>
 
     <div class="impl">
       <p><strong>Need embedded governance, ongoing re-audits, or multi-system coverage?</strong><br>
       Implementation packages start at $50,000. We stay on top of it so you don't have to.<br>
-      <a href="mailto:stephanie@ikwe.ai?subject=Implementation%20Inquiry">Contact us about implementation →</a></p>
+      <a href="/inquiry">Contact us about implementation →</a></p>
     </div>
   </div>
 </section>
@@ -483,8 +513,8 @@ section.light .impl strong { color: var(--text-dark); }
   <div class="wrap">
     <h2>Fast AI companies don't fail because they move quickly.</h2>
     <p>They fail because risk scales faster than control.</p>
-    <a href="mailto:stephanie@ikwe.ai?subject=AI%20Risk%20Audit%20Inquiry" class="btn btn-primary">Request an Audit →</a>
-    <a href="mailto:stephanie@ikwe.ai?subject=Preview%20Pack%20Request" class="btn btn-outline">Start with Preview ($250) →</a>
+    <a href="/inquiry" class="btn btn-primary">Request an AI Risk Audit →</a>
+    <a href="/preview" class="btn btn-outline">Start with Preview ($250) →</a>
     <p class="sectors">Healthcare · Policy & Government · LLM & Agents · Workplace & HR · Consumer & Platform</p>
     <p style="font-size:12px;color:var(--text-muted);margin-top:12px">Limited engagements per quarter.</p>
   </div>
