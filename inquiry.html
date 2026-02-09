@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact | Ikwe.ai</title>
-  <meta name="description" content="Get in touch with Ikwe.ai — research access, safety evaluations, partnerships, or press inquiries.">
+  <title>Request an AI Risk Audit | Ikwe.ai</title>
+  <meta name="description" content="Request a board-ready AI risk audit for your AI system.">
   <link rel="canonical" href="https://ikwe.ai/inquiry">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ikwe.ai/inquiry">
   <meta property="og:site_name" content="Ikwe.ai">
-  <meta property="og:title" content="Contact Ikwe.ai">
-  <meta property="og:description" content="Request a Risk & Harm Pattern Audit, explore partnerships, or get in touch about Ikwe's work.">
+  <meta property="og:title" content="Request an AI Risk Audit | Ikwe.ai">
+  <meta property="og:description" content="Request a board-ready AI risk audit for your AI system.">
   <meta property="og:image" content="https://ikwe.ai/og/ikwe-default.png">
-  <meta property="og:image:alt" content="Ikwe.ai - Contact">
+  <meta property="og:image:alt" content="Ikwe.ai - Request an AI Risk Audit">
   <meta name="twitter:site" content="@ikaborot">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact Ikwe.ai">
+  <meta name="twitter:title" content="Request an AI Risk Audit | Ikwe.ai">
   <meta name="twitter:image" content="https://ikwe.ai/og/ikwe-default.png">
   <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -192,7 +192,7 @@ a { color: inherit; text-decoration: none; }
         <a href="/proof" class="nav-link">Proof</a>
         <a href="/partner" class="nav-link">Partner</a>
         <a href="/support" class="nav-link highlight">Support</a>
-        <a href="/inquiry" class="nav-btn">Contact</a>
+        <a href="/inquiry" class="nav-btn">Request an AI Risk Audit</a>
       </div>
       <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -205,16 +205,17 @@ a { color: inherit; text-decoration: none; }
         <a href="/proof">Proof</a>
         <a href="/partner">Partner</a>
       <a href="/support">Support</a>
-      <a href="/inquiry">Contact</a>
+      <a href="/inquiry">Request an AI Risk Audit</a>
     </div>
   </div>
 </nav>
 
 <section class="hero">
   <div class="container">
-    <div class="kicker">Contact Ikwe.ai</div>
-    <h1>Inquiries reviewed intentionally</h1>
-    <p class="lead">This space is for research collaboration, partnership exploration, and serious inquiries related to behavioral emotional safety in AI systems.</p>
+    <div class="kicker">Request an AI Risk Audit</div>
+    <h1>Audit requests are reviewed intentionally</h1>
+    <p class="lead">Ikwe builds behavioral emotional safety infrastructure for AI — the EQ that allows IQ to scale without breaking trust.</p>
+    <p class="lead">Use this form to request an AI risk audit or related evaluation.</p>
     <p class="scope-note" style="font-size: .9rem; color: var(--text3); margin-top: 16px; max-width: 480px; margin-left: auto; margin-right: auto;">Ikwe.ai does not provide crisis support, therapy, or individual assistance.</p>
   </div>
 </section>
@@ -229,9 +230,9 @@ a { color: inherit; text-decoration: none; }
   
   <div class="inquiry-card" onclick="openModal('evaluate')">
     <div class="card-icon evaluate">🔍</div>
-    <h3>Safety Evaluation</h3>
-    <p>Get your AI system evaluated against the EQ Safety Benchmark. Confidential assessments available.</p>
-    <span class="card-cta">Start Evaluation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    <h3>AI Risk Audit</h3>
+    <p>Request a board-ready AI risk audit for conversational AI, agents, and decision systems.</p>
+    <span class="card-cta">Request an AI Risk Audit <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </div>
   
   <div class="inquiry-card" onclick="openModal('partner')">
@@ -313,46 +314,56 @@ a { color: inherit; text-decoration: none; }
     <button class="modal-close" onclick="closeModal('evaluate')">✕</button>
     <div class="modal-header">
       <div class="modal-icon" style="background: rgba(251,146,60,.15);">🔍</div>
-      <h2>Safety Evaluation</h2>
-      <p>Get your AI system evaluated against the EQ Safety Benchmark.</p>
+      <h2>AI Risk Audit</h2>
+      <p>Request a board-ready AI risk audit for your system.</p>
     </div>
     <div class="modal-body" id="form-container-evaluate">
-      <form id="form-evaluate" name="ikwe-evaluate" method="POST" data-netlify="true" onsubmit="submitForm(event, 'evaluate')">
-        <input type="hidden" name="form-name" value="ikwe-evaluate">
+      <form id="form-evaluate" name="ikwe-audit" method="POST" data-netlify="true" onsubmit="submitForm(event, 'evaluate')">
+        <input type="hidden" name="form-name" value="ikwe-audit">
         <div class="form-row">
           <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
           <div class="form-group"><label>Work Email</label><input type="email" name="email" required></div>
         </div>
         <div class="form-group"><label>Company</label><input type="text" name="company" required></div>
         <div class="form-group">
+          <label>Company Stage</label>
+          <select name="company_stage">
+            <option value="post-seed">Post-seed</option>
+            <option value="post-yc">Post-YC</option>
+            <option value="pre-series-b">Pre-Series B</option>
+            <option value="series-b-plus">Series B+</option>
+            <option value="enterprise">Enterprise</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label>System Type</label>
           <select name="system_type">
-            <option value="chatbot">Conversational AI / Chatbot</option>
-            <option value="assistant">Virtual Assistant</option>
-            <option value="support">Customer Support AI</option>
-            <option value="health">Health / Wellness AI</option>
-            <option value="education">Education AI</option>
+            <option value="conversational">Conversational AI</option>
+            <option value="agent">Agent</option>
+            <option value="decision">Decision System</option>
+            <option value="therapy">Therapy / Mental Health</option>
+            <option value="education">Education</option>
             <option value="other">Other</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Timeline</label>
-          <select name="timeline">
+          <label>Urgency</label>
+          <select name="urgency">
             <option value="urgent">Urgent (within 2 weeks)</option>
             <option value="soon">Soon (within 1 month)</option>
             <option value="planning">Planning phase (2-3 months)</option>
             <option value="exploring">Just exploring</option>
           </select>
         </div>
-        <div class="form-group"><label>Details <span style="color:var(--text3)">(optional)</span></label><textarea name="details" placeholder="Tell us about your system..."></textarea></div>
-        <div class="form-group"><label>What failure mode or safety question are you engaging with? <span style="color:var(--text3)">(optional)</span></label><textarea name="problem" placeholder="What specific behavioral safety concern prompted this inquiry?"></textarea></div>
-        <button type="submit" class="submit-btn">Submit Inquiry</button>
+        <div class="form-group"><label>Brief Description</label><textarea name="details" placeholder="What does your system do and who does it serve?" required></textarea></div>
+        <div class="form-group"><label>Primary Risk Concern <span style="color:var(--text3)">(optional)</span></label><textarea name="problem" placeholder="What prompted this audit request?"></textarea></div>
+        <button type="submit" class="submit-btn">Request an AI Risk Audit</button>
       </form>
     </div>
     <div class="success-state" id="success-evaluate">
       <div class="success-icon">✓</div>
       <h3>Request Received</h3>
-      <p>We'll be in touch within 24 hours to discuss your evaluation needs.</p>
+      <p>We'll be in touch within 24 hours to discuss your audit request.</p>
       <button class="success-btn" onclick="closeModal('evaluate')">Close</button>
     </div>
   </div>
@@ -446,7 +457,7 @@ a { color: inherit; text-decoration: none; }
     <div class="footer-grid">
       <div class="footer-col footer-brand">
         <div class="footer-logo"><img src="/ikwe_logo_dark.png" alt="ikwe.ai" width="40" height="40"><span>ikwe.ai</span></div>
-        <p class="footer-tagline">Behavioral emotional safety in AI.</p>
+        <p class="footer-tagline">Ikwe builds behavioral emotional safety infrastructure for AI — the EQ that allows IQ to scale without breaking trust.</p>
         <p class="footer-legal">© 2026 Visible Healing Inc.<br>Des Moines, Iowa</p>
       </div>
       <div class="footer-col">
