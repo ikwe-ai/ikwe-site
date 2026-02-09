@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proof | Ikwe.ai</title>
+  <meta name="description" content="Redacted self-audit summary and scorecard showing Ikwe's before/after risk reduction results.">
+  <link rel="canonical" href="https://ikwe.ai/proof">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ikwe.ai/proof">
+  <meta property="og:site_name" content="Ikwe.ai">
+  <meta property="og:title" content="Proof | Ikwe.ai">
+  <meta property="og:description" content="Redacted self-audit summary and scorecard showing Ikwe's before/after risk reduction results.">
+  <meta property="og:image" content="https://ikwe.ai/og/ikwe-default.png">
+
+  <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #09090b;
+  --bg2: #0f1014;
+  --bg3: #16181d;
+  --text: #eaeaf0;
+  --text2: rgba(234,234,240,.7);
+  --text3: rgba(234,234,240,.6);
+  --purple: #a78bfa;
+  --purple-dim: rgba(167,139,250,.12);
+  --teal: #2dd4bf;
+  --border: rgba(255,255,255,.06);
+  --border2: rgba(255,255,255,.1);
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'Space Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: rgba(9,9,11,.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-weight: 700; font-size: 1.05rem; }
+.brand img { width: 32px; height: 32px; border-radius: 50%; }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-link { padding: 10px 14px; border-radius: 8px; font-size: .9rem; font-weight: 500; color: var(--text2); transition: all .15s; }
+.nav-link:hover { background: rgba(255,255,255,.06); color: var(--text); }
+.nav-link.highlight { color: var(--purple); }
+.nav-btn { padding: 10px 20px; border-radius: 8px; font-size: .9rem; font-weight: 600; color: #000; background: var(--purple); margin-left: 8px; transition: all .15s; }
+.nav-btn:hover { background: #b89dfc; }
+.nav-dropdown { position: relative; }
+.dropdown-trigger { display: inline-flex; align-items: center; gap: 6px; padding: 10px 14px; border-radius: 8px; font-size: .9rem; font-weight: 500; color: var(--text2); background: none; border: none; cursor: pointer; }
+.dropdown-trigger:hover { background: rgba(255,255,255,.06); color: var(--text); }
+.dropdown-menu { position: absolute; top: 42px; left: 0; background: var(--bg2); border: 1px solid var(--border2); border-radius: 12px; padding: 8px; min-width: 260px; opacity: 0; pointer-events: none; transform: translateY(6px); transition: all .15s; box-shadow: 0 18px 50px rgba(0,0,0,.35); }
+.nav-dropdown:hover .dropdown-menu { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.dropdown-item { display: block; padding: 10px 12px; border-radius: 10px; }
+.dropdown-item:hover { background: rgba(255,255,255,.06); }
+.dropdown-title { display: block; font-weight: 600; color: var(--text); font-size: .9rem; }
+.dropdown-desc { display: block; color: var(--text3); font-size: .78rem; margin-top: 2px; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 10px; background: none; border: none; cursor: pointer; }
+.nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+.mobile-menu { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px 24px 24px; }
+.mobile-menu.open { display: block; }
+.mobile-section { margin-bottom: 12px; }
+.mobile-section-title { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--text3); margin-bottom: 8px; }
+.mobile-menu a { display: block; padding: 10px 0; font-size: .95rem; color: var(--text2); }
+.mobile-cta { color: var(--purple); font-weight: 600; }
+@media (max-width: 900px) { .nav-links { display: none; } .nav-toggle { display: flex; } }
+
+/* HERO */
+.hero { padding: 80px 0 48px; border-bottom: 1px solid var(--border); }
+.kicker { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--purple); margin-bottom: 12px; }
+.hero h1 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.6rem); margin-bottom: 12px; }
+.hero p { color: var(--text2); max-width: 640px; }
+
+.section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+.section h2 { font-family: var(--serif); font-size: 1.6rem; margin-bottom: 12px; }
+.section p { color: var(--text2); }
+
+.scorecard { background: #fff; border-radius: 16px; padding: 20px; border: 1px solid #e6e6ef; box-shadow: 0 16px 40px rgba(10,10,15,.12); }
+.scorecard img { width: 100%; height: auto; display: block; border-radius: 12px; }
+
+.table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 14px; }
+.table th, .table td { text-align: left; padding: 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.table th { color: var(--text3); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+.table td { color: var(--text2); }
+.table .good { color: #10b981; font-weight: 600; }
+.table .warn { color: #f59e0b; font-weight: 600; }
+
+.download { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; padding: 12px 18px; border: 1px solid var(--border2); border-radius: 10px; color: var(--text); background: rgba(255,255,255,.04); font-weight: 600; }
+.download:hover { background: rgba(255,255,255,.08); }
+
+.footer { padding: 48px 0 64px; font-size: .85rem; color: var(--text3); }
+.footer-links { margin-top: 10px; }
+.footer-links a { color: var(--text3); }
+.footer-links a:hover { color: var(--purple); }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai - Behavioral Emotional Safety in AI">ikwe.ai</a>
+      <div class="nav-links">
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger">Research <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown-menu">
+            <a href="/emotional-safety-gap" class="dropdown-item">
+              <span class="dropdown-title">The Emotional Safety Gap</span>
+              <span class="dropdown-desc">Interactive research findings</span>
+            </a>
+            <a href="/research" class="dropdown-item">
+              <span class="dropdown-title">Methodology</span>
+              <span class="dropdown-desc">Two-stage evaluation framework</span>
+            </a>
+            <a href="/full-report" class="dropdown-item">
+              <span class="dropdown-title">Full Report</span>
+              <span class="dropdown-desc">Complete research document</span>
+            </a>
+            <a href="/research-summary" class="dropdown-item">
+              <span class="dropdown-title">Research Summary</span>
+              <span class="dropdown-desc">Key findings overview</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="dropdown-trigger">About <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown-menu">
+            <a href="/about" class="dropdown-item">
+              <span class="dropdown-title">About Ikwe.ai</span>
+              <span class="dropdown-desc">Our mission and approach</span>
+            </a>
+            <a href="/founder" class="dropdown-item">
+              <span class="dropdown-title">Founder</span>
+              <span class="dropdown-desc">Stephanie Stranko</span>
+            </a>
+            <a href="/faq" class="dropdown-item">
+              <span class="dropdown-title">FAQ</span>
+              <span class="dropdown-desc">Common questions answered</span>
+            </a>
+            <a href="/blog" class="dropdown-item">
+              <span class="dropdown-title">Blog</span>
+              <span class="dropdown-desc">Research updates & insights</span>
+            </a>
+            <a href="/press" class="dropdown-item">
+              <span class="dropdown-title">Press Kit</span>
+              <span class="dropdown-desc">Media resources & citations</span>
+            </a>
+          </div>
+        </div>
+        <a href="/audit" class="nav-link">Audit</a>
+        <a href="/proof" class="nav-link">Proof</a>
+        <a href="/enterprise" class="nav-link">Partner</a>
+        <a href="/support" class="nav-link highlight">Support</a>
+        <a href="/inquiry" class="nav-btn">Contact</a>
+      </div>
+      <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu">
+      <div class="mobile-section">
+        <div class="mobile-section-title">Research</div>
+        <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+        <a href="/research">Methodology</a>
+        <a href="/full-report">Full Report</a>
+        <a href="/research-summary">Research Summary</a>
+      </div>
+      <div class="mobile-section">
+        <div class="mobile-section-title">About</div>
+        <a href="/about">About Ikwe.ai</a>
+        <a href="/founder">Founder</a>
+        <a href="/faq">FAQ</a>
+        <a href="/blog">Blog</a>
+        <a href="/press">Press Kit</a>
+      </div>
+      <div class="mobile-section">
+        <a href="/audit">Audit</a>
+        <a href="/proof">Proof</a>
+        <a href="/enterprise">Partner</a>
+        <a href="/support" class="highlight">Support the Research</a>
+        <a href="/inquiry" class="mobile-cta">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="container narrow">
+      <span class="kicker">Proof</span>
+      <h1>Redacted self-audit summary</h1>
+      <p>Board-ready evidence from Ikwe's internal audit across three production AI systems and 948 evaluated responses.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Key outcomes</h2>
+      <p>Before we audited anyone else's AI, we audited our own. The audit shows measurable risk reduction after structural changes.</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Baseline</th>
+            <th>After Ikwe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Emotional risk introduction</td>
+            <td class="warn">54.7%</td>
+            <td class="good">42–67% reduction</td>
+          </tr>
+          <tr>
+            <td>Repair after harm</td>
+            <td class="warn">43% showed no repair</td>
+            <td class="good">Improved repair coverage</td>
+          </tr>
+          <tr>
+            <td>Score variance</td>
+            <td class="warn">High variance</td>
+            <td class="good">Stabilized across systems</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Scorecard visual</h2>
+      <div class="scorecard">
+        <img src="/assets/ikwe-scorecard-visual.svg" alt="Before and after AI risk scorecard">
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Download the redacted audit</h2>
+      <p>Redacted summary including methodology, scorecard, and evidence highlights.</p>
+      <a class="download" href="/Ikwe_Redacted_Audit_FINAL.pdf" download>Download Redacted Self-Audit (PDF)</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Methodology note</h2>
+      <p>Ikwe evaluates interaction behavior under emotionally vulnerable conditions and scores outcomes across five core risk dimensions. Findings are de-identified and redacted to protect users and partners.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div>ikwe.ai</div>
+    <div style="margin-top:6px">Behavioral emotional safety infrastructure for AI.</div>
+    <div style="margin-top:6px">© 2026 Visible Healing Inc. · Des Moines, Iowa</div>
+    <div class="footer-links">
+      <a href="/audit">Audit</a> · <a href="/proof">Proof</a> · <a href="/about">About</a> · <a href="/research">Research</a> · <a href="/inquiry">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
