@@ -79,6 +79,13 @@ a{color:inherit;text-decoration:none}
 
 /* SCORECARD */
 .scorecard{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;overflow:hidden;margin:18px 0}
+.scorecard-img{padding:16px;overflow:hidden;}
+.scorecard-img img{width:min(100%,980px);height:auto;display:block;margin:0 auto;border-radius:12px;border:1px solid var(--border2);background:#fff;}
+.scorecard .scorecard-table,
+.scorecard .scorecard-row,
+.scorecard .scorecard-rows,
+.scorecard .scorecard-list,
+.scorecard .scorecard-embed{display:none !important;}
 .sc-header{background:var(--bg3);padding:12px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
 .sc-header .sc-brand{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--teal);font-weight:700}
 .sc-header .sc-title{font-size:13px;font-weight:600;color:var(--text)}
@@ -313,7 +320,9 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
     <span class="kicker coral">Risk Scorecard</span>
     <h2>Baseline → Post-Mitigation</h2>
     <div style="margin:16px 0 10px;">
-      <img src="/scorecard_image.png" alt="Risk posture scorecard" style="width:100%;max-width:980px;border-radius:12px;border:1px solid var(--border2);display:block;margin:0 auto;background:#fff;">
+      <div class="scorecard-img">
+        <img src="/scorecard_image.png" alt="Risk posture scorecard">
+      </div>
     </div>
 
     <div class="stats-bar">
