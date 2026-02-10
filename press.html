@@ -147,7 +147,24 @@ h2{font-size:clamp(1.2rem,2vw,1.4rem);margin:10px 0 18px}
 
 @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}.stat-strip{gap:32px}.comparison-row{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.btn{width:100%}.cta-btns{flex-direction:column}.footer-grid{flex-direction:column;gap:36px}}
-  </style>
+  
+/* ====== GLOBAL CONTAINMENT (SAFE) ====== */
+html { overflow-x: hidden; }
+body { overflow-x: hidden; }
+img, svg, video, canvas { max-width: 100%; height: auto; }
+* { box-sizing: border-box; }
+section { padding-left: 0; padding-right: 0; }
+.container, .container--narrow { width: 100%; max-width: 1060px; margin-left: auto; margin-right: auto; padding-left: 32px; padding-right: 32px; }
+.container--narrow { max-width: 680px; }
+@media (max-width: 900px) {
+  .container, .container--narrow { padding-left: 24px; padding-right: 24px; }
+}
+@media (max-width: 560px) {
+  .container, .container--narrow { padding-left: 18px; padding-right: 18px; }
+}
+/* ======================================= */
+
+</style>
   <script defer data-domain="ikwe.ai" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>

@@ -130,7 +130,24 @@ button[type="submit"]:hover{background:#c9a8f8;transform:translateY(-1px)}
 
 @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}}
 @media(max-width:640px){.two-col{grid-template-columns:1fr}.container{padding:40px 20px 60px}.form-section{padding:24px 20px}}
-  </style>
+  
+/* ====== GLOBAL CONTAINMENT (SAFE) ====== */
+html { overflow-x: hidden; }
+body { overflow-x: hidden; }
+img, svg, video, canvas { max-width: 100%; height: auto; }
+* { box-sizing: border-box; }
+section { padding-left: 0; padding-right: 0; }
+.container, .container--narrow { width: 100%; max-width: 1060px; margin-left: auto; margin-right: auto; padding-left: 32px; padding-right: 32px; }
+.container--narrow { max-width: 680px; }
+@media (max-width: 900px) {
+  .container, .container--narrow { padding-left: 24px; padding-right: 24px; }
+}
+@media (max-width: 560px) {
+  .container, .container--narrow { padding-left: 18px; padding-right: 18px; }
+}
+/* ======================================= */
+
+</style>
   <script defer data-domain="ikwe.ai" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>

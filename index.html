@@ -236,6 +236,23 @@ section+section{border-top:1px solid var(--border);}
 .fade-in{opacity:0;transform:translateY(12px);animation:fadeUp .7s cubic-bezier(.25,.46,.45,.94) forwards;}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
 .delay-1{animation-delay:.12s;} .delay-2{animation-delay:.24s;} .delay-3{animation-delay:.36s;}
+
+/* ====== GLOBAL CONTAINMENT (SAFE) ====== */
+html { overflow-x: hidden; }
+body { overflow-x: hidden; }
+img, svg, video, canvas { max-width: 100%; height: auto; }
+* { box-sizing: border-box; }
+section { padding-left: 0; padding-right: 0; }
+.container, .container--narrow { width: 100%; max-width: 1060px; margin-left: auto; margin-right: auto; padding-left: 32px; padding-right: 32px; }
+.container--narrow { max-width: 680px; }
+@media (max-width: 900px) {
+  .container, .container--narrow { padding-left: 24px; padding-right: 24px; }
+}
+@media (max-width: 560px) {
+  .container, .container--narrow { padding-left: 18px; padding-right: 18px; }
+}
+/* ======================================= */
+
 </style>
 </head>
 <body>
