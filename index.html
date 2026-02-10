@@ -204,6 +204,21 @@ section + section { border-top: 1px solid var(--border); }
 }
 
 .hero-cta svg { width: 16px; height: 16px; }
+.hero-cta.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,.14);
+}
+.hero-cta.secondary:hover {
+  box-shadow: none;
+  opacity: 1;
+  border-color: rgba(45,212,191,.35);
+}
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
 /* =====================
    2. THE PROBLEM (single paragraph — no list)
@@ -484,10 +499,13 @@ section + section { border-top: 1px solid var(--border); }
     <p class="hero-sub fade-in delay-2">
       AI is shaping decisions in healthcare, therapy, education, and crisis moments — often without emotional safeguards. Ikwe provides the governance infrastructure that detects risk before harm occurs.
     </p>
-    <a class="hero-cta fade-in delay-3" href="/research">
-      See the research
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-    </a>
+    <div class="hero-actions fade-in delay-3">
+      <a class="hero-cta" href="/research">
+        See the research
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <a class="hero-cta secondary" href="/downloads/#public-preview">View a Completed Audit (Redacted)</a>
+    </div>
   </div>
 </section>
 
