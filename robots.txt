@@ -9,6 +9,8 @@ Disallow: /eq_safety_dashboard.html
 Disallow: /emotional-safety-gap.html
 Disallow: /full-report.html
 Disallow: /research-summary.html
+Disallow: /archive/
+Disallow: /staging/
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1

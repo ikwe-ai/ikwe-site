@@ -1,1 +1,14 @@
 /partner   /enterprise   301
+/archive/* / 302
+/staging/* / 302
+
+/emotional-safety-gap  /research  301
+/full-report           /research  301
+/research-summary      /research  301
+/research-and-evidence /research  301
+/trust-and-governance  /research  301
+/explorer              /research  301
+/case-studies          /proof     301
+/blog                  /proof     301
+/founder               /about     301
+/report                /research  301
