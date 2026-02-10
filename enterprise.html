@@ -183,6 +183,22 @@ img, svg, video, iframe{max-width:100%;height:auto;}
   .hero{padding:90px 0 72px;}
 }
 
+
+/* NAV DROPDOWN */
+.nav-item{position:relative;display:flex;align-items:center;}
+.nav-item.has-dropdown>a::after{content:" ▾";font-size:.7rem;color:var(--text-3);margin-left:6px;}
+.nav-dropdown{
+  position:absolute;top:56px;left:0;min-width:260px;
+  background:var(--bg-card);border:1px solid var(--border-2);
+  border-radius:12px;padding:10px;display:none;flex-direction:column;gap:6px;
+  box-shadow:0 18px 40px rgba(0,0,0,.35);z-index:200;
+}
+.nav-dropdown a{display:flex;flex-direction:column;gap:4px;padding:10px 12px;border-radius:10px;color:var(--text-2);}
+.nav-dropdown a:hover{background:var(--bg-hover);color:var(--text);}
+.nav-dropdown small{font-size:11px;color:var(--text-3);letter-spacing:.01em;}
+.nav-item.has-dropdown:hover .nav-dropdown{display:flex;}
+@media(max-width:860px){.nav-dropdown{position:static;display:none;box-shadow:none;border:none;padding:0;margin-top:8px;}}
+
 </style>
 </head>
 <body>
@@ -192,12 +208,32 @@ img, svg, video, iframe{max-width:100%;height:auto;}
     <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
 
     <div class="nav-links">
-      <a href="/research">Research</a>
-      <a href="/preview">System Blueprint</a>
-      <a href="/playbook">DIY Playbook</a>
-      <a href="/audit">Pricing</a>
-      <a href="/enterprise">Managed Audit</a>
-      <a href="/about">About</a>
+      <div class="nav-item has-dropdown">
+        <a href="/research">Research</a>
+        <div class="nav-dropdown">
+          <a href="/research"><span>Research Overview</span><small>Methodology + findings</small></a>
+          <a href="/ikwe_research_summary_branded.pdf"><span>Research Summary (PDF)</span><small>Study 1 + 2</small></a>
+          <a href="/ikwe_full_research_report_branded.pdf"><span>Full Research Report (PDF)</span><small>Complete academic report</small></a>
+        </div>
+      </div>
+      <div class="nav-item has-dropdown">
+        <a href="/audit">Pricing</a>
+        <div class="nav-dropdown">
+          <a href="/preview"><span>System Blueprint</span><small>$2,500 · Builder pack</small></a>
+          <a href="/playbook"><span>DIY Playbook</span><small>$5,000 · Implement it yourself</small></a>
+          <a href="/enterprise"><span>Managed Audit</span><small>$25,000+ · Done for you</small></a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="/proof">Proof</a>
+      </div>
+      <div class="nav-item has-dropdown">
+        <a href="/about">About</a>
+        <div class="nav-dropdown">
+          <a href="/about"><span>About Ikwe</span><small>Mission + positioning</small></a>
+          <a href="/inquiry"><span>Inquiry</span><small>Managed audit intake</small></a>
+        </div>
+      </div>
       <a class="nav-cta" href="/inquiry">Request an Audit</a>
     </div>
   </div>
