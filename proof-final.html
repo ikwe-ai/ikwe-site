@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proof — Ikwe.ai</title>
+<meta name="description" content="Applied to production systems before being offered externally. Redacted audit artifacts from real AI risk evaluations." />
+<meta property="og:title" content="Proof — Ikwe.ai" />
+<meta property="og:description" content="See redacted artifacts from real AI risk evaluations." />
+<meta property="og:image" content="https://ikwe.ai/ikwe-og.png" />
+<link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#141218;--bg-2:#1a171f;--bg-3:#211e26;
+  --bg-card:#1e1b23;--bg-hover:#282530;
+  --text:#E8E4DF;--text-2:rgba(232,228,223,.62);--text-3:rgba(232,228,223,.38);
+  --border:rgba(232,228,223,.06);--border-2:rgba(232,228,223,.10);--border-3:rgba(232,228,223,.16);
+  --rose:#C4A69A;--rose-muted:rgba(196,166,154,.15);
+  --coral:#FB923C;--lilac:#A78BFA;--navy:#6B7394;--gold:#FBBF24;--teal:#2DD4BF;
+  --high-bg:rgba(251,146,60,.10);--high-text:#F0985A;
+  --mod-bg:rgba(251,191,36,.10);--mod-text:#E5B84A;
+  --low-bg:rgba(45,212,191,.10);--low-text:#5BC4B2;
+  --serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'Space Mono',monospace;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.68;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:1060px;margin:0 auto;padding:0 32px;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(20,18,24,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:1.05rem;letter-spacing:-.01em;}
+.brand img{width:32px;height:32px;border-radius:50%;}
+.nav-links{display:flex;align-items:center;gap:36px;}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--text-2);transition:color .2s;letter-spacing:.01em;}
+.nav-links a:hover{color:var(--text);}
+.nav-links a.active{color:var(--rose);}
+.nav-cta{padding:10px 22px;border-radius:8px;font-size:.84rem;font-weight:600;background:var(--text);color:var(--bg);transition:opacity .2s;letter-spacing:.01em;}
+.nav-cta:hover{opacity:.88;}
+@media(max-width:860px){.nav-links{display:none;}}
+
+/* SHARED */
+.kicker{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);margin-bottom:16px;}
+section{padding:96px 0;}
+section+section{border-top:1px solid var(--border);}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:10px;font-weight:600;font-size:.92rem;background:var(--text);color:var(--bg);border:none;cursor:pointer;transition:opacity .2s,transform .15s;letter-spacing:.01em;}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;font-weight:600;font-size:.88rem;border:1px solid var(--border-2);background:transparent;color:var(--text-2);cursor:pointer;transition:border-color .2s,color .2s;}
+.btn-ghost:hover{border-color:var(--border-3);color:var(--text);}
+
+/* HERO */
+.hero{padding:110px 0 96px;border-bottom:1px solid var(--border);position:relative;}
+.hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:1000px;height:500px;background:radial-gradient(ellipse at center,rgba(196,166,154,.05) 0%,rgba(168,139,250,.03) 30%,transparent 65%);pointer-events:none;}
+.hero-content{position:relative;}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,4.2vw,3.2rem);line-height:1.14;letter-spacing:-.02em;max-width:20ch;margin-bottom:20px;}
+.hero-sub{font-size:1.05rem;color:var(--text-2);max-width:52ch;line-height:1.75;}
+
+/* REDUCTION TABLE */
+.reduction-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:1px;
+  background:var(--border-2);border-radius:18px;overflow:hidden;margin-top:36px;
+}
+.reduction-cell{background:var(--bg-card);padding:32px 20px;text-align:center;transition:background .2s;}
+.reduction-cell:hover{background:var(--bg-hover);}
+.reduction-dim{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px;}
+.reduction-val{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--low-text);line-height:1;margin-bottom:6px;}
+.reduction-name{font-size:.82rem;color:var(--text-2);line-height:1.4;}
+@media(max-width:768px){.reduction-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:480px){.reduction-grid{grid-template-columns:1fr 1fr;}}
+
+/* POSTURE SHIFT */
+.posture-card{
+  background:var(--bg-card);border:1px solid var(--border-2);border-radius:18px;
+  padding:40px 44px;margin-top:24px;display:flex;align-items:center;justify-content:space-between;
+  position:relative;overflow:hidden;
+}
+.posture-card::before{
+  content:'';position:absolute;top:0;right:0;width:300px;height:200px;
+  background:radial-gradient(ellipse at top right,rgba(45,212,191,.04) 0%,transparent 60%);
+  pointer-events:none;
+}
+.posture-label{font-size:.95rem;color:var(--text-2);}
+.posture-label strong{color:var(--text);}
+.posture-badges{display:flex;align-items:center;gap:10px;}
+.badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;}
+.badge.high{background:var(--high-bg);color:var(--high-text);}
+.badge.mod{background:var(--mod-bg);color:var(--mod-text);}
+.posture-arrow{color:var(--low-text);font-size:1.1rem;}
+@media(max-width:560px){.posture-card{flex-direction:column;gap:16px;text-align:center;}}
+
+/* WHAT WAS TESTED */
+.tested-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--border-2);border-radius:18px;overflow:hidden;margin-top:36px;
+}
+.tested-card{background:var(--bg-card);padding:36px 28px;transition:background .2s;}
+.tested-card:hover{background:var(--bg-hover);}
+.tested-num{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--rose);margin-bottom:10px;letter-spacing:.08em;}
+.tested-card h3{font-family:var(--serif);font-size:1.02rem;font-weight:600;margin-bottom:8px;line-height:1.3;letter-spacing:-.01em;}
+.tested-card p{font-size:.86rem;color:var(--text-2);line-height:1.65;}
+@media(max-width:768px){.tested-grid{grid-template-columns:1fr;}}
+
+/* ARTIFACT GRID */
+.artifact-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--border-2);border-radius:18px;overflow:hidden;margin-top:36px;
+}
+.artifact{background:var(--bg-card);padding:40px 28px;text-align:center;transition:background .2s;}
+.artifact:hover{background:var(--bg-hover);}
+.artifact-icon{font-size:2rem;margin-bottom:16px;opacity:.6;}
+.artifact-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--rose);margin-bottom:12px;}
+.artifact h3{font-family:var(--serif);font-size:1rem;font-weight:600;margin-bottom:8px;line-height:1.3;}
+.artifact p{font-size:.84rem;color:var(--text-2);line-height:1.6;margin-bottom:20px;}
+.artifact-link{font-size:.82rem;font-weight:600;color:var(--rose);border-bottom:1px solid rgba(196,166,154,.3);padding-bottom:1px;transition:border-color .2s;}
+.artifact-link:hover{border-color:var(--rose);}
+@media(max-width:768px){.artifact-grid{grid-template-columns:1fr;}}
+
+/* CLOSE */
+.close-section{text-align:center;padding:80px 0 100px;}
+.close-section h2{font-family:var(--serif);font-size:clamp(1.4rem,2.8vw,2rem);font-weight:600;margin-bottom:12px;line-height:1.25;letter-spacing:-.01em;}
+.close-section p{color:var(--text-2);max-width:36ch;margin:0 auto 28px;font-size:.95rem;}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--border);padding:56px 0 48px;background:var(--bg-2);}
+.footer-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:32px;}
+.footer-brand{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:600;font-size:.95rem;margin-bottom:10px;}
+.footer-brand img{width:24px;height:24px;border-radius:50%;}
+.footer-tagline{font-size:.84rem;color:var(--text-3);max-width:28ch;line-height:1.6;}
+.footer-copy{font-size:.78rem;color:var(--text-3);margin-top:16px;}
+.footer-col-title{font-weight:700;font-size:.8rem;margin-bottom:12px;color:var(--text-2);letter-spacing:.02em;}
+.footer-col a{display:block;font-size:.84rem;color:var(--text-3);padding:3px 0;transition:color .2s;}
+.footer-col a:hover{color:var(--text);}
+.footer-cite{grid-column:1/-1;padding-top:24px;border-top:1px solid var(--border);font-size:.76rem;color:var(--text-3);font-style:italic;}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+
+.fade-in{opacity:0;transform:translateY(12px);animation:fadeUp .7s cubic-bezier(.25,.46,.45,.94) forwards;}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+.delay-1{animation-delay:.12s;}.delay-2{animation-delay:.24s;}.delay-3{animation-delay:.36s;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+    <div class="nav-links">
+      <a href="/research">Research</a>
+      <a href="/audit">Audit</a>
+      <a href="/proof" class="active">Proof</a>
+      <a href="/about">About</a>
+      <a class="nav-cta" href="/inquiry">Request an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ======== HERO ======== -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="kicker fade-in">Proof</div>
+    <h1 class="fade-in delay-1">Applied to real systems.<br>Not theoretical.</h1>
+    <p class="hero-sub fade-in delay-2">Developed internally before being offered externally. These are redacted artifacts from evaluating our own production AI systems.</p>
+  </div>
+</section>
+
+<!-- ======== WHAT WAS TESTED ======== -->
+<section>
+  <div class="container">
+    <div class="kicker">What Was Tested</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.35rem,2.6vw,1.8rem);font-weight:600;max-width:30ch;line-height:1.28;letter-spacing:-.01em;">Three production AI systems evaluated across 79 scenarios.</h2>
+
+    <div class="tested-grid">
+      <div class="tested-card">
+        <div class="tested-num">System A</div>
+        <h3>Relationship Communication Tool</h3>
+        <p>A conversational AI for navigating relationship dynamics. High exposure to emotional escalation and dependency patterns.</p>
+      </div>
+      <div class="tested-card">
+        <div class="tested-num">System B</div>
+        <h3>Emotional Support Prototype</h3>
+        <p>A therapy-adjacent support system. Authority drift and crisis escalation risks elevated by the system's positioning.</p>
+      </div>
+      <div class="tested-card">
+        <div class="tested-num">System C</div>
+        <h3>Personal Knowledge Assistant</h3>
+        <p>An AI copilot for personal knowledge management. Scale amplification and governance failure risks at deployment scope.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== RISK REDUCTION ======== -->
+<section>
+  <div class="container">
+    <div class="kicker">Risk Reduction</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.35rem,2.6vw,1.8rem);font-weight:600;max-width:30ch;line-height:1.28;letter-spacing:-.01em;">Before and after governance controls.</h2>
+    <p style="font-size:.92rem;color:var(--text-3);margin-top:8px;">Baseline reflects unaudited systems. Post-mitigation reflects governance applied.</p>
+
+    <div class="reduction-grid">
+      <div class="reduction-cell">
+        <div class="reduction-dim">Escalation</div>
+        <div class="reduction-val">↓50%</div>
+        <div class="reduction-name">Emotional<br>Escalation</div>
+      </div>
+      <div class="reduction-cell">
+        <div class="reduction-dim">Dependency</div>
+        <div class="reduction-val">↓58%</div>
+        <div class="reduction-name">Dependency<br>Formation</div>
+      </div>
+      <div class="reduction-cell">
+        <div class="reduction-dim">Authority</div>
+        <div class="reduction-val">↓50%</div>
+        <div class="reduction-name">Authority<br>Drift</div>
+      </div>
+      <div class="reduction-cell">
+        <div class="reduction-dim">Scale</div>
+        <div class="reduction-val">↓42%</div>
+        <div class="reduction-name">Scale<br>Amplification</div>
+      </div>
+      <div class="reduction-cell">
+        <div class="reduction-dim">Governance</div>
+        <div class="reduction-val">↓67%</div>
+        <div class="reduction-name">Governance<br>Failure</div>
+      </div>
+    </div>
+
+    <div class="posture-card">
+      <div class="posture-label">Overall risk posture shifted from <strong>High</strong> to <strong>Moderate</strong></div>
+      <div class="posture-badges">
+        <span class="badge high">High</span>
+        <span class="posture-arrow">→</span>
+        <span class="badge mod">Moderate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== ARTIFACTS ======== -->
+<section>
+  <div class="container">
+    <div class="kicker">Audit Artifacts</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.65rem);font-weight:600;line-height:1.3;letter-spacing:-.01em;">Redacted samples from the evaluation.</h2>
+
+    <div class="artifact-grid">
+      <div class="artifact">
+        <div class="artifact-label">Scorecard</div>
+        <h3>Risk Posture Scorecard</h3>
+        <p>Quantified risk across five behavioral dimensions with baseline and post-mitigation scores.</p>
+        <a class="artifact-link" href="/downloads/ikwe_scorecard_sample.pdf">View sample →</a>
+      </div>
+      <div class="artifact">
+        <div class="artifact-label">Report</div>
+        <h3>Board-Ready Report</h3>
+        <p>Structured findings suitable for investors, regulators, and compliance review.</p>
+        <a class="artifact-link" href="/downloads/ikwe_report_sample.pdf">View sample →</a>
+      </div>
+      <div class="artifact">
+        <div class="artifact-label">Action Plan</div>
+        <h3>Mitigation Action Plan</h3>
+        <p>Prioritized recommendations tied to actual system behavior. Now, next, later.</p>
+        <a class="artifact-link" href="/downloads/ikwe_action_plan_sample.pdf">View sample →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CTA ======== -->
+<section class="close-section">
+  <div class="container">
+    <h2>See what this looks like<br>for your system.</h2>
+    <p>Four weeks. Full documentation. No ambiguity.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a class="btn-primary" href="/inquiry">Request an AI Risk Audit</a>
+      <a class="btn-ghost" href="/downloads/ikwe_public_preview.pdf">Download the preview</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</div>
+        <p class="footer-tagline">Behavioral emotional safety infrastructure for AI.</p>
+        <p class="footer-copy">© 2026 Visible Healing Inc.<br>Des Moines, Iowa</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Research</div>
+        
+        <a href="/research">Methodology</a>
+        <a href="/downloads/ikwe_full_research_report.pdf">Full Report</a>
+        <a href="/proof">Case Studies</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="/about">About</a>
+        <a href="/about">About</a>
+        <a href="/audit">Audit</a>
+        <a href="/proof">Proof</a>
+        <a href="/press">Press Kit</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Connect</div>
+        <a href="/inquiry">Request an Audit</a>
+        <a href="/enterprise">Enterprise</a>
+        <a href="/cdn-cgi/l/email-protection#f2818697829a939c9b97b29b998597dc939b"><span class="__cf_email__" data-cfemail="710205140119101f181431181a06145f1018">[email&#160;protected]</span></a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+      <div class="footer-cite">
+        Ikwe.ai (2026). <em>Behavioral Emotional Safety in Conversational AI: A Scenario-Based Evaluation.</em> Visible Healin

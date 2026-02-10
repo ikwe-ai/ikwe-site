@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Downloads — Ikwe.ai</title>
+<meta name="description" content="Access Ikwe sample audit outputs. Enter the access code to download." />
+<meta property="og:title" content="Ikwe Downloads" />
+<meta property="og:description" content="Access Ikwe sample audit outputs." />
+<meta property="og:image" content="https://ikwe.ai/ikwe-og.png" />
+<link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#141218;--bg-2:#1a171f;--bg-3:#211e26;
+  --bg-card:#1e1b23;--bg-hover:#282530;
+  --text:#E8E4DF;--text-2:rgba(232,228,223,.62);--text-3:rgba(232,228,223,.38);
+  --border:rgba(232,228,223,.06);--border-2:rgba(232,228,223,.10);--border-3:rgba(232,228,223,.16);
+  --rose:#C4A69A;--rose-muted:rgba(196,166,154,.15);
+  --serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'Space Mono',monospace;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.68;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:1060px;margin:0 auto;padding:0 32px;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(20,18,24,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:1.05rem;letter-spacing:-.01em;}
+.brand img{width:32px;height:32px;border-radius:50%;}
+.nav-links{display:flex;align-items:center;gap:36px;}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--text-2);transition:color .2s;letter-spacing:.01em;}
+.nav-links a:hover{color:var(--text);}
+.nav-links a.active{color:var(--rose);}
+.nav-cta{padding:10px 22px;border-radius:8px;font-size:.84rem;font-weight:600;background:var(--text);color:var(--bg);transition:opacity .2s;letter-spacing:.01em;}
+.nav-cta:hover{opacity:.88;}
+@media(max-width:860px){.nav-links{display:none;}}
+
+/* SHARED */
+.kicker{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);margin-bottom:16px;}
+section{padding:96px 0;}
+section+section{border-top:1px solid var(--border);}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:10px;font-weight:600;font-size:.92rem;background:var(--text);color:var(--bg);border:none;cursor:pointer;transition:opacity .2s,transform .15s;letter-spacing:.01em;}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;font-weight:600;font-size:.88rem;border:1px solid var(--border-2);background:transparent;color:var(--text-2);cursor:pointer;transition:border-color .2s,color .2s;}
+.btn-ghost:hover{border-color:var(--border-3);color:var(--text);}
+
+/* HERO */
+.hero{padding:110px 0 96px;border-bottom:1px solid var(--border);position:relative;}
+.hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:1000px;height:500px;background:radial-gradient(ellipse at center,rgba(196,166,154,.05) 0%,rgba(168,139,250,.03) 30%,transparent 65%);pointer-events:none;}
+.hero-content{position:relative;}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,4.2vw,3.2rem);line-height:1.14;letter-spacing:-.02em;max-width:20ch;margin-bottom:20px;}
+.hero-sub{font-size:1.05rem;color:var(--text-2);max-width:52ch;line-height:1.75;}
+
+/* FORM */
+.form-card{
+  background:var(--bg-card);border:1px solid var(--border-2);border-radius:18px;
+  padding:40px 36px;max-width:580px;position:relative;overflow:hidden;
+}
+.form-card::before{
+  content:'';position:absolute;top:0;right:0;width:200px;height:200px;
+  background:radial-gradient(ellipse at top right,rgba(196,166,154,.05) 0%,transparent 60%);
+  pointer-events:none;
+}
+.form-card h2{font-family:var(--serif);font-size:1.25rem;font-weight:600;margin-bottom:6px;letter-spacing:-.01em;}
+.form-card p{font-size:.88rem;color:var(--text-3);margin-bottom:20px;}
+.label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin:12px 0 6px;display:block;}
+.input{
+  width:100%;background:var(--bg-3);border:1px solid var(--border-2);
+  color:var(--text);padding:12px 14px;border-radius:10px;font-size:.9rem;
+  font-family:var(--sans);transition:border-color .2s;
+}
+.input:focus{outline:none;border-color:var(--rose);}
+.input::placeholder{color:var(--text-3);}
+.form-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+.hidden{display:none;}
+.error{color:#F0985A;font-size:.84rem;margin-top:10px;}
+.success{color:#5BC4B2;font-size:.84rem;margin-top:10px;}
+
+/* DOWNLOAD GRID */
+.download-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--border-2);border-radius:18px;overflow:hidden;margin-top:28px;
+}
+.download-card{background:var(--bg-card);padding:32px 24px;transition:background .2s;}
+.download-card:hover{background:var(--bg-hover);}
+.download-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--rose);margin-bottom:10px;}
+.download-card h3{font-family:var(--serif);font-size:1rem;font-weight:600;margin-bottom:8px;line-height:1.3;}
+.download-card p{font-size:.84rem;color:var(--text-2);line-height:1.6;margin-bottom:18px;}
+.download-link{font-size:.82rem;font-weight:600;color:var(--rose);border-bottom:1px solid rgba(196,166,154,.3);padding-bottom:1px;transition:border-color .2s;}
+.download-link:hover{border-color:var(--rose);}
+@media(max-width:768px){.download-grid{grid-template-columns:1fr;}}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--border);padding:56px 0 48px;background:var(--bg-2);}
+.footer-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:32px;}
+.footer-brand{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:600;font-size:.95rem;margin-bottom:10px;}
+.footer-brand img{width:24px;height:24px;border-radius:50%;}
+.footer-tagline{font-size:.84rem;color:var(--text-3);max-width:28ch;line-height:1.6;}
+.footer-copy{font-size:.78rem;color:var(--text-3);margin-top:16px;}
+.footer-col-title{font-weight:700;font-size:.8rem;margin-bottom:12px;color:var(--text-2);letter-spacing:.02em;}
+.footer-col a{display:block;font-size:.84rem;color:var(--text-3);padding:3px 0;transition:color .2s;}
+.footer-col a:hover{color:var(--text);}
+.footer-cite{grid-column:1/-1;padding-top:24px;border-top:1px solid var(--border);font-size:.76rem;color:var(--text-3);font-style:italic;}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+
+.fade-in{opacity:0;transform:translateY(12px);animation:fadeUp .7s cubic-bezier(.25,.46,.45,.94) forwards;}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+.delay-1{animation-delay:.12s;}.delay-2{animation-delay:.24s;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+    <div class="nav-links">
+      <a href="/research">Research</a>
+      <a href="/audit">Audit</a>
+      <a href="/proof">Proof</a>
+      <a href="/about">About</a>
+      <a class="nav-cta" href="/inquiry">Request an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="kicker fade-in">Downloads</div>
+    <h1 class="fade-in delay-1">Access the sample audit outputs.</h1>
+    <p class="hero-sub fade-in delay-2">Enter the access code to download the Public Preview, Board Brief, and Full Sample Audit Report. These are redacted examples — the real audit is tailored to your systems.</p>
+  </div>
+</section>
+
+<!-- FORM + DOWNLOADS -->
+<section>
+  <div class="container">
+    <div class="form-card">
+      <h2>Enter access code</h2>
+      <p>We refresh this code regularly to keep the latest versions in circulation.</p>
+      <form name="downloads-access" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return handleUnlock(event)">
+        <input type="hidden" name="form-name" value="downloads-access" />
+        <input type="hidden" name="subject" value="Ikwe Downloads Access" />
+        <p class="hidden"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
+        <label class="label" for="email">Email</label>
+        <input id="email" name="email" type="email" class="input" placeholder="you@company.com" required>
+        <label class="label" for="access">Access code</label>
+        <input id="access" name="access" type="password" class="input" placeholder="Access code" required>
+        <div class="form-actions">
+          <button class="btn-primary" type="submit">Unlock Downloads</button>
+          <a class="btn-ghost" href="/inquiry">Request an AI Risk Audit</a>
+        </div>
+        <div id="unlock-error" class="error hidden">Incorrect code. Please try again.</div>
+        <div id="unlock-success" class="success hidden">Access granted. Downloads are now visible below.</div>
+      </form>
+    </div>
+
+    <div id="downloads" class="download-grid hidden">
+      <div class="download-card" id="public-preview">
+        <div class="download-label">Preview</div>
+        <h3>Public Preview</h3>
+        <p>Findings summary, scorecard, and before/after table. Public, redacted.</p>
+        <a class="download-link" href="/downloads/ikwe_public_preview.pdf" download>Download PDF →</a>
+      </div>
+      <div class="download-card" id="board-brief">
+        <div class="download-label">Board Brief</div>
+        <h3>Board Brief</h3>
+        <p>Condensed audit summary for executives and decision-makers.</p>
+        <a class="download-link" href="/downloads/ikwe_board_brief.pdf" download>Download PDF →</a>
+      </div>
+      <div class="download-card" id="audit-report">
+        <div class="download-label">Full Sample</div>
+        <h3>Full Sample Audit Report</h3>
+        <p>Complete redacted audit sample — methodology, scorecard, and fixes.</p>
+        <a class="download-link" href="/downloads/ikwe_audit_report.pdf" download>Download PDF →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</div>
+        <p class="footer-tagline">Behavioral emotional safety infrastructure for AI.</p>
+        <p class="footer-copy">© 2026 Visible Healing Inc.<br>Des Moines, Iowa</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Research</div>
+        
+        <a href="/research">Methodology</a>
+        <a href="/downloads/ikwe_full_research_report.pdf">Full Report</a>
+        <a href="/proof">Case Studies</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="/about">About</a>
+        <a href="/about">About</a>
+        <a href="/audit">Audit</a>
+        <a href="/proof">Proof</a>
+        <a href="/press">Press Kit</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Connect</div>
+        <a href="/inquiry">Request an Audit</a>
+        <a href="/enterprise">Enterprise</a>
+        <a href="/cdn-cgi/l/email-protection#cbb8bfaebba3aaa5a2ae8ba2a0bcaee5aaa2"><span class="__cf_email__" data-cfemail="93e0e7f6e3fbf2fdfaf6d3faf8e4f6bdf2fa">[email&#160;protected]</span></a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+      <div class="footer-cite">
+        Ikwe.ai (2026). <em>Behavioral Emotional Safety in Conversational AI: A Scenario-Based Evaluation.</em> Visible Healing Inc. <a href="https://ikwe.ai" style="color:var(--rose)">ikwe.ai</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const ACCESS_CODE = 'IKWE-ACCESS';
+async function handleUnlock(event) {
+  event.preventDefault();
+  const form = event.target;
+  const input = document.getElementById('access');
+  const error = document.getElementById('unlock-error');
+  const success = document.getElementById('unlock-success');
+  const downloads = document.getElementById('downloads');
+  const code = input.value.trim();
+  if (code !== ACCESS_CODE) {
+    error.classList.remove('hidden');
+    success.classList.add('hidden');
+    return false;
+  }
+  try {
+    const data = new FormData(form);
+    await fetch('/', { method: 'POST', body: data });
+  } catch (e) {}
+  downloads.classList.remove('hidden');
+  error.classList.add('hidden');
+  success

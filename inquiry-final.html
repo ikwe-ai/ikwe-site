@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request an Audit — Ikwe.ai</title>
+<meta name="description" content="Request a behavioral emotional safety audit for your AI systems. Board-ready report, risk scorecard, and governance plan in 2–4 weeks.">
+<link rel="canonical" href="https://ikwe.ai/inquiry">
+<meta property="og:title" content="Request an Audit — Ikwe.ai" />
+<meta property="og:description" content="Board-ready AI risk audits for companies scaling conversational AI." />
+<meta property="og:image" content="https://ikwe.ai/ikwe-og.png" />
+<link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#141218;--bg-2:#1a171f;--bg-3:#211e26;
+  --bg-card:#1e1b23;--bg-hover:#282530;
+  --text:#E8E4DF;--text-2:rgba(232,228,223,.62);--text-3:rgba(232,228,223,.38);
+  --border:rgba(232,228,223,.06);--border-2:rgba(232,228,223,.10);--border-3:rgba(232,228,223,.16);
+  --rose:#C4A69A;--rose-muted:rgba(196,166,154,.15);
+  --serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'Space Mono',monospace;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.68;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:1060px;margin:0 auto;padding:0 32px;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(20,18,24,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:1.05rem;letter-spacing:-.01em;}
+.brand img{width:32px;height:32px;border-radius:50%;}
+.nav-links{display:flex;align-items:center;gap:36px;}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--text-2);transition:color .2s;letter-spacing:.01em;}
+.nav-links a:hover{color:var(--text);}
+.nav-links a.active{color:var(--rose);}
+.nav-cta{padding:10px 22px;border-radius:8px;font-size:.84rem;font-weight:600;background:var(--text);color:var(--bg);transition:opacity .2s;letter-spacing:.01em;}
+.nav-cta:hover{opacity:.88;}
+@media(max-width:860px){.nav-links{display:none;}}
+
+/* SHARED */
+.kicker{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);margin-bottom:16px;}
+section{padding:96px 0;}
+section+section{border-top:1px solid var(--border);}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:10px;font-weight:600;font-size:.92rem;background:var(--text);color:var(--bg);border:none;cursor:pointer;transition:opacity .2s,transform .15s;letter-spacing:.01em;}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;font-weight:600;font-size:.88rem;border:1px solid var(--border-2);background:transparent;color:var(--text-2);cursor:pointer;transition:border-color .2s,color .2s;}
+.btn-ghost:hover{border-color:var(--border-3);color:var(--text);}
+
+/* HERO */
+.hero{padding:110px 0 96px;border-bottom:1px solid var(--border);position:relative;}
+.hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:1000px;height:500px;background:radial-gradient(ellipse at center,rgba(196,166,154,.05) 0%,rgba(168,139,250,.03) 30%,transparent 65%);pointer-events:none;}
+.hero-content{position:relative;}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,4.2vw,3.2rem);line-height:1.14;letter-spacing:-.02em;max-width:20ch;margin-bottom:20px;}
+.hero-sub{font-size:1.05rem;color:var(--text-2);max-width:52ch;line-height:1.75;}
+
+/* INQUIRY LAYOUT */
+.inquiry-layout{
+  display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start;
+}
+@media(max-width:900px){.inquiry-layout{grid-template-columns:1fr;gap:32px;}}
+
+/* FORM CARD */
+.form-card{
+  background:var(--bg-card);border:1px solid var(--border-2);border-radius:18px;
+  padding:40px 36px;position:relative;overflow:hidden;
+}
+.form-card::before{
+  content:'';position:absolute;top:0;right:0;width:300px;height:300px;
+  background:radial-gradient(ellipse at top right,rgba(196,166,154,.05) 0%,transparent 60%);
+  pointer-events:none;
+}
+.form-card h2{font-family:var(--serif);font-size:1.25rem;font-weight:600;margin-bottom:6px;letter-spacing:-.01em;position:relative;}
+.form-intro{font-size:.88rem;color:var(--text-3);margin-bottom:24px;line-height:1.65;position:relative;}
+.form-intro a{color:var(--rose);border-bottom:1px solid rgba(196,166,154,.3);}
+.form-intro a:hover{border-color:var(--rose);}
+
+/* FORM ELEMENTS */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:0;}
+@media(max-width:560px){.form-row{grid-template-columns:1fr;}}
+.form-group{margin-bottom:16px;}
+.form-group label{
+  display:block;font-family:var(--mono);font-size:10px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px;
+}
+.form-group label .opt{font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-3);opacity:.7;}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;background:var(--bg-3);border:1px solid var(--border-2);
+  color:var(--text);padding:12px 14px;border-radius:10px;font-size:.9rem;
+  font-family:var(--sans);transition:border-color .2s;line-height:1.5;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{outline:none;border-color:var(--rose);}
+.form-group input::placeholder,
+.form-group textarea::placeholder{color:var(--text-3);}
+.form-group select{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' stroke='%23C4A69A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
+.form-group select option{background:var(--bg-3);color:var(--text);}
+.form-group textarea{min-height:88px;resize:vertical;}
+
+.submit-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:10px;
+  font-weight:600;font-size:.92rem;background:var(--text);color:var(--bg);
+  border:none;cursor:pointer;transition:opacity .2s,transform .15s;
+  letter-spacing:.01em;margin-top:8px;
+}
+.submit-btn:hover{opacity:.9;transform:translateY(-1px);}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+.form-note{font-size:.82rem;color:var(--text-3);margin-top:12px;}
+
+/* SUCCESS STATE */
+.success-message{
+  display:none;text-align:center;padding:48px 24px;
+}
+.success-message.show{display:block;}
+.success-icon{font-size:2.5rem;margin-bottom:16px;}
+.success-message h3{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin-bottom:10px;}
+.success-message p{font-size:.92rem;color:var(--text-2);line-height:1.65;max-width:36ch;margin:0 auto;}
+
+/* INFO CARDS */
+.info-card{
+  background:var(--bg-card);border:1px solid var(--border-2);border-radius:14px;
+  padding:24px 22px;margin-bottom:16px;transition:background .2s;
+}
+.info-card:hover{background:var(--bg-hover);}
+.info-card h3{font-family:var(--serif);font-size:.98rem;font-weight:600;margin-bottom:8px;letter-spacing:-.01em;}
+.info-card p{font-size:.86rem;color:var(--text-2);line-height:1.6;margin-bottom:12px;}
+.info-card ul{list-style:none;margin-bottom:12px;}
+.info-card ul li{
+  font-size:.86rem;color:var(--text-2);padding:4px 0 4px 18px;position:relative;line-height:1.5;
+}
+.info-card ul li::before{
+  content:'';position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--rose);opacity:.5;
+}
+.info-link{font-size:.82rem;font-weight:600;color:var(--rose);border-bottom:1px solid rgba(196,166,154,.3);padding-bottom:1px;transition:border-color .2s;}
+.info-link:hover{border-color:var(--rose);}
+
+/* DISCLAIMER */
+.disclaimer{
+  font-size:.82rem;color:var(--text-3);line-height:1.6;padding:20px 24px;
+  background:var(--bg-card);border:1px solid var(--border-2);border-radius:12px;
+  margin-top:48px;
+}
+.disclaimer strong{color:var(--text-2);}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--border);padding:56px 0 48px;background:var(--bg-2);}
+.footer-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:32px;}
+.footer-brand{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:600;font-size:.95rem;margin-bottom:10px;}
+.footer-brand img{width:24px;height:24px;border-radius:50%;}
+.footer-tagline{font-size:.84rem;color:var(--text-3);max-width:28ch;line-height:1.6;}
+.footer-copy{font-size:.78rem;color:var(--text-3);margin-top:16px;}
+.footer-col-title{font-weight:700;font-size:.8rem;margin-bottom:12px;color:var(--text-2);letter-spacing:.02em;}
+.footer-col a{display:block;font-size:.84rem;color:var(--text-3);padding:3px 0;transition:color .2s;}
+.footer-col a:hover{color:var(--text);}
+.footer-cite{grid-column:1/-1;padding-top:24px;border-top:1px solid var(--border);font-size:.76rem;color:var(--text-3);font-style:italic;}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+
+.fade-in{opacity:0;transform:translateY(12px);animation:fadeUp .7s cubic-bezier(.25,.46,.45,.94) forwards;}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+.delay-1{animation-delay:.12s;}.delay-2{animation-delay:.24s;}.delay-3{animation-delay:.36s;}
+</style>
+<script defer data-domain="ikwe.ai" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+    <div class="nav-links">
+      <a href="/research">Research</a>
+      <a href="/audit">Audit</a>
+      <a href="/proof">Proof</a>
+      <a href="/about">About</a>
+      <a class="nav-cta active" href="/inquiry">Request an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="kicker fade-in">Request an Audit</div>
+    <h1 class="fade-in delay-1">Tell us about your system.</h1>
+    <p class="hero-sub fade-in delay-2">We respond within 1–2 business days with scope, timeline, and next steps. Benchmarked against frontier models and validated against Ikwe's mitigation layer.</p>
+  </div>
+</section>
+
+<!-- FORM + SIDEBAR -->
+<section>
+  <div class="container">
+    <div class="inquiry-layout">
+
+      <!-- LEFT: FORM -->
+      <div class="form-card">
+        <div id="form-container">
+          <h2>Audit Intake</h2>
+          <p class="form-intro">This form is for teams requesting a <strong>Managed Audit</strong> ($25,000+). For self-serve options, start with the <a href="/audit">System Blueprint ($2,500)</a> or <a href="/audit">DIY Playbook ($5,000)</a>.</p>
+
+          <form id="inquiry-form" name="ikwe-audit" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="ikwe-audit" />
+            <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" required placeholder="Full name">
+              </div>
+              <div class="form-group">
+                <label>Work Email</label>
+                <input type="email" name="email" required placeholder="you@company.com">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Company</label>
+                <input type="text" name="company" required placeholder="Organization name">
+              </div>
+              <div class="form-group">
+                <label>Role</label>
+                <input type="text" name="role" placeholder="e.g., Founder, Head of Product">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Deployment Stage</label>
+                <select name="deployment_stage">
+                  <option value="planning">Planning / Pre-launch</option>
+                  <option value="live">Live in production</option>
+                  <option value="scaling">Scaling usage</option>
+                  <option value="enterprise">Multi-team / enterprise</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>System Type</label>
+                <select name="system_type">
+                  <option value="conversational">Conversational AI</option>
+                  <option value="agent">Agent / Copilot</option>
+                  <option value="decision">Decision System</option>
+                  <option value="therapy">Therapy / Mental Health</option>
+                  <option value="education">Education</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Primary Interest</label>
+                <select name="interest">
+                  <option value="managed-audit">Managed Audit ($25,000+)</option>
+                  <option value="blueprint">System Blueprint ($2,500)</option>
+                  <option value="playbook">DIY Playbook ($5,000)</option>
+                  <option value="not-sure">Not sure yet</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Timing</label>
+                <select name="urgency">
+                  <option value="urgent">Urgent (within 2 weeks)</option>
+                  <option value="soon">Soon (within 1 month)</option>
+                  <option value="planning">Planning (2–3 months)</option>
+                  <option value="exploring">Just exploring</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>System URL <span class="opt">(optional)</span></label>
+              <input type="url" name="system_url" placeholder="https://">
+            </div>
+
+            <div class="form-group">
+              <label>Brief description</label>
+              <textarea name="details" required placeholder="What does your system do and who does it serve?"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Primary risk concern <span class="opt">(optional)</span></label>
+              <textarea name="problem" placeholder="What prompted this audit request?"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submit-btn">Request Managed Audit</button>
+            <p class="form-note">We reply within 1–2 business days with scope + next steps.</p>
+          </form>
+        </div>
+
+        <!-- SUCCESS STATE -->
+        <div id="success-message" class="success-message">
+          <div class="success-icon">✓</div>
+          <h3>Inquiry received.</h3>
+          <p>We'll review your submission and respond within 1–2 business days with scope, timeline, and next steps.</p>
+          <div style="margin-top:24px;">
+            <a class="btn-ghost" href="/proof">See a redacted audit sample →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: SIDEBAR -->
+      <div>
+        <div class="info-card">
+          <h3>What you receive</h3>
+          <ul>
+            <li>Board-ready risk report</li>
+            <li>AI safety scorecard (5 dimensions)</li>
+            <li>Failure mode map + evidence</li>
+            <li>Remediation action plan</li>
+            <li>Governance infrastructure</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3>Timeline</h3>
+          <p>Typical delivery: 2–4 weeks. Designed to run alongside normal product work without disruption.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>See the evidence first</h3>
+          <p>View a completed scorecard and methodology before you commit.</p>
+          <a class="info-link" href="/proof">See a redacted audit sample →</a>
+        </div>
+
+        <div class="info-card">
+          <h3>Enterprise scope</h3>
+          <p>Multi-system coverage, embedded governance, or ongoing re-assessment.</p>
+          <a class="info-link" href="/enterprise">Enterprise options →</a>
+        </div>
+
+        <!-- DISCLAIMER -->
+        <div class="disclaimer">
+          <strong>Ikwe.ai is not a clinical or crisis service.</strong><br>
+          We do not offer counseling or emergency services. If you are in immediate danger, contact local emergency services or a crisis helpline in your area.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</div>
+        <p class="footer-tagline">Behavioral emotional safety infrastructure for AI.</p>
+        <p class="footer-copy">© 2026 Visible Healing Inc.<br>Des Moines, Iowa</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Research</div>
+        
+        <a href="/research">Methodology</a>
+        <a href="/downloads/ikwe_full_research_report.pdf">Full Report</a>
+        <a href="/proof">Case Studies</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="/about">About</a>
+        <a href="/about">About</a>
+        <a href="/audit">Audit</a>
+        <a href="/proof">Proof</a>
+        <a href="/press">Press Kit</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Connect</div>
+        <a href="/inquiry">Request an Audit</a>
+        <a href="/enterprise">Enterprise</a>
+        <a href="/cdn-cgi/l/email-protection#46353223362e27282f23062f2d312368272f"><span class="__cf_email__" data-cfemail="710205140119101f181431181a06145f1018">[email&#160;protected]</span></a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+      <div class="footer-cite">
+        Ikwe.ai (2026). <em>Behavioral Emotional Safety in Conversational AI: A Scenario-Based Evaluation.</em> Visible Healing Inc. <a href="https://ikwe.ai" style="color:var(--rose)">ikwe.ai</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function() {
+  const form = document.getElementById('inquiry-form');
+  const formContainer = document.getElementById('form-container');
+  const successMsg = document.getElementById('success-message');
+  const submitBtn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+
+    const formData = new FormData(form);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(function(response) {
+      if (!response.ok) throw new Error('Network response was not ok');
+      // Track with Plausible
+      if (typeof window.plausible === 'function') {
+        try { window.plausible('Inquiry_Submit'); } catch(e) {}
+      }
+      formContainer.style.display = 'none';
+      successMsg.classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    })
+    .catch(function(error) {
+      console.error('Submit error:', error);
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Request Managed Audit';
+      alert('Someth
