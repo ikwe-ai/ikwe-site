@@ -7,7 +7,7 @@
 <meta name="description" content="Board-ready behavioral risk evaluation for companies scaling conversational AI, agents, and decision systems." />
 <meta property="og:title" content="AI Risk Audit | Ikwe.ai" />
 <meta property="og:description" content="Structured behavioral assessment. Delivered in four weeks. Board-ready." />
-<meta property="og:image" content="https://ikwe.ai/og_image.png" />
+<meta property="og:image" content="https://ikwe.ai/ikwe-og.png" />
 <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +55,7 @@ section+section{border-top:1px solid var(--border);}
 .btn-ghost:hover{border-color:var(--border-3);color:var(--text);}
 
 /* Badges */
-.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;}
+.badge{display:inline-flex;align-items:center;padding:2px 7px;border-radius:999px;font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;}
 .badge.high{background:var(--high-bg);color:var(--high-text);}
 .badge.mod{background:var(--mod-bg);color:var(--mod-text);}
 .badge.low{background:var(--low-bg);color:var(--low-text);}
@@ -110,7 +110,7 @@ section+section{border-top:1px solid var(--border);}
 .sc-table colgroup .col-dim{width:27%;} .sc-table colgroup .col-base{width:30%;} .sc-table colgroup .col-post{width:30%;} .sc-table colgroup .col-delta{width:13%;}
 .sc-table thead th{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);padding:0 0 12px;border-bottom:1px solid var(--border-2);text-align:left;white-space:nowrap;}
 .sc-table thead th:last-child{text-align:right;}
-.sc-table tbody td{padding:14px 0;border-bottom:1px solid var(--border);vertical-align:middle;}
+.sc-table tbody td{padding:16px 0;border-bottom:1px solid var(--border);vertical-align:middle;}
 .sc-table tbody tr:last-child td{border-bottom:none;}
 .sc-dim{display:flex;align-items:center;gap:9px;}
 .sc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
@@ -212,10 +212,10 @@ section+section{border-top:1px solid var(--border);}
     <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
     <div class="nav-links">
       <a href="/research">Research</a>
-      <a href="/audit">Audit</a>
+      <a href="/audit" class="active">Audit</a>
       <a href="/proof">Proof</a>
       <a href="/about">About</a>
-      <a class="nav-cta" href="/inquiry" style="background:var(--text);color:var(--bg);padding:10px 22px;border-radius:8px;font-size:.84rem;font-weight:600;letter-spacing:.01em;">Request an Audit</a>
+      <a class="nav-cta" href="/inquiry">Request an Audit</a>
     </div>
   </div>
 </nav>
@@ -230,7 +230,7 @@ section+section{border-top:1px solid var(--border);}
     </p>
     <div class="hero-actions fade-in delay-3">
       <a class="btn-primary" href="/inquiry">Request an AI Risk Audit</a>
-      <a class="btn-ghost" href="/downloads/#public-preview">Download the preview</a>
+      <a class="btn-ghost" href="/downloads/ikwe_public_preview.pdf">Download the preview</a>
     </div>
   </div>
 </section>
@@ -269,20 +269,19 @@ section+section{border-top:1px solid var(--border);}
     <h2>Sample outputs.</h2>
     <p class="samples-desc">All samples are redacted. Full audits are company-specific.</p>
     <div class="sample-row">
-      <a class="sample-link" href="/downloads/#public-preview">
+      <a class="sample-link" href="/downloads/ikwe_public_preview.pdf">
         Public Preview
         <span class="label">4 pages · Free</span>
       </a>
-      <a class="sample-link" href="/downloads/#board-brief">
+      <a class="sample-link" href="/downloads/ikwe_board_brief.pdf">
         Board Brief
         <span class="label">3 pages · Free</span>
       </a>
-      <a class="sample-link" href="/downloads/#audit-report">
+      <a class="sample-link" href="/downloads/ikwe_audit_report.pdf">
         Full Sample Report
         <span class="label">7 pages · Free</span>
       </a>
     </div>
-    <p style="font-size:12px;color:var(--text-3);margin-top:12px;">Access code required for downloads: <strong style="color:var(--text)">IKWE-ACCESS</strong></p>
   </div>
 </section>
 
@@ -297,8 +296,43 @@ section+section{border-top:1px solid var(--border);}
         </div>
         <div class="sc-brand"><div class="sc-mark"></div>ikwe.ai</div>
       </div>
-      <div style="padding:18px;">
-        <img src="/scorecard_image.png" alt="Risk posture scorecard" style="width:100%;max-width:980px;border-radius:12px;border:1px solid var(--border-2);display:block;margin:0 auto;background:#fff;">
+      <div class="sc-table-wrap">
+        <table class="sc-table">
+          <colgroup><col class="col-dim"><col class="col-base"><col class="col-post"><col class="col-delta"></colgroup>
+          <thead><tr><th>Dimension</th><th>Baseline</th><th>Post-Mitigation</th><th style="text-align:right">Δ</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="sc-dim"><div class="sc-dot" style="background:var(--coral)"></div><span class="sc-dim-label">Emotional Escalation</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:80%;background:var(--coral)"></div></div><span class="sc-score">80</span><span class="badge high">High</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:40%;background:var(--coral)"></div></div><span class="sc-score">40</span><span class="badge mod">Mod</span></div></td>
+              <td class="sc-delta">−50%</td>
+            </tr>
+            <tr>
+              <td><div class="sc-dim"><div class="sc-dot" style="background:var(--lilac)"></div><span class="sc-dim-label">Dependency Formation</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:48%;background:var(--lilac)"></div></div><span class="sc-score">48</span><span class="badge mod">Mod</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:20%;background:var(--lilac)"></div></div><span class="sc-score">20</span><span class="badge low">Low</span></div></td>
+              <td class="sc-delta">−58%</td>
+            </tr>
+            <tr>
+              <td><div class="sc-dim"><div class="sc-dot" style="background:var(--navy)"></div><span class="sc-dim-label">Authority Drift</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:36%;background:var(--navy)"></div></div><span class="sc-score">36</span><span class="badge mod">Mod</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:18%;background:var(--navy)"></div></div><span class="sc-score">18</span><span class="badge low">Low</span></div></td>
+              <td class="sc-delta">−50%</td>
+            </tr>
+            <tr>
+              <td><div class="sc-dim"><div class="sc-dot" style="background:var(--gold)"></div><span class="sc-dim-label">Scale Amplification</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:48%;background:var(--gold)"></div></div><span class="sc-score">48</span><span class="badge mod">Mod</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:28%;background:var(--gold)"></div></div><span class="sc-score">28</span><span class="badge mod">Mod</span></div></td>
+              <td class="sc-delta">−42%</td>
+            </tr>
+            <tr>
+              <td><div class="sc-dim"><div class="sc-dot" style="background:var(--teal)"></div><span class="sc-dim-label">Governance Failure</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:24%;background:var(--teal)"></div></div><span class="sc-score">24</span><span class="badge low">Low</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:8%;background:var(--teal)"></div></div><span class="sc-score">8</span><span class="badge low">Low</span></div></td>
+              <td class="sc-delta">−67%</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="sc-summary">
         <div class="sc-summary-text">Overall risk posture shifted from <strong>High</strong> to <strong>Moderate</strong> after governance.</div>

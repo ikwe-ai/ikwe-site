@@ -7,7 +7,7 @@
 <meta name="description" content="Ikwe audits conversational and decision-making AI before it becomes a legal, emotional, or reputational liability." />
 <meta property="og:title" content="Ikwe.ai — Emotional Safety Infrastructure for AI" />
 <meta property="og:description" content="AI risk doesn't fail quietly. It fails at scale. Ikwe provides governance infrastructure for AI systems in high-trust contexts." />
-<meta property="og:image" content="https://ikwe.ai/og_image.png" />
+<meta property="og:image" content="https://ikwe.ai/ikwe-og.png" />
 <meta property="og:url" content="https://ikwe.ai" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
@@ -68,7 +68,7 @@ section+section{border-top:1px solid var(--border);}
 .btn-ghost:hover{border-color:var(--border-3);color:var(--text);}
 
 /* Badges (data viz only) */
-.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;}
+.badge{display:inline-flex;align-items:center;padding:2px 7px;border-radius:999px;font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;}
 .badge.high{background:var(--high-bg);color:var(--high-text);}
 .badge.mod{background:var(--mod-bg);color:var(--mod-text);}
 .badge.low{background:var(--low-bg);color:var(--low-text);}
@@ -249,7 +249,7 @@ section+section{border-top:1px solid var(--border);}
       <a href="/audit">Audit</a>
       <a href="/proof">Proof</a>
       <a href="/about">About</a>
-      <a class="nav-cta" href="/inquiry" style="background:var(--text);color:var(--bg);padding:10px 22px;border-radius:8px;font-size:.84rem;font-weight:600;letter-spacing:.01em;">Request an Audit</a>
+      <a class="nav-cta" href="/inquiry">Request an Audit</a>
     </div>
   </div>
 </nav>
@@ -258,14 +258,14 @@ section+section{border-top:1px solid var(--border);}
 <section class="hero">
   <div class="container hero-content">
     <div class="kicker fade-in">AI Risk Infrastructure</div>
-    <h1 class="fade-in delay-1">AI risk doesn't fail quietly. It fails at scale.</h1>
+    <h1 class="fade-in delay-1">AI risk doesn't fail quietly. It fails in public, at scale.</h1>
     <p class="hero-sub fade-in delay-2">
       Ikwe audits conversational and decision-making AI before it becomes a legal, emotional, or reputational liability.
     </p>
     <div class="hero-actions fade-in delay-3">
       <a class="btn-primary" href="/audit">Request an AI Risk Audit</a>
       <a class="btn-ghost" href="/proof">See a real audit</a>
-      <a class="btn-ghost" href="/downloads/#public-preview">Download the preview</a>
+      <a class="btn-ghost" href="/downloads/ikwe_public_preview.pdf">Download the preview</a>
     </div>
   </div>
 </section>
@@ -287,9 +287,14 @@ section+section{border-top:1px solid var(--border);}
 
       <!-- Mini inline scorecard (replace with <img src="/scorecard_image.png"> when PNG is ready) -->
       <div class="proof-scorecard">
-        <img src="/scorecard_image.png" alt="Risk posture scorecard" style="width:100%;max-width:520px;border-radius:12px;border:1px solid var(--border-2);display:block;margin:0 auto;background:#fff;">
-      </div>
-    </div>
+        <div class="mini-sc">
+          <div style="font-family:var(--serif);font-weight:600;font-size:15px;margin-bottom:4px;">Risk Posture Scorecard</div>
+          <div style="font-size:11px;color:var(--text-3);margin-bottom:16px;">Sample — Redacted</div>
+
+          <div class="mini-sc-row">
+            <div class="mini-sc-dot" style="background:var(--coral)"></div>
+            <span class="mini-sc-name">Emotional Escalation</span>
+            <div class="mini-sc-bar"><div class="mini-sc-fill" style="width:40%;background:var(--coral)"></div></div>
             <span class="badge mod" style="font-size:9px;padding:1px 6px">Mod</span>
             <span class="mini-sc-delta">−50%</span>
           </div>
