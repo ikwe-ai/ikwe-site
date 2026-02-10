@@ -45,6 +45,13 @@
   force = true
 
 [[redirects]]
+  # Redirect /support to /inquiry (301 permanent)
+  from = "/support"
+  to = "/inquiry"
+  status = 301
+  force = true
+
+[[redirects]]
   # SPA fallback - handle 404s gracefully
   from = "/*"
   to = "/404.html"
