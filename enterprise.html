@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Managed Audit Implementation — Ikwe.ai</title>
-<meta name="description" content="Managed Audit Implementation for teams scaling conversational and decision AI. Board-ready reporting and governance coverage." />
-<meta property="og:title" content="Managed Audit Implementation — Ikwe.ai" />
-<meta property="og:description" content="We implement the Ikwe safety layer for you — audit, deploy, and deliver board-ready coverage." />
+<title>For Teams — Ikwe.ai</title>
+<meta name="description" content="Enterprise AI risk audit and governance infrastructure for teams deploying conversational AI at scale." />
+<meta property="og:title" content="For Teams — Ikwe.ai" />
+<meta property="og:description" content="AI risk compounds with scale. Governance has to be built in." />
 <meta property="og:image" content="https://ikwe.ai/ikwe-og.png" />
 <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -119,86 +119,6 @@ section+section{border-top:1px solid var(--border);}
 .fade-in{opacity:0;transform:translateY(12px);animation:fadeUp .7s cubic-bezier(.25,.46,.45,.94) forwards;}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
 .delay-1{animation-delay:.12s;}.delay-2{animation-delay:.24s;}.delay-3{animation-delay:.36s;}
-
-/* === FINAL VISUAL QA SWEEP === */
-*{min-width:0;}
-img,svg,video,canvas{max-width:100%;height:auto;}
-section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-x:hidden; }
-.container, .container--narrow, .nav-inner, .hero-content { width:100%; box-sizing:border-box; }
-.container * { max-width:100%; }
-
-/* CTA contrast + sizing */
-.btn-primary, .nav-cta, .tier-cta.primary, .btn.primary{color:var(--bg)!important;background:var(--text)!important;border-color:var(--text)!important;}
-.btn-ghost, .btn.secondary, .btn, .tier-cta{color:var(--text-2)!important;border-color:var(--border-2)!important;}
-button, .btn, a.btn, .nav-cta, .tier-cta{white-space:nowrap;}
-
-/* Spacing rhythm */
-section{padding-top:64px;padding-bottom:64px;}
-@media(max-width:900px){section{padding-top:48px;padding-bottom:48px;}}
-/* === END FINAL VISUAL QA === */
-
-
-/* FINAL VISUAL QA PASS: spacing + CTA contrast + overflow containment */
-:root{
-  --section-y:72px;
-  --section-y-tight:56px;
-  --section-y-loose:96px;
-}
-section{padding:var(--section-y) 0;}
-section.tight{padding:var(--section-y-tight) 0;}
-section.loose{padding:var(--section-y-loose) 0;}
-.container, .container--narrow{overflow:visible;}
-.block, .card, .panel, .info-card, .tier, .tier-card, .router-card{
-  max-width:100%;
-  overflow:hidden;
-}
-img, svg, video, iframe{max-width:100%;height:auto;}
-.btn, .btn-primary, .btn-ghost, .nav-cta, .tier-cta, .router-cta{
-  min-height:44px;
-  line-height:1.2;
-}
-.btn-primary, .nav-cta, .tier-cta.primary, .btn.primary{
-  color:var(--bg) !important;
-  background:var(--text) !important;
-  border-color:var(--text) !important;
-}
-.btn-ghost, .btn.secondary, .tier-cta, .router-cta{
-  color:var(--text) !important;
-  border-color:var(--border-3) !important;
-}
-.nav-inner, .footer, .footer-grid{max-width:1140px;margin:0 auto;}
-.footer-grid{gap:32px;}
-.proof-scorecard img, .scorecard-img img, .scorecard-panel img, .scorecard-wrap img{
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
-}
-/* prevent accidental overflow from long labels */
-*{word-break:normal;}
-
-@media(max-width:900px){
-  section{padding:56px 0;}
-  .nav-inner{padding:0 24px;}
-}
-@media(max-width:680px){
-  .container, .container--narrow{padding:0 20px;}
-  .hero{padding:90px 0 72px;}
-}
-
-
-/* NAV DROPDOWN */
-.nav-item{position:relative;display:flex;align-items:center;}
-.nav-item.has-dropdown>a::after{content:" ▾";font-size:.7rem;color:var(--text-3);margin-left:6px;}
-.nav-dropdown{
-  position:absolute;top:56px;left:0;min-width:260px;
-  background:var(--bg-card);border:1px solid var(--border-2);
-  border-radius:12px;padding:10px;display:none;flex-direction:column;gap:6px;
-  box-shadow:0 18px 40px rgba(0,0,0,.35);z-index:200;
-}
-.nav-dropdown a{display:flex;flex-direction:column;gap:4px;padding:10px 12px;border-radius:10px;color:var(--text-2);}
-.nav-dropdown a:hover{background:var(--bg-hover);color:var(--text);}
-.nav-dropdown small{font-size:11px;color:var(--text-3);letter-spacing:.01em;}
-.nav-item.has-dropdown:hover .nav-dropdown{display:flex;}
-@media(max-width:860px){.nav-dropdown{position:static;display:none;box-shadow:none;border:none;padding:0;margin-top:8px;}}
-
 </style>
 </head>
 <body>
@@ -206,34 +126,11 @@ img, svg, video, iframe{max-width:100%;height:auto;}
 <nav class="nav">
   <div class="nav-inner">
     <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
-
     <div class="nav-links">
-      <div class="nav-item has-dropdown">
-        <a href="/research">Research</a>
-        <div class="nav-dropdown">
-          <a href="/research"><span>Research Overview</span><small>Methodology + findings</small></a>
-          <a href="/ikwe_research_summary_branded.pdf"><span>Research Summary (PDF)</span><small>Study 1 + 2</small></a>
-          <a href="/ikwe_full_research_report_branded.pdf"><span>Full Research Report (PDF)</span><small>Complete academic report</small></a>
-        </div>
-      </div>
-      <div class="nav-item has-dropdown">
-        <a href="/audit">Pricing</a>
-        <div class="nav-dropdown">
-          <a href="/preview"><span>System Blueprint</span><small>$2,500 · Builder pack</small></a>
-          <a href="/playbook"><span>DIY Playbook</span><small>$5,000 · Implement it yourself</small></a>
-          <a href="/enterprise"><span>Managed Audit</span><small>$25,000+ · Done for you</small></a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <a href="/proof">Proof</a>
-      </div>
-      <div class="nav-item has-dropdown">
-        <a href="/about">About</a>
-        <div class="nav-dropdown">
-          <a href="/about"><span>About Ikwe</span><small>Mission + positioning</small></a>
-          <a href="/inquiry"><span>Inquiry</span><small>Managed audit intake</small></a>
-        </div>
-      </div>
+      <a href="/research">Research</a>
+      <a href="/audit">Audit</a>
+      <a href="/proof">Proof</a>
+      <a href="/about">About</a>
       <a class="nav-cta" href="/inquiry">Request an Audit</a>
     </div>
   </div>
@@ -242,9 +139,9 @@ img, svg, video, iframe{max-width:100%;height:auto;}
 <!-- ======== HERO ======== -->
 <section class="hero">
   <div class="container hero-content">
-    <div class="kicker fade-in">Managed Audit Implementation</div>
-    <h1 class="fade-in delay-1">We implement the Ikwe safety layer for you.</h1>
-    <p class="hero-sub fade-in delay-2">For teams scaling conversational and decision AI who need governance, board-ready reporting, and risk containment without internal lift.</p>
+    <div class="kicker fade-in">For Teams</div>
+    <h1 class="fade-in delay-1">AI risk compounds with scale. Governance has to be built in.</h1>
+    <p class="hero-sub fade-in delay-2">For organizations deploying conversational AI, agents, and decision systems where human judgment, emotion, or authority is involved.</p>
   </div>
 </section>
 
@@ -252,7 +149,7 @@ img, svg, video, iframe{max-width:100%;height:auto;}
 <section>
   <div class="container">
     <div class="kicker">Who This Is For</div>
-    <h2 style="font-family:var(--serif);font-size:clamp(1.35rem,2.6vw,1.8rem);font-weight:600;max-width:28ch;line-height:1.28;letter-spacing:-.01em;">Teams deploying AI in high‑trust contexts.</h2>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.35rem,2.6vw,1.8rem);font-weight:600;max-width:28ch;line-height:1.28;letter-spacing:-.01em;">Teams deploying AI in high-trust contexts.</h2>
 
     <div class="audience-grid">
       <div class="audience-card">
@@ -287,18 +184,18 @@ img, svg, video, iframe{max-width:100%;height:auto;}
 <section>
   <div class="container">
     <div class="kicker">Engagement Model</div>
-    <h2 style="font-family:var(--serif);font-size:clamp(1.35rem,2.6vw,1.8rem);font-weight:600;max-width:28ch;line-height:1.28;letter-spacing:-.01em;">Managed audit implementation</h2>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.35rem,2.6vw,1.8rem);font-weight:600;max-width:28ch;line-height:1.28;letter-spacing:-.01em;">Enterprise engagements</h2>
 
     <div class="engage-card">
-      <div class="engage-price">$25,000+ <span class="unit">/ engagement</span></div>
-      <p class="engage-desc">We conduct a full AI Safety audit, customize the framework to your domain, and deploy the middleware in production. You receive a board‑ready report, ongoing support, and access to future updates.</p>
+      <div class="engage-price">$50,000+ <span class="unit">/ engagement</span></div>
+      <p class="engage-desc">Everything in the Full Audit plus ongoing governance infrastructure, custom scenario development, and dedicated support. Scoped to your system's complexity.</p>
 
       <ul class="engage-items">
-        <li>Full AI Safety audit and deployment</li>
-        <li>Domain‑specific customization and scenario library</li>
-        <li>Board‑ready documentation and walkthrough</li>
-        <li>Ongoing support and update access</li>
-        <li>Founder‑independent governance artifacts</li>
+        <li>Full behavioral risk audit across all AI touchpoints</li>
+        <li>Custom scenario development for your domain and user base</li>
+        <li>Ongoing monitoring and risk drift detection</li>
+        <li>Board-ready documentation updated quarterly</li>
+        <li>Direct access to Ikwe's research team</li>
       </ul>
     </div>
   </div>
@@ -344,7 +241,7 @@ img, svg, video, iframe{max-width:100%;height:auto;}
   <div class="container">
     <h2>Let's scope what governance<br>looks like for your system.</h2>
     <p>Start with a conversation.</p>
-    <a class="btn-primary" href="/inquiry">Request Managed Audit</a>
+    <a class="btn-primary" href="/inquiry">Request an AI Risk Audit</a>
   </div>
 </section>
 
@@ -359,33 +256,26 @@ img, svg, video, iframe{max-width:100%;height:auto;}
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Research</div>
-        <a href="/research">The Emotional Safety Gap</a>
+        
         <a href="/research">Methodology</a>
-        <a href="/ikwe_full_research_report_branded.pdf">Full Report</a>
+        <a href="/downloads/ikwe_full_research_report.pdf">Full Report</a>
         <a href="/proof">Case Studies</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Company</div>
         <a href="/about">About</a>
-        <a href="/about">Founder</a>
+        <a href="/about">About</a>
         <a href="/audit">Audit</a>
         <a href="/proof">Proof</a>
-        <a href="/press">Press</a>
+        <a href="/press">Press Kit</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Connect</div>
-        <a href="/inquiry">Request Managed Audit</a>
-        <a href="/enterprise">Managed Audit</a>
-        <a href="mailto:stephanie@ikwe.ai">stephanie@ikwe.ai</a>
+        <a href="/inquiry">Request an Audit</a>
+        <a href="/enterprise">Enterprise</a>
+        <a href="/cdn-cgi/l/email-protection#5e2d2a3b2e363f30373b1e3735293b703f37"><span class="__cf_email__" data-cfemail="6e1d1a0b1e060f00070b2e0705190b400f07">[email&#160;protected]</span></a>
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
       </div>
       <div class="footer-cite">
-        Ikwe.ai (2026). <em>Behavioral Emotional Safety in Conversational AI: A Scenario-Based Evaluation.</em> Visible Healing Inc. <a href="https://ikwe.ai" style="color:var(--rose)">ikwe.ai</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-</body>
-</html>
+        Ikwe.ai (2026). <em>Behavioral Emotional Safety in Conversational AI: A Scenario-Based Evaluation.</em> Visible Healin
