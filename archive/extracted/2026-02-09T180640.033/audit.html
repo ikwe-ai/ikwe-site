@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Risk Audit | Ikwe.ai</title>
+<meta name="description" content="Board-ready risk evaluation for companies scaling conversational AI, agents, and decision systems." />
+<meta property="og:title" content="AI Risk Audit | Ikwe.ai" />
+<meta property="og:description" content="Board-ready risk evaluation for AI systems in high-trust contexts." />
+<meta property="og:image" content="https://ikwe.ai/ikwe-og.png" />
+<link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #09090b;
+  --bg-2:     #0f1014;
+  --bg-3:     #16181d;
+  --text:     #eaeaf0;
+  --text-2:   rgba(234,234,240,.65);
+  --text-3:   rgba(234,234,240,.4);
+  --border:   rgba(255,255,255,.06);
+  --border-2: rgba(255,255,255,.10);
+  --coral:    #FB923C;
+  --lilac:    #A78BFA;
+  --navy:     #6B7394;
+  --gold:     #FBBF24;
+  --teal:     #2DD4BF;
+  --teal-glow:rgba(45,212,191,.06);
+  --high-bg:  rgba(251,146,60,.12);
+  --high-text:#FB923C;
+  --mod-bg:   rgba(251,191,36,.12);
+  --mod-text: #FBBF24;
+  --low-bg:   rgba(45,212,191,.12);
+  --low-text: #2DD4BF;
+  --serif:    'Fraunces', Georgia, serif;
+  --sans:     'DM Sans', system-ui, sans-serif;
+  --mono:     'Space Mono', monospace;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans); background: var(--bg); color: var(--text);
+  line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+.container--narrow { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+
+/* ---- NAV (same as homepage) ---- */
+.nav { position:sticky;top:0;z-index:100;background:rgba(9,9,11,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border); }
+.nav-inner { max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px; }
+.brand { display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--text); }
+.brand img { width:30px;height:30px;border-radius:50%; }
+.nav-links { display:flex;align-items:center;gap:32px; }
+.nav-links a { font-size:.88rem;font-weight:500;color:var(--text-2);transition:color .15s; }
+.nav-links a:hover { color:var(--text); }
+.nav-links a.active { color:var(--teal); }
+.nav-cta { padding:9px 20px;border-radius:8px;font-size:.85rem;font-weight:600;background:var(--teal);color:var(--bg);transition:opacity .15s; }
+.nav-cta:hover { opacity:.88; }
+@media(max-width:860px){ .nav-links{display:none;} }
+
+/* ---- SHARED COMPONENTS ---- */
+.kicker { font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:16px; }
+section { padding: 100px 0; }
+section + section { border-top: 1px solid var(--border); }
+
+.btn-primary {
+  display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;
+  font-weight:600;font-size:.95rem;background:var(--teal);color:var(--bg);
+  border:none;cursor:pointer;transition:opacity .15s,box-shadow .2s;
+}
+.btn-primary:hover { opacity:.9;box-shadow:0 4px 24px rgba(45,212,191,.2); }
+
+.btn-secondary {
+  display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;
+  font-weight:600;font-size:.9rem;border:1px solid var(--border-2);background:transparent;
+  color:var(--text);cursor:pointer;transition:border-color .2s,background .2s;
+}
+.btn-secondary:hover { border-color:rgba(45,212,191,.3);background:var(--bg-3); }
+
+/* ---- BADGES ---- */
+.badge { display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap; }
+.badge.high { background:var(--high-bg);color:var(--high-text); }
+.badge.mod  { background:var(--mod-bg);color:var(--mod-text); }
+.badge.low  { background:var(--low-bg);color:var(--low-text); }
+
+/* =====================
+   HERO — single statement, single CTA
+   ===================== */
+.hero {
+  padding: 100px 0 80px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.hero::before {
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:900px;height:400px;background:radial-gradient(ellipse,var(--teal-glow) 0%,transparent 70%);pointer-events:none;
+}
+
+.hero h1 {
+  font-family:var(--serif);font-weight:700;font-size:clamp(2rem,4vw,2.8rem);
+  line-height:1.15;letter-spacing:-.02em;max-width:20ch;margin-bottom:20px;position:relative;
+}
+
+.hero-sub {
+  font-size:1.05rem;color:var(--text-2);max-width:54ch;line-height:1.7;margin-bottom:36px;position:relative;
+}
+
+/* =====================
+   SAMPLE OUTPUTS — clean row
+   ===================== */
+.samples {
+  padding: 72px 0;
+}
+
+.samples h2 {
+  font-family:var(--serif);font-size:1.4rem;font-weight:700;margin-bottom:8px;
+}
+
+.samples-desc {
+  color:var(--text-3);font-size:.9rem;margin-bottom:28px;max-width:48ch;
+}
+
+.sample-row {
+  display:flex;gap:12px;flex-wrap:wrap;
+}
+
+.sample-link {
+  padding:12px 20px;border:1px solid var(--border-2);border-radius:10px;
+  font-size:.88rem;font-weight:600;color:var(--text-2);background:var(--bg-2);
+  transition:border-color .2s,color .2s;
+}
+
+.sample-link:hover { border-color:rgba(45,212,191,.25);color:var(--text); }
+
+.sample-link .label {
+  font-size:.75rem;font-weight:400;color:var(--text-3);display:block;margin-top:2px;
+}
+
+/* =====================
+   SCORECARD — embedded dark version
+   ===================== */
+.scorecard-section {
+  padding: 80px 0;
+}
+
+.sc-card {
+  width:100%;max-width:860px;margin:0 auto;
+  background:var(--bg-2);border:1px solid var(--border-2);border-radius:20px;padding:40px 44px 36px;
+}
+
+@media(max-width:700px){ .sc-card{padding:28px 20px 24px;} }
+
+.sc-header { display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;gap:16px; }
+.sc-title { font-family:var(--serif);font-weight:700;font-size:clamp(20px,3vw,26px);line-height:1.15; }
+.sc-sub { font-size:12px;color:var(--text-3);margin-top:3px; }
+.sc-brand { display:flex;align-items:center;gap:7px;font-family:var(--serif);font-weight:700;font-size:13px;color:var(--text-3);flex-shrink:0; }
+.sc-mark { width:24px;height:24px;border-radius:50%;background:conic-gradient(var(--coral) 0deg 90deg,var(--lilac) 90deg 180deg,#1B1F3A 180deg 270deg,var(--teal) 270deg 360deg);opacity:.7; }
+
+.sc-table-wrap { width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch; }
+
+.sc-table { width:100%;min-width:640px;border-collapse:separate;border-spacing:0;table-layout:fixed; }
+.sc-table colgroup .col-dim  { width:27%; }
+.sc-table colgroup .col-base { width:30%; }
+.sc-table colgroup .col-post { width:30%; }
+.sc-table colgroup .col-delta{ width:13%; }
+
+.sc-table thead th {
+  font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text-3);padding:0 0 12px;border-bottom:1px solid var(--border-2);text-align:left;white-space:nowrap;
+}
+.sc-table thead th:last-child { text-align:right; }
+
+.sc-table tbody td { padding:13px 0;border-bottom:1px solid var(--border);vertical-align:middle; }
+.sc-table tbody tr:last-child td { border-bottom:none; }
+
+.sc-dim { display:flex;align-items:center;gap:9px; }
+.sc-dot { width:8px;height:8px;border-radius:50%;flex-shrink:0; }
+.sc-dim-label { font-weight:600;font-size:13.5px;white-space:nowrap; }
+
+.sc-bar-group { display:flex;align-items:center;gap:7px; }
+.sc-track { flex:1;height:7px;background:rgba(255,255,255,.05);border-radius:5px;overflow:hidden;max-width:90px;min-width:30px; }
+.sc-fill { height:100%;border-radius:5px; }
+.sc-fill.baseline { opacity:.25; }
+.sc-fill.post { opacity:1; }
+.sc-score { font-family:var(--mono);font-weight:700;font-size:12.5px;min-width:20px;text-align:right;flex-shrink:0; }
+.sc-delta { text-align:right;font-family:var(--mono);font-weight:700;font-size:12.5px;color:var(--low-text);white-space:nowrap; }
+
+.sc-summary {
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  padding:16px 20px;background:var(--bg-3);border-radius:12px;margin-top:24px;margin-bottom:20px;
+}
+.sc-summary-text { font-size:13px;font-weight:500;color:var(--text-2); }
+.sc-summary-text strong { color:var(--text);font-weight:700; }
+.sc-shift { display:flex;align-items:center;gap:8px; }
+.sc-shift-arrow { font-size:16px;color:var(--teal); }
+
+.sc-legend { display:flex;align-items:center;gap:16px;flex-wrap:wrap; }
+.sc-legend-item { display:flex;align-items:center;gap:5px;font-size:11px;font-weight:500;color:var(--text-3); }
+.sc-legend-swatch { width:7px;height:7px;border-radius:50%; }
+.sc-legend-div { width:1px;height:12px;background:var(--border-2); }
+
+/* =====================
+   TIERS — clean, quiet grid
+   ===================== */
+.tiers-section { padding: 80px 0; }
+
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border-2);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.tier {
+  background: var(--bg-2);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tier-name {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 8px;
+}
+
+.tier-price {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.tier-price .unit {
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--text-3);
+}
+
+.tier-desc {
+  font-size: .85rem;
+  color: var(--text-2);
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.tier-items {
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.tier-items li {
+  font-size: .82rem;
+  color: var(--text-2);
+  padding: 4px 0;
+  padding-left: 16px;
+  position: relative;
+}
+
+.tier-items li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--teal);
+  opacity: .5;
+}
+
+.tier-cta {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: .82rem;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid var(--border-2);
+  color: var(--text-2);
+  background: transparent;
+  transition: border-color .2s, color .2s;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.tier-cta:hover { border-color: rgba(45,212,191,.3); color: var(--text); }
+.tier-cta.primary { background: var(--teal); color: var(--bg); border-color: var(--teal); }
+.tier-cta.primary:hover { opacity: .9; }
+
+.tier.featured {
+  background: var(--bg-3);
+  border-top: 2px solid var(--teal);
+}
+
+@media (max-width: 900px) { .tiers-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .tiers-grid { grid-template-columns: 1fr; } }
+
+/* =====================
+   CLOSE
+   ===================== */
+.close-section {
+  text-align: center;
+  padding: 80px 0 100px;
+}
+
+.close-section h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.close-section p {
+  color: var(--text-2);
+  max-width: 40ch;
+  margin: 0 auto 28px;
+  font-size: .95rem;
+}
+
+/* ---- FOOTER (same as homepage) ---- */
+.footer { border-top:1px solid var(--border);padding:56px 0 48px; }
+.footer-grid { display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:32px; }
+.footer-brand { display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:700;font-size:.95rem;margin-bottom:10px; }
+.footer-brand img { width:24px;height:24px;border-radius:50%; }
+.footer-tagline { font-size:.85rem;color:var(--text-3);max-width:28ch;line-height:1.55; }
+.footer-copy { font-size:.8rem;color:var(--text-3);margin-top:16px; }
+.footer-col-title { font-weight:700;font-size:.82rem;margin-bottom:12px;color:var(--text-2); }
+.footer-col a { display:block;font-size:.85rem;color:var(--text-3);padding:3px 0;transition:color .15s; }
+.footer-col a:hover { color:var(--text); }
+.footer-cite { grid-column:1/-1;padding-top:24px;border-top:1px solid var(--border);font-size:.78rem;color:var(--text-3);font-style:italic; }
+@media(max-width:768px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:480px){ .footer-grid{grid-template-columns:1fr;} }
+
+/* ---- Animations ---- */
+.fade-in { opacity:0;transform:translateY(16px);animation:fadeUp .6s ease forwards; }
+@keyframes fadeUp { to{opacity:1;transform:translateY(0);} }
+.delay-1{animation-delay:.1s;} .delay-2{animation-delay:.2s;} .delay-3{animation-delay:.3s;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+    <div class="nav-links">
+      <a href="/research">Research</a>
+      <a href="/audit" class="active">Audit</a>
+      <a href="/proof">Proof</a>
+      <a href="/about">About</a>
+      <a class="nav-cta" href="/inquiry">Request Audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ======== HERO ======== -->
+<section class="hero">
+  <div class="container">
+    <div class="kicker fade-in">AI Risk Audit</div>
+    <h1 class="fade-in delay-1">Board-ready risk evaluation for AI systems.</h1>
+    <p class="hero-sub fade-in delay-2">
+      Structured behavioral assessment for companies scaling conversational AI, agents, and decision systems. Developed internally before being offered externally.
+    </p>
+    <a class="btn-primary fade-in delay-3" href="/inquiry">Request an Audit</a>
+  </div>
+</section>
+
+<!-- ======== SAMPLE OUTPUTS ======== -->
+<section class="samples">
+  <div class="container">
+    <div class="kicker">See What an Audit Looks Like</div>
+    <h2>Sample outputs.</h2>
+    <p class="samples-desc">All samples are redacted. Full audits are company-specific.</p>
+    <div class="sample-row">
+      <a class="sample-link" href="/downloads/ikwe_public_preview.pdf">
+        Public Preview
+        <span class="label">4 pages · Free</span>
+      </a>
+      <a class="sample-link" href="/downloads/ikwe_board_brief.pdf">
+        Board Brief
+        <span class="label">3 pages · Free</span>
+      </a>
+      <a class="sample-link" href="/downloads/ikwe_audit_report.pdf">
+        Full Sample Report
+        <span class="label">7 pages · Free</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== SCORECARD ======== -->
+<section class="scorecard-section">
+  <div class="container">
+
+    <div class="sc-card">
+      <div class="sc-header">
+        <div>
+          <div class="sc-title">Risk Posture Scorecard</div>
+          <div class="sc-sub">Sample — Redacted for External Distribution</div>
+        </div>
+        <div class="sc-brand"><div class="sc-mark"></div>ikwe.ai</div>
+      </div>
+
+      <div class="sc-table-wrap">
+        <table class="sc-table">
+          <colgroup>
+            <col class="col-dim"><col class="col-base"><col class="col-post"><col class="col-delta">
+          </colgroup>
+          <thead>
+            <tr><th>Dimension</th><th>Baseline</th><th>Post-Mitigation</th><th style="text-align:right">Δ</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="sc-dim"><div class="sc-dot" style="background:var(--coral)"></div><span class="sc-dim-label">Emotional Escalation</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:80%;background:var(--coral)"></div></div><span class="sc-score">80</span><span class="badge high">High</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:40%;background:var(--coral)"></div></div><span class="sc-score">40</span><span class="badge mod">Mod</span></div></td>
+              <td class="sc-delta">−50%</td>
+            </tr>
+            <tr>
+              <td><div class="sc-dim"><div class="sc-dot" style="background:var(--lilac)"></div><span class="sc-dim-label">Dependency Formation</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:48%;background:var(--lilac)"></div></div><span class="sc-score">48</span><span class="badge mod">Mod</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:20%;background:var(--lilac)"></div></div><span class="sc-score">20</span><span class="badge low">Low</span></div></td>
+              <td class="sc-delta">−58%</td>
+            </tr>
+            <tr>
+              <td><div class="sc-dim"><div class="sc-dot" style="background:var(--navy)"></div><span class="sc-dim-label">Authority Drift</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:36%;background:var(--navy)"></div></div><span class="sc-score">36</span><span class="badge mod">Mod</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:18%;background:var(--navy)"></div></div><span class="sc-score">18</span><span class="badge low">Low</span></div></td>
+              <td class="sc-delta">−50%</td>
+            </tr>
+            <tr>
+              <td><div class="sc-dim"><div class="sc-dot" style="background:var(--gold)"></div><span class="sc-dim-label">Scale Amplification</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:48%;background:var(--gold)"></div></div><span class="sc-score">48</span><span class="badge mod">Mod</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:28%;background:var(--gold)"></div></div><span class="sc-score">28</span><span class="badge mod">Mod</span></div></td>
+              <td class="sc-delta">−42%</td>
+            </tr>
+            <tr>
+              <td><div class="sc-dim"><div class="sc-dot" style="background:var(--teal)"></div><span class="sc-dim-label">Governance Failure</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:24%;background:var(--teal)"></div></div><span class="sc-score">24</span><span class="badge low">Low</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:8%;background:var(--teal)"></div></div><span class="sc-score">8</span><span class="badge low">Low</span></div></td>
+              <td class="sc-delta">−67%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sc-summary">
+        <div class="sc-summary-text">Overall risk posture shifted from <strong>High</strong> to <strong>Moderate</strong> after governance.</div>
+        <div class="sc-shift">
+          <span class="badge high" style="font-size:9.5px">High</span>
+          <span class="sc-shift-arrow">→</span>
+          <span class="badge mod" style="font-size:9.5px">Mod</span>
+        </div>
+      </div>
+
+      <div class="sc-legend">
+        <div class="sc-legend-item"><div class="sc-legend-swatch" style="background:rgba(255,255,255,.1)"></div>Baseline (faded)</div>
+        <div class="sc-legend-item"><div class="sc-legend-swatch" style="background:var(--coral)"></div>Post-mitigation (solid)</div>
+        <div class="sc-legend-div"></div>
+        <span class="badge high" style="font-size:9px;padding:2px 6px">High ≥60</span>
+        <span class="badge mod" style="font-size:9px;padding:2px 6px">Mod 30–59</span>
+        <span class="badge low" style="font-size:9px;padding:2px 6px">Low &lt;30</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======== TIERS ======== -->
+<section class="tiers-section">
+  <div class="container">
+    <div class="kicker">Pricing</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,1.7rem);font-weight:700;line-height:1.3;">Tiered engagement model</h2>
+    <p style="color:var(--text-2);font-size:.92rem;margin-top:8px;max-width:50ch;">Start with a preview. Scale to a full audit. Every tier builds toward board-ready governance.</p>
+
+    <div class="tiers-grid">
+
+      <div class="tier">
+        <div class="tier-name">Preview Pack</div>
+        <div class="tier-price">$250</div>
+        <p class="tier-desc">Public preview, board brief, and methodology summary for evaluation.</p>
+        <ul class="tier-items">
+          <li>Public Preview PDF</li>
+          <li>Board Brief PDF</li>
+          <li>Methodology overview</li>
+        </ul>
+        <a class="tier-cta" href="/preview">Learn More</a>
+      </div>
+
+      <div class="tier featured">
+        <div class="tier-name">Playbook</div>
+        <div class="tier-price">$5,000</div>
+        <p class="tier-desc">Full sample audit report, implementation playbook, and framework documentation.</p>
+        <ul class="tier-items">
+          <li>Everything in Preview Pack</li>
+          <li>Full sample audit report</li>
+          <li>Implementation framework</li>
+          <li>Priority support access</li>
+        </ul>
+        <a class="tier-cta" href="/playbook">Learn More</a>
+      </div>
+
+      <div class="tier">
+        <div class="tier-name">Full Audit</div>
+        <div class="tier-price">$25,000</div>
+        <p class="tier-desc">Complete company-specific behavioral risk audit with board-ready deliverables.</p>
+        <ul class="tier-items">
+          <li>Custom scenario library</li>
+          <li>Full scorecard and report</li>
+          <li>Board presentation deck</li>
+          <li>90-day follow-up review</li>
+        </ul>
+        <a class="tier-cta primary" href="/inquiry">Request Audit</a>
+      </div>
+
+      <div class="tier">
+        <div class="tier-name">Enterprise</div>
+        <div class="tier-price">$50K+ <span class="unit">/ engagement</span></div>
+        <p class="tier-desc">Ongoing safety infrastructure, monitoring integration, and advisory retainer.</p>
+        <ul class="tier-items">
+          <li>Everything in Full Audit</li>
+          <li>Embedded monitoring layer</li>
+          <li>Crisis protocol design</li>
+          <li>Quarterly reviews</li>
+        </ul>
+        <a class="tier-cta" href="/inquiry">Contact Us</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======== CLOSE ======== -->
+<section class="close-section">
+  <div class="container">
+    <h2>Ready to see what your system looks like under load?</h2>
+    <p>Start with a conversation. No commitment required.</p>
+    <a class="btn-primary" href="/inquiry">Request an Audit</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</div>
+        <p class="footer-tagline">Behavioral emotional safety infrastructure for AI.</p>
+        <p class="footer-copy">© 2026 Visible Healing Inc.<br>Des Moines, Iowa</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Research</div>
+        <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
+        <a href="/research">Methodology</a>
+        <a href="/full-report">Full Report</a>
+        <a href="/research-summary">Research Summary</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="/about">About</a>
+        <a href="/founder">Founder</a>
+        <a href="/audit">Audit</a>
+        <a href="/proof">Proof</a>
+        <a href="/press">Press Kit</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Connect</div>
+        <a href="/inquiry">Request an Audit</a>
+        <a href="/enterprise">Enterprise</a>
+        <a href="mailto:stephanie@ikwe.ai">stephanie@ikwe.ai</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+      <div class="footer-cite">
+        Ikwe.ai (2026). <em>Behavioral Emotional Safety in Conversational AI: A Scenario-Based Evaluation.</em> Visible Healing Inc. <a href="https://ikwe.ai" style="color:var(--teal)">ikwe.ai</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
