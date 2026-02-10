@@ -1,0 +1,238 @@
+/* ========================================================
+   IKWE.AI — MASTER DESIGN TOKENS
+   
+   Single source of truth for colors, typography, spacing,
+   and component patterns across:
+   - Site pages (dark theme)
+   - PDF exports (light/paper theme)
+   - Scorecard assets (both themes)
+   - OG images
+   - Social graphics
+   
+   USAGE:
+   1. Import this file first in your stylesheet
+   2. Reference tokens via var(--ikwe-*)
+   3. Never hardcode hex values in page CSS
+   ======================================================== */
+
+
+/* ========================
+   LIGHT THEME (PDFs, scorecards, OG images)
+   ======================== */
+:root {
+  /* Surfaces */
+  --ikwe-paper:     #F8FAFC;
+  --ikwe-paper-2:   #F3F5F9;
+  --ikwe-ink:       #0B0B10;
+  --ikwe-muted:     #5B6270;
+  --ikwe-line:      #E6EAF0;
+  --ikwe-rail:      #EEF2F7;
+
+  /* Brand quadrant (canonical) */
+  --ikwe-coral:     #FB923C;   /* Escalation */
+  --ikwe-lilac:     #A78BFA;   /* Dependency */
+  --ikwe-navy:      #1B1F3A;   /* Authority */
+  --ikwe-gold:      #FBBF24;   /* Scale */
+  --ikwe-teal:      #2DD4BF;   /* Governance */
+
+  /* Accent (CTA, interactive) */
+  --ikwe-teal-dark: #0F766E;
+  --ikwe-coral-dark:#EA580C;
+
+  /* Status badges — light bg */
+  --ikwe-high-bg:   rgba(251,146,60,.14);
+  --ikwe-high-text: #EA580C;
+  --ikwe-mod-bg:    rgba(251,191,36,.16);
+  --ikwe-mod-text:  #B45309;
+  --ikwe-low-bg:    rgba(45,212,191,.16);
+  --ikwe-low-text:  #0F766E;
+
+  /* Typography */
+  --ikwe-serif:     'Fraunces', Georgia, serif;
+  --ikwe-sans:      'DM Sans', system-ui, sans-serif;
+  --ikwe-mono:      'Space Mono', monospace;
+
+  /* Spacing scale (px) */
+  --ikwe-space-xs:  4px;
+  --ikwe-space-sm:  8px;
+  --ikwe-space-md:  16px;
+  --ikwe-space-lg:  24px;
+  --ikwe-space-xl:  40px;
+  --ikwe-space-2xl: 64px;
+
+  /* Radii */
+  --ikwe-radius-sm: 8px;
+  --ikwe-radius-md: 14px;
+  --ikwe-radius-lg: 20px;
+  --ikwe-radius-xl: 24px;
+  --ikwe-radius-pill:999px;
+}
+
+
+/* ========================
+   DARK THEME (site pages)
+   Apply via [data-theme="dark"] or body class
+   ======================== */
+[data-theme="dark"],
+.dark-theme,
+body {
+  --ikwe-bg:        #09090b;
+  --ikwe-bg-2:      #0f1014;
+  --ikwe-bg-3:      #16181d;
+  --ikwe-text:      #eaeaf0;
+  --ikwe-text-2:    rgba(234,234,240,.7);
+  --ikwe-text-3:    rgba(234,234,240,.5);
+  --ikwe-border:    rgba(255,255,255,.06);
+  --ikwe-border-2:  rgba(255,255,255,.1);
+  --ikwe-rail-dark: rgba(255,255,255,.06);
+
+  /* Navy adapts for dark bg visibility */
+  --ikwe-navy-light:#6B7394;
+
+  /* Status badges — dark bg */
+  --ikwe-high-bg:   rgba(251,146,60,.12);
+  --ikwe-high-text: #FB923C;
+  --ikwe-mod-bg:    rgba(251,191,36,.12);
+  --ikwe-mod-text:  #FBBF24;
+  --ikwe-low-bg:    rgba(45,212,191,.12);
+  --ikwe-low-text:  #2DD4BF;
+
+  /* Teal glow (hero backgrounds) */
+  --ikwe-teal-glow: rgba(45,212,191,.08);
+}
+
+
+/* ========================
+   TAILWIND CONFIG EQUIVALENT
+   
+   // tailwind.config.js
+   module.exports = {
+     theme: {
+       extend: {
+         colors: {
+           ikwe: {
+             paper:    '#F8FAFC',
+             paper2:   '#F3F5F9',
+             ink:      '#0B0B10',
+             muted:    '#5B6270',
+             line:     '#E6EAF0',
+             rail:     '#EEF2F7',
+             coral:    '#FB923C',
+             lilac:    '#A78BFA',
+             navy:     '#1B1F3A',
+             gold:     '#FBBF24',
+             teal:     '#2DD4BF',
+             bg:       '#09090b',
+             bg2:      '#0f1014',
+             bg3:      '#16181d',
+           }
+         },
+         fontFamily: {
+           serif:  ['Fraunces', 'Georgia', 'serif'],
+           sans:   ['DM Sans', 'system-ui', 'sans-serif'],
+           mono:   ['Space Mono', 'monospace'],
+         },
+         borderRadius: {
+           xl2: '24px',
+         }
+       }
+     }
+   }
+   ======================== */
+
+
+/* ========================
+   COMPONENT PATTERNS
+   ======================== */
+
+/* Badge pill (used in scorecard, tables, status indicators) */
+.ikwe-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--ikwe-radius-pill);
+  font-family: var(--ikwe-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ikwe-badge--high { background: var(--ikwe-high-bg); color: var(--ikwe-high-text); }
+.ikwe-badge--mod  { background: var(--ikwe-mod-bg);  color: var(--ikwe-mod-text); }
+.ikwe-badge--low  { background: var(--ikwe-low-bg);  color: var(--ikwe-low-text); }
+
+/* Kicker label (mono uppercase, used above sections) */
+.ikwe-kicker {
+  font-family: var(--ikwe-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Card (dark theme) */
+.ikwe-card {
+  background: var(--ikwe-bg-2);
+  border: 1px solid var(--ikwe-border-2);
+  border-radius: var(--ikwe-radius-lg);
+  padding: var(--ikwe-space-lg);
+}
+
+/* Card (light/paper theme) */
+.ikwe-card--light {
+  background: var(--ikwe-paper);
+  border: 1px solid var(--ikwe-line);
+  border-radius: var(--ikwe-radius-xl);
+  padding: var(--ikwe-space-xl);
+}
+
+/* Primary CTA button */
+.ikwe-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--ikwe-radius-sm);
+  font-family: var(--ikwe-sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: var(--ikwe-teal);
+  color: var(--ikwe-ink);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.15s, box-shadow 0.15s;
+}
+
+.ikwe-btn-primary:hover {
+  opacity: 0.9;
+  box-shadow: 0 2px 12px rgba(45,212,191,.25);
+}
+
+
+/* ========================
+   DIMENSION COLOR MAP
+   (for programmatic use)
+   ========================
+   
+   Escalation    → --ikwe-coral  (#FB923C)
+   Dependency    → --ikwe-lilac  (#A78BFA)
+   Authority     → --ikwe-navy   (#1B1F3A) / --ikwe-navy-light (#6B7394) on dark
+   Scale         → --ikwe-gold   (#FBBF24)
+   Governance    → --ikwe-teal   (#2DD4BF)
+   
+   ======================== */
+
+
+/* ========================
+   STATUS THRESHOLDS
+   ========================
+   
+   HIGH:     score ≥ 60
+   MODERATE: score 30–59
+   LOW:      score < 30
+   
+   ======================== */
