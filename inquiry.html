@@ -289,6 +289,14 @@ section { padding-left: 0; padding-right: 0; }
 }
 /* =================================== */
 
+
+/* ====== GLOBAL FIT & OVERFLOW FIX ====== */
+* { min-width: 0; }
+section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-x: hidden; }
+.container, .container--narrow, .nav-inner, .hero-content { width: 100%; box-sizing: border-box; }
+.container * { max-width: 100%; }
+/* ===================================== */
+
 </style>
   <script defer data-domain="ikwe.ai" src="https://plausible.io/js/script.js"></script>
 </head>
