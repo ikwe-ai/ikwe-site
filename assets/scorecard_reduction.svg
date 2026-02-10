@@ -1,0 +1,43 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="28" fill="#F8F7F4"/>
+  <text x="72" y="110" font-family="Fraunces, Georgia, serif" font-size="46" fill="#1C1B22" font-weight="600">Risk Reduction After Governance</text>
+  <text x="72" y="155" font-family="DM Sans, Arial, sans-serif" font-size="18" fill="#5C5A66">Baseline vs post‑mitigation change across five dimensions</text>
+
+  <g font-family="DM Sans, Arial, sans-serif" font-size="20" fill="#2B2A33">
+    <text x="120" y="250">Emotional Escalation</text>
+    <text x="120" y="315">Dependency Formation</text>
+    <text x="120" y="380">Authority Drift</text>
+    <text x="120" y="445">Scale Amplification</text>
+    <text x="120" y="510">Governance Failure</text>
+  </g>
+
+  <!-- baseline bars (faded) -->
+  <g opacity="0.35">
+    <rect x="520" y="228" width="320" height="14" rx="7" fill="#C9C7D1"/>
+    <rect x="520" y="293" width="210" height="14" rx="7" fill="#C9C7D1"/>
+    <rect x="520" y="358" width="180" height="14" rx="7" fill="#C9C7D1"/>
+    <rect x="520" y="423" width="200" height="14" rx="7" fill="#C9C7D1"/>
+    <rect x="520" y="488" width="120" height="14" rx="7" fill="#C9C7D1"/>
+  </g>
+
+  <!-- post mitigation bars -->
+  <g>
+    <rect x="520" y="228" width="170" height="14" rx="7" fill="#F05A5A"/>
+    <rect x="520" y="293" width="90" height="14" rx="7" fill="#34C48B"/>
+    <rect x="520" y="358" width="90" height="14" rx="7" fill="#34C48B"/>
+    <rect x="520" y="423" width="120" height="14" rx="7" fill="#F2B84B"/>
+    <rect x="520" y="488" width="40" height="14" rx="7" fill="#34C48B"/>
+  </g>
+
+  <!-- deltas -->
+  <g font-family="DM Sans, Arial, sans-serif" font-size="18" font-weight="600">
+    <text x="920" y="248" fill="#F05A5A">↓ 45%</text>
+    <text x="920" y="313" fill="#2B9A6D">↓ 58%</text>
+    <text x="920" y="378" fill="#2B9A6D">↓ 50%</text>
+    <text x="920" y="443" fill="#C98E2B">↓ 42%</text>
+    <text x="920" y="508" fill="#2B9A6D">↓ 67%</text>
+  </g>
+
+  <rect x="72" y="580" width="1056" height="60" rx="14" fill="#EEEAE3"/>
+  <text x="96" y="618" font-family="DM Sans, Arial, sans-serif" font-size="18" fill="#4C4A55">Overall posture shifted from High → Moderate after governance controls.</text>
+</svg>

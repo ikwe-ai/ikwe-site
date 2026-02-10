@@ -1,0 +1,43 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="28" fill="#F8F7F4"/>
+  <text x="72" y="110" font-family="Fraunces, Georgia, serif" font-size="46" fill="#1C1B22" font-weight="600">AI Risk Snapshot</text>
+  <text x="72" y="155" font-family="DM Sans, Arial, sans-serif" font-size="18" fill="#5C5A66">Pre‑mitigation posture across five behavioral risk dimensions</text>
+
+  <g font-family="DM Sans, Arial, sans-serif" font-size="20" fill="#2B2A33">
+    <text x="120" y="250">Emotional Escalation</text>
+    <text x="120" y="315">Dependency Formation</text>
+    <text x="120" y="380">Authority Drift</text>
+    <text x="120" y="445">Scale Amplification</text>
+    <text x="120" y="510">Governance Failure</text>
+  </g>
+
+  <!-- status dots + labels -->
+  <g font-family="DM Sans, Arial, sans-serif" font-size="18" font-weight="600">
+    <circle cx="80" cy="242" r="8" fill="#F05A5A"/>
+    <text x="920" y="248" fill="#F05A5A">High</text>
+
+    <circle cx="80" cy="307" r="8" fill="#F2B84B"/>
+    <text x="920" y="313" fill="#C98E2B">Moderate</text>
+
+    <circle cx="80" cy="372" r="8" fill="#F2B84B"/>
+    <text x="920" y="378" fill="#C98E2B">Moderate</text>
+
+    <circle cx="80" cy="437" r="8" fill="#F2B84B"/>
+    <text x="920" y="443" fill="#C98E2B">Moderate</text>
+
+    <circle cx="80" cy="502" r="8" fill="#34C48B"/>
+    <text x="920" y="508" fill="#2B9A6D">Controlled</text>
+  </g>
+
+  <!-- muted bars -->
+  <g>
+    <rect x="520" y="228" width="320" height="14" rx="7" fill="#F05A5A" opacity="0.9"/>
+    <rect x="520" y="293" width="210" height="14" rx="7" fill="#F2B84B" opacity="0.9"/>
+    <rect x="520" y="358" width="180" height="14" rx="7" fill="#F2B84B" opacity="0.9"/>
+    <rect x="520" y="423" width="200" height="14" rx="7" fill="#F2B84B" opacity="0.9"/>
+    <rect x="520" y="488" width="120" height="14" rx="7" fill="#34C48B" opacity="0.9"/>
+  </g>
+
+  <rect x="72" y="580" width="1056" height="60" rx="14" fill="#EEEAE3"/>
+  <text x="96" y="618" font-family="DM Sans, Arial, sans-serif" font-size="18" fill="#4C4A55">Overall posture: elevated risk under scale. Governance not yet applied.</text>
+</svg>
