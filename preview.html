@@ -362,6 +362,26 @@ button, .btn, a.btn, .nav-cta, .tier-cta{white-space:nowrap;}
 h1,h2,h3{word-wrap:break-word;}
 /* === END QA SWEEP === */
 
+
+/* Global Safety Pass */
+/* Global Safety Pass */
+body{overflow-x:hidden;}
+img,svg,video,iframe{max-width:100%;height:auto;}
+section,.section,.block,.panel,.card{overflow:hidden;}
+.container,.container--narrow,.nav-inner,.hero-content{width:100%;box-sizing:border-box;}
+.narrow{max-width:680px;margin:0 auto;padding:0 32px;}
+.meta-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:16px;}
+.meta-item{font-size:13px;}
+.meta-item .ml{font-family:var(--mono);font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:2px;}
+.meta-item .mv{color:var(--text-2);font-weight:500;}
+.scorecard,.scorecard-img,.scorecard-panel,.scorecard-wrap{background:var(--bg-card);border:1px solid var(--border-2);border-radius:16px;padding:18px;}
+.scorecard-img img,.scorecard-panel img,.scorecard-wrap img{width:100%;height:auto;display:block;background:#fff;border-radius:12px;border:1px solid var(--border-2);}
+.proof-layout{grid-template-columns:1fr 1.2fr;}
+.proof-scorecard{padding:24px;}
+.proof-scorecard img{width:100%;max-width:760px;}
+.nav-cta,.nav-btn,.btn-primary,.tier-cta.primary,.btn.primary{color:var(--bg)!important;background:var(--text)!important;border-color:var(--text)!important;}
+button,.btn,a.btn,.nav-cta,.tier-cta{white-space:nowrap;}
+
 </style>
 </head>
 <body>
@@ -393,7 +413,7 @@ h1,h2,h3{word-wrap:break-word;}
     <p style="font-size:16px;color:var(--text2);max-width:52ch;line-height:1.7">Take the Ikwe AI risk system, adapt it, and run it your way. This is the architecture and logic — not implementation.</p>
     <div class="cta-row" style="margin-top:14px">
       <a class="cbtn" href="https://buy.stripe.com/14AeVe1AEetHg7QamR9sk06">Get the Blueprint</a>
-      <a class="btn secondary" href="/downloads/#public-preview">Download the preview (PDF)</a>
+      <a class="btn secondary" href="/downloads/ikwe_public_preview.pdf">Download the preview (PDF)</a>
     </div>
     <p style="font-size:12px;color:var(--text3);margin-top:10px;">Public samples are free to download.</p>
   </div>
@@ -405,9 +425,9 @@ h1,h2,h3{word-wrap:break-word;}
     <h2 style="font-size:20px;margin-bottom:4px">Download the redacted samples first.</h2>
     <p style="font-size:14px;color:var(--text3);margin-bottom:10px">These are the public, redacted versions so you can see what you’re buying.</p>
     <div class="cta-row" style="margin-top:8px">
-      <a class="btn secondary" href="/downloads/#public-preview">Public Preview (PDF)</a>
-      <a class="btn secondary" href="/downloads/#board-brief">Board Brief (PDF)</a>
-      <a class="btn secondary" href="/downloads/#audit-report">Sample Audit Report (PDF)</a>
+      <a class="btn secondary" href="/downloads/ikwe_public_preview.pdf">Public Preview (PDF)</a>
+      <a class="btn secondary" href="/downloads/ikwe_board_brief.pdf">Board Brief (PDF)</a>
+      <a class="btn secondary" href="/downloads/ikwe_audit_report.pdf">Sample Audit Report (PDF)</a>
     </div>
     <p style="font-size:12px;color:var(--text3);margin-top:8px">Public samples are free to download.</p>
       </div>
@@ -466,7 +486,7 @@ h1,h2,h3{word-wrap:break-word;}
     <div class="terms">System architecture · No implementation support</div>
     <div class="cta-row">
       <a href="https://buy.stripe.com/REPLACE_BUILDER_PACK_LINK" class="cbtn">Get the Builder Pack →</a>
-      <a href="/downloads/#public-preview" class="btn secondary">Download the preview (PDF)</a>
+      <a href="/downloads/ikwe_public_preview.pdf" class="btn secondary">Download the preview (PDF)</a>
     </div>
     <div class="cta-row" style="margin-top:10px">
       <a href="/board-brief" class="btn secondary">Board Brief (Web View)</a>
@@ -474,7 +494,7 @@ h1,h2,h3{word-wrap:break-word;}
     </div>
     <p class="note">Delivery details provided after checkout.</p>
   </div>
-  <div class="upsell"><h3>Need implementation guidance?</h3><p>The <strong style="color:var(--text)">DIY Implementation DIY Playbook</strong> adds step‑by‑step instructions, templates, and install guidance.</p><a href="/playbook">See the DIY Playbook →</a></div>
+  <div class="upsell"><h3>Need implementation guidance?</h3><p>The <strong style="color:var(--text)">DIY Implementation Playbook</strong> adds step‑by‑step instructions, templates, and install guidance.</p><a href="/playbook">See the DIY Playbook →</a></div>
   <div class="upsell"><h3>Ready for your own audit?</h3><p>The <strong style="color:var(--text)">Managed Audit</strong> applies this framework to YOUR systems. Board-ready report in 4 weeks.</p><a href="/audit">Request a Managed Audit →</a></div>
 </div></section>
 
@@ -486,13 +506,43 @@ h1,h2,h3{word-wrap:break-word;}
 
 </main>
 
-<footer class="footer"><div class="container"><div class="footer-grid">
-  <div class="footer-col"><div class="footer-logo"><img src="/ikwe_logo_dark.png" alt="ikwe.ai" width="32" height="32"><span>ikwe.ai</span></div><p class="footer-tagline">Behavioral emotional safety infrastructure for AI.</p><p class="footer-legal">© 2026 Visible Healing Inc. · Des Moines, Iowa</p></div>
-  <div class="footer-col"><div class="footer-title">Research</div><div class="footer-nav"><a href="/emotional-safety-gap">Emotional Safety Gap</a><a href="/research">Methodology</a><a href="/full-report">Full Report</a></div></div>
-  <div class="footer-col"><div class="footer-title">Company</div><div class="footer-nav"><a href="/about">About</a><a href="/audit">Audit</a><a href="/proof">Proof</a><a href="/support">Support</a></div></div>
-  <div class="footer-col"><div class="footer-title">Products</div><div class="footer-nav"><a href="/preview">System Blueprint</a><a href="/playbook">DIY Playbook</a><a href="/enterprise">Managed Audit</a></div></div>
-  <div class="footer-col"><div class="footer-title">Connect</div><div class="footer-nav"><a href="/inquiry">Request an Audit</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div>
-</div></div></footer>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</div>
+        <p class="footer-tagline">Behavioral emotional safety infrastructure for AI.</p>
+        <p class="footer-copy">© 2026 Visible Healing Inc. · Des Moines, Iowa</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="/about">About</a>
+        <a href="/audit">Pricing</a>
+        <a href="/enterprise">Managed Audit</a>
+        <a href="/proof">Proof</a>
+        <a href="/press">Press</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Products</div>
+        <a href="/preview">System Blueprint</a>
+        <a href="/playbook">DIY Playbook</a>
+        <a href="/audit">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Research</div>
+        <a href="/research">Methodology</a>
+        <a href="/faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Connect</div>
+        <a href="/inquiry">Request an Audit</a>
+        <a href="/support">Support</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <div class="sticky-cta" aria-label="Quick actions">
   <a class="btn primary" href="https://buy.stripe.com/14AeVe1AEetHg7QamR9sk06">Get Blueprint</a>

@@ -156,6 +156,26 @@ h1{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:20px}
 @media(max-width:900px){.nav-links{display:none;}}
 /* === END NAV FIX === */
 
+
+/* Global Safety Pass */
+/* Global Safety Pass */
+body{overflow-x:hidden;}
+img,svg,video,iframe{max-width:100%;height:auto;}
+section,.section,.block,.panel,.card{overflow:hidden;}
+.container,.container--narrow,.nav-inner,.hero-content{width:100%;box-sizing:border-box;}
+.narrow{max-width:680px;margin:0 auto;padding:0 32px;}
+.meta-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:16px;}
+.meta-item{font-size:13px;}
+.meta-item .ml{font-family:var(--mono);font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:2px;}
+.meta-item .mv{color:var(--text-2);font-weight:500;}
+.scorecard,.scorecard-img,.scorecard-panel,.scorecard-wrap{background:var(--bg-card);border:1px solid var(--border-2);border-radius:16px;padding:18px;}
+.scorecard-img img,.scorecard-panel img,.scorecard-wrap img{width:100%;height:auto;display:block;background:#fff;border-radius:12px;border:1px solid var(--border-2);}
+.proof-layout{grid-template-columns:1fr 1.2fr;}
+.proof-scorecard{padding:24px;}
+.proof-scorecard img{width:100%;max-width:760px;}
+.nav-cta,.nav-btn,.btn-primary,.tier-cta.primary,.btn.primary{color:var(--bg)!important;background:var(--text)!important;border-color:var(--text)!important;}
+button,.btn,a.btn,.nav-cta,.tier-cta{white-space:nowrap;}
+
 </style>
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-Zs0nNW5srMjkLGUV711fI.js"></script>
