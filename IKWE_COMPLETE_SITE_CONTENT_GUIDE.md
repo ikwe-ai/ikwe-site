@@ -124,7 +124,7 @@ AI, agents, and decision systems.
 
 [Three tier cards side by side]
 
-PREVIEW PACK — $250
+PREVIEW PACK — $2,500
 Understand the methodology. See a completed scorecard.
 ✅ Findings summary
 ✅ Full risk scorecard  
@@ -133,7 +133,7 @@ Understand the methodology. See a completed scorecard.
 🔒 Risk events
 🔒 Failure mode map
 🔒 Remediation framework
-[Get Preview Pack →]
+[Get the Blueprint ($2,500) →]
 
 PLAYBOOK — $5,000 (mark as MOST POPULAR)
 Full risk intelligence for your team. Sector mappings, templates, frameworks.
@@ -244,7 +244,7 @@ Already built (ikwe_proof_page.html). Structure:
 5. Key statistics (three stat boxes)
 6. What changed (five structural fixes)
 7. "Recognition is not safety" quote
-8. Download section (three-card: Free / $250 / $5K)
+8. Download section (three-card: Free / $2,500 / $5K)
 9. Bottom CTA → /audit
 
 No changes needed — deploy as-is.
@@ -252,20 +252,20 @@ No changes needed — deploy as-is.
 ---
 
 # ═══════════════════════════════════════════════════
-# 4. /preview — PREVIEW PACK PRODUCT PAGE ($250)
+# 4. /preview — PREVIEW PACK PRODUCT PAGE ($2,500)
 # ═══════════════════════════════════════════════════
 
-This is a NEW page. Product page for the $250 Preview Pack.
+This is a NEW page. Product page for the $2,500 System Blueprint.
 
 ```
 Tag: IKWE AI RISK AUDIT · PREVIEW PACK
 
 Headline: See the methodology. Evaluate the approach.
 
-Subhead: $250 — Instant PDF delivery
+Subhead: $2,500 — Instant PDF delivery
 
 Body:
-The Preview Pack gives you expanded visibility into a completed 
+The System Blueprint gives you expanded visibility into a completed 
 Ikwe Risk Audit — including the full risk scorecard, scoring 
 methodology, and baseline assessment. System names are anonymized.
 
@@ -316,14 +316,14 @@ WHAT'S NOT INCLUDED (available at higher tiers):
 | Governance Failure    | 3        | 4          | 2           | 24    | LOW     |
 
 Caption: "This is the actual scorecard from a completed audit. 
-The Preview Pack includes scoring methodology and before/after comparison."
+The System Blueprint includes scoring methodology and before/after comparison."
 
 ---
 
 CTA:
-$250 · Instant PDF delivery · No call required
+$2,500 · Instant PDF delivery · No call required
 
-[Get Preview Pack →] → mailto:stephanie@ikwe.ai?subject=Preview%20Pack%20Request
+[Get the Blueprint ($2,500) →] → https://buy.stripe.com/14AeVe1AEetHg7QamR9sk06
                        (swap for Stripe payment link when ready)
 
 Below:
@@ -359,7 +359,7 @@ It does not give you your audit.
 
 WHAT'S INCLUDED:
 
-✅ Everything in Preview Pack ($250)
+✅ Everything in System Blueprint ($2,500)
    Findings, scorecard, before/after, methodology.
 
 ✅ All 5 observed risk events — fully documented
@@ -579,7 +579,7 @@ About dropdown (or flat):
 - Founder → /founder (if separate page exists)
 
 Product pages (linked from /audit and homepage tiers):
-- /preview → Preview Pack product page
+- /preview → System Blueprint product page
 - /playbook → Playbook product page
 - /enterprise → Updated enterprise page
 
@@ -613,7 +613,7 @@ Company column: (add)
 - Press Kit
 
 Products column: (NEW column, or add to Support)
-- Preview Pack ($250) → /preview
+- System Blueprint ($2,500) → /preview
 - Playbook ($5,000) → /playbook
 - Full Audit ($25,000) → /audit
 - Enterprise → /enterprise
