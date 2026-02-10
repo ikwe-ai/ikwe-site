@@ -417,12 +417,15 @@ button,.btn,a.btn,.nav-cta,.tier-cta{white-space:nowrap;}
 <nav class="nav">
   <div class="nav-inner">
     <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+
     <div class="nav-links">
       <a href="/research">Research</a>
+      <a href="/preview">System Blueprint</a>
+      <a href="/playbook">DIY Playbook</a>
       <a href="/audit">Pricing</a>
-      <a href="/proof">Proof</a>
+      <a href="/enterprise">Managed Audit</a>
       <a href="/about">About</a>
-      <a class="nav-cta" href="/inquiry">Request an Audit</a>
+      <a class="nav-cta" href="/inquiry" aria-current="page">Request an Audit</a>
     </div>
   </div>
 </nav>
@@ -442,7 +445,7 @@ button,.btn,a.btn,.nav-cta,.tier-cta{white-space:nowrap;}
     <p class="section-sub" style="margin-bottom: 20px;">
       This form is for teams requesting the <strong>$25,000+ Managed Audit Implementation</strong> (done‑for‑you). If you want the self‑serve products instead, start with the <a href="https://buy.stripe.com/14AeVe1AEetHg7QamR9sk06">System Blueprint ($2,500)</a> or the <a href="/playbook">DIY Implementation Playbook ($5,000)</a>.
     </p>
-    <form id="form-evaluate" name="ikwe-audit" method="POST" data-netlify="true">
+    <form id="form-evaluate" name="ikwe-audit" method="POST" data-netlify="true" onsubmit="submitForm(event,'audit')">
       <input type="hidden" name="form-name" value="ikwe-audit">
       <div class="form-row">
         <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
