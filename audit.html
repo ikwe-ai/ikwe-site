@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Risk Audit | Ikwe.ai</title>
-<meta name="description" content="Board-ready risk evaluation for companies scaling conversational AI, agents, and decision systems." />
+<meta name="description" content="Board-ready behavioral risk evaluation for companies scaling conversational AI, agents, and decision systems." />
 <meta property="og:title" content="AI Risk Audit | Ikwe.ai" />
-<meta property="og:description" content="Board-ready risk evaluation for AI systems in high-trust contexts." />
+<meta property="og:description" content="Structured behavioral assessment. Delivered in four weeks. Board-ready." />
 <meta property="og:image" content="https://ikwe.ai/og_image.png" />
 <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,271 +14,193 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* Warm dark surfaces */
-  --bg:        #141218;
-  --bg-2:      #1a171f;
-  --bg-3:      #211e26;
-  --bg-card:   #1e1b23;
-  --bg-hover:  #282530;
-
-  /* Warm text */
-  --text:      #E8E4DF;
-  --text-2:    rgba(232,228,223,.62);
-  --text-3:    rgba(232,228,223,.38);
-
-  /* Borders */
-  --border:    rgba(232,228,223,.06);
-  --border-2:  rgba(232,228,223,.10);
-  --border-3:  rgba(232,228,223,.16);
-
-  /* UI accent (warm) */
-  --rose:      #C4A69A;
-  --rose-muted:rgba(196,166,154,.15);
-  --clay:      #B89B8F;
-
-  /* Data viz ONLY */
-  --coral:     #FB923C;
-  --lilac:     #A78BFA;
-  --navy:      #6B7394;
-  --gold:      #FBBF24;
-  --teal:      #2DD4BF;
-
-  /* Badges */
-  --high-bg:   rgba(251,146,60,.10);
-  --high-text: #F0985A;
-  --mod-bg:    rgba(251,191,36,.10);
-  --mod-text:  #E5B84A;
-  --low-bg:    rgba(45,212,191,.10);
-  --low-text:  #5BC4B2;
-
-  /* Type */
-  --serif:     'Fraunces', Georgia, serif;
-  --sans:      'DM Sans', system-ui, sans-serif;
-  --mono:      'Space Mono', monospace;
+  --bg:#141218;--bg-2:#1a171f;--bg-3:#211e26;--bg-card:#1e1b23;--bg-hover:#282530;
+  --text:#E8E4DF;--text-2:rgba(232,228,223,.62);--text-3:rgba(232,228,223,.38);
+  --border:rgba(232,228,223,.06);--border-2:rgba(232,228,223,.10);--border-3:rgba(232,228,223,.16);
+  --rose:#C4A69A;--rose-muted:rgba(196,166,154,.15);
+  --coral:#FB923C;--lilac:#A78BFA;--navy:#6B7394;--gold:#FBBF24;--teal:#2DD4BF;
+  --high-bg:rgba(251,146,60,.10);--high-text:#F0985A;
+  --mod-bg:rgba(251,191,36,.10);--mod-text:#E5B84A;
+  --low-bg:rgba(45,212,191,.10);--low-text:#5BC4B2;
+  --serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'Space Mono',monospace;
 }
 
-*, *::before, *::after { margin:0;padding:0;box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.68;-webkit-font-smoothing:antialiased;overflow-x:hidden; }
-a { color:inherit;text-decoration:none; }
-.container { max-width:1060px;margin:0 auto;padding:0 32px; }
-.container--narrow { max-width:680px;margin:0 auto;padding:0 32px; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.68;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:1060px;margin:0 auto;padding:0 32px;}
+.container--narrow{max-width:680px;margin:0 auto;padding:0 32px;}
 
 /* NAV */
-.nav { position:sticky;top:0;z-index:100;background:rgba(20,18,24,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border); }
-.nav-inner { max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:68px; }
-.brand { display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:1.05rem;letter-spacing:-.01em; }
-.brand img { width:32px;height:32px;border-radius:50%; }
-.nav-links { display:flex;align-items:center;gap:36px; }
-.nav-links a { font-size:.875rem;font-weight:500;color:var(--text-2);transition:color .2s;letter-spacing:.01em; }
-.nav-links a:hover { color:var(--text); }
-.nav-links a.active { color:var(--rose); }
-.nav-cta { padding:10px 22px;border-radius:8px;font-size:.84rem;font-weight:600;background:var(--text);color:var(--bg);transition:opacity .2s;letter-spacing:.01em; }
-.nav-cta:hover { opacity:.88; }
-@media(max-width:860px){ .nav-links{display:none;} }
+.nav{position:sticky;top:0;z-index:100;background:rgba(20,18,24,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:1.05rem;letter-spacing:-.01em;}
+.brand img{width:32px;height:32px;border-radius:50%;}
+.nav-links{display:flex;align-items:center;gap:36px;}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--text-2);transition:color .2s;letter-spacing:.01em;}
+.nav-links a:hover{color:var(--text);}
+.nav-links a.active{color:var(--rose);}
+.nav-cta{padding:10px 22px;border-radius:8px;font-size:.84rem;font-weight:600;background:var(--text);color:var(--bg);transition:opacity .2s;letter-spacing:.01em;}
+.nav-cta:hover{opacity:.88;}
+@media(max-width:860px){.nav-links{display:none;}}
 
 /* SHARED */
-.kicker { font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);margin-bottom:16px; }
-section { padding:96px 0; }
-section + section { border-top:1px solid var(--border); }
-.btn-primary { display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:10px;font-weight:600;font-size:.92rem;background:var(--text);color:var(--bg);border:none;cursor:pointer;transition:opacity .2s,transform .15s;letter-spacing:.01em; }
-.btn-primary:hover { opacity:.9;transform:translateY(-1px); }
+.kicker{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);margin-bottom:16px;}
+section{padding:96px 0;}
+section+section{border-top:1px solid var(--border);}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:10px;font-weight:600;font-size:.92rem;background:var(--text);color:var(--bg);border:none;cursor:pointer;transition:opacity .2s,transform .15s;letter-spacing:.01em;}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;font-weight:600;font-size:.88rem;border:1px solid var(--border-2);background:transparent;color:var(--text-2);cursor:pointer;transition:border-color .2s,color .2s;}
+.btn-ghost:hover{border-color:var(--border-3);color:var(--text);}
 
-/* BADGES (data viz context only) */
-.badge { display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap; }
-.badge.high { background:var(--high-bg);color:var(--high-text); }
-.badge.mod  { background:var(--mod-bg);color:var(--mod-text); }
-.badge.low  { background:var(--low-bg);color:var(--low-text); }
+/* Badges */
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;}
+.badge.high{background:var(--high-bg);color:var(--high-text);}
+.badge.mod{background:var(--mod-bg);color:var(--mod-text);}
+.badge.low{background:var(--low-bg);color:var(--low-text);}
 
 /* =====================
    HERO
    ===================== */
-.hero {
-  padding:100px 0 84px;
-  border-bottom:1px solid var(--border);
-  position:relative;
-}
-
-.hero::before {
-  content:'';position:absolute;top:-40px;left:50%;transform:translateX(-50%);
-  width:1000px;height:400px;
-  background:radial-gradient(ellipse at center,rgba(196,166,154,.05) 0%,rgba(168,139,250,.03) 30%,transparent 65%);
-  pointer-events:none;
-}
-
-.hero h1 {
-  font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,3.8vw,2.7rem);
-  line-height:1.18;letter-spacing:-.02em;max-width:22ch;margin-bottom:18px;position:relative;
-}
-
-.hero-sub {
-  font-size:1.02rem;color:var(--text-2);max-width:52ch;line-height:1.75;margin-bottom:36px;position:relative;
-}
+.hero{padding:100px 0 84px;border-bottom:1px solid var(--border);position:relative;}
+.hero::before{content:'';position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:1000px;height:400px;background:radial-gradient(ellipse at center,rgba(196,166,154,.05) 0%,rgba(168,139,250,.03) 30%,transparent 65%);pointer-events:none;}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,3.8vw,2.7rem);line-height:1.18;letter-spacing:-.02em;max-width:22ch;margin-bottom:18px;position:relative;}
+.hero-sub{font-size:1.02rem;color:var(--text-2);max-width:52ch;line-height:1.75;margin-bottom:36px;position:relative;}
+.hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;position:relative;}
 
 /* =====================
-   SAMPLES
+   WHAT YOU GET (outcomes-first)
    ===================== */
-.samples { padding:72px 0; }
-
-.samples h2 {
-  font-family:var(--serif);font-size:1.3rem;font-weight:600;margin-bottom:6px;letter-spacing:-.01em;
+.outcomes-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--border-2);border-radius:18px;overflow:hidden;margin-top:36px;
 }
-
-.samples-desc { color:var(--text-3);font-size:.88rem;margin-bottom:24px;max-width:44ch; }
-
-.sample-row { display:flex;gap:12px;flex-wrap:wrap; }
-
-.sample-link {
-  padding:12px 20px;border:1px solid var(--border-2);border-radius:10px;
-  font-size:.86rem;font-weight:600;color:var(--text-2);background:var(--bg-card);
-  transition:border-color .2s,color .2s,background .2s;
-}
-
-.sample-link:hover { border-color:var(--border-3);color:var(--text);background:var(--bg-hover); }
-
-.sample-link .label { font-size:.74rem;font-weight:400;color:var(--text-3);display:block;margin-top:2px; }
+.outcome-card{background:var(--bg-card);padding:36px 28px;transition:background .2s;}
+.outcome-card:hover{background:var(--bg-hover);}
+.outcome-num{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--rose);margin-bottom:10px;letter-spacing:.08em;}
+.outcome-card h3{font-family:var(--serif);font-size:1.02rem;font-weight:600;margin-bottom:8px;line-height:1.3;letter-spacing:-.01em;}
+.outcome-card p{font-size:.86rem;color:var(--text-2);line-height:1.65;}
+@media(max-width:768px){.outcomes-grid{grid-template-columns:1fr;}}
 
 /* =====================
-   SCORECARD (warm dark version)
+   SAMPLES (minimal)
    ===================== */
-.scorecard-section { padding:80px 0; }
+.samples{padding:60px 0;}
+.samples h2{font-family:var(--serif);font-size:1.15rem;font-weight:600;margin-bottom:6px;letter-spacing:-.01em;}
+.samples-desc{color:var(--text-3);font-size:.86rem;margin-bottom:20px;max-width:44ch;}
+.sample-row{display:flex;gap:12px;flex-wrap:wrap;}
+.sample-link{padding:12px 20px;border:1px solid var(--border-2);border-radius:10px;font-size:.84rem;font-weight:600;color:var(--text-2);background:var(--bg-card);transition:border-color .2s,color .2s,background .2s;}
+.sample-link:hover{border-color:var(--border-3);color:var(--text);background:var(--bg-hover);}
+.sample-link .label{font-size:.74rem;font-weight:400;color:var(--text-3);display:block;margin-top:2px;}
 
-.sc-card {
-  width:100%;max-width:860px;margin:0 auto;
-  background:var(--bg-card);border:1px solid var(--border-2);border-radius:20px;padding:40px 44px 36px;
-}
-
-@media(max-width:700px){ .sc-card{padding:28px 20px 24px;} }
-
-.sc-header { display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;gap:16px; }
-.sc-title { font-family:var(--serif);font-weight:600;font-size:clamp(20px,3vw,26px);line-height:1.15; }
-.sc-sub { font-size:12px;color:var(--text-3);margin-top:3px; }
-.sc-brand { display:flex;align-items:center;gap:7px;font-family:var(--serif);font-weight:600;font-size:13px;color:var(--text-3);flex-shrink:0; }
-.sc-mark { width:24px;height:24px;border-radius:50%;background:conic-gradient(var(--coral) 0deg 90deg,var(--lilac) 90deg 180deg,#1B1F3A 180deg 270deg,var(--teal) 270deg 360deg);opacity:.65; }
-
-.sc-table-wrap { width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch; }
-.sc-table { width:100%;min-width:640px;border-collapse:separate;border-spacing:0;table-layout:fixed; }
-.sc-table colgroup .col-dim  { width:27%; }
-.sc-table colgroup .col-base { width:30%; }
-.sc-table colgroup .col-post { width:30%; }
-.sc-table colgroup .col-delta{ width:13%; }
-
-.sc-table thead th {
-  font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--text-3);padding:0 0 12px;border-bottom:1px solid var(--border-2);text-align:left;white-space:nowrap;
-}
-.sc-table thead th:last-child { text-align:right; }
-
-.sc-table tbody td { padding:14px 0;border-bottom:1px solid var(--border);vertical-align:middle; }
-.sc-table tbody tr:last-child td { border-bottom:none; }
-
-.sc-dim { display:flex;align-items:center;gap:9px; }
-.sc-dot { width:8px;height:8px;border-radius:50%;flex-shrink:0; }
-.sc-dim-label { font-weight:600;font-size:13.5px;white-space:nowrap; }
-
-.sc-bar-group { display:flex;align-items:center;gap:7px; }
-.sc-track { flex:1;height:7px;background:rgba(232,228,223,.04);border-radius:5px;overflow:hidden;max-width:90px;min-width:30px; }
-.sc-fill { height:100%;border-radius:5px; }
-.sc-fill.baseline { opacity:.22; }
-.sc-fill.post { opacity:1; }
-.sc-score { font-family:var(--mono);font-weight:700;font-size:12.5px;min-width:20px;text-align:right;flex-shrink:0; }
-
-.sc-delta { text-align:right;font-family:var(--mono);font-weight:700;font-size:12.5px;color:var(--low-text);white-space:nowrap; }
-
-.sc-summary {
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
-  padding:16px 20px;background:var(--bg-3);border-radius:12px;margin-top:24px;margin-bottom:20px;
-}
-.sc-summary-text { font-size:13px;font-weight:500;color:var(--text-2); }
-.sc-summary-text strong { color:var(--text);font-weight:700; }
-.sc-shift { display:flex;align-items:center;gap:8px; }
-.sc-shift-arrow { font-size:16px;color:var(--low-text); }
-
-.sc-legend { display:flex;align-items:center;gap:16px;flex-wrap:wrap; }
-.sc-legend-item { display:flex;align-items:center;gap:5px;font-size:11px;font-weight:500;color:var(--text-3); }
-.sc-legend-swatch { width:7px;height:7px;border-radius:50%; }
-.sc-legend-div { width:1px;height:12px;background:var(--border-2); }
+/* =====================
+   SCORECARD
+   ===================== */
+.scorecard-section{padding:80px 0;}
+.sc-card{width:100%;max-width:860px;margin:0 auto;background:var(--bg-card);border:1px solid var(--border-2);border-radius:20px;padding:40px 44px 36px;}
+@media(max-width:700px){.sc-card{padding:28px 20px 24px;}}
+.sc-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;gap:16px;}
+.sc-title{font-family:var(--serif);font-weight:600;font-size:clamp(20px,3vw,26px);line-height:1.15;}
+.sc-sub{font-size:12px;color:var(--text-3);margin-top:3px;}
+.sc-brand{display:flex;align-items:center;gap:7px;font-family:var(--serif);font-weight:600;font-size:13px;color:var(--text-3);flex-shrink:0;}
+.sc-mark{width:24px;height:24px;border-radius:50%;background:conic-gradient(var(--coral) 0deg 90deg,var(--lilac) 90deg 180deg,#1B1F3A 180deg 270deg,var(--teal) 270deg 360deg);opacity:.6;}
+.sc-table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.sc-table{width:100%;min-width:640px;border-collapse:separate;border-spacing:0;table-layout:fixed;}
+.sc-table colgroup .col-dim{width:27%;} .sc-table colgroup .col-base{width:30%;} .sc-table colgroup .col-post{width:30%;} .sc-table colgroup .col-delta{width:13%;}
+.sc-table thead th{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);padding:0 0 12px;border-bottom:1px solid var(--border-2);text-align:left;white-space:nowrap;}
+.sc-table thead th:last-child{text-align:right;}
+.sc-table tbody td{padding:14px 0;border-bottom:1px solid var(--border);vertical-align:middle;}
+.sc-table tbody tr:last-child td{border-bottom:none;}
+.sc-dim{display:flex;align-items:center;gap:9px;}
+.sc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.sc-dim-label{font-weight:600;font-size:13.5px;white-space:nowrap;}
+.sc-bar-group{display:flex;align-items:center;gap:7px;}
+.sc-track{flex:1;height:7px;background:rgba(232,228,223,.04);border-radius:5px;overflow:hidden;max-width:90px;min-width:30px;}
+.sc-fill{height:100%;border-radius:5px;}
+.sc-fill.baseline{opacity:.22;} .sc-fill.post{opacity:1;}
+.sc-score{font-family:var(--mono);font-weight:700;font-size:12.5px;min-width:20px;text-align:right;flex-shrink:0;}
+.sc-delta{text-align:right;font-family:var(--mono);font-weight:700;font-size:12.5px;color:var(--low-text);white-space:nowrap;}
+.sc-summary{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:16px 20px;background:var(--bg-3);border-radius:12px;margin-top:24px;margin-bottom:20px;}
+.sc-summary-text{font-size:13px;font-weight:500;color:var(--text-2);} .sc-summary-text strong{color:var(--text);font-weight:700;}
+.sc-shift{display:flex;align-items:center;gap:8px;}
+.sc-shift-arrow{font-size:16px;color:var(--low-text);}
+.sc-legend{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.sc-legend-item{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:500;color:var(--text-3);}
+.sc-legend-swatch{width:7px;height:7px;border-radius:50%;}
+.sc-legend-div{width:1px;height:12px;background:var(--border-2);}
 
 /* =====================
    TIERS
    ===================== */
-.tiers-section { padding:80px 0; }
+.tiers-section{padding:80px 0;}
+.tiers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-2);border-radius:18px;overflow:hidden;margin-top:40px;}
+.tier{background:var(--bg-card);padding:36px 26px;display:flex;flex-direction:column;transition:background .2s;}
+.tier:hover{background:var(--bg-hover);}
+.tier.featured{background:var(--bg-3);box-shadow:inset 0 2px 0 0 var(--rose);}
+.tier-name{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--rose);margin-bottom:8px;}
+.tier-price{font-family:var(--serif);font-size:1.45rem;font-weight:600;margin-bottom:14px;line-height:1.2;letter-spacing:-.01em;}
+.tier-price .unit{font-size:.8rem;font-weight:400;color:var(--text-3);}
+.tier-desc{font-size:.84rem;color:var(--text-2);line-height:1.65;flex:1;margin-bottom:20px;}
+.tier-items{list-style:none;margin-bottom:24px;}
+.tier-items li{font-size:.82rem;color:var(--text-2);padding:4px 0 4px 16px;position:relative;}
+.tier-items li::before{content:'';position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--rose);opacity:.4;}
+.tier-cta{padding:10px 18px;border-radius:8px;font-size:.82rem;font-weight:600;text-align:center;border:1px solid var(--border-2);color:var(--text-2);background:transparent;transition:border-color .2s,color .2s;cursor:pointer;margin-top:auto;}
+.tier-cta:hover{border-color:var(--border-3);color:var(--text);}
+.tier-cta.primary{background:var(--text);color:var(--bg);border-color:var(--text);}
+.tier-cta.primary:hover{opacity:.9;}
+@media(max-width:900px){.tiers-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.tiers-grid{grid-template-columns:1fr;}}
 
-.tiers-grid {
+/* =====================
+   TIMELINE (What Happens Next)
+   ===================== */
+.timeline-grid{
   display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-  background:var(--border-2);border-radius:18px;overflow:hidden;margin-top:40px;
+  background:var(--border-2);border-radius:18px;overflow:hidden;margin-top:36px;
 }
-
-.tier {
-  background:var(--bg-card);padding:36px 26px;display:flex;flex-direction:column;
-  transition:background .2s;
-}
-
-.tier:hover { background:var(--bg-hover); }
-
-.tier.featured {
-  background:var(--bg-3);
-  box-shadow: inset 0 2px 0 0 var(--rose);
-}
-
-.tier-name {
+.timeline-step{background:var(--bg-card);padding:32px 24px;position:relative;transition:background .2s;}
+.timeline-step:hover{background:var(--bg-hover);}
+.timeline-week{
   font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--rose);margin-bottom:8px;
+  text-transform:uppercase;color:var(--rose);margin-bottom:10px;
 }
+.timeline-step h3{font-family:var(--serif);font-size:.98rem;font-weight:600;margin-bottom:8px;line-height:1.3;letter-spacing:-.01em;}
+.timeline-step p{font-size:.83rem;color:var(--text-2);line-height:1.6;}
+@media(max-width:768px){.timeline-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.timeline-grid{grid-template-columns:1fr;}}
 
-.tier-price {
-  font-family:var(--serif);font-size:1.45rem;font-weight:600;margin-bottom:14px;line-height:1.2;letter-spacing:-.01em;
-}
-
-.tier-price .unit { font-size:.8rem;font-weight:400;color:var(--text-3); }
-
-.tier-desc { font-size:.84rem;color:var(--text-2);line-height:1.65;flex:1;margin-bottom:20px; }
-
-.tier-items { list-style:none;margin-bottom:24px; }
-.tier-items li {
-  font-size:.82rem;color:var(--text-2);padding:4px 0 4px 16px;position:relative;
-}
-.tier-items li::before {
-  content:'';position:absolute;left:0;top:11px;width:5px;height:5px;
-  border-radius:50%;background:var(--rose);opacity:.4;
-}
-
-.tier-cta {
-  padding:10px 18px;border-radius:8px;font-size:.82rem;font-weight:600;
-  text-align:center;border:1px solid var(--border-2);color:var(--text-2);
-  background:transparent;transition:border-color .2s,color .2s;cursor:pointer;margin-top:auto;
-}
-.tier-cta:hover { border-color:var(--border-3);color:var(--text); }
-.tier-cta.primary { background:var(--text);color:var(--bg);border-color:var(--text); }
-.tier-cta.primary:hover { opacity:.9; }
-
-@media(max-width:900px){ .tiers-grid{grid-template-columns:1fr 1fr;} }
-@media(max-width:560px){ .tiers-grid{grid-template-columns:1fr;} }
+/* =====================
+   TRUST STRIP
+   ===================== */
+.trust-strip{text-align:center;padding:64px 0;}
+.trust-strip p{font-size:.92rem;color:var(--text-3);max-width:52ch;margin:0 auto;}
+.trust-strip strong{color:var(--text-2);font-weight:600;}
 
 /* =====================
    CLOSE
    ===================== */
-.close-section { text-align:center;padding:80px 0 100px; }
-.close-section h2 { font-family:var(--serif);font-size:clamp(1.35rem,2.8vw,1.9rem);font-weight:600;margin-bottom:12px;letter-spacing:-.01em;line-height:1.28; }
-.close-section p { color:var(--text-2);max-width:40ch;margin:0 auto 28px;font-size:.95rem; }
+.close-section{text-align:center;padding:80px 0 100px;}
+.close-section h2{font-family:var(--serif);font-size:clamp(1.35rem,2.8vw,1.9rem);font-weight:600;margin-bottom:12px;letter-spacing:-.01em;line-height:1.28;}
+.close-section p{color:var(--text-2);max-width:36ch;margin:0 auto 28px;font-size:.95rem;}
 
 /* FOOTER */
-.footer { border-top:1px solid var(--border);padding:56px 0 48px;background:var(--bg-2); }
-.footer-grid { display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:32px; }
-.footer-brand { display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:600;font-size:.95rem;margin-bottom:10px; }
-.footer-brand img { width:24px;height:24px;border-radius:50%; }
-.footer-tagline { font-size:.84rem;color:var(--text-3);max-width:28ch;line-height:1.6; }
-.footer-copy { font-size:.78rem;color:var(--text-3);margin-top:16px; }
-.footer-col-title { font-weight:700;font-size:.8rem;margin-bottom:12px;color:var(--text-2);letter-spacing:.02em; }
-.footer-col a { display:block;font-size:.84rem;color:var(--text-3);padding:3px 0;transition:color .2s; }
-.footer-col a:hover { color:var(--text); }
-.footer-cite { grid-column:1/-1;padding-top:24px;border-top:1px solid var(--border);font-size:.76rem;color:var(--text-3);font-style:italic; }
-@media(max-width:768px){ .footer-grid{grid-template-columns:1fr 1fr;} }
-@media(max-width:480px){ .footer-grid{grid-template-columns:1fr;} }
+.footer{border-top:1px solid var(--border);padding:56px 0 48px;background:var(--bg-2);}
+.footer-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:32px;}
+.footer-brand{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:600;font-size:.95rem;margin-bottom:10px;}
+.footer-brand img{width:24px;height:24px;border-radius:50%;}
+.footer-tagline{font-size:.84rem;color:var(--text-3);max-width:28ch;line-height:1.6;}
+.footer-copy{font-size:.78rem;color:var(--text-3);margin-top:16px;}
+.footer-col-title{font-weight:700;font-size:.8rem;margin-bottom:12px;color:var(--text-2);letter-spacing:.02em;}
+.footer-col a{display:block;font-size:.84rem;color:var(--text-3);padding:3px 0;transition:color .2s;}
+.footer-col a:hover{color:var(--text);}
+.footer-cite{grid-column:1/-1;padding-top:24px;border-top:1px solid var(--border);font-size:.76rem;color:var(--text-3);font-style:italic;}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
 
 /* Animations */
-.fade-in { opacity:0;transform:translateY(12px);animation:fadeUp .7s cubic-bezier(.25,.46,.45,.94) forwards; }
-@keyframes fadeUp { to{opacity:1;transform:translateY(0);} }
+.fade-in{opacity:0;transform:translateY(12px);animation:fadeUp .7s cubic-bezier(.25,.46,.45,.94) forwards;}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
 .delay-1{animation-delay:.12s;} .delay-2{animation-delay:.24s;} .delay-3{animation-delay:.36s;}
 </style>
 </head>
@@ -290,7 +212,7 @@ section + section { border-top:1px solid var(--border); }
     <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
     <div class="nav-links">
       <a href="/research">Research</a>
-      <a href="/audit">Audit</a>
+      <a href="/audit" class="active">Audit</a>
       <a href="/proof">Proof</a>
       <a href="/about">About</a>
       <a class="nav-cta" href="/inquiry">Request Audit</a>
@@ -298,22 +220,52 @@ section + section { border-top:1px solid var(--border); }
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ======== 1. HERO — urgency + single CTA ======== -->
 <section class="hero">
   <div class="container">
     <div class="kicker fade-in">AI Risk Audit</div>
-    <h1 class="fade-in delay-1">Board-ready risk evaluation for AI systems.</h1>
+    <h1 class="fade-in delay-1">You're scaling fast.<br>Something will break.</h1>
     <p class="hero-sub fade-in delay-2">
-      Structured behavioral assessment for companies scaling conversational AI, agents, and decision systems. Developed internally before being offered externally.
+      Ikwe delivers a board-ready behavioral risk evaluation for companies scaling conversational AI, agents, and decision systems. Four weeks. Full documentation. No ambiguity.
     </p>
-    <a class="btn-primary fade-in delay-3" href="/inquiry">Request an Audit</a>
+    <div class="hero-actions fade-in delay-3">
+      <a class="btn-primary" href="/inquiry">Request an AI Risk Audit</a>
+      <a class="btn-ghost" href="/downloads/#public-preview">Download the preview</a>
+    </div>
   </div>
 </section>
 
-<!-- SAMPLES -->
+<!-- ======== 2. WHAT YOU GET (outcomes, not process) ======== -->
+<section>
+  <div class="container">
+    <div class="kicker">What You Get</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.25rem,2.4vw,1.65rem);font-weight:600;line-height:1.3;letter-spacing:-.01em;max-width:28ch;">Outcomes, not process.</h2>
+    <p style="color:var(--text-2);font-size:.9rem;margin-top:8px;max-width:52ch;">Every engagement produces tangible, board-ready deliverables. Not theory. Not a framework. Evidence you can act on.</p>
+
+    <div class="outcomes-grid">
+      <div class="outcome-card">
+        <div class="outcome-num">01</div>
+        <h3>Risk Posture Scorecard</h3>
+        <p>Quantified risk across five behavioral dimensions — escalation, dependency, authority, scale, and governance — with baseline and post-mitigation scores.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-num">02</div>
+        <h3>Board-Ready Report</h3>
+        <p>A structured findings document suitable for investors, regulators, compliance teams, and board-level review. Clear implications, clear actions.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-num">03</div>
+        <h3>Mitigation Action Plan</h3>
+        <p>Specific, prioritized recommendations tied to your system's actual behavior — not generic best practices. 90-day follow-up included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== 3. SAMPLE OUTPUTS (minimal) ======== -->
 <section class="samples">
   <div class="container">
-    <div class="kicker">See What an Audit Looks Like</div>
+    <div class="kicker">See What This Looks Like</div>
     <h2>Sample outputs.</h2>
     <p class="samples-desc">All samples are redacted. Full audits are company-specific.</p>
     <div class="sample-row">
@@ -330,11 +282,10 @@ section + section { border-top:1px solid var(--border); }
         <span class="label">7 pages · Free</span>
       </a>
     </div>
-    <p style="font-size:12px;color:var(--text-3);margin-top:12px;">Access code required for downloads: <strong style="color:var(--text)">IKWE-ACCESS</strong></p>
   </div>
 </section>
 
-<!-- SCORECARD -->
+<!-- ======== 4. SCORECARD ======== -->
 <section class="scorecard-section">
   <div class="container">
     <div class="sc-card">
@@ -345,11 +296,44 @@ section + section { border-top:1px solid var(--border); }
         </div>
         <div class="sc-brand"><div class="sc-mark"></div>ikwe.ai</div>
       </div>
-
-      <div style="padding:18px;">
-        <img src="/scorecard_image.png" alt="Risk posture scorecard" style="width:100%;max-width:980px;border-radius:12px;border:1px solid var(--border-2);display:block;margin:0 auto;background:#fff;">
+      <div class="sc-table-wrap">
+        <table class="sc-table">
+          <colgroup><col class="col-dim"><col class="col-base"><col class="col-post"><col class="col-delta"></colgroup>
+          <thead><tr><th>Dimension</th><th>Baseline</th><th>Post-Mitigation</th><th style="text-align:right">Δ</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="sc-dim"><div class="sc-dot" style="background:var(--coral)"></div><span class="sc-dim-label">Emotional Escalation</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:80%;background:var(--coral)"></div></div><span class="sc-score">80</span><span class="badge high">High</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:40%;background:var(--coral)"></div></div><span class="sc-score">40</span><span class="badge mod">Mod</span></div></td>
+              <td class="sc-delta">−50%</td>
+            </tr>
+            <tr>
+              <td><div class="sc-dim"><div class="sc-dot" style="background:var(--lilac)"></div><span class="sc-dim-label">Dependency Formation</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:48%;background:var(--lilac)"></div></div><span class="sc-score">48</span><span class="badge mod">Mod</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:20%;background:var(--lilac)"></div></div><span class="sc-score">20</span><span class="badge low">Low</span></div></td>
+              <td class="sc-delta">−58%</td>
+            </tr>
+            <tr>
+              <td><div class="sc-dim"><div class="sc-dot" style="background:var(--navy)"></div><span class="sc-dim-label">Authority Drift</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:36%;background:var(--navy)"></div></div><span class="sc-score">36</span><span class="badge mod">Mod</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:18%;background:var(--navy)"></div></div><span class="sc-score">18</span><span class="badge low">Low</span></div></td>
+              <td class="sc-delta">−50%</td>
+            </tr>
+            <tr>
+              <td><div class="sc-dim"><div class="sc-dot" style="background:var(--gold)"></div><span class="sc-dim-label">Scale Amplification</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:48%;background:var(--gold)"></div></div><span class="sc-score">48</span><span class="badge mod">Mod</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:28%;background:var(--gold)"></div></div><span class="sc-score">28</span><span class="badge mod">Mod</span></div></td>
+              <td class="sc-delta">−42%</td>
+            </tr>
+            <tr>
+              <td><div class="sc-dim"><div class="sc-dot" style="background:var(--teal)"></div><span class="sc-dim-label">Governance Failure</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:24%;background:var(--teal)"></div></div><span class="sc-score">24</span><span class="badge low">Low</span></div></td>
+              <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:8%;background:var(--teal)"></div></div><span class="sc-score">8</span><span class="badge low">Low</span></div></td>
+              <td class="sc-delta">−67%</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
       <div class="sc-summary">
         <div class="sc-summary-text">Overall risk posture shifted from <strong>High</strong> to <strong>Moderate</strong> after governance.</div>
         <div class="sc-shift">
@@ -358,18 +342,24 @@ section + section { border-top:1px solid var(--border); }
           <span class="badge mod" style="font-size:9.5px">Mod</span>
         </div>
       </div>
-
-      
+      <div class="sc-legend">
+        <div class="sc-legend-item"><div class="sc-legend-swatch" style="background:rgba(232,228,223,.08)"></div>Baseline (faded)</div>
+        <div class="sc-legend-item"><div class="sc-legend-swatch" style="background:var(--coral)"></div>Post-mitigation (solid)</div>
+        <div class="sc-legend-div"></div>
+        <span class="badge high" style="font-size:9px;padding:2px 6px">High ≥60</span>
+        <span class="badge mod" style="font-size:9px;padding:2px 6px">Mod 30–59</span>
+        <span class="badge low" style="font-size:9px;padding:2px 6px">Low &lt;30</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TIERS -->
+<!-- ======== 5. PRICING TIERS (Stripe links wired) ======== -->
 <section class="tiers-section">
   <div class="container">
     <div class="kicker">Pricing</div>
-    <h2 style="font-family:var(--serif);font-size:clamp(1.25rem,2.4vw,1.65rem);font-weight:600;line-height:1.3;letter-spacing:-.01em;">Tiered engagement model</h2>
-    <p style="color:var(--text-2);font-size:.9rem;margin-top:8px;max-width:48ch;">Start with a preview. Scale to a full audit. Every tier builds toward board-ready governance.</p>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.25rem,2.4vw,1.65rem);font-weight:600;line-height:1.3;letter-spacing:-.01em;">Start with a preview. Scale to a full audit.</h2>
+    <p style="color:var(--text-2);font-size:.9rem;margin-top:8px;max-width:48ch;">Every tier builds toward board-ready governance.</p>
 
     <div class="tiers-grid">
       <div class="tier">
@@ -381,7 +371,7 @@ section + section { border-top:1px solid var(--border); }
           <li>Board Brief PDF</li>
           <li>Methodology overview</li>
         </ul>
-        <a class="tier-cta" href="https://buy.stripe.com/fZudRa6UY85jaNw2Up9sk04">Purchase Preview Pack</a>
+        <a class="tier-cta" href="https://buy.stripe.com/fZudRa6UY85jaNw2Up9sk04">Get Preview Pack</a>
       </div>
 
       <div class="tier featured">
@@ -394,7 +384,7 @@ section + section { border-top:1px solid var(--border); }
           <li>Implementation framework</li>
           <li>Priority support access</li>
         </ul>
-        <a class="tier-cta" href="https://buy.stripe.com/14A5kEbbeetH1cW66B9sk05">Purchase Playbook</a>
+        <a class="tier-cta" href="https://buy.stripe.com/14A5kEbbeetH1cW66B9sk05">Get Playbook</a>
       </div>
 
       <div class="tier">
@@ -407,7 +397,7 @@ section + section { border-top:1px solid var(--border); }
           <li>Board presentation deck</li>
           <li>90-day follow-up review</li>
         </ul>
-        <a class="tier-cta primary" href="/inquiry">Request Audit</a>
+        <a class="tier-cta primary" href="/inquiry">Request an AI Risk Audit</a>
       </div>
 
       <div class="tier">
@@ -420,18 +410,57 @@ section + section { border-top:1px solid var(--border); }
           <li>Crisis protocol design</li>
           <li>Quarterly reviews</li>
         </ul>
-        <a class="tier-cta" href="/inquiry">Contact Us</a>
+        <a class="tier-cta" href="/inquiry">Request an AI Risk Audit</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CLOSE -->
+<!-- ======== 6. WHAT HAPPENS NEXT (4-week timeline, NEW) ======== -->
+<section>
+  <div class="container">
+    <div class="kicker">What Happens Next</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(1.25rem,2.4vw,1.65rem);font-weight:600;line-height:1.3;letter-spacing:-.01em;">Four weeks to board-ready.</h2>
+    <p style="color:var(--text-2);font-size:.9rem;margin-top:8px;max-width:48ch;">From intake to deliverables. No ambiguity about what happens or when.</p>
+
+    <div class="timeline-grid">
+      <div class="timeline-step">
+        <div class="timeline-week">Week 1</div>
+        <h3>Intake & system mapping</h3>
+        <p>We review prompts, policies, logs, and deployment context. You tell us how your system works. We map where risk lives.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-week">Week 2</div>
+        <h3>Risk scoring</h3>
+        <p>Your system is evaluated across escalation, dependency, authority, scale, and governance risk using our scenario-based framework.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-week">Week 3</div>
+        <h3>Findings & mitigation</h3>
+        <p>We identify failure paths, document mitigation options, and draft your scorecard and risk report.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-week">Week 4</div>
+        <h3>Board-ready delivery</h3>
+        <p>You receive a scorecard, risk report, and action plan. Output is suitable for boards, investors, and regulators.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== 7. TRUST STRIP ======== -->
+<section class="trust-strip">
+  <div class="container">
+    <p><strong>Developed internally before being offered externally.</strong> Ikwe's audit methodology was built by testing our own production systems first — the same framework that identified 54.7% of baseline AI responses introduce emotional risk at first contact.</p>
+  </div>
+</section>
+
+<!-- ======== 8. FINAL CTA ======== -->
 <section class="close-section">
   <div class="container">
-    <h2>Ready to see what your system looks like under load?</h2>
-    <p>Start with a conversation. No commitment required.</p>
-    <a class="btn-primary" href="/inquiry">Request an Audit</a>
+    <h2>If your AI interacts with people,<br>you're carrying risk.</h2>
+    <p>Find out what kind.</p>
+    <a class="btn-primary" href="/inquiry">Request an AI Risk Audit</a>
   </div>
 </section>
 
@@ -449,7 +478,7 @@ section + section { border-top:1px solid var(--border); }
         <a href="/emotional-safety-gap">The Emotional Safety Gap</a>
         <a href="/research">Methodology</a>
         <a href="/full-report">Full Report</a>
-        <a href="/research-summary">Research Summary</a>
+        <a href="/case-studies">Case Studies</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Company</div>
