@@ -342,6 +342,29 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
 .scorecard-close{position:absolute;top:10px;right:10px;border:1px solid var(--border2, var(--border-2));background:rgba(255,255,255,.04);color:var(--text);padding:6px 10px;border-radius:8px;font-size:.8rem;cursor:pointer;}
 /* === END SCORECARD MODAL === */
 
+
+/* === FINAL VISUAL QA SWEEP === */
+*{min-width:0;}
+img,svg,video,canvas{max-width:100%;height:auto;}
+section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-x: hidden; }
+.container, .container--narrow, .nav-inner, .hero-content { width:100%; box-sizing:border-box; }
+.container * { max-width:100%; }
+
+/* CTA contrast */
+.btn-primary, .nav-cta, .tier-cta.primary, .btn.primary{color:var(--bg)!important;background:var(--text)!important;border-color:var(--text)!important;}
+.btn-ghost, .btn.secondary, .btn, .tier-cta{color:var(--text-2)!important;border-color:var(--border-2)!important;}
+
+/* Spacing rhythm */
+section{padding-top:64px;padding-bottom:64px;}
+@media(max-width:900px){section{padding-top:48px;padding-bottom:48px;}}
+
+/* Prevent button clipping */
+button, .btn, a.btn, .nav-cta, .tier-cta{white-space:nowrap;}
+
+/* Headline wrap */
+h1,h2,h3{word-wrap:break-word;}
+/* === END QA SWEEP === */
+
 </style>
 </head>
 <body>
