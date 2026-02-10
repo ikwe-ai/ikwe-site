@@ -1,0 +1,140 @@
+<!-- =====================================================
+     IKWE SCORECARD — WARM DARK (SITE EMBED)
+     
+     Drop this <div class="sc-card"> block into any page.
+     Requires: ikwe-tokens-final.css loaded first,
+     plus Google Fonts (Fraunces, DM Sans, Space Mono).
+     
+     This is the CANONICAL scorecard for all dark-bg pages.
+     ===================================================== -->
+
+<style>
+/* Scorecard-specific styles (page-level) */
+.sc-card {
+  width:100%;max-width:860px;margin:0 auto;
+  background:var(--ikwe-bg-card);border:1px solid var(--ikwe-border-2);
+  border-radius:var(--ikwe-radius-xl);padding:40px 44px 36px;
+}
+@media(max-width:700px){ .sc-card{padding:28px 20px 24px;} }
+
+.sc-header { display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;gap:16px; }
+.sc-title { font-family:var(--ikwe-serif);font-weight:600;font-size:clamp(20px,3vw,26px);line-height:1.15;color:var(--ikwe-text); }
+.sc-sub { font-size:12px;color:var(--ikwe-text-3);margin-top:3px; }
+.sc-brand { display:flex;align-items:center;gap:7px;font-family:var(--ikwe-serif);font-weight:600;font-size:13px;color:var(--ikwe-text-3);flex-shrink:0; }
+.sc-mark { width:24px;height:24px;border-radius:50%;background:conic-gradient(var(--ikwe-coral) 0deg 90deg,var(--ikwe-lilac) 90deg 180deg,var(--ikwe-navy-true) 180deg 270deg,var(--ikwe-teal) 270deg 360deg);opacity:.6; }
+
+.sc-table-wrap { width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch; }
+.sc-table { width:100%;min-width:640px;border-collapse:separate;border-spacing:0;table-layout:fixed; }
+.sc-table colgroup .col-dim  { width:27%; }
+.sc-table colgroup .col-base { width:30%; }
+.sc-table colgroup .col-post { width:30%; }
+.sc-table colgroup .col-delta{ width:13%; }
+
+.sc-table thead th {
+  font-family:var(--ikwe-mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ikwe-text-3);padding:0 0 12px;border-bottom:1px solid var(--ikwe-border-2);text-align:left;white-space:nowrap;
+}
+.sc-table thead th:last-child { text-align:right; }
+
+.sc-table tbody td { padding:14px 0;border-bottom:1px solid var(--ikwe-border);vertical-align:middle; }
+.sc-table tbody tr:last-child td { border-bottom:none; }
+
+.sc-dim { display:flex;align-items:center;gap:9px; }
+.sc-dot { width:8px;height:8px;border-radius:50%;flex-shrink:0; }
+.sc-dim-label { font-weight:600;font-size:13.5px;white-space:nowrap;color:var(--ikwe-text); }
+
+.sc-bar-group { display:flex;align-items:center;gap:7px; }
+.sc-track { flex:1;height:7px;background:var(--ikwe-rail-dark);border-radius:5px;overflow:hidden;max-width:90px;min-width:30px; }
+.sc-fill { height:100%;border-radius:5px; }
+.sc-fill.baseline { opacity:.22; }
+.sc-fill.post { opacity:1; }
+.sc-score { font-family:var(--ikwe-mono);font-weight:700;font-size:12.5px;min-width:20px;text-align:right;flex-shrink:0;color:var(--ikwe-text); }
+
+.sc-badge { display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;flex-shrink:0; }
+.sc-badge.high { background:var(--ikwe-high-bg);color:var(--ikwe-high-text); }
+.sc-badge.mod  { background:var(--ikwe-mod-bg);color:var(--ikwe-mod-text); }
+.sc-badge.low  { background:var(--ikwe-low-bg);color:var(--ikwe-low-text); }
+
+.sc-delta { text-align:right;font-family:var(--ikwe-mono);font-weight:700;font-size:12.5px;color:var(--ikwe-low-text);white-space:nowrap; }
+
+.sc-summary {
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  padding:16px 20px;background:var(--ikwe-bg-3);border-radius:12px;margin-top:24px;margin-bottom:20px;
+}
+.sc-summary-text { font-size:13px;font-weight:500;color:var(--ikwe-text-2); }
+.sc-summary-text strong { color:var(--ikwe-text);font-weight:700; }
+.sc-shift { display:flex;align-items:center;gap:8px; }
+.sc-shift-arrow { font-size:16px;color:var(--ikwe-low-text); }
+
+.sc-legend { display:flex;align-items:center;gap:16px;flex-wrap:wrap; }
+.sc-legend-item { display:flex;align-items:center;gap:5px;font-size:11px;font-weight:500;color:var(--ikwe-text-3); }
+.sc-legend-swatch { width:7px;height:7px;border-radius:50%; }
+.sc-legend-div { width:1px;height:12px;background:var(--ikwe-border-2); }
+</style>
+
+<div class="sc-card">
+  <div class="sc-header">
+    <div>
+      <div class="sc-title">Risk Posture Scorecard</div>
+      <div class="sc-sub">Sample — Redacted for External Distribution</div>
+    </div>
+    <div class="sc-brand"><div class="sc-mark"></div>ikwe.ai</div>
+  </div>
+
+  <div class="sc-table-wrap">
+    <table class="sc-table">
+      <colgroup><col class="col-dim"><col class="col-base"><col class="col-post"><col class="col-delta"></colgroup>
+      <thead><tr><th>Dimension</th><th>Baseline</th><th>Post-Mitigation</th><th style="text-align:right">Δ</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="sc-dim"><div class="sc-dot" style="background:var(--ikwe-coral)"></div><span class="sc-dim-label">Emotional Escalation</span></div></td>
+          <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:80%;background:var(--ikwe-coral)"></div></div><span class="sc-score">80</span><span class="sc-badge high">High</span></div></td>
+          <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:40%;background:var(--ikwe-coral)"></div></div><span class="sc-score">40</span><span class="sc-badge mod">Mod</span></div></td>
+          <td class="sc-delta">−50%</td>
+        </tr>
+        <tr>
+          <td><div class="sc-dim"><div class="sc-dot" style="background:var(--ikwe-lilac)"></div><span class="sc-dim-label">Dependency Formation</span></div></td>
+          <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:48%;background:var(--ikwe-lilac)"></div></div><span class="sc-score">48</span><span class="sc-badge mod">Mod</span></div></td>
+          <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:20%;background:var(--ikwe-lilac)"></div></div><span class="sc-score">20</span><span class="sc-badge low">Low</span></div></td>
+          <td class="sc-delta">−58%</td>
+        </tr>
+        <tr>
+          <td><div class="sc-dim"><div class="sc-dot" style="background:var(--ikwe-navy)"></div><span class="sc-dim-label">Authority Drift</span></div></td>
+          <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:36%;background:var(--ikwe-navy)"></div></div><span class="sc-score">36</span><span class="sc-badge mod">Mod</span></div></td>
+          <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:18%;background:var(--ikwe-navy)"></div></div><span class="sc-score">18</span><span class="sc-badge low">Low</span></div></td>
+          <td class="sc-delta">−50%</td>
+        </tr>
+        <tr>
+          <td><div class="sc-dim"><div class="sc-dot" style="background:var(--ikwe-gold)"></div><span class="sc-dim-label">Scale Amplification</span></div></td>
+          <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:48%;background:var(--ikwe-gold)"></div></div><span class="sc-score">48</span><span class="sc-badge mod">Mod</span></div></td>
+          <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:28%;background:var(--ikwe-gold)"></div></div><span class="sc-score">28</span><span class="sc-badge mod">Mod</span></div></td>
+          <td class="sc-delta">−42%</td>
+        </tr>
+        <tr>
+          <td><div class="sc-dim"><div class="sc-dot" style="background:var(--ikwe-teal)"></div><span class="sc-dim-label">Governance Failure</span></div></td>
+          <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill baseline" style="width:24%;background:var(--ikwe-teal)"></div></div><span class="sc-score">24</span><span class="sc-badge low">Low</span></div></td>
+          <td><div class="sc-bar-group"><div class="sc-track"><div class="sc-fill post" style="width:8%;background:var(--ikwe-teal)"></div></div><span class="sc-score">8</span><span class="sc-badge low">Low</span></div></td>
+          <td class="sc-delta">−67%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sc-summary">
+    <div class="sc-summary-text">Overall risk posture shifted from <strong>High</strong> to <strong>Moderate</strong> after governance.</div>
+    <div class="sc-shift">
+      <span class="sc-badge high" style="font-size:9.5px">High</span>
+      <span class="sc-shift-arrow">→</span>
+      <span class="sc-badge mod" style="font-size:9.5px">Mod</span>
+    </div>
+  </div>
+
+  <div class="sc-legend">
+    <div class="sc-legend-item"><div class="sc-legend-swatch" style="background:rgba(232,228,223,.08)"></div>Baseline (faded)</div>
+    <div class="sc-legend-item"><div class="sc-legend-swatch" style="background:var(--ikwe-coral)"></div>Post-mitigation (solid)</div>
+    <div class="sc-legend-div"></div>
+    <span class="sc-badge high" style="font-size:9px;padding:2px 6px">High ≥60</span>
+    <span class="sc-badge mod" style="font-size:9px;padding:2px 6px">Mod 30–59</span>
+    <span class="sc-badge low" style="font-size:9px;padding:2px 6px">Low &lt;30</span>
+  </div>
+</div>
