@@ -373,15 +373,27 @@ img,svg,video,iframe{max-width:100%;height:auto;}
 section,.section,.block,.panel,.card{overflow:hidden;}
 .container,.container--narrow,.nav-inner,.hero-content{width:100%;box-sizing:border-box;}
 .narrow{max-width:680px;margin:0 auto;padding:0 32px;}
+/* Enforce consistent section containment */
+main > section > .container,
+main > section > .container--narrow,
+main > section > .narrow{margin-left:auto;margin-right:auto;}
+main > section > :not(.container):not(.container--narrow):not(.narrow):not(.full-bleed){max-width:1060px;margin-left:auto;margin-right:auto;padding-left:32px;padding-right:32px;box-sizing:border-box;}
+@media(max-width:900px){
+  main > section > :not(.container):not(.container--narrow):not(.narrow):not(.full-bleed){padding-left:24px;padding-right:24px;}
+}
+@media(max-width:560px){
+  main > section > :not(.container):not(.container--narrow):not(.narrow):not(.full-bleed){padding-left:18px;padding-right:18px;}
+}
+
 .meta-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:16px;}
 .meta-item{font-size:13px;}
 .meta-item .ml{font-family:var(--mono);font-size:10px;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:2px;}
 .meta-item .mv{color:var(--text-2);font-weight:500;}
 .scorecard,.scorecard-img,.scorecard-panel,.scorecard-wrap{background:var(--bg-card);border:1px solid var(--border-2);border-radius:16px;padding:18px;}
 .scorecard-img img,.scorecard-panel img,.scorecard-wrap img{width:100%;height:auto;display:block;background:#fff;border-radius:12px;border:1px solid var(--border-2);}
-.proof-layout{grid-template-columns:1fr 1.2fr;}
+.proof-layout{grid-template-columns:1fr 1.35fr;}
 .proof-scorecard{padding:24px;}
-.proof-scorecard img{width:100%;max-width:760px;}
+.proof-scorecard img{width:100%;max-width:860px;}
 .nav-cta,.nav-btn,.btn-primary,.tier-cta.primary,.btn.primary{color:var(--bg)!important;background:var(--text)!important;border-color:var(--text)!important;}
 button,.btn,a.btn,.nav-cta,.tier-cta{white-space:nowrap;}
 
