@@ -391,9 +391,11 @@ main > section > :not(.container):not(.container--narrow):not(.narrow):not(.full
 .meta-item .mv{color:var(--text-2);font-weight:500;}
 .scorecard,.scorecard-img,.scorecard-panel,.scorecard-wrap{background:var(--bg-card);border:1px solid var(--border-2);border-radius:16px;padding:18px;}
 .scorecard-img img,.scorecard-panel img,.scorecard-wrap img{width:100%;height:auto;display:block;background:#fff;border-radius:12px;border:1px solid var(--border-2);}
+.scorecard-label{font-size:12px;color:var(--text-3);margin-bottom:10px;letter-spacing:.02em;}
+.scorecard-caption{font-size:12px;color:var(--text-3);margin-top:10px;line-height:1.5;}
 .proof-layout{grid-template-columns:1fr 1.35fr;}
-.proof-scorecard{padding:24px;}
-.proof-scorecard img{width:100%;max-width:860px;}
+.proof-scorecard{padding:28px;align-items:stretch;}
+.proof-scorecard img{width:100%;max-width:980px;}
 .nav-cta,.nav-btn,.btn-primary,.tier-cta.primary,.btn.primary{color:var(--bg)!important;background:var(--text)!important;border-color:var(--text)!important;}
 button,.btn,a.btn,.nav-cta,.tier-cta{white-space:nowrap;}
 
@@ -449,14 +451,10 @@ button,.btn,a.btn,.nav-cta,.tier-cta{white-space:nowrap;}
 
       <!-- Mini inline scorecard (image) -->
       <div class="proof-scorecard">
-        <div style="padding:12px 16px;border-bottom:1px solid var(--border-2);font-size:12px;color:var(--text-3);">Baseline Risk Posture</div>
+        <div class="scorecard-label">Baseline Risk Posture</div>
         <img id="scorecard-thumb" src="/assets/scorecard_snapshot.svg" alt="Risk posture scorecard" class="scorecard-thumb" style="cursor:zoom-in;">
-        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:10px 12px;font-size:11px;color:var(--text-3);">
-          <span>Baseline = risk before safeguards</span>
-          <span>Post‑Mitigation = after controls</span>
-          <span>Δ = projected reduction</span>
-        </div>
-        <div class="zoom-hint">Click to enlarge</div>
+        <div class="scorecard-caption">Baseline reflects risk before safeguards. Post‑mitigation reflects expected reduction after governance controls.</div>
+        <div class="scorecard-caption">Click to enlarge.</div>
       </div>
     </div>
   </div>

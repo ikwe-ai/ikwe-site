@@ -388,9 +388,11 @@ main > section > :not(.container):not(.container--narrow):not(.narrow):not(.full
 .meta-item .mv{color:var(--text-2);font-weight:500;}
 .scorecard,.scorecard-img,.scorecard-panel,.scorecard-wrap{background:var(--bg-card);border:1px solid var(--border-2);border-radius:16px;padding:18px;}
 .scorecard-img img,.scorecard-panel img,.scorecard-wrap img{width:100%;height:auto;display:block;background:#fff;border-radius:12px;border:1px solid var(--border-2);}
+.scorecard-label{font-size:12px;color:var(--text-3);margin-bottom:10px;letter-spacing:.02em;}
+.scorecard-caption{font-size:12px;color:var(--text-3);margin-top:10px;line-height:1.5;}
 .proof-layout{grid-template-columns:1fr 1.35fr;}
-.proof-scorecard{padding:24px;}
-.proof-scorecard img{width:100%;max-width:860px;}
+.proof-scorecard{padding:28px;align-items:stretch;}
+.proof-scorecard img{width:100%;max-width:980px;}
 .nav-cta,.nav-btn,.btn-primary,.tier-cta.primary,.btn.primary{color:var(--bg)!important;background:var(--text)!important;border-color:var(--text)!important;}
 button,.btn,a.btn,.nav-cta,.tier-cta{white-space:nowrap;}
 
@@ -478,8 +480,9 @@ button,.btn,a.btn,.nav-cta,.tier-cta{white-space:nowrap;}
   <p style="font-size:14px;color:var(--text3);margin-bottom:4px">This is the actual scorecard from a completed audit. The System Blueprint includes full scoring methodology and before/after comparison.</p>
   <div class="scorecard">
     <div class="scorecard-img">
-      <img src="/assets/scorecard_reduction.svg" alt="Risk posture scorecard" class="scorecard-thumb" class="scorecard-thumb">
+      <img src="/assets/scorecard_reduction.svg" alt="Risk reduction scorecard" class="scorecard-thumb">
     </div>
+    <div class="scorecard-caption">Baseline reflects unaudited systems. Post‑mitigation reflects governance applied.</div>
   </div>
 </div></section>
 
