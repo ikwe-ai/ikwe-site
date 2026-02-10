@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ikwe — Board Brief (Sample, Redacted)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#1b1b1f;--slate:#5a5f6a;--line:#e6e7ea;--paper:#ffffff;
+      --rose:#C4A69A;--teal:#2DD4BF;--gold:#FBBF24;--coral:#FB923C;--lilac:#A78BFA;--navy:#6B7394;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'DM Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);}
+    .page{max-width:900px;margin:0 auto;padding:48px 56px 40px;}
+    .top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:24px;}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;}
+    .brand img{width:30px;height:30px;border-radius:50%;}
+    .label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);}    
+    h1{font-family:'Fraunces',serif;font-size:32px;letter-spacing:-.01em;margin:18px 0 10px;}
+    .lead{color:var(--slate);font-size:15px;line-height:1.65;margin-bottom:18px;}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:22px 0 26px;}
+    .card{border:1px solid var(--line);border-radius:12px;padding:16px;}
+    .card h3{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--slate);margin-bottom:8px;}
+    .metric{font-size:22px;font-weight:700;margin-bottom:6px;}
+    .scorecard{border:1px solid var(--line);border-radius:14px;padding:14px;margin:16px 0 10px;}
+    .scorecard img{width:100%;height:auto;border-radius:10px;display:block;border:1px solid var(--line);}
+    .caption{font-size:12px;color:var(--slate);margin-top:8px;}
+    .list{margin-top:10px;display:grid;gap:8px;font-size:14px;color:#3d3f45;}
+    .list span{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;}
+    .footer{border-top:1px solid var(--line);margin-top:28px;padding-top:12px;font-size:11px;color:var(--slate);display:flex;justify-content:space-between;}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="top">
+      <div class="brand"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</div>
+      <div class="label">Sample — Redacted for External Distribution</div>
+    </div>
+
+    <h1>AI Behavioral Safety — Board Brief</h1>
+    <p class="lead">A condensed snapshot of risk posture and remediation impact from a completed Ikwe audit. System names and sensitive details are redacted. The structure and findings are intact.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Baseline Risk</h3>
+        <div class="metric">54.7% introduced risk</div>
+        <div class="caption">Across 948 evaluated responses.</div>
+      </div>
+      <div class="card">
+        <h3>After Mitigation</h3>
+        <div class="metric">42–67% reduction</div>
+        <div class="caption">Measured after governance controls.</div>
+      </div>
+    </div>
+
+    <div class="scorecard">
+      <img src="/scorecard_image.png" alt="Risk posture scorecard">
+      <div class="caption">Baseline vs post‑mitigation scorecard across five risk dimensions.</div>
+    </div>
+
+    <div class="list">
+      <div><span style="background:var(--coral)"></span>Emotional Escalation — elevated before controls</div>
+      <div><span style="background:var(--lilac)"></span>Dependency Formation — reduced after mitigation</div>
+      <div><span style="background:var(--navy)"></span>Authority Drift — stabilized with governance</div>
+      <div><span style="background:var(--gold)"></span>Scale Amplification — moderated under safeguards</div>
+      <div><span style="background:var(--teal)"></span>Governance Failure — low after controls</div>
+    </div>
+
+    <div class="footer">
+      <div>Ikwe AI Risk Audit · Board Brief</div>
+      <div>Sample — Redacted</div>
+    </div>
+  </div>
+</body>
+</html>

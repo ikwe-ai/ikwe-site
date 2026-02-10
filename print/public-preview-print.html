@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ikwe — System Blueprint Preview (Sample)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#1b1b1f;--slate:#5a5f6a;--line:#e6e7ea;--paper:#fff;--rose:#C4A69A;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'DM Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);}
+    .page{max-width:900px;margin:0 auto;padding:48px 56px 40px;}
+    .top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:24px;}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;}
+    .brand img{width:30px;height:30px;border-radius:50%;}
+    .label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);}    
+    h1{font-family:'Fraunces',serif;font-size:32px;letter-spacing:-.01em;margin:18px 0 10px;}
+    .lead{color:var(--slate);font-size:15px;line-height:1.65;margin-bottom:18px;}
+    .scorecard{border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0 10px;}
+    .scorecard img{width:100%;height:auto;border-radius:10px;display:block;border:1px solid var(--line);}    
+    .caption{font-size:12px;color:var(--slate);margin-top:8px;}
+    .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:16px;}
+    .card{border:1px solid var(--line);border-radius:12px;padding:16px;}
+    .card h3{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--slate);margin-bottom:8px;}
+    .card p{font-size:14px;color:#3d3f45;line-height:1.6;}
+    .footer{border-top:1px solid var(--line);margin-top:28px;padding-top:12px;font-size:11px;color:var(--slate);display:flex;justify-content:space-between;}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="top">
+      <div class="brand"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</div>
+      <div class="label">Sample — Redacted for External Distribution</div>
+    </div>
+
+    <h1>System Blueprint — Preview</h1>
+    <p class="lead">This preview shows the core structure of the Ikwe AI Risk System, including the scoring model, baseline posture view, and a redacted example of audit outputs.</p>
+
+    <div class="scorecard">
+      <img src="/scorecard_image.png" alt="Risk posture scorecard">
+      <div class="caption">Baseline vs post‑mitigation scorecard across five risk dimensions.</div>
+    </div>
+
+    <div class="cols">
+      <div class="card">
+        <h3>What You Receive</h3>
+        <p>Risk dimensions, scoring logic, and audit structure used in production audits. Designed for builders who want to adapt the system internally.</p>
+      </div>
+      <div class="card">
+        <h3>What This Is Not</h3>
+        <p>This preview is not a full audit of your company. It shows the system architecture and example outputs only.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>Ikwe AI Risk System · Blueprint Preview</div>
+      <div>Sample — Redacted</div>
+    </div>
+  </div>
+</body>
+</html>
