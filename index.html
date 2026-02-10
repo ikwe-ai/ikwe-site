@@ -332,6 +332,16 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
 @media(max-width:900px){.nav-links{display:none;}}
 /* === END NAV FIX === */
 
+
+/* === SCORECARD MODAL === */
+.scorecard-thumb{cursor:zoom-in;}
+.scorecard-modal{position:fixed;inset:0;background:rgba(8,8,12,.78);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px;}
+.scorecard-modal.open{display:flex;}
+.scorecard-modal-inner{max-width:1200px;width:100%;background:#0f0f14;border:1px solid var(--border2, var(--border-2));border-radius:16px;padding:16px;position:relative;}
+.scorecard-modal-inner img{width:100%;height:auto;border-radius:10px;background:#fff;border:1px solid var(--border2, var(--border-2));display:block;}
+.scorecard-close{position:absolute;top:10px;right:10px;border:1px solid var(--border2, var(--border-2));background:rgba(255,255,255,.04);color:var(--text);padding:6px 10px;border-radius:8px;font-size:.8rem;cursor:pointer;}
+/* === END SCORECARD MODAL === */
+
 </style>
 </head>
 <body>
@@ -385,7 +395,7 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
       <!-- Mini inline scorecard (image) -->
       <div class="proof-scorecard">
         <div style="padding:12px 16px;border-bottom:1px solid var(--border-2);font-size:12px;color:var(--text-3);">Baseline Risk Posture</div>
-        <img id="scorecard-thumb" src="/scorecard_image.png" alt="Risk posture scorecard" style="cursor:zoom-in;">
+        <img id="scorecard-thumb" src="/scorecard_image.png" alt="Risk posture scorecard" class="scorecard-thumb" style="cursor:zoom-in;">
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:10px 12px;font-size:11px;color:var(--text-3);">
           <span>Baseline = risk before safeguards</span>
           <span>Post‑Mitigation = after controls</span>
