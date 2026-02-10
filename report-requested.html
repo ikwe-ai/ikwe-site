@@ -71,7 +71,16 @@ h1{font-size:clamp(1.5rem,4vw,2rem);margin-bottom:16px}
 
 @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}}
 @media(max-width:520px){.container{padding:60px 20px 80px}}
-  </style>
+  
+/* === NAV CONSISTENCY FIX === */
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.nav-links a{white-space:nowrap;}
+@media(max-width:1100px){.nav-links{gap:10px;font-size:.9rem;}}
+@media(max-width:900px){.nav-links{display:none;}}
+/* === END NAV FIX === */
+
+</style>
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-Zs0nNW5srMjkLGUV711fI.js"></script>
   <script>
@@ -83,31 +92,15 @@ h1{font-size:clamp(1.5rem,4vw,2rem);margin-bottom:16px}
 
 <nav class="nav">
   <div class="nav-inner">
-    <a class="brand" href="/"><img src="ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+    <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
     <div class="nav-links">
-      <a href="/emotional-safety-gap">The Gap</a>
       <a href="/research">Research</a>
-      <a href="/case-studies">Case Studies</a>
-      <a href="/research-and-evidence">Research & Evidence</a>
-      <a href="/trust-and-governance">Trust & Governance</a>
-
-      <a href="/faq">FAQ</a>
-      <a href="/blog">Blog</a>
+      <a href="/preview">System Blueprint</a>
+      <a href="/playbook">DIY Playbook</a>
+      <a href="/audit">Pricing</a>
+      <a href="/enterprise">Managed Audit</a>
       <a href="/about">About</a>
-      <a href="/partner">Partner</a>
-      <a href="/inquiry">Contact</a>
-    </div>
-    <button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="mobile-menu">
-      <a href="/emotional-safety-gap">The Gap</a>
-      <a href="/research">Research</a>
-      <a href="/faq">FAQ</a>
-      <a href="/blog">Blog</a>
-      <a href="/about">About</a>
-      <a href="/partner">Partner</a>
-      <a href="/inquiry">Contact</a>
+      <a class="nav-cta" href="/inquiry" style="background:var(--text);color:var(--bg);padding:10px 22px;border-radius:8px;font-size:.84rem;font-weight:600;letter-spacing:.01em;">Request an Audit</a>
     </div>
   </div>
 </nav>

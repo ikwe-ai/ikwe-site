@@ -78,6 +78,15 @@ table.t{width:100%;border-collapse:collapse;margin:8px 0;border:1px solid var(--
 .fxn{font-family:'Mono';font-size:8pt;font-weight:700;color:var(--teal);width:20px;flex-shrink:0;padding-top:1px}
 .fxc{flex:1}.fxc strong{color:var(--navy);font-size:9.5pt;display:block;margin-bottom:1px}
 .fxc p{margin:0;font-size:8.5pt;color:#555;line-height:1.35}
+
+/* === NAV CONSISTENCY FIX === */
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.nav-links a{white-space:nowrap;}
+@media(max-width:1100px){.nav-links{gap:10px;font-size:.9rem;}}
+@media(max-width:900px){.nav-links{display:none;}}
+/* === END NAV FIX === */
+
 </style>
 </head>
 <body>

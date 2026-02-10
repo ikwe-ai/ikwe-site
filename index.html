@@ -131,13 +131,20 @@ section+section{border-top:1px solid var(--border);}
   overflow:hidden;
 }
 .proof-scorecard img{
-  width:min(100%,520px);
+  width:min(100%,720px);
   height:auto;
   display:block;
   border-radius:12px;
   border:1px solid var(--border-2);
   background:#fff;
 }
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(8,8,12,.78);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px;}
+.lightbox.open{display:flex;}
+.lightbox-inner{max-width:1100px;width:100%;background:#0f0f14;border:1px solid var(--border-2);border-radius:16px;padding:16px;position:relative;}
+.lightbox-inner img{width:100%;height:auto;border-radius:10px;background:#fff;border:1px solid var(--border-2);display:block;}
+.lightbox-close{position:absolute;top:10px;right:10px;border:1px solid var(--border-2);background:rgba(255,255,255,.04);color:var(--text);padding:6px 10px;border-radius:8px;font-size:.8rem;cursor:pointer;}
+.proof-scorecard .zoom-hint{font-size:11px;color:var(--text-3);text-align:center;margin-top:8px;}
 
 /* Guard: hide any legacy scorecard markup if present */
 .proof .scorecard-table,
@@ -316,6 +323,15 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
 .container * { max-width: 100%; }
 /* ===================================== */
 
+
+/* === NAV CONSISTENCY FIX === */
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.nav-links a{white-space:nowrap;}
+@media(max-width:1100px){.nav-links{gap:10px;font-size:.9rem;}}
+@media(max-width:900px){.nav-links{display:none;}}
+/* === END NAV FIX === */
+
 </style>
 </head>
 <body>
@@ -329,7 +345,7 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
       <a href="/preview">System Blueprint</a>
       <a href="/playbook">DIY Playbook</a>
       <a href="/audit">Pricing</a>
-      <a href="/enterprise">Enterprise</a>
+      <a href="/enterprise">Managed Audit</a>
       <a href="/about">About</a>
       <a class="nav-cta" href="/inquiry" style="background:var(--text);color:var(--bg);padding:10px 22px;border-radius:8px;font-size:.84rem;font-weight:600;letter-spacing:.01em;">Request an Audit</a>
     </div>
@@ -369,16 +385,25 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
       <!-- Mini inline scorecard (image) -->
       <div class="proof-scorecard">
         <div style="padding:12px 16px;border-bottom:1px solid var(--border-2);font-size:12px;color:var(--text-3);">Baseline Risk Posture</div>
-        <img src="/scorecard_image.png" alt="Risk posture scorecard">
+        <img id="scorecard-thumb" src="/scorecard_image.png" alt="Risk posture scorecard" style="cursor:zoom-in;">
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:10px 12px;font-size:11px;color:var(--text-3);">
           <span>Baseline = risk before safeguards</span>
           <span>Post‑Mitigation = after controls</span>
           <span>Δ = projected reduction</span>
         </div>
+        <div class="zoom-hint">Click to enlarge</div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Lightbox for scorecard -->
+<div id="scorecard-lightbox" class="lightbox" aria-hidden="true">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="scorecard-close" aria-label="Close">Close</button>
+    <img src="/scorecard_image.png" alt="Risk posture scorecard (enlarged)">
+  </div>
+</div>
 
 <!-- ======== 3. START WHERE YOU ARE (router) ======== -->
 <section>
@@ -418,6 +443,20 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
   </div>
 </section>
 
+<script>
+  (function() {
+    const thumb = document.getElementById('scorecard-thumb');
+    const lb = document.getElementById('scorecard-lightbox');
+    const close = document.getElementById('scorecard-close');
+    if (!thumb || !lb || !close) return;
+    function openLb() { lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false'); }
+    function closeLb() { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); }
+    thumb.addEventListener('click', openLb);
+    close.addEventListener('click', closeLb);
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+  })();
+</script>
 <!-- ======== 4. CREDIBILITY STRIP ======== -->
 <section class="cred">
   <div class="container">

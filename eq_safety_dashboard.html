@@ -1244,7 +1244,16 @@
         @media (max-width: 900px) {
             .tab-bar { top: auto; position: relative; }
         }
-    </style>
+    
+/* === NAV CONSISTENCY FIX === */
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.nav-links a{white-space:nowrap;}
+@media(max-width:1100px){.nav-links{gap:10px;font-size:.9rem;}}
+@media(max-width:900px){.nav-links{display:none;}}
+/* === END NAV FIX === */
+
+</style>
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-Zs0nNW5srMjkLGUV711fI.js"></script>
   <script>
@@ -1255,21 +1264,19 @@
 <body>
     <!-- Navigation -->
     <nav class="nav">
-        <div class="nav-inner">
-            <a href="#" class="nav-brand">
-                <div class="nav-logo">EQ</div>
-                <div>
-                    <div class="nav-title">EQ Safety Benchmark</div>
-                    <div class="nav-subtitle">ikwe.ai Research</div>
-                </div>
-            </a>
-            <div class="nav-actions">
-                <button class="btn btn-ghost" id="exportBtn">📥 Export</button>
-                <button class="btn btn-primary" id="loadDataBtn">📂 Load Data</button>
-                <input type="file" id="fileInput" accept=".json" style="display: none;">
-            </div>
-        </div>
-    </nav>
+  <div class="nav-inner">
+    <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+    <div class="nav-links">
+      <a href="/research">Research</a>
+      <a href="/preview">System Blueprint</a>
+      <a href="/playbook">DIY Playbook</a>
+      <a href="/audit">Pricing</a>
+      <a href="/enterprise">Managed Audit</a>
+      <a href="/about">About</a>
+      <a class="nav-cta" href="/inquiry" style="background:var(--text);color:var(--bg);padding:10px 22px;border-radius:8px;font-size:.84rem;font-weight:600;letter-spacing:.01em;">Request an Audit</a>
+    </div>
+  </div>
+</nav>
 
     <!-- UNDER REVIEW BANNER -->
     <div style="background: linear-gradient(135deg, rgba(251,146,60,0.15), rgba(251,146,60,0.08)); border-bottom: 2px solid rgba(251,146,60,0.3); padding: 16px 24px; text-align: center;">
