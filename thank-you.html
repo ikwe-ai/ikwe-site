@@ -208,6 +208,52 @@ section{padding-top:64px;padding-bottom:64px;}
 @media(max-width:900px){section{padding-top:48px;padding-bottom:48px;}}
 /* === END FINAL VISUAL QA === */
 
+
+/* FINAL VISUAL QA PASS: spacing + CTA contrast + overflow containment */
+:root{
+  --section-y:72px;
+  --section-y-tight:56px;
+  --section-y-loose:96px;
+}
+section{padding:var(--section-y) 0;}
+section.tight{padding:var(--section-y-tight) 0;}
+section.loose{padding:var(--section-y-loose) 0;}
+.container, .container--narrow{overflow:visible;}
+.block, .card, .panel, .info-card, .tier, .tier-card, .router-card{
+  max-width:100%;
+  overflow:hidden;
+}
+img, svg, video, iframe{max-width:100%;height:auto;}
+.btn, .btn-primary, .btn-ghost, .nav-cta, .tier-cta, .router-cta{
+  min-height:44px;
+  line-height:1.2;
+}
+.btn-primary, .nav-cta, .tier-cta.primary, .btn.primary{
+  color:var(--bg) !important;
+  background:var(--text) !important;
+  border-color:var(--text) !important;
+}
+.btn-ghost, .btn.secondary, .tier-cta, .router-cta{
+  color:var(--text) !important;
+  border-color:var(--border-3) !important;
+}
+.nav-inner, .footer, .footer-grid{max-width:1140px;margin:0 auto;}
+.footer-grid{gap:32px;}
+.proof-scorecard img, .scorecard-img img, .scorecard-panel img, .scorecard-wrap img{
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+/* prevent accidental overflow from long labels */
+*{word-break:normal;}
+
+@media(max-width:900px){
+  section{padding:56px 0;}
+  .nav-inner{padding:0 24px;}
+}
+@media(max-width:680px){
+  .container, .container--narrow{padding:0 20px;}
+  .hero{padding:90px 0 72px;}
+}
+
 </style>
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-Zs0nNW5srMjkLGUV711fI.js"></script>
