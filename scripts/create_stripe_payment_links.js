@@ -40,10 +40,10 @@ async function createPaymentLink({ name, description, amountUsd, successPath }) 
 
 async function main() {
   const previewUrl = await createPaymentLink({
-    name: "Ikwe AI Risk Audit — Preview Pack",
+    name: "Ikwe AI Risk System — System Blueprint",
     description:
       "Redacted sample output from a completed Ikwe AI Risk Audit (not customized). Includes sample scorecard, before/after example, and methodology overview.",
-    amountUsd: 250,
+    amountUsd: 2500,
     successPath: "/thanks-preview",
   });
 
@@ -56,7 +56,7 @@ async function main() {
   });
 
   console.log("\n✅ Stripe Payment Links created:\n");
-  console.log("Preview Pack:", previewUrl);
+  console.log("System Blueprint:", previewUrl);
   console.log("Playbook:", playbookUrl);
 }
 

@@ -7,7 +7,7 @@
 
 | PDF | Pages | Purpose | Filename |
 |-----|-------|---------|----------|
-| **Public Preview** | 4 | Free lead magnet — shows findings + tiered paywall | `ikwe_public_preview.pdf` |
+| **System Blueprint Preview** | 4 | Free lead magnet — shows findings + tiered paywall | `ikwe_public_preview.pdf` |
 | **Board Brief** | 3 | Sales sample — condensed scorecard + CTA | `ikwe_board_brief.pdf` |
 | **Audit Report** | 7 | Full sample output — complete redacted audit | `ikwe_audit_report.pdf` |
 
@@ -17,7 +17,7 @@
 
 ### 1. Homepage (`/` or `/index.html`)
 
-**Public Preview PDF** — primary download
+**System Blueprint Preview PDF** — primary download
 - Hero section: "View a Completed Audit (Redacted)" button → downloads `ikwe_public_preview.pdf`
 - This is the free lead magnet. No gate. Immediate download.
 - Also shown: OG hero image (`og_image.png`) in the hero/social preview
@@ -32,17 +32,17 @@
 
 | Section | PDF | Action |
 |---------|-----|--------|
-| "See What an Audit Looks Like" | Public Preview | Direct download button |
+| "See What an Audit Looks Like" | System Blueprint Preview | Direct download button |
 | "Sample Board Brief" | Board Brief | Direct download button |
 | "Full Sample Report (Redacted)" | Audit Report | Direct download button |
 | Tier pricing table | — | Links to Stripe checkout |
 
 Layout:
 ```
-[Download Public Preview — Free]     ← ikwe_public_preview.pdf
+[Download System Blueprint Preview — Free]     ← ikwe_public_preview.pdf
 [Download Board Brief — Free]        ← ikwe_board_brief.pdf  
 [Download Full Sample Report — Free] ← ikwe_audit_report.pdf
-[Request YOUR Audit — $250+]         ← Stripe / inquiry form
+[Request YOUR Audit — $2,500+]         ← Stripe / inquiry form
 ```
 
 ### 3. Proof Page (`/proof` or `/ikwe_proof_page.html`)
@@ -54,7 +54,7 @@ Layout:
 
 ### 4. Research Page (`/research` or `/research.html`)
 
-**Public Preview PDF** — methodology reference
+**System Blueprint Preview PDF** — methodology reference
 - "View Sample Audit Output" link in methodology section → `ikwe_public_preview.pdf`
 - The emotional-safety-gap research content lives here as HTML, not as a PDF download
 
@@ -66,7 +66,7 @@ Layout:
 
 ### 6. Preview Page (`/preview` or `/ikwe_preview_page.html`)
 
-**Public Preview PDF** — the main artifact
+**System Blueprint Preview PDF** — the main artifact
 - This page IS the preview, so the PDF is the primary download
 - "Download This Preview" → `ikwe_public_preview.pdf`
 - Tier upgrade CTAs link to `/audit` page
@@ -93,7 +93,7 @@ The paywall is on the REAL audit, not the samples.
 | Free preview PDF | "Download Preview" | `/downloads/ikwe_public_preview.pdf` |
 | Free board brief | "Download Brief" | `/downloads/ikwe_board_brief.pdf` |
 | Free full sample | "Download Sample Report" | `/downloads/ikwe_audit_report.pdf` |
-| Preview Pack ($250) | "Get Preview Pack" | Stripe checkout or `/audit` inquiry |
+| System Blueprint ($2,500) | "Get System Blueprint" | Stripe checkout or `/audit` inquiry |
 | Playbook ($5,000) | "Get Playbook" | Stripe checkout or `/audit` inquiry |
 | Full Audit ($25,000) | "Request Audit" | `/inquiry.html` or Stripe |
 | Implementation ($50K+) | "Contact Us" | `stephanie@ikwe.ai` or `/inquiry.html` |
@@ -112,7 +112,7 @@ The paywall is on the REAL audit, not the samples.
 
 ## Classification Rules
 
-- **No PDF should say "Board Confidential"** — all public documents use "Sample — Redacted" or "Public Preview"
+- **No PDF should say "Board Confidential"** — all public documents use "Sample — Redacted" or "System Blueprint Preview"
 - Internal-only documents (actual client audits) use "Board Confidential" — these are never on the site
 - The distinction: sample/demo = public, real client work = confidential
 
@@ -122,7 +122,7 @@ The paywall is on the REAL audit, not the samples.
 
 | Audience | Give them... | PDF |
 |----------|-------------|-----|
-| Cold lead (LinkedIn, X, email) | Public Preview | `ikwe_public_preview.pdf` |
+| Cold lead (LinkedIn, X, email) | System Blueprint Preview | `ikwe_public_preview.pdf` |
 | Warm lead (after first call) | Board Brief | `ikwe_board_brief.pdf` |
 | Evaluating purchase | Full Sample Report | `ikwe_audit_report.pdf` |
 | Board member / decision maker | Board Brief | `ikwe_board_brief.pdf` |
