@@ -6,7 +6,7 @@
 <title>Ikwe.ai — Emotional Safety Infrastructure for AI</title>
 <meta name="description" content="For teams scaling conversational and decision-making AI. Ikwe turns unknown AI risk into board-ready coverage in 10–14 days." />
 <meta property="og:title" content="Ikwe.ai — Emotional Safety Infrastructure for AI" />
-<meta property="og:description" content="Audit your AI before it becomes a legal, emotional, or reputational liability. Ikwe provides governance infrastructure for AI systems in high-trust contexts." />
+<meta property="og:description" content="Audit your AI before it becomes a legal or reputational liability. Ikwe turns unknown AI risk into board-ready coverage in days, not weeks." />
 <meta property="og:image" content="https://ikwe.ai/og_image.png" />
 <meta property="og:url" content="https://ikwe.ai" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -122,10 +122,31 @@ section+section{border-top:1px solid var(--border);}
 
 /* Mini scorecard preview (image version) */
 .proof-scorecard{
-  background:var(--bg-card);border:1px solid var(--border-2);border-radius:16px;
+  background:var(--bg-card);
+  border:1px solid var(--border-2);
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   overflow:hidden;
 }
-.proof-scorecard img{width:100%;height:auto;display:block;}
+.proof-scorecard img{
+  width:min(100%,520px);
+  height:auto;
+  display:block;
+  border-radius:12px;
+  border:1px solid var(--border-2);
+  background:#fff;
+}
+
+/* Guard: hide any legacy scorecard markup if present */
+.proof .scorecard-table,
+.proof .scorecard-row,
+.proof .scorecard-rows,
+.proof .scorecard-list,
+.proof .scorecard-embed{
+  display:none !important;
+}
 
 /* Fallback: inline mini scorecard if no image */
 .mini-sc{padding:28px 24px;}
@@ -346,7 +367,7 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
 
       <!-- Mini inline scorecard (image) -->
       <div class="proof-scorecard">
-        <img src="/scorecard_image.png" alt="Risk posture scorecard" style="width:100%;max-width:520px;border-radius:12px;border:1px solid var(--border-2);display:block;margin:0 auto;background:#fff;">
+        <img src="/scorecard_image.png" alt="Risk posture scorecard">
       </div>
     </div>
   </div>
