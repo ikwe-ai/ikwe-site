@@ -429,17 +429,19 @@ button,.btn,a.btn,.nav-cta,.tier-cta{white-space:nowrap;}
 
 <section class="hero">
   <div class="container">
-    <div class="kicker">Request an Audit</div>
-    <h1>Tell us about your system</h1>
-    <p class="lead">Ikwe helps teams find, fix, and monitor AI risk as they scale. We benchmark your systems against regulatory and ethical standards and deliver board‑ready coverage.</p>
-    <p class="lead">Use this form to request a risk audit. We respond within 1–2 business days.</p>
+    <div class="kicker">Managed Audit Intake</div>
+    <h1>Request a Managed Audit Implementation</h1>
+    <p class="lead">If you’re scaling conversational AI, agents, or decision systems, risk is already forming underneath normal product work. We find it, prove it, and give you a board‑ready posture + a defensible audit trail.</p>
+    <p class="lead">Benchmarked against frontier models (Claude, GPT, Grok) and validated against Ikwe’s mitigation layer. We respond within 1–2 business days.</p>
   </div>
 </section>
 
 <section class="inquiry-layout">
   <div class="form-card">
-    <h2>Request an Audit</h2>
-    <p class="section-sub" style="margin-bottom: 20px;">Tell us about your system and where you are in deployment. We use this to scope the audit and respond quickly.</p>
+    <h2>Managed Audit Intake</h2>
+    <p class="section-sub" style="margin-bottom: 20px;">
+      This form is for teams requesting the <strong>$25,000+ Managed Audit Implementation</strong> (done‑for‑you). If you want the self‑serve products instead, start with the <a href="https://buy.stripe.com/14AeVe1AEetHg7QamR9sk06">System Blueprint ($2,500)</a> or the <a href="/playbook">DIY Implementation Playbook ($5,000)</a>.
+    </p>
     <form id="form-evaluate" name="ikwe-audit" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="ikwe-audit">
       <div class="form-row">
@@ -452,13 +454,12 @@ button,.btn,a.btn,.nav-cta,.tier-cta{white-space:nowrap;}
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label>Company Stage</label>
-          <select name="company_stage">
-            <option value="post-seed">Post-seed</option>
-            <option value="post-yc">Post-YC</option>
-            <option value="pre-series-b">Pre-Series B</option>
-            <option value="series-b-plus">Series B+</option>
-            <option value="enterprise">Managed Audit</option>
+          <label>Deployment Stage</label>
+          <select name="deployment_stage">
+            <option value="planning">Planning / Pre-launch</option>
+            <option value="live">Live in production</option>
+            <option value="scaling">Scaling usage or integrations</option>
+            <option value="enterprise">Multi-team / enterprise rollout</option>
           </select>
         </div>
         <div class="form-group">
@@ -477,9 +478,9 @@ button,.btn,a.btn,.nav-cta,.tier-cta{white-space:nowrap;}
         <div class="form-group">
           <label>Primary Interest</label>
           <select name="interest">
-            <option value="blueprint">System Blueprint</option>
-            <option value="diy-playbook">DIY Implementation Playbook</option>
-            <option value="managed-audit">Managed Audit Implementation</option>
+            <option value="managed-audit">Managed Audit Implementation ($25,000+)</option>
+            <option value="blueprint">System Blueprint ($2,500)</option>
+            <option value="diy-playbook">DIY Implementation Playbook ($5,000)</option>
             <option value="not-sure">Not sure yet</option>
           </select>
         </div>
@@ -505,8 +506,8 @@ button,.btn,a.btn,.nav-cta,.tier-cta{white-space:nowrap;}
         <label>Primary risk concern <span style="color:var(--text3)">(optional)</span></label>
         <textarea name="problem" placeholder="What prompted this audit request?"></textarea>
       </div>
-      <button type="submit" class="submit-btn">Request an Audit</button>
-      <p class="form-note">Requests are reviewed within 1–2 business days.</p>
+      <button type="submit" class="submit-btn">Request Managed Audit</button>
+      <p class="form-note">We reply within 1–2 business days with scope + next steps.</p>
     </form>
   </div>
   <div>
