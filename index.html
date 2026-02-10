@@ -236,6 +236,24 @@ section+section{border-top:1px solid var(--border);}
 .fade-in{opacity:0;transform:translateY(12px);animation:fadeUp .7s cubic-bezier(.25,.46,.45,.94) forwards;}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
 .delay-1{animation-delay:.12s;} .delay-2{animation-delay:.24s;} .delay-3{animation-delay:.36s;}
+
+/* === FINAL VISUAL QA SWEEP === */
+*{min-width:0;}
+img,svg,video,canvas{max-width:100%;height:auto;}
+section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-x:hidden; }
+.container, .container--narrow, .nav-inner, .hero-content { width:100%; box-sizing:border-box; }
+.container * { max-width:100%; }
+
+/* CTA contrast + sizing */
+.btn-primary, .nav-cta, .tier-cta.primary, .btn.primary{color:var(--bg)!important;background:var(--text)!important;border-color:var(--text)!important;}
+.btn-ghost, .btn.secondary, .btn, .tier-cta{color:var(--text-2)!important;border-color:var(--border-2)!important;}
+button, .btn, a.btn, .nav-cta, .tier-cta{white-space:nowrap;}
+
+/* Spacing rhythm */
+section{padding-top:64px;padding-bottom:64px;}
+@media(max-width:900px){section{padding-top:48px;padding-bottom:48px;}}
+/* === END FINAL VISUAL QA === */
+
 </style>
 </head>
 <body>
