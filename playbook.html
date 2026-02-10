@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Playbook — $5,000 | Ikwe.ai</title>
-  <meta name="description" content="Full risk intelligence for your team. Risk events, failure mode map, sector mappings, remediation framework, reusable templates. $5,000.">
+  <title>Preview Pack — $250 | Ikwe.ai</title>
+  <meta name="description" content="See the methodology. Evaluate the approach. Full risk scorecard, scoring methodology, and before/after comparison. $250, instant delivery.">
   <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,39 +19,22 @@
   --border: rgba(255,255,255,.06); --border2: rgba(255,255,255,.1);
   --serif: 'Fraunces', Georgia, serif; --sans: 'DM Sans', system-ui, sans-serif; --mono: 'Space Mono', monospace;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.15;letter-spacing:-.01em}
-a{color:inherit;text-decoration:none}
-.container{max-width:1080px;margin:0 auto;padding:0 24px}
-.narrow{max-width:760px;margin:0 auto;padding:0 24px}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.15;letter-spacing:-.01em}a{color:inherit;text-decoration:none}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}.narrow{max-width:720px;margin:0 auto;padding:0 24px}
 .kicker{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:10px}.kicker.teal{color:var(--teal)}.kicker.gold{color:var(--gold)}.kicker.coral{color:var(--coral)}
-
-/* NAV */
 .nav{position:sticky;top:0;z-index:100;background:rgba(9,9,11,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.nav .container{max-width:1200px}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--text);text-decoration:none}
-.brand img{width:32px;height:32px;border-radius:50%}
+.nav .container{max-width:1200px}.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--text);text-decoration:none}.brand img{width:32px;height:32px;border-radius:50%}
 .nav-links{display:flex;align-items:center;gap:4px}
-.nav-link{padding:10px 14px;border-radius:8px;font-size:.9rem;font-weight:500;color:var(--text2);transition:all .15s;text-decoration:none}
-.nav-link:hover{background:rgba(255,255,255,.06);color:var(--text)}
-.nav-link.highlight{color:var(--purple)}
-.nav-btn{padding:10px 20px;border-radius:8px;font-size:.9rem;font-weight:600;color:#0b0b10;background:var(--teal);text-decoration:none;margin-left:8px;transition:all .15s}
-.nav-btn:hover{background:#16697A;color:#fff}
-
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;font-weight:600;font-size:.9rem;border:1px solid rgba(22,105,122,.25);background:transparent;color:var(--text);cursor:pointer;transition:all .2s;text-decoration:none}
-.btn:hover{transform:translateY(-1px);background:rgba(22,105,122,.12);color:#fff}
-.btn.primary{border-color:var(--teal);background:var(--teal);color:#0b0b10}
-.btn.primary:hover{background:#16697A;color:#fff}
-.btn.secondary{border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--text)}
-
+.nav-link{padding:10px 14px;border-radius:8px;font-size:.9rem;font-weight:500;color:var(--text2);transition:all .15s;text-decoration:none}.nav-link:hover{background:rgba(255,255,255,.06);color:var(--text)}.nav-link.highlight{color:var(--purple)}
+.nav-btn{padding:10px 20px;border-radius:8px;font-size:.9rem;font-weight:600;color:#0b0b10;background:var(--teal);text-decoration:none;margin-left:8px;transition:all .15s}.nav-btn:hover{background:#16697A;color:#fff}
 .section{padding:56px 0;border-top:1px solid var(--border)}
 
 /* ITEMS */
 .item{padding:16px 0;border-bottom:1px solid var(--border)}
 .item:last-child{border-bottom:none}
-.item .check{color:var(--green);margin-right:8px}
+.item .check{color:var(--green);margin-right:8px;font-size:14px}
 .item h3{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--text);display:inline}
 .item p{font-size:13px;color:var(--text3);margin-top:4px;padding-left:24px;line-height:1.6}
 
@@ -63,42 +46,23 @@ a{color:inherit;text-decoration:none}
 .use-card h4{font-family:var(--sans);font-size:13px;margin-bottom:6px}
 .use-card p{font-size:12px;color:var(--text3);line-height:1.6}
 
-/* RISK EVENTS */
-.re-grid{display:flex;flex-direction:column;gap:12px;margin:20px 0}
-.re{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;overflow:hidden;transition:all .25s}
-.re:hover{border-color:var(--border2);box-shadow:0 8px 24px rgba(0,0,0,.25)}
-.re-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 18px}
-.re-id{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--text3);margin-right:10px}
-.re-name{font-size:14px;font-weight:600;color:var(--text);flex:1}
-.re-score{font-family:var(--mono);font-size:16px;font-weight:700;margin-right:8px}
-.re-badge{font-family:var(--mono);font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px}
-.re-badge.h{background:rgba(248,113,113,.12);color:var(--red)}
-.re-badge.m{background:rgba(251,191,36,.12);color:var(--gold)}
-.re-badge.l{background:rgba(34,197,94,.12);color:var(--green)}
-.re-body{padding:14px 18px;border-top:1px solid var(--border);font-size:13px;color:var(--text2);line-height:1.6}
-.re-label{font-family:var(--mono);font-size:10px;color:var(--teal);font-weight:700;letter-spacing:.06em;margin-top:10px;margin-bottom:2px}
-
-/* TABLES */
-.data-table{width:100%;border-collapse:collapse;margin:20px 0;background:var(--bg2);border:1px solid var(--border2);border-radius:12px;overflow:hidden}
-.data-table th{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.04em;padding:10px 14px;text-align:left;background:var(--bg3);border-bottom:1px solid var(--border)}
-.data-table td{padding:10px 14px;font-size:13px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text2)}
-.data-table tr:last-child td{border-bottom:none}
-.data-table td:first-child{font-weight:600;color:var(--text)}
-.hi{font-weight:700;color:var(--red)}
-.mi{color:var(--gold)}
-.lo{color:var(--text3)}
-
-/* SECTOR MAP */
-.sector-table{width:100%;border-collapse:collapse;margin:20px 0;background:var(--bg2);border:1px solid var(--border2);border-radius:12px;overflow:hidden}
-.sector-table th{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.04em;padding:10px 10px;text-align:center;background:var(--bg3);border-bottom:1px solid var(--border)}
-.sector-table th:first-child{text-align:left;padding-left:14px}
-.sector-table td{padding:10px;font-size:12px;text-align:center;border-bottom:1px solid var(--border)}
-.sector-table td:first-child{text-align:left;font-weight:600;color:var(--text);padding-left:14px;font-size:13px}
-.sector-table tr:last-child td{border-bottom:none}
+/* SCORECARD */
+.scorecard{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;overflow:hidden;margin:20px 0}
+.sc-header{background:var(--bg3);padding:12px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.sc-header .sc-brand{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--teal);font-weight:700}
+.sc-header .sc-title{font-size:13px;font-weight:600;color:var(--text)}
+.sc-table{width:100%;border-collapse:collapse}
+.sc-table th{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.04em;padding:10px 14px;text-align:center;background:rgba(255,255,255,.02);border-bottom:1px solid var(--border)}
+.sc-table th:first-child{text-align:left}
+.sc-table td{padding:11px 14px;font-size:13px;text-align:center;border-bottom:1px solid var(--border)}
+.sc-table td:first-child{text-align:left;font-weight:600}
+.sc-table tr:last-child td{border-bottom:none}
+.score{font-family:var(--mono);font-size:16px;font-weight:700}
+.badge{display:inline-block;padding:3px 8px;border-radius:5px;font-family:var(--mono);font-size:10px;font-weight:700}
+.badge-high{background:rgba(248,113,113,.12);color:var(--red)}.badge-med{background:rgba(251,191,36,.12);color:var(--gold)}.badge-low{background:rgba(34,197,94,.12);color:var(--green)}
 
 /* CTA BOX */
-.cta-box{background:var(--bg2);border:2px solid rgba(45,212,191,.35);border-radius:14px;padding:28px;text-align:center;margin:22px 0;box-shadow:0 0 0 1px rgba(45,212,191,.1) inset}
-.cta-box .popular{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;color:#0b0b10;background:var(--teal);padding:4px 14px;border-radius:8px;display:inline-block;margin-bottom:14px}
+.cta-box{background:var(--bg2);border:2px solid rgba(45,212,191,.35);border-radius:14px;padding:28px;text-align:center;margin:22px 0}
 .cta-box .price{font-family:var(--mono);font-size:36px;font-weight:700;color:var(--text)}
 .cta-box .terms{font-size:14px;color:var(--text3);margin:6px 0 18px}
 .cta-box a.cbtn{display:inline-block;padding:14px 40px;background:var(--teal);color:#0b0b10;font-weight:700;font-size:15px;border-radius:10px;text-decoration:none;transition:all .2s}
@@ -107,6 +71,8 @@ a{color:inherit;text-decoration:none}
 .cta-row{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:14px}
 .btn.secondary{padding:12px 20px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--text);font-weight:600;font-size:.95rem;text-decoration:none;transition:all .2s}
 .btn.secondary:hover{background:rgba(255,255,255,.08);color:#fff}
+
+/* STICKY CTA */
 .sticky-cta{position:fixed;bottom:18px;right:18px;z-index:200;display:flex;gap:10px;padding:10px 12px;background:rgba(9,9,11,.92);border:1px solid var(--border2);border-radius:12px;backdrop-filter:blur(10px);box-shadow:0 12px 30px rgba(0,0,0,.35)}
 .sticky-cta .btn{padding:10px 14px;font-size:.85rem}
 
@@ -115,26 +81,13 @@ a{color:inherit;text-decoration:none}
 .upsell p{font-size:13px;color:var(--text2);margin-bottom:10px}
 .upsell a{color:var(--teal);font-weight:600;font-size:13px;text-decoration:none}
 
-/* FOOTER */
 .footer{padding:48px 0 64px;border-top:1px solid var(--border);font-size:.85rem;color:var(--text3)}
 .footer-grid{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:32px}
-.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.footer-logo img{width:32px;height:32px;border-radius:50%}
-.footer-logo span{font-family:var(--serif);font-weight:700;font-size:1rem;color:var(--text)}
-.footer-tagline{font-size:13px;color:var(--text3);line-height:1.6;margin-bottom:12px}
-.footer-legal{font-size:12px}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px}.footer-logo img{width:32px;height:32px;border-radius:50%}.footer-logo span{font-family:var(--serif);font-weight:700;font-size:1rem;color:var(--text)}
+.footer-tagline{font-size:13px;color:var(--text3);line-height:1.6;margin-bottom:12px}.footer-legal{font-size:12px}
 .footer-title{font-weight:700;color:var(--text);margin-bottom:14px;font-size:.9rem}
-.footer-nav{display:flex;flex-direction:column;gap:10px}
-.footer-nav a{color:var(--text3);transition:color .2s}
-.footer-nav a:hover{color:var(--teal)}
-
-@media(max-width:900px){
-  .nav-links{display:none}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
-  .data-table,.sector-table{overflow-x:auto;display:block}
-  .use-grid{grid-template-columns:1fr}
-  .sticky-cta{left:12px;right:12px;bottom:12px;justify-content:center}
-}
+.footer-nav{display:flex;flex-direction:column;gap:10px}.footer-nav a{color:var(--text3);transition:color .2s}.footer-nav a:hover{color:var(--teal)}
+@media(max-width:900px){.nav-links{display:none}.footer-grid{grid-template-columns:1fr 1fr;gap:24px}.scorecard{overflow-x:auto}.use-grid{grid-template-columns:1fr}.sticky-cta{left:12px;right:12px;bottom:12px;justify-content:center}}
   
 /* ====== GLOBAL CONTAINMENT (SAFE) ====== */
 html { overflow-x: hidden; }
@@ -172,6 +125,20 @@ section { padding-left: 0; padding-right: 0; }
 }
 /* ================================= */
 
+
+/* ====== CTA SIZE NORMALIZATION ====== */
+.btn-primary, .nav-cta, .nav-btn, .tier-cta.primary, .btn.primary {
+  padding: 12px 22px !important;
+  font-size: .88rem !important;
+  line-height: 1.2 !important;
+}
+.btn-ghost, .btn.secondary, .btn, .tier-cta {
+  padding: 10px 18px !important;
+  font-size: .84rem !important;
+  line-height: 1.2 !important;
+}
+/* =================================== */
+
 </style>
 </head>
 <body>
@@ -190,25 +157,18 @@ section { padding-left: 0; padding-right: 0; }
 </nav>
 
 <main>
-
-<!-- HERO -->
 <section style="padding:72px 0 48px;background:radial-gradient(ellipse at 50% 0%, var(--teal-glow) 0%, transparent 60%)">
   <div class="narrow">
-    <div style="display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;color:#0b0b10;background:var(--teal);padding:4px 14px;border-radius:8px;margin-bottom:14px">MOST POPULAR</div>
-    <span class="kicker" style="display:block">Ikwe AI Risk Audit · Playbook</span>
-    <h1 style="font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:10px">Full risk intelligence<br>for your team.</h1>
+    <span class="kicker">Ikwe AI Risk Audit · Preview Pack</span>
+    <h1 style="font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:10px">Sample AI Risk Audit (Redacted)</h1>
     <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:14px">
-      <span style="font-family:var(--mono);font-size:42px;font-weight:700;color:var(--text)">$5,000</span>
-      <span style="font-size:15px;color:var(--text3)">PDF delivery within 48 hours</span>
+      <span style="font-family:var(--mono);font-size:42px;font-weight:700;color:var(--text)">$250</span>
+      <span style="font-size:15px;color:var(--text3)">Instant PDF delivery · No call required</span>
     </div>
-    <p style="font-size:16px;color:var(--text2);max-width:52ch;line-height:1.7">The Playbook gives your team the complete risk framework — every risk event, failure mode, sector mapping, and remediation template from a real completed audit. Systems are anonymized. The intelligence transfers.</p>
+    <p style="font-size:16px;color:var(--text2);max-width:52ch;line-height:1.7">This is a real audit output from a system under scale. Details anonymized. Structure and findings intact.</p>
     <div class="cta-row" style="margin-top:14px">
-      <a class="btn secondary" href="/downloads/#board-brief">See a Sample Board Brief</a>
-      <a class="btn secondary" href="/downloads/#audit-report">View Full Sample Report</a>
-    </div>
-    <div class="cta-row" style="margin-top:10px">
-      <a class="cbtn" href="/inquiry">Get the full audit →</a>
-      <a class="btn secondary" href="https://buy.stripe.com/14A5kEbbeetH1cW66B9sk05">Purchase Playbook</a>
+      <a class="cbtn" href="/inquiry">Get the full audit</a>
+      <a class="btn secondary" href="/downloads/#public-preview">Download the preview (PDF)</a>
     </div>
     <p style="font-size:12px;color:var(--text3);margin-top:10px;">  </div>
 </section>
@@ -216,204 +176,90 @@ section { padding-left: 0; padding-right: 0; }
 <section class="section" style="padding-top:32px;">
   <div class="narrow">
     <span class="kicker coral">Free Samples</span>
-    <h2 style="font-size:20px;margin-bottom:4px">Start with the redacted samples.</h2>
-    <p style="font-size:14px;color:var(--text3);margin-bottom:10px">These are the public, redacted versions so you can see the format before you buy. Access code required.</p>
+    <h2 style="font-size:20px;margin-bottom:4px">Download the redacted samples first.</h2>
+    <p style="font-size:14px;color:var(--text3);margin-bottom:10px">These are the public, redacted versions so you can see what you’re buying. Access code required.</p>
     <div class="cta-row" style="margin-top:8px">
       <a class="btn secondary" href="/downloads/#public-preview">Public Preview (PDF)</a>
       <a class="btn secondary" href="/downloads/#board-brief">Board Brief (PDF)</a>
       <a class="btn secondary" href="/downloads/#audit-report">Sample Audit Report (PDF)</a>
     </div>
     <div class="cta-row" style="margin-top:10px">
-      <a class="cbtn" href="/inquiry">Request an AI Risk Audit</a>
-      <a class="btn secondary" href="/downloads/#board-brief">Download the board brief</a>
+      <a class="cbtn" href="/downloads/#public-preview">Access Your Preview Pack Download</a>
+      <a class="btn secondary" href="/inquiry">Request an AI Risk Audit</a>
     </div>
       </div>
 </section>
 
-<!-- INCLUDED -->
 <section class="section"><div class="narrow">
   <h2 style="font-size:20px;margin-bottom:4px">What's Included</h2>
-  <div class="item"><span class="check">✅</span><h3>Everything in Preview Pack</h3><p>Findings summary, full risk scorecard, before/after table, scoring methodology, key statistics.</p></div>
-  <div class="item"><span class="check">✅</span><h3>All 5 observed risk events with triggers and evidence</h3><p>RE-001 through RE-005. Full classification, evidence, and contributing factors for each.</p></div>
-  <div class="item"><span class="check">✅</span><h3>Failure mode map with critical paths</h3><p>Four critical failure paths showing trigger → scale → consequence → detection signal.</p></div>
-  <div class="item"><span class="check">✅</span><h3>Remediation framework</h3><p>Issue-to-fix mapping for every failure class. NOW / NEXT / LATER prioritization.</p></div>
-  <div class="item"><span class="check">✅</span><h3>Sector-specific risk mappings</h3><p>5 dimensions × 5 sectors. Risk severity rated for Healthcare, Policy/Gov, LLM/Agents, Workplace, Consumer.</p></div>
-  <div class="item"><span class="check">✅</span><h3>Reusable templates</h3><p>Audit checklist, scoring worksheet, risk event template, board summary template.</p></div>
+  <div class="item"><span class="check">✅</span><h3>Executive findings summary</h3><p>Three structural failure classes found across all systems tested — Authority Drift, Emotional Escalation, and Founder-as-Safety-Mechanism.</p></div>
+  <div class="item"><span class="check">✅</span><h3>Full risk scorecard with scoring methodology</h3><p>Severity × Likelihood × Scale Multiplier across five dimensions. Thresholds: 1–25 LOW · 26–62 MEDIUM · 63–125 HIGH.</p></div>
+  <div class="item"><span class="check">✅</span><h3>Before/after comparison table</h3><p>Baseline vs post-mitigation scores with percentage reduction across all five risk dimensions (42–67% reduction).</p></div>
+  <div class="item"><span class="check">✅</span><h3>EQ Safety Benchmark methodology overview</h3><p>Two-stage evaluation framework: Safety Gate assessment + 8 weighted quality dimensions.</p></div>
+  <div class="item"><span class="check">✅</span><h3>Key statistics from 948 evaluated responses</h3><p>54.7% introduced emotional risk. 43% showed no repair behavior. Models with higher emotional articulation performed worse on safety.</p></div>
 </div></section>
 
 <section class="section"><div class="narrow">
-  <span class="kicker gold">How Teams Use It</span>
-  <h2 style="font-size:20px;margin-bottom:4px">What happens in the first 30 days.</h2>
+  <span class="kicker gold">Use Cases</span>
+  <h2 style="font-size:20px;margin-bottom:4px">When teams choose the Preview Pack.</h2>
   <div class="use-grid">
     <div class="use-card">
-      <h4>Week 1 — Map risks</h4>
-      <p>Apply the risk event library and scorecard to your current system behavior.</p>
+      <h4>Board or investor diligence</h4>
+      <p>A tangible example of what a board-ready audit looks like before you commission one.</p>
     </div>
     <div class="use-card">
-      <h4>Week 2 — Align owners</h4>
-      <p>Assign remediation owners using the NOW/NEXT/LATER framework.</p>
+      <h4>Internal alignment</h4>
+      <p>Use the scorecard and methodology to align product, policy, and safety leads.</p>
     </div>
     <div class="use-card">
-      <h4>Week 3–4 — Implement gates</h4>
-      <p>Instrument safety thresholds and documentation before scaling further.</p>
+      <h4>Budgeting &amp; scope</h4>
+      <p>Clarify whether you need a Playbook or a full company-specific audit.</p>
     </div>
   </div>
 </div></section>
 
-<!-- RISK EVENTS -->
-<section class="section" style="background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%)"><div class="narrow">
-  <span class="kicker coral">All 5 Risk Events</span>
-  <h2 style="font-size:20px;margin-bottom:4px">Observed risk events from a live deployment audit.</h2>
-  <p style="font-size:14px;color:var(--text3);margin-bottom:4px">Each event includes trigger conditions, evidence, and severity classification.</p>
-  
-  <div class="re-grid">
-    <div class="re">
-      <div class="re-hdr">
-        <span class="re-id">RE-001</span>
-        <span class="re-name">Emotional Escalation</span>
-        <span class="re-score" style="color:var(--red)">80</span>
-        <span class="re-badge h">HIGH</span>
-      </div>
-      <div class="re-body">
-        <div class="re-label">TRIGGER</div>
-        User enters crisis state. System continues engagement beyond safe thresholds without de-escalation.
-        <div class="re-label">EVIDENCE</div>
-        Sessions exceeding 45 minutes during acute distress with no crisis resource routing triggered. Escalation patterns repeated across 3 distinct user profiles.
-      </div>
-    </div>
-
-    <div class="re">
-      <div class="re-hdr">
-        <span class="re-id">RE-002</span>
-        <span class="re-name">Authority Drift</span>
-        <span class="re-score" style="color:var(--gold)">36</span>
-        <span class="re-badge m">MED</span>
-      </div>
-      <div class="re-body">
-        <div class="re-label">TRIGGER</div>
-        System uses clinical-adjacent language users interpret as diagnosis or professional assessment.
-        <div class="re-label">EVIDENCE</div>
-        Language analysis showed progressive drift from supportive to authoritative framing over multi-session interactions. Users reported treating outputs as "advice from a professional."
-      </div>
-    </div>
-
-    <div class="re">
-      <div class="re-hdr">
-        <span class="re-id">RE-003</span>
-        <span class="re-name">Dependency Formation</span>
-        <span class="re-score" style="color:var(--gold)">48</span>
-        <span class="re-badge m">MED</span>
-      </div>
-      <div class="re-body">
-        <div class="re-label">TRIGGER</div>
-        User engagement patterns shift from supplementary to primary support, displacing human relationships.
-        <div class="re-label">EVIDENCE</div>
-        Declining frequency of human referrals combined with increasing session length and emotional intensity over time.
-      </div>
-    </div>
-
-    <div class="re">
-      <div class="re-hdr">
-        <span class="re-id">RE-004</span>
-        <span class="re-name">Governance Failure</span>
-        <span class="re-score" style="color:var(--green)">24</span>
-        <span class="re-badge l">LOW</span>
-      </div>
-      <div class="re-body">
-        <div class="re-label">TRIGGER</div>
-        Safety interventions depend on a single individual rather than encoded system logic.
-        <div class="re-label">EVIDENCE</div>
-        Three months of undocumented manual adjustments. Zero change logs. No intervention protocol documentation.
-      </div>
-    </div>
-
-    <div class="re">
-      <div class="re-hdr">
-        <span class="re-id">RE-005</span>
-        <span class="re-name">Escalation Loop</span>
-        <span class="re-score" style="color:var(--gold)">60</span>
-        <span class="re-badge m">MED</span>
-      </div>
-      <div class="re-body">
-        <div class="re-label">TRIGGER</div>
-        System mirrors user distress patterns, amplifying rather than de-escalating emotional state.
-        <div class="re-label">EVIDENCE</div>
-        Sentiment analysis showed system responses tracking user emotional intensity upward without intervention thresholds.
-      </div>
-    </div>
-  </div>
-</div></section>
-
-<!-- FAILURE MODE MAP -->
 <section class="section"><div class="narrow">
-  <span class="kicker gold">Failure Mode Map</span>
-  <h2 style="font-size:20px;margin-bottom:8px">Four critical failure paths.</h2>
-  <p style="font-size:14px;color:var(--text3);margin-bottom:4px">Each path shows how a trigger escalates through system behavior to user-facing consequence.</p>
-
-  <table class="data-table">
-    <thead><tr><th>Trigger</th><th>Scale Mechanism</th><th>Consequence</th><th>Detection Signal</th></tr></thead>
-    <tbody>
-      <tr><td>Crisis disclosure</td><td>No session limit during distress</td><td>Escalation without exit</td><td>Session duration > 45min + distress keywords</td></tr>
-      <tr><td>Repeated engagement</td><td>System warmth increases with usage</td><td>Emotional dependency</td><td>Declining human referrals + rising session frequency</td></tr>
-      <tr><td>Ambiguous user question</td><td>System defaults to assessment-like language</td><td>Perceived clinical authority</td><td>Authority-adjacent phrasing in outputs</td></tr>
-      <tr><td>Founder absence</td><td>No encoded safety protocols</td><td>Unmonitored drift</td><td>Manual intervention gaps > 72 hours</td></tr>
-    </tbody>
-  </table>
+  <h2 style="font-size:20px;margin-bottom:4px">Risk Scorecard Preview</h2>
+  <p style="font-size:14px;color:var(--text3);margin-bottom:4px">This is the actual scorecard from a completed audit. The Preview Pack includes full scoring methodology and before/after comparison.</p>
+  <div style="margin-top:14px;">
+    <img src="/scorecard_image.png" alt="Risk posture scorecard" style="width:100%;max-width:980px;border-radius:12px;border:1px solid var(--border2);display:block;margin:0 auto;background:#fff;">
+  </div>
 </div></section>
 
-<!-- SECTOR MAP -->
-<section class="section" style="background:var(--bg2)"><div class="narrow">
-  <span class="kicker teal">Playbook Exclusive</span>
-  <h2 style="font-size:20px;margin-bottom:8px">Sector-specific risk mapping.</h2>
-  <p style="font-size:14px;color:var(--text3);margin-bottom:4px">How each risk dimension manifests differently across deployment contexts.</p>
-
-  <table class="sector-table">
-    <thead><tr><th>Risk Dimension</th><th>Healthcare</th><th>Policy / Gov</th><th>LLM / Agents</th><th>Workplace</th><th>Consumer</th></tr></thead>
-    <tbody>
-      <tr><td>Emotional Escalation</td><td class="hi">■ HIGH</td><td class="mi">△ MED</td><td class="mi">△ MED</td><td class="mi">△ MED</td><td class="hi">■ HIGH</td></tr>
-      <tr><td>Authority Drift</td><td class="hi">■ HIGH</td><td class="hi">■ HIGH</td><td class="mi">△ MED</td><td class="mi">△ MED</td><td class="lo">○ LOW</td></tr>
-      <tr><td>Dependency Formation</td><td class="hi">■ HIGH</td><td class="lo">○ LOW</td><td class="mi">△ MED</td><td class="mi">△ MED</td><td class="hi">■ HIGH</td></tr>
-      <tr><td>Governance Failure</td><td class="hi">■ HIGH</td><td class="hi">■ HIGH</td><td class="hi">■ HIGH</td><td class="mi">△ MED</td><td class="mi">△ MED</td></tr>
-      <tr><td>Scale Amplification</td><td class="mi">△ MED</td><td class="hi">■ HIGH</td><td class="hi">■ HIGH</td><td class="mi">△ MED</td><td class="hi">■ HIGH</td></tr>
-    </tbody>
-  </table>
-</div></section>
-
-<!-- NOT INCLUDED -->
 <section class="section"><div class="narrow">
   <h2 style="font-size:20px;margin-bottom:4px">What's Not Included</h2>
-  <p style="font-size:14px;color:var(--text3);margin-bottom:14px">Available at the Full Audit tier:</p>
+  <p style="font-size:14px;color:var(--text3);margin-bottom:14px">Available at higher tiers:</p>
+  <div class="locked-item">🔒 <span>Individual risk events with triggers and evidence</span><span class="tier">→ Playbook</span></div>
+  <div class="locked-item">🔒 <span>Failure mode map with critical paths</span><span class="tier">→ Playbook</span></div>
+  <div class="locked-item">🔒 <span>Remediation framework (issue-to-fix mapping)</span><span class="tier">→ Playbook</span></div>
+  <div class="locked-item">🔒 <span>Sector-specific risk mappings</span><span class="tier">→ Playbook</span></div>
   <div class="locked-item">🔒 <span>YOUR company-specific audit</span><span class="tier">→ Full Audit</span></div>
   <div class="locked-item">🔒 <span>Board-ready report with your company name</span><span class="tier">→ Full Audit</span></div>
-  <div class="locked-item">🔒 <span>Named risk scorecard for your systems</span><span class="tier">→ Full Audit</span></div>
-  <div class="locked-item">🔒 <span>Priority action plan specific to your deployment</span><span class="tier">→ Full Audit</span></div>
-  <div class="locked-item">🔒 <span>Live walkthrough session</span><span class="tier">→ Full Audit</span></div>
 </div></section>
 
-<!-- CTA -->
 <section class="section"><div class="narrow">
   <div class="cta-box">
-    <div class="popular">MOST POPULAR</div>
-    <div class="price">$5,000</div>
-    <div class="terms">PDF delivery within 48 hours</div>
+    <div class="price">$250</div>
+    <div class="terms">Instant PDF delivery · No call required</div>
     <div class="cta-row">
-      <a href="/audit#playbook" class="cbtn">View Playbook Options →</a>
-      <a href="/inquiry" class="btn secondary">Request an AI Risk Audit</a>
+      <a href="/inquiry" class="cbtn">Get the full audit →</a>
+      <a href="/downloads/#public-preview" class="btn secondary">Download the preview (PDF)</a>
     </div>
-    <p class="note">Includes all risk events, failure modes, sector mappings, remediation framework, and reusable templates.</p>
+    <div class="cta-row" style="margin-top:10px">
+      <a href="/board-brief" class="btn secondary">Board Brief (Web View)</a>
+      <a href="/audit-report" class="btn secondary">Audit Report (Web View)</a>
+    </div>
+    <p class="note">You'll receive the PDF within 24 hours of payment confirmation.</p>
   </div>
-
-  <div class="upsell">
-    <h3>Ready for your own audit?</h3>
-    <p>The <strong style="color:var(--text)">Full Audit</strong> applies this entire framework to YOUR systems. Board-ready report delivered in 4 weeks with a live walkthrough session.</p>
-    <a href="/inquiry">Request a Full Audit →</a>
-  </div>
-  <div class="upsell">
-    <h3>Need embedded governance?</h3>
-    <p><strong style="color:var(--text)">Implementation packages start at $50,000.</strong> Safety gates, monitoring dashboards, escalation protocols, ongoing re-audits.</p>
-    <a href="/inquiry">Contact about implementation →</a>
-  </div>
+  <div class="upsell"><h3>Want the full framework?</h3><p>The <strong style="color:var(--text)">Playbook</strong> unlocks all risk events, failure mode map, remediation framework, sector-specific mappings, and reusable templates.</p><a href="/playbook">See what's in the Playbook →</a></div>
+  <div class="upsell"><h3>Ready for your own audit?</h3><p>The <strong style="color:var(--text)">Full Audit</strong> applies this framework to YOUR systems. Board-ready report in 4 weeks.</p><a href="/inquiry">Request a Full Audit →</a></div>
 </div></section>
+
+<section class="next-step" style="padding:48px 0;border-top:1px solid var(--border);">
+  <div class="container">
+    <a class="btn-ghost" href="/audit" style="display:inline-flex;align-items:center;gap:8px;">Next step: See full audit options →</a>
+  </div>
+</section>
 
 </main>
 
@@ -427,8 +273,7 @@ section { padding-left: 0; padding-right: 0; }
 
 <div class="sticky-cta" aria-label="Quick actions">
   <a class="btn primary" href="/inquiry">Request an Audit</a>
-  <a class="btn secondary" href="/audit#playbook">See Tiers</a>
+  <a class="btn secondary" href="/audit#preview">See Tiers</a>
 </div>
-
 </body>
 </html>
