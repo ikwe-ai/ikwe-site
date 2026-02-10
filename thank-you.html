@@ -190,6 +190,24 @@ main > section > :not(.container):not(.container--narrow):not(.narrow):not(.full
 .nav-cta,.nav-btn,.btn-primary,.tier-cta.primary,.btn.primary{color:var(--bg)!important;background:var(--text)!important;border-color:var(--text)!important;}
 button,.btn,a.btn,.nav-cta,.tier-cta{white-space:nowrap;}
 
+
+/* === FINAL VISUAL QA SWEEP === */
+*{min-width:0;}
+img,svg,video,canvas{max-width:100%;height:auto;}
+section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-x:hidden; }
+.container, .container--narrow, .nav-inner, .hero-content { width:100%; box-sizing:border-box; }
+.container * { max-width:100%; }
+
+/* CTA contrast + sizing */
+.btn-primary, .nav-cta, .tier-cta.primary, .btn.primary{color:var(--bg)!important;background:var(--text)!important;border-color:var(--text)!important;}
+.btn-ghost, .btn.secondary, .btn, .tier-cta{color:var(--text-2)!important;border-color:var(--border-2)!important;}
+button, .btn, a.btn, .nav-cta, .tier-cta{white-space:nowrap;}
+
+/* Spacing rhythm */
+section{padding-top:64px;padding-bottom:64px;}
+@media(max-width:900px){section{padding-top:48px;padding-bottom:48px;}}
+/* === END FINAL VISUAL QA === */
+
 </style>
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-Zs0nNW5srMjkLGUV711fI.js"></script>

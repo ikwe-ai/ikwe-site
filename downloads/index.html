@@ -73,7 +73,25 @@ a { color: inherit; text-decoration: none; }
 .footer-title { font-weight: 700; margin-bottom: 8px; }
 @media (max-width: 900px) { .download-grid { grid-template-columns: 1fr; } .footer .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 640px) { .footer .footer-grid { grid-template-columns: 1fr; } }
-  </style>
+  
+/* === FINAL VISUAL QA SWEEP === */
+*{min-width:0;}
+img,svg,video,canvas{max-width:100%;height:auto;}
+section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-x:hidden; }
+.container, .container--narrow, .nav-inner, .hero-content { width:100%; box-sizing:border-box; }
+.container * { max-width:100%; }
+
+/* CTA contrast + sizing */
+.btn-primary, .nav-cta, .tier-cta.primary, .btn.primary{color:var(--bg)!important;background:var(--text)!important;border-color:var(--text)!important;}
+.btn-ghost, .btn.secondary, .btn, .tier-cta{color:var(--text-2)!important;border-color:var(--border-2)!important;}
+button, .btn, a.btn, .nav-cta, .tier-cta{white-space:nowrap;}
+
+/* Spacing rhythm */
+section{padding-top:64px;padding-bottom:64px;}
+@media(max-width:900px){section{padding-top:48px;padding-bottom:48px;}}
+/* === END FINAL VISUAL QA === */
+
+</style>
 </head>
 <body>
   <nav class="nav">
