@@ -151,6 +151,108 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 440px);
+  gap: 34px;
+  align-items: start;
+}
+.hero-right { position: relative; }
+.hero-stack {
+  position: relative;
+  border: 1px solid var(--border-2);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(30,27,35,.92), rgba(23,20,30,.92));
+  padding: 18px;
+  min-height: 430px;
+  overflow: hidden;
+}
+.hero-stack::before {
+  content: '';
+  position: absolute;
+  inset: -120px -120px auto auto;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(167,139,250,.16), transparent 60%);
+  pointer-events: none;
+}
+.hero-mini-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+.hero-stage-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.hero-pill {
+  border: 1px solid var(--border-2);
+  background: rgba(232,228,223,.02);
+  color: var(--text-2);
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.hero-preview {
+  border: 1px solid var(--border-2);
+  border-radius: 12px;
+  background: rgba(20,18,24,.45);
+  padding: 12px;
+}
+.hero-preview img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  background: #f4f1ec;
+}
+.hero-preview-caption {
+  margin-top: 10px;
+  font-size: .82rem;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.hero-card-grid {
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+.hero-card {
+  display: block;
+  border: 1px solid var(--border-2);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: rgba(20,18,24,.55);
+  transition: border-color .2s, transform .2s, background .2s;
+}
+.hero-card:hover {
+  border-color: var(--lilac);
+  background: rgba(20,18,24,.8);
+  transform: translateY(-1px);
+}
+.hero-card-title {
+  font-size: .86rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.hero-card-sub {
+  margin-top: 3px;
+  font-size: .76rem;
+  color: var(--text-3);
+}
+.hero-card-arrow {
+  margin-top: 8px;
+  font-size: .76rem;
+  color: var(--lilac-bright);
+}
 .btn-primary {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 16px 32px; border-radius: 12px;
@@ -543,6 +645,8 @@ a { color: inherit; text-decoration: none; }
 @media(max-width:860px) {
   .slide { padding: 100px 24px 64px; }
   .insight-layout { grid-template-columns: 1fr; gap: 32px; }
+  .hero-layout { grid-template-columns: 1fr; }
+  .hero-stack { min-height: 0; }
 }
 @media(max-width:480px) {
   .slide { padding: 88px 20px 56px; }
@@ -572,19 +676,54 @@ a { color: inherit; text-decoration: none; }
 <!-- SLIDE 1: THE PROVOCATION -->
 <section class="slide slide-hero">
   <div class="slide-content">
-    <div class="hero-badge reveal">
-      <span class="pulse"></span>
-      AI Risk Infrastructure
-    </div>
-    <h1 class="hero-headline reveal reveal-d1">
-      You're willing to scale AI fast. Are you willing to scale <span class="risk-word">risk</span> just as fast?
-    </h1>
-    <p class="hero-sub reveal reveal-d2">
-      We audit conversational and decision-making AI before risk becomes legal or reputational damage. Benchmarked against frontier models. Delivered as board-ready infrastructure.
-    </p>
-    <div class="hero-actions reveal reveal-d3">
-      <a class="btn-primary" href="/inquiry">Request an Audit</a>
-      <a class="btn-ghost" href="/proof">See a real audit →</a>
+    <div class="hero-layout">
+      <div class="hero-left">
+        <div class="hero-badge reveal">
+          <span class="pulse"></span>
+          AI Risk Infrastructure
+        </div>
+        <h1 class="hero-headline reveal reveal-d1">
+          You're willing to scale AI fast. Are you willing to scale <span class="risk-word">risk</span> just as fast?
+        </h1>
+        <p class="hero-sub reveal reveal-d2">
+          We audit conversational and decision-making AI before risk becomes legal or reputational damage. Benchmarked against frontier models. Delivered as board-ready infrastructure.
+        </p>
+        <div class="hero-actions reveal reveal-d3">
+          <a class="btn-primary" href="/inquiry">Request an Audit</a>
+          <a class="btn-ghost" href="/proof">See a real audit →</a>
+        </div>
+      </div>
+      <div class="hero-right reveal reveal-d2">
+        <div class="hero-stack">
+          <div class="hero-mini-kicker">Interactive Sample Rail</div>
+          <div class="hero-stage-pills">
+            <span class="hero-pill">Preview</span>
+            <span class="hero-pill">Audit</span>
+            <span class="hero-pill">Inquiry</span>
+          </div>
+          <a class="hero-preview" href="/proof">
+            <img src="/assets/ikwe-scorecard-visual.svg" alt="Ikwe scorecard sample visual">
+            <p class="hero-preview-caption">Baseline vs post-mitigation in one board-ready view. Click to open proof artifacts.</p>
+          </a>
+          <div class="hero-card-grid">
+            <a class="hero-card" href="/downloads/ikwe_board_brief.pdf">
+              <div class="hero-card-title">Board Brief Sample</div>
+              <div class="hero-card-sub">3-page executive snapshot</div>
+              <div class="hero-card-arrow">Open sample →</div>
+            </a>
+            <a class="hero-card" href="/audit">
+              <div class="hero-card-title">Audit Page Deck</div>
+              <div class="hero-card-sub">Tiered paths and outcomes</div>
+              <div class="hero-card-arrow">Preview flow →</div>
+            </a>
+            <a class="hero-card" href="/inquiry">
+              <div class="hero-card-title">Request Audit Intake</div>
+              <div class="hero-card-sub">Done-for-you implementation path</div>
+              <div class="hero-card-arrow">Start intake →</div>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="scroll-hint">
