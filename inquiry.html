@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Request an Audit — Ikwe.ai</title>
+<title>Managed Audit Intake — Ikwe.ai</title>
 <meta name="description" content="Request a behavioral emotional safety audit for your AI systems. Board-ready report, risk scorecard, and governance plan in 2–4 weeks.">
 <link rel="canonical" href="https://ikwe.ai/inquiry">
-<meta property="og:title" content="Request an Audit — Ikwe.ai" />
+<meta property="og:title" content="Managed Audit Intake — Ikwe.ai" />
 <meta property="og:description" content="Board-ready AI risk audits for companies scaling conversational AI." />
 <meta property="og:image" content="https://ikwe.ai/ikwe-og.png" />
 <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
@@ -186,7 +186,7 @@ section+section{border-top:1px solid var(--border);}
 <!-- HERO -->
 <section class="hero">
   <div class="container hero-content">
-    <div class="kicker fade-in">Request an Audit</div>
+    <div class="kicker fade-in">Managed Audit Intake</div>
     <h1 class="fade-in delay-1">Tell us about your system.</h1>
     <p class="hero-sub fade-in delay-2">We respond within 1–2 business days with scope, timeline, and next steps. Benchmarked against frontier models and validated against Ikwe's mitigation layer.</p>
   </div>
@@ -416,4 +416,14 @@ section+section{border-top:1px solid var(--border);}
       console.error('Submit error:', error);
       submitBtn.disabled = false;
       submitBtn.textContent = 'Request Managed Audit';
-      alert('Someth
+      alert('Something went wrong. Please try again or email stephanie@ikwe.ai.');
+    });
+  });
+
+  if (typeof window.plausible === 'function') {
+    try { window.plausible('Inquiry_View'); } catch(e) {}
+  }
+})();
+</script>
+</body>
+</html>
