@@ -1,0 +1,109 @@
+.sample-preview-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+}
+.sample-preview-modal.is-open { display: block; }
+.sample-preview-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 8, 12, .72);
+  backdrop-filter: blur(4px);
+}
+.sample-preview-dialog {
+  position: relative;
+  width: min(1080px, calc(100vw - 40px));
+  height: min(84vh, 860px);
+  margin: clamp(20px, 5vh, 48px) auto;
+  border: 1px solid rgba(232,228,223,.16);
+  border-radius: 14px;
+  background: #16131d;
+  box-shadow: 0 32px 90px rgba(0,0,0,.55);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+}
+.sample-preview-head {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(232,228,223,.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.sample-preview-title {
+  font-size: .92rem;
+  font-weight: 600;
+  color: rgba(232,228,223,.94);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sample-preview-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.sample-preview-btn {
+  border: 1px solid rgba(232,228,223,.2);
+  border-radius: 8px;
+  padding: 7px 10px;
+  background: rgba(232,228,223,.04);
+  color: rgba(232,228,223,.92);
+  font-size: .78rem;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1;
+}
+.sample-preview-btn:hover {
+  border-color: rgba(167,139,250,.7);
+  color: #c4b5fd;
+}
+.sample-preview-close {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid rgba(232,228,223,.2);
+  background: transparent;
+  color: rgba(232,228,223,.85);
+  font-size: 17px;
+  cursor: pointer;
+}
+.sample-preview-close:hover { color: #fff; border-color: rgba(232,228,223,.45); }
+.sample-preview-frame-wrap {
+  position: relative;
+  background: #100e16;
+}
+.sample-preview-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+.sample-preview-note {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  font-size: .72rem;
+  color: rgba(232,228,223,.55);
+  background: rgba(16,14,22,.55);
+  border: 1px solid rgba(232,228,223,.12);
+  border-radius: 7px;
+  padding: 4px 8px;
+}
+@media (max-width: 900px) {
+  .sample-preview-dialog {
+    width: calc(100vw - 20px);
+    height: min(88vh, 920px);
+    margin: 10px auto;
+  }
+  .sample-preview-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .sample-preview-actions {
+    width: 100%;
+  }
+}

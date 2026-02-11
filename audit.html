@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/sample-preview-modal.css">
 <style>
 :root {
   --bg:#141218;--bg-2:#1a171f;--bg-3:#211e26;--bg-card:#1e1b23;--bg-hover:#282530;
@@ -240,7 +241,7 @@ section+section{border-top:1px solid var(--border);}
     </p>
     <div class="hero-actions fade-in delay-3">
       <a class="btn-primary" href="/inquiry">Request an AI Risk Audit</a>
-      <a class="btn-ghost" href="/downloads/ikwe_public_preview.pdf">Download the preview</a>
+      <a class="btn-ghost" href="/downloads/ikwe_public_preview.pdf" data-title="Public Preview">Download the preview</a>
     </div>
   </div>
 </section>
@@ -279,15 +280,15 @@ section+section{border-top:1px solid var(--border);}
     <h2>Sample outputs.</h2>
     <p class="samples-desc">All samples are redacted. Full audits are company-specific.</p>
     <div class="sample-row">
-      <a class="sample-link" href="/downloads/ikwe_public_preview.pdf">
+      <a class="sample-link" href="/downloads/ikwe_public_preview.pdf" data-title="Public Preview">
         Public Preview
         <span class="label">4 pages · Free</span>
       </a>
-      <a class="sample-link" href="/downloads/ikwe_board_brief.pdf">
+      <a class="sample-link" href="/downloads/ikwe_board_brief.pdf" data-title="Board Brief">
         Board Brief
         <span class="label">3 pages · Free</span>
       </a>
-      <a class="sample-link" href="/downloads/ikwe_audit_report.pdf">
+      <a class="sample-link" href="/downloads/ikwe_audit_report.pdf" data-title="Full Sample Audit Report">
         Full Sample Report
         <span class="label">7 pages · Free</span>
       </a>
@@ -511,4 +512,13 @@ section+section{border-top:1px solid var(--border);}
         <a href="/terms">Terms</a>
       </div>
       <div class="footer-cite">
-        Ikwe.ai (2026). <em>Behavioral Emotional Safety in Conversational AI: A Scenario-Based Evaluation.</em> Visible Healin
+        Ikwe.ai (2026). <em>Behavioral Emotional Safety in Conversational AI: A Scenario-Based Evaluation.</em> Visible Healing Inc. <a href="https://ikwe.ai" style="color:var(--rose)">ikwe.ai</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="/assets/sample-preview-modal.js" defer></script>
+</body>
+</html>
