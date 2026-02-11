@@ -93,6 +93,18 @@
   border-radius: 7px;
   padding: 4px 8px;
 }
+.sample-preview-fallback {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  font-size: .72rem;
+  color: rgba(232,228,223,.82);
+  background: rgba(16,14,22,.78);
+  border: 1px solid rgba(232,228,223,.2);
+  border-radius: 7px;
+  padding: 4px 8px;
+}
+.sample-preview-fallback.hidden { display: none; }
 @media (max-width: 900px) {
   .sample-preview-dialog {
     width: calc(100vw - 20px);

@@ -1,4 +1,25 @@
 (function () {
+  var SAMPLE_PAGE_MAP = {
+    '/downloads/ikwe_public_preview.pdf': '/samples/public-preview.html',
+    '/downloads/ikwe_board_brief.pdf': '/samples/board-brief.html',
+    '/downloads/ikwe_audit_report.pdf': '/samples/audit-report.html',
+    '/downloads/ikwe_scorecard_sample.pdf': '/samples/public-preview.html#scorecard',
+    '/downloads/ikwe_report_sample.pdf': '/samples/board-brief.html#report',
+    '/downloads/ikwe_action_plan_sample.pdf': '/samples/audit-report.html#action-plan'
+  };
+
+  function samplePreviewUrlFor(href) {
+    try {
+      var abs = new URL(href, window.location.origin);
+      var pathname = abs.pathname.toLowerCase();
+      var mapped = SAMPLE_PAGE_MAP[pathname];
+      if (!mapped) return null;
+      return new URL(mapped, window.location.origin).href;
+    } catch (e) {
+      return null;
+    }
+  }
+
   function isSamplePdfLink(a) {
     if (!a || !a.getAttribute) return false;
     var href = a.getAttribute('href') || '';
@@ -23,8 +44,11 @@
       '    </div>',
       '  </div>',
       '  <div class="sample-preview-frame-wrap">',
-      '    <iframe class="sample-preview-frame" id="sample-preview-frame" title="PDF preview"></iframe>',
+      '    <iframe class="sample-preview-frame" id="sample-preview-frame" title="Sample preview"></iframe>',
       '    <div class="sample-preview-note">Preview keeps you on-page. Use buttons for full PDF actions.</div>',
+      '    <div class="sample-preview-fallback hidden" id="sample-preview-fallback">',
+      '      Live preview unavailable for this file. Use View PDF or Download PDF.',
+      '    </div>',
       '  </div>',
       '</div>'
     ].join('');
@@ -44,6 +68,7 @@
     var downloadBtn = document.getElementById('sample-preview-download');
     var emailBtn = document.getElementById('sample-preview-email');
     var closeBtn = document.getElementById('sample-preview-close');
+    var fallback = document.getElementById('sample-preview-fallback');
 
     function closeModal() {
       modal.classList.remove('is-open');
@@ -54,8 +79,10 @@
 
     function openModal(href, title) {
       var abs = new URL(href, window.location.origin).href;
+      var previewUrl = samplePreviewUrlFor(href) || abs;
       titleEl.textContent = title || 'Sample Preview';
-      frame.src = abs + '#view=FitH';
+      fallback.classList.add('hidden');
+      frame.src = previewUrl;
       viewBtn.href = abs;
       downloadBtn.href = abs;
       var subject = encodeURIComponent('Ikwe sample: ' + (title || 'PDF sample'));
@@ -82,6 +109,10 @@
     closeBtn.addEventListener('click', closeModal);
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+    });
+
+    frame.addEventListener('error', function () {
+      fallback.classList.remove('hidden');
     });
   }
 
