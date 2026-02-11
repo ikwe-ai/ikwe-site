@@ -92,9 +92,9 @@
       '  <div class="sample-preview-head">',
       '    <div class="sample-preview-title" id="sample-preview-title">Sample Preview</div>',
       '    <div class="sample-preview-actions">',
-      '      <a class="sample-preview-btn" id="sample-preview-view" href="#" target="_blank" rel="noopener">Open sample</a>',
-      '      <a class="sample-preview-btn" id="sample-preview-download" href="#" download>View PDF</a>',
-      '      <a class="sample-preview-btn" id="sample-preview-email" href="#">Email link</a>',
+      '      <a class="sample-preview-btn is-primary" id="sample-preview-view" href="#" target="_blank" rel="noopener">Open sample</a>',
+      '      <a class="sample-preview-btn" id="sample-preview-download" href="#" download>Get PDF</a>',
+      '      <a class="sample-preview-btn" id="sample-preview-request" href="/inquiry">Request audit</a>',
       '      <button class="sample-preview-close" id="sample-preview-close" type="button" aria-label="Close">×</button>',
       '    </div>',
       '  </div>',
@@ -106,7 +106,7 @@
       '        <div class="sample-inline-cards" id="sample-inline-cards"></div>',
       '      </div>',
       '    </div>',
-      '    <div class="sample-preview-note">Preview stays on-page. Use \"View PDF\" to download.</div>',
+      '    <div class="sample-preview-note">Click the preview to open the live sample. Use Get PDF for the downloadable file.</div>',
       '    <div class="sample-preview-fallback hidden" id="sample-preview-fallback">',
       '      Preview unavailable for this file. Use Open sample page or Download PDF.',
       '    </div>',
@@ -126,9 +126,10 @@
     var titleEl = document.getElementById('sample-preview-title');
     var viewBtn = document.getElementById('sample-preview-view');
     var downloadBtn = document.getElementById('sample-preview-download');
-    var emailBtn = document.getElementById('sample-preview-email');
+    var requestBtn = document.getElementById('sample-preview-request');
     var closeBtn = document.getElementById('sample-preview-close');
     var fallback = document.getElementById('sample-preview-fallback');
+    var mediaWrap = document.querySelector('.sample-inline-media');
     var previewImage = document.getElementById('sample-preview-image');
     var summaryEl = document.getElementById('sample-inline-summary');
     var cardsEl = document.getElementById('sample-inline-cards');
@@ -167,11 +168,7 @@
       fallback.classList.add('hidden');
       viewBtn.href = previewUrl;
       downloadBtn.href = abs;
-      var subject = encodeURIComponent('Ikwe sample: ' + (title || 'PDF sample'));
-      var body = encodeURIComponent(
-        'Here is the Ikwe live sample page:\n\n' + previewUrl + '\n\nPDF download:\n' + abs
-      );
-      emailBtn.href = 'mailto:?subject=' + subject + '&body=' + body;
+      requestBtn.href = '/inquiry';
       modal.classList.add('is-open');
       modal.setAttribute('aria-hidden', 'false');
       document.documentElement.style.overflow = 'hidden';
@@ -192,6 +189,13 @@
       if (e.target && e.target.getAttribute('data-close') === '1') closeModal();
     });
     closeBtn.addEventListener('click', closeModal);
+    if (mediaWrap) {
+      mediaWrap.addEventListener('click', function () {
+        if (viewBtn && viewBtn.href) window.open(viewBtn.href, '_blank', 'noopener');
+      });
+      mediaWrap.setAttribute('title', 'Open sample');
+      mediaWrap.style.cursor = 'pointer';
+    }
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
     });
