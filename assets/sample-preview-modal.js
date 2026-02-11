@@ -123,7 +123,6 @@
     if (!links.length) return;
 
     var modal = document.getElementById('sample-preview-modal') || buildModal();
-    var frame = document.getElementById('sample-preview-frame');
     var titleEl = document.getElementById('sample-preview-title');
     var viewBtn = document.getElementById('sample-preview-view');
     var downloadBtn = document.getElementById('sample-preview-download');
