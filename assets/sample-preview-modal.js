@@ -4,37 +4,49 @@
       page: '/samples/public-preview.html',
       image: '/downloads/images/ikwe_public_preview.png',
       summary: 'System Blueprint sample with redacted outputs and baseline findings.',
-      cards: ['Scorecard snapshot', 'Risk event framing', 'Mitigation sequence']
+      cards: ['Scorecard snapshot', 'Risk event framing', 'Mitigation sequence'],
+      nextLabel: 'Get DIY Playbook ($5,000)',
+      nextHref: 'https://buy.stripe.com/14A5kEbbeetH1cW66B9sk05'
     },
     '/downloads/ikwe_board_brief.pdf': {
       page: '/samples/board-brief.html',
       image: '/downloads/images/ikwe_board_brief.png',
       summary: 'Board-ready brief format for leadership review and decision alignment.',
-      cards: ['Posture summary', 'Top exposure paths', 'Action ownership']
+      cards: ['Posture summary', 'Top exposure paths', 'Action ownership'],
+      nextLabel: 'Request Managed Audit ($25,000+)',
+      nextHref: '/inquiry'
     },
     '/downloads/ikwe_audit_report.pdf': {
       page: '/samples/audit-report.html',
       image: '/downloads/images/ikwe_audit_report.png',
       summary: 'Full redacted audit report structure with evidence-to-action traceability.',
-      cards: ['Dimension scoring', 'Failure mode map', 'Now/Next/Later plan']
+      cards: ['Dimension scoring', 'Failure mode map', 'Now/Next/Later plan'],
+      nextLabel: 'Request Managed Audit ($25,000+)',
+      nextHref: '/inquiry'
     },
     '/downloads/ikwe_scorecard_sample.pdf': {
       page: '/samples/public-preview.html#scorecard',
       image: '/downloads/images/ikwe_public_preview.png',
       summary: 'Standalone scorecard sample with baseline and post-mitigation posture.',
-      cards: ['Baseline posture', 'Post-mitigation posture', 'Delta interpretation']
+      cards: ['Baseline posture', 'Post-mitigation posture', 'Delta interpretation'],
+      nextLabel: 'Get DIY Playbook ($5,000)',
+      nextHref: 'https://buy.stripe.com/14A5kEbbeetH1cW66B9sk05'
     },
     '/downloads/ikwe_report_sample.pdf': {
       page: '/samples/board-brief.html#report',
       image: '/downloads/images/ikwe_board_brief.png',
       summary: 'Sample report page showing board-facing structure and language.',
-      cards: ['Executive readout', 'Evidence block', 'Decision prompt']
+      cards: ['Executive readout', 'Evidence block', 'Decision prompt'],
+      nextLabel: 'Get DIY Playbook ($5,000)',
+      nextHref: 'https://buy.stripe.com/14A5kEbbeetH1cW66B9sk05'
     },
     '/downloads/ikwe_action_plan_sample.pdf': {
       page: '/samples/audit-report.html#action-plan',
       image: '/downloads/images/ikwe_audit_report.png',
       summary: 'Mitigation action plan sample with phased implementation actions.',
-      cards: ['Immediate actions', 'Near-term controls', 'Long-term governance']
+      cards: ['Immediate actions', 'Near-term controls', 'Long-term governance'],
+      nextLabel: 'Request Managed Audit ($25,000+)',
+      nextHref: '/inquiry'
     }
   };
 
@@ -94,7 +106,7 @@
       '    <div class="sample-preview-actions">',
       '      <a class="sample-preview-btn is-primary" id="sample-preview-view" href="#" target="_blank" rel="noopener">Open sample</a>',
       '      <a class="sample-preview-btn" id="sample-preview-download" href="#" download>Get PDF</a>',
-      '      <a class="sample-preview-btn" id="sample-preview-request" href="/inquiry">Request audit</a>',
+      '      <a class="sample-preview-btn" id="sample-preview-next" href="/inquiry">Next step</a>',
       '      <button class="sample-preview-close" id="sample-preview-close" type="button" aria-label="Close">×</button>',
       '    </div>',
       '  </div>',
@@ -126,7 +138,7 @@
     var titleEl = document.getElementById('sample-preview-title');
     var viewBtn = document.getElementById('sample-preview-view');
     var downloadBtn = document.getElementById('sample-preview-download');
-    var requestBtn = document.getElementById('sample-preview-request');
+    var nextBtn = document.getElementById('sample-preview-next');
     var closeBtn = document.getElementById('sample-preview-close');
     var fallback = document.getElementById('sample-preview-fallback');
     var mediaWrap = document.querySelector('.sample-inline-media');
@@ -168,7 +180,8 @@
       fallback.classList.add('hidden');
       viewBtn.href = previewUrl;
       downloadBtn.href = abs;
-      requestBtn.href = '/inquiry';
+      nextBtn.href = (data && data.nextHref) ? data.nextHref : '/inquiry';
+      nextBtn.textContent = (data && data.nextLabel) ? data.nextLabel : 'Request Managed Audit ($25,000+)';
       modal.classList.add('is-open');
       modal.setAttribute('aria-hidden', 'false');
       document.documentElement.style.overflow = 'hidden';
