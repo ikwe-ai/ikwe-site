@@ -1,4 +1,56 @@
 (function () {
+  var PREVIEW_DATA = {
+    '/downloads/ikwe_public_preview.pdf': {
+      page: '/samples/public-preview.html',
+      image: '/downloads/images/ikwe_public_preview.png',
+      summary: 'System Blueprint sample with redacted outputs and baseline findings.',
+      cards: ['Scorecard snapshot', 'Risk event framing', 'Mitigation sequence']
+    },
+    '/downloads/ikwe_board_brief.pdf': {
+      page: '/samples/board-brief.html',
+      image: '/downloads/images/ikwe_board_brief.png',
+      summary: 'Board-ready brief format for leadership review and decision alignment.',
+      cards: ['Posture summary', 'Top exposure paths', 'Action ownership']
+    },
+    '/downloads/ikwe_audit_report.pdf': {
+      page: '/samples/audit-report.html',
+      image: '/downloads/images/ikwe_audit_report.png',
+      summary: 'Full redacted audit report structure with evidence-to-action traceability.',
+      cards: ['Dimension scoring', 'Failure mode map', 'Now/Next/Later plan']
+    },
+    '/downloads/ikwe_scorecard_sample.pdf': {
+      page: '/samples/public-preview.html#scorecard',
+      image: '/downloads/images/ikwe_public_preview.png',
+      summary: 'Standalone scorecard sample with baseline and post-mitigation posture.',
+      cards: ['Baseline posture', 'Post-mitigation posture', 'Delta interpretation']
+    },
+    '/downloads/ikwe_report_sample.pdf': {
+      page: '/samples/board-brief.html#report',
+      image: '/downloads/images/ikwe_board_brief.png',
+      summary: 'Sample report page showing board-facing structure and language.',
+      cards: ['Executive readout', 'Evidence block', 'Decision prompt']
+    },
+    '/downloads/ikwe_action_plan_sample.pdf': {
+      page: '/samples/audit-report.html#action-plan',
+      image: '/downloads/images/ikwe_audit_report.png',
+      summary: 'Mitigation action plan sample with phased implementation actions.',
+      cards: ['Immediate actions', 'Near-term controls', 'Long-term governance']
+    }
+  };
+
+  function keyFor(href) {
+    try {
+      var abs = new URL(href, window.location.origin);
+      return abs.pathname.toLowerCase();
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function previewDataFor(href) {
+    return PREVIEW_DATA[keyFor(href)] || null;
+  }
+
   var SAMPLE_PAGE_MAP = {
     '/downloads/ikwe_public_preview.pdf': '/samples/public-preview.html',
     '/downloads/ikwe_board_brief.pdf': '/samples/board-brief.html',
@@ -9,15 +61,14 @@
   };
 
   function samplePreviewUrlFor(href) {
+    var data = previewDataFor(href);
+    if (data && data.page) return new URL(data.page, window.location.origin).href;
     try {
       var abs = new URL(href, window.location.origin);
-      var pathname = abs.pathname.toLowerCase();
-      var mapped = SAMPLE_PAGE_MAP[pathname];
+      var mapped = SAMPLE_PAGE_MAP[abs.pathname.toLowerCase()];
       if (!mapped) return null;
       return new URL(mapped, window.location.origin).href;
-    } catch (e) {
-      return null;
-    }
+    } catch (e) { return null; }
   }
 
   function isSamplePdfLink(a) {
@@ -41,17 +92,23 @@
       '  <div class="sample-preview-head">',
       '    <div class="sample-preview-title" id="sample-preview-title">Sample Preview</div>',
       '    <div class="sample-preview-actions">',
-      '      <a class="sample-preview-btn" id="sample-preview-view" href="#" target="_blank" rel="noopener">Open sample page</a>',
-      '      <a class="sample-preview-btn" id="sample-preview-download" href="#" download>Download PDF</a>',
+      '      <a class="sample-preview-btn" id="sample-preview-view" href="#" target="_blank" rel="noopener">View sample page</a>',
+      '      <a class="sample-preview-btn" id="sample-preview-download" href="#" download>View PDF sample (what you get)</a>',
       '      <a class="sample-preview-btn" id="sample-preview-email" href="#">Send to myself</a>',
       '      <button class="sample-preview-close" id="sample-preview-close" type="button" aria-label="Close">×</button>',
       '    </div>',
       '  </div>',
       '  <div class="sample-preview-frame-wrap">',
-      '    <iframe class="sample-preview-frame" id="sample-preview-frame" title="Sample preview"></iframe>',
-      '    <div class="sample-preview-note">Preview shows the live sample page. Use Download for PDF.</div>',
+      '    <div class="sample-inline-preview" id="sample-inline-preview">',
+      '      <div class="sample-inline-media"><img id="sample-preview-image" alt="Sample preview"></div>',
+      '      <div class="sample-inline-copy">',
+      '        <p class="sample-inline-summary" id="sample-inline-summary"></p>',
+      '        <div class="sample-inline-cards" id="sample-inline-cards"></div>',
+      '      </div>',
+      '    </div>',
+      '    <div class="sample-preview-note">Preview stays on-page. Use \"View PDF sample (what you get)\" for the downloadable file.</div>',
       '    <div class="sample-preview-fallback hidden" id="sample-preview-fallback">',
-      '      Live preview unavailable for this file. Use View PDF or Download PDF.',
+      '      Preview unavailable for this file. Use Open sample page or Download PDF.',
       '    </div>',
       '  </div>',
       '</div>'
@@ -73,21 +130,42 @@
     var emailBtn = document.getElementById('sample-preview-email');
     var closeBtn = document.getElementById('sample-preview-close');
     var fallback = document.getElementById('sample-preview-fallback');
+    var previewImage = document.getElementById('sample-preview-image');
+    var summaryEl = document.getElementById('sample-inline-summary');
+    var cardsEl = document.getElementById('sample-inline-cards');
 
     function closeModal() {
       modal.classList.remove('is-open');
       modal.setAttribute('aria-hidden', 'true');
       document.documentElement.style.overflow = '';
-      frame.removeAttribute('src');
+      if (previewImage) previewImage.removeAttribute('src');
+      if (summaryEl) summaryEl.textContent = '';
+      if (cardsEl) cardsEl.innerHTML = '';
     }
 
     function openModal(href, title) {
       var abs = new URL(href, window.location.origin).href;
       var previewUrl = samplePreviewUrlFor(href);
       if (!previewUrl) return;
+      var data = previewDataFor(href);
       titleEl.textContent = title || 'Sample Preview';
+      if (data && data.image) {
+        previewImage.src = data.image;
+        previewImage.alt = (title || 'Sample preview') + ' image';
+      } else {
+        previewImage.removeAttribute('src');
+      }
+      summaryEl.textContent = (data && data.summary) ? data.summary : 'Sample output preview.';
+      cardsEl.innerHTML = '';
+      if (data && data.cards && data.cards.length) {
+        data.cards.forEach(function (label) {
+          var card = document.createElement('div');
+          card.className = 'sample-inline-card';
+          card.textContent = label;
+          cardsEl.appendChild(card);
+        });
+      }
       fallback.classList.add('hidden');
-      frame.src = previewUrl;
       viewBtn.href = previewUrl;
       downloadBtn.href = abs;
       var subject = encodeURIComponent('Ikwe sample: ' + (title || 'PDF sample'));
@@ -119,9 +197,11 @@
       if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
     });
 
-    frame.addEventListener('error', function () {
-      fallback.classList.remove('hidden');
-    });
+    if (previewImage) {
+      previewImage.addEventListener('error', function () {
+        fallback.classList.remove('hidden');
+      });
+    }
   }
 
   if (document.readyState === 'loading') {
