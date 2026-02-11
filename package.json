@@ -3,6 +3,9 @@
   "version": "2.0.0",
   "description": "Ikwe.ai - Emotional Safety Evaluation for Conversational AI",
   "private": true,
+  "scripts": {
+    "render:samples": "node scripts/render_samples.mjs"
+  },
   "dependencies": {
     "@notionhq/client": "^2.2.0",
     "@plausible-analytics/tracker": "^0.3.0",
