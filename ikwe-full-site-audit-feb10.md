@@ -140,7 +140,7 @@ node_modules/
 
 **Fix:** Test all Stripe links after deploy. Current links in audit page:
 - System Blueprint: `https://buy.stripe.com/14AeVe1AEetHg7QamR9sk06`
-- Preview Pack: `https://buy.stripe.com/fZudRa6UY85jaNw2Up9sk04`
+- System Blueprint: `https://buy.stripe.com/14AeVe1AEetHg7QamR9sk06`
 - DIY Playbook: `https://buy.stripe.com/28E8wQ2EI2L18Fo59a9sk05`
 
 ---
