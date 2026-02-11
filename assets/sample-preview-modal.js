@@ -26,6 +26,10 @@
     return href.indexOf('/downloads/') === 0 && href.toLowerCase().endsWith('.pdf');
   }
 
+  function hasMappedSamplePage(href) {
+    return !!samplePreviewUrlFor(href);
+  }
+
   function buildModal() {
     var root = document.createElement('div');
     root.className = 'sample-preview-modal';
@@ -37,7 +41,7 @@
       '  <div class="sample-preview-head">',
       '    <div class="sample-preview-title" id="sample-preview-title">Sample Preview</div>',
       '    <div class="sample-preview-actions">',
-      '      <a class="sample-preview-btn" id="sample-preview-view" href="#" target="_blank" rel="noopener">View PDF</a>',
+      '      <a class="sample-preview-btn" id="sample-preview-view" href="#" target="_blank" rel="noopener">Open sample page</a>',
       '      <a class="sample-preview-btn" id="sample-preview-download" href="#" download>Download PDF</a>',
       '      <a class="sample-preview-btn" id="sample-preview-email" href="#">Send to myself</a>',
       '      <button class="sample-preview-close" id="sample-preview-close" type="button" aria-label="Close">×</button>',
@@ -45,7 +49,7 @@
       '  </div>',
       '  <div class="sample-preview-frame-wrap">',
       '    <iframe class="sample-preview-frame" id="sample-preview-frame" title="Sample preview"></iframe>',
-      '    <div class="sample-preview-note">Preview keeps you on-page. Use buttons for full PDF actions.</div>',
+      '    <div class="sample-preview-note">Preview shows the live sample page. Use Download for PDF.</div>',
       '    <div class="sample-preview-fallback hidden" id="sample-preview-fallback">',
       '      Live preview unavailable for this file. Use View PDF or Download PDF.',
       '    </div>',
@@ -79,14 +83,17 @@
 
     function openModal(href, title) {
       var abs = new URL(href, window.location.origin).href;
-      var previewUrl = samplePreviewUrlFor(href) || abs;
+      var previewUrl = samplePreviewUrlFor(href);
+      if (!previewUrl) return;
       titleEl.textContent = title || 'Sample Preview';
       fallback.classList.add('hidden');
       frame.src = previewUrl;
-      viewBtn.href = abs;
+      viewBtn.href = previewUrl;
       downloadBtn.href = abs;
       var subject = encodeURIComponent('Ikwe sample: ' + (title || 'PDF sample'));
-      var body = encodeURIComponent('Here is the Ikwe sample PDF:\n\n' + abs);
+      var body = encodeURIComponent(
+        'Here is the Ikwe live sample page:\n\n' + previewUrl + '\n\nPDF download:\n' + abs
+      );
       emailBtn.href = 'mailto:?subject=' + subject + '&body=' + body;
       modal.classList.add('is-open');
       modal.setAttribute('aria-hidden', 'false');
@@ -94,6 +101,7 @@
     }
 
     links.forEach(function (a) {
+      if (!hasMappedSamplePage(a.getAttribute('href'))) return;
       a.setAttribute('data-sample-preview', '1');
       a.addEventListener('click', function (e) {
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
