@@ -399,6 +399,40 @@ a { color: inherit; text-decoration: none; }
 }
 .proof-card .card-link:hover { border-color: var(--lilac); }
 
+.proof-visual {
+  margin-top: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-2);
+  border-radius: 20px;
+  padding: 22px;
+}
+.proof-visual-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+.proof-visual img {
+  display: block;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  border-radius: 12px;
+  background: #f4f1ec;
+}
+.proof-visual-meta {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.proof-visual-caption { font-size: .86rem; color: var(--text-2); }
+.proof-visual-link { font-size: .84rem; font-weight: 600; color: var(--lilac-bright); }
+
 /* ═══ TIERS ═══ */
 .tiers-strip {
   padding: 80px 0; background: var(--bg-2);
@@ -666,6 +700,14 @@ a { color: inherit; text-decoration: none; }
         <h3>Deliverable Output</h3>
         <p>Risk scorecards, failure mode maps, and governance infrastructure — formatted for investors, regulators, and executive teams.</p>
         <a class="card-link" href="/downloads/ikwe_public_preview.pdf">Download sample →</a>
+      </div>
+    </div>
+    <div class="proof-visual">
+      <div class="proof-visual-kicker">Executive Risk Snapshot</div>
+      <img src="/assets/ikwe-scorecard-visual.svg" alt="Ikwe scorecard visual showing baseline and post-mitigation risk posture.">
+      <div class="proof-visual-meta">
+        <p class="proof-visual-caption">Baseline shows pre-governance risk posture. Post-mitigation shows projected reduction after controls.</p>
+        <a class="proof-visual-link" href="/downloads/ikwe_scorecard_sample.pdf">View sample PDF →</a>
       </div>
     </div>
   </div>

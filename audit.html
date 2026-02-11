@@ -98,6 +98,16 @@ section+section{border-top:1px solid var(--border);}
    SCORECARD
    ===================== */
 .scorecard-section{padding:80px 0;}
+.scorecard-visual-wrap{max-width:860px;margin:0 auto 18px;}
+.scorecard-visual-kicker{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px;}
+.scorecard-visual{
+  display:block;
+  width:100%;
+  border-radius:14px;
+  border:1px solid var(--border-2);
+  background:#f4f1ec;
+}
+.scorecard-visual-caption{margin-top:10px;font-size:.84rem;color:var(--text-2);}
 .sc-card{width:100%;max-width:860px;margin:0 auto;background:var(--bg-card);border:1px solid var(--border-2);border-radius:20px;padding:40px 44px 36px;}
 @media(max-width:700px){.sc-card{padding:28px 20px 24px;}}
 .sc-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;gap:16px;}
@@ -288,6 +298,11 @@ section+section{border-top:1px solid var(--border);}
 <!-- ======== 4. SCORECARD ======== -->
 <section class="scorecard-section">
   <div class="container">
+    <div class="scorecard-visual-wrap">
+      <div class="scorecard-visual-kicker">Executive Risk Snapshot</div>
+      <img class="scorecard-visual" src="/assets/ikwe-scorecard-visual.svg" alt="Ikwe scorecard visual showing baseline and post-mitigation risk posture.">
+      <p class="scorecard-visual-caption">This snapshot shows risk posture before and after governance controls. Open the sample files for full detail.</p>
+    </div>
     <div class="sc-card">
       <div class="sc-header">
         <div>

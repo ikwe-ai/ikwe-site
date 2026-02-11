@@ -120,6 +120,35 @@ section+section{border-top:1px solid var(--border);}
 .artifact-link:hover{border-color:var(--rose);}
 @media(max-width:768px){.artifact-grid{grid-template-columns:1fr;}}
 
+.inline-scorecard{
+  margin-top:24px;
+  margin-bottom:10px;
+  background:var(--bg-card);
+  border:1px solid var(--border-2);
+  border-radius:18px;
+  padding:18px;
+}
+.inline-scorecard-kicker{
+  font-family:var(--mono);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--text-3);
+  margin-bottom:10px;
+}
+.inline-scorecard img{
+  width:100%;
+  display:block;
+  border-radius:12px;
+  background:#f4f1ec;
+}
+.inline-scorecard-caption{
+  margin-top:10px;
+  font-size:.84rem;
+  color:var(--text-2);
+}
+
 /* CLOSE */
 .close-section{text-align:center;padding:80px 0 100px;}
 .close-section h2{font-family:var(--serif);font-size:clamp(1.4rem,2.8vw,2rem);font-weight:600;margin-bottom:12px;line-height:1.25;letter-spacing:-.01em;}
@@ -245,6 +274,11 @@ section+section{border-top:1px solid var(--border);}
   <div class="container">
     <div class="kicker">Audit Artifacts</div>
     <h2 style="font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.65rem);font-weight:600;line-height:1.3;letter-spacing:-.01em;">Redacted samples from the evaluation.</h2>
+    <div class="inline-scorecard">
+      <div class="inline-scorecard-kicker">Inline Scorecard Visual</div>
+      <img src="/assets/ikwe-scorecard-visual.svg" alt="Ikwe scorecard visual with baseline and post-mitigation columns.">
+      <p class="inline-scorecard-caption">Sample scorecard visual used in board-facing outputs. Click any sample below for the full file.</p>
+    </div>
 
     <div class="artifact-grid">
       <div class="artifact">
