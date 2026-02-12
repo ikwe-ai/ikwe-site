@@ -1,5 +1,5 @@
 # Ikwe.ai — Netlify Redirects
-# Updated: Feb 10, 2026
+# Updated: Feb 12, 2026
 
 # ── Route consolidation (pages that don't exist as standalone) ──
 /full-report          /downloads/ikwe_full_research_report.pdf  301
@@ -10,6 +10,8 @@
 /faq                  /about                                     301
 /partner              /enterprise                                301
 /blog                 /                                          301
+/access               /research-access-terms                     301
+/research-access      /research-access-terms                     301
 
 # ── Product tier shortcuts ──
 /playbook             /audit                                     302

@@ -18,6 +18,7 @@ LIVE_PAGES=(
   "press.html"
   "privacy.html"
   "terms.html"
+  "research-access-terms.html"
   "404.html"
 )
 
@@ -31,6 +32,7 @@ ANALYTICS_PAGES=(
   "enterprise.html"
   "downloads.html"
   "press.html"
+  "research-access-terms.html"
 )
 
 ERRORS=0
@@ -105,7 +107,34 @@ for file in "${ANALYTICS_PAGES[@]}"; do
 done
 echo
 
-echo "5) Local link and asset resolution"
+echo "5) Legal baseline presence"
+echo "--------------------------"
+for file in "${LIVE_PAGES[@]}"; do
+  [[ -f "$file" ]] || continue
+
+  if ! rg -q 'Research Access Terms' "$file"; then
+    echo "  ERR $file missing Research Access Terms reference"
+    ERRORS=$((ERRORS + 1))
+    continue
+  fi
+
+  if ! rg -q 'All rights reserved' "$file"; then
+    echo "  ERR $file missing all-rights-reserved language"
+    ERRORS=$((ERRORS + 1))
+    continue
+  fi
+
+  if ! rg -q 'do not constitute legal, medical, or clinical advice' "$file"; then
+    echo "  ERR $file missing legal/medical/clinical disclaimer"
+    ERRORS=$((ERRORS + 1))
+    continue
+  fi
+
+  echo "  OK  $file"
+done
+echo
+
+echo "6) Local link and asset resolution"
 echo "----------------------------------"
 for file in "${LIVE_PAGES[@]}"; do
   [[ -f "$file" ]] || continue
