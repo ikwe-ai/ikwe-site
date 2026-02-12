@@ -84,7 +84,25 @@ h1{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:16px;line-height:1.15}
 .article-content figure{margin:2.2em 0}
 .article-content figure img{max-width:100%;height:auto;border-radius:12px;border:1px solid var(--border);background:var(--bg2)}
 .article-content figcaption{margin-top:10px;color:var(--text3);font-size:.95rem;line-height:1.5}
-.article-content .captionTitle{font-weight:700;color:var(--text);margin-bottom:4px}
+.article-content .captionTitle,.article-content .figure-title{font-weight:700;color:var(--text);margin-bottom:4px}
+.article-content .figure-note{color:var(--text3)}
+
+/* === FIGURE RENDER FIX (prevents crop/zoom) === */
+.figure-media,
+.figure-media picture,
+.figure-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.figure-media img {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* If you have a fixed height anywhere, neutralize it */
+.figure-media { max-height: none !important; }
 
 /* INLINE UTILS USED IN THIS NOTE */
 .article-content .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:.95em;color:var(--text3)}
@@ -238,11 +256,22 @@ h1{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:16px;line-height:1.15}
 
       <p>Ikwe’s instrumentation is designed as a layer that sits alongside existing safety stacks, not a replacement for them. It observes, scores, and triggers interventions on interaction trajectories.</p>
 
-      <figure>
-        <img src="/assets/research/ikwe_svg_fig3_architecture.svg" alt="Figure 3 — Harm Floor Architecture" loading="lazy">
-        <figcaption>
-          <div class="captionTitle">Figure 3 — Harm Floor Architecture</div>
-          A thin instrumentation layer that detects drift and enforces minimum safe behavior before policy violation.
+      <figure class="research-figure" id="fig-3">
+        <div class="figure-media">
+          <picture>
+            <source srcset="/assets/research/ikwe_svg_fig3_architecture.svg" type="image/svg+xml">
+            <img
+              src="/assets/research/ikwe_svg_fig3_architecture_MEDIUM_2400w.png"
+              alt="Figure 3 — Harm Floor Architecture: a model-agnostic instrumentation layer that monitors interaction trajectories, detects failure classes, triggers interventions, and produces audit-ready evidence."
+              loading="lazy"
+              decoding="async"
+            >
+          </picture>
+        </div>
+
+        <figcaption class="figure-caption">
+          <div class="figure-title">Figure 3 — Harm Floor Architecture</div>
+          <div class="figure-note">Harm floors govern trajectories, not only policy violations.</div>
         </figcaption>
       </figure>
 
