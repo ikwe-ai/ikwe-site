@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="Intervention Window timeline showing phases Normal Use, Early Drift Signals, Escalation Pattern Forms, and Violation or Crisis, with the intervention window spanning the middle phases.">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#0f141a" stop-opacity="1"/>
+      <stop offset="1" stop-color="#0b0d10" stop-opacity="1"/>
+    </linearGradient>
+    <filter id="shadow2" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+    <style>
+      .title { font: 700 44px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #e9eef5; letter-spacing: -0.02em; }
+      .sub { font: 400 18px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #a7b0bd; }
+      .hdr { font: 650 18px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #e9eef5; }
+      .body { font: 400 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #a7b0bd; }
+      .mono { font: 700 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; fill: #7f8a98; letter-spacing: 0.08em; }
+      .note { font: 500 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #a7b0bd; }
+    </style>
+  </defs>
+
+  <rect x="36" y="36" width="1128" height="603" rx="20" fill="url(#bgGrad2)" stroke="#1b2330" filter="url(#shadow2)"/>
+  <text x="86" y="120" class="title">The Intervention Window</text>
+  <text x="86" y="155" class="sub">The key governance moment is before the violation, not after it.</text>
+
+  <g transform="translate(86,210)">
+    <rect x="0" y="0" width="1028" height="300" rx="18" fill="rgba(255,255,255,0.02)" stroke="#1b2330"/>
+
+    <rect x="0" y="0" width="257" height="300" fill="rgba(125,211,252,0.06)"/>
+    <rect x="257" y="0" width="257" height="300" fill="rgba(125,211,252,0.10)"/>
+    <rect x="514" y="0" width="257" height="300" fill="rgba(245,158,11,0.10)"/>
+    <rect x="771" y="0" width="257" height="300" fill="rgba(245,158,11,0.16)"/>
+    <line x1="257" y1="0" x2="257" y2="300" stroke="#1b2330"/>
+    <line x1="514" y1="0" x2="514" y2="300" stroke="#1b2330"/>
+    <line x1="771" y1="0" x2="771" y2="300" stroke="#1b2330"/>
+
+    <text x="18" y="42" class="hdr">Normal use</text>
+    <text x="275" y="42" class="hdr">Early drift signals</text>
+    <text x="532" y="42" class="hdr">Escalation pattern forms</text>
+    <text x="789" y="42" class="hdr">Violation or crisis</text>
+
+    <text x="18" y="86" class="body">
+      <tspan x="18" dy="0">Task help,</tspan>
+      <tspan x="18" dy="22">information,</tspan>
+      <tspan x="18" dy="22">neutral tone</tspan>
+    </text>
+
+    <text x="275" y="86" class="body">
+      <tspan x="275" dy="0">Dependency language</tspan>
+      <tspan x="275" dy="22">increases</tspan>
+      <tspan x="275" dy="30">External grounding</tspan>
+      <tspan x="275" dy="22">decreases</tspan>
+    </text>
+
+    <text x="532" y="86" class="body">
+      <tspan x="532" dy="0">Authority drift</tspan>
+      <tspan x="532" dy="22">Reinforcement loops</tspan>
+      <tspan x="532" dy="30">Emotional substitution</tspan>
+    </text>
+
+    <text x="789" y="86" class="body">
+      <tspan x="789" dy="0">High stakes prompt</tspan>
+      <tspan x="789" dy="22">Policy trigger</tspan>
+      <tspan x="789" dy="22">User harm risk</tspan>
+    </text>
+
+    <g transform="translate(257,230)">
+      <rect x="14" y="0" width="486" height="86" rx="16" fill="rgba(125,211,252,0.10)" stroke="rgba(125,211,252,0.24)"/>
+      <text x="257" y="34" text-anchor="middle" class="mono" fill="#7dd3fc">INTERVENTION WINDOW</text>
+      <text x="257" y="60" text-anchor="middle" class="body">Detectable drift before violation</text>
+    </g>
+  </g>
+
+  <text x="86" y="625" class="note">Caption: The key governance moment is before the violation, not after it.</text>
+</svg>
