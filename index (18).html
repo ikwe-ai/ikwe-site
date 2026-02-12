@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ikwe.ai — Emotional Safety Infrastructure for AI</title>
+<meta name="description" content="54.7% of AI responses introduce emotional risk. Ikwe.ai audits conversational AI before risk becomes legal or reputational damage.">
+<link rel="canonical" href="https://ikwe.ai">
+<meta property="og:title" content="Ikwe.ai — AI Risk Infrastructure" />
+<meta property="og:description" content="You're willing to scale AI fast. Are you willing to scale risk just as fast?" />
+<meta property="og:image" content="https://ikwe.ai/ikwe-og.png" />
+<meta property="og:url" content="https://ikwe.ai" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/sample-preview-modal.css">
+<style>
+:root {
+  --bg: #141218;
+  --bg-2: #1a171f;
+  --bg-3: #211e26;
+  --bg-card: #1e1b23;
+  --bg-hover: #282530;
+  --text: #E8E4DF;
+  --text-2: rgba(232,228,223,.62);
+  --text-3: rgba(232,228,223,.38);
+  --text-4: rgba(232,228,223,.18);
+  --border: rgba(232,228,223,.06);
+  --border-2: rgba(232,228,223,.10);
+  --border-3: rgba(232,228,223,.16);
+  --rose: #C4A69A;
+  --rose-dim: rgba(196,166,154,.15);
+  --lilac: #A78BFA;
+  --lilac-dim: rgba(167,139,250,.12);
+  --lilac-glow: rgba(167,139,250,.06);
+  --lilac-bright: #C4B5FD;
+  --danger: #E07A5F;
+  --danger-dim: rgba(224,122,95,.15);
+  --safe: #81B29A;
+  --safe-dim: rgba(129,178,154,.15);
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'Space Mono', monospace;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ═══ NAV ═══ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(20,18,24,.72);
+  backdrop-filter: blur(32px); -webkit-backdrop-filter: blur(32px);
+  border-bottom: 1px solid var(--border);
+  transition: background .3s;
+}
+.nav-inner {
+  max-width: 1140px; margin: 0 auto; padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between; height: 68px;
+}
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-weight: 600; font-size: 1.05rem; letter-spacing: -.01em; }
+.brand img { width: 32px; height: 32px; border-radius: 50%; }
+.nav-links { display: flex; align-items: center; gap: 36px; }
+.nav-links a { font-size: .875rem; font-weight: 500; color: var(--text-2); transition: color .2s; letter-spacing: .01em; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  padding: 10px 22px; border-radius: 8px; font-size: .84rem; font-weight: 600;
+  background: var(--lilac); color: var(--bg); transition: all .2s; letter-spacing: .01em;
+}
+.nav-cta:hover { opacity: .9; transform: translateY(-1px); }
+@media(max-width:860px) { .nav-links { display: none; } }
+
+/* ═══ SLIDE SYSTEM ═══ */
+.slide {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden; padding: 120px 32px 80px;
+}
+.slide-content { max-width: 1060px; width: 100%; position: relative; z-index: 2; }
+
+/* ═══ SLIDE 1: THE PROVOCATION ═══ */
+.slide-hero {
+  background: var(--bg);
+  position: relative;
+}
+.slide-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 800px 600px at 30% 40%, rgba(167,139,250,.08) 0%, transparent 60%),
+    radial-gradient(ellipse 600px 500px at 70% 60%, rgba(196,166,154,.05) 0%, transparent 55%),
+    radial-gradient(ellipse 400px 400px at 50% 80%, rgba(167,139,250,.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+.slide-hero::after {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(167,139,250,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(167,139,250,.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 18px 8px 14px;
+  background: var(--lilac-dim);
+  border: 1px solid rgba(167,139,250,.18);
+  border-radius: 100px;
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--lilac-bright);
+  margin-bottom: 32px;
+}
+.hero-badge .pulse {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--lilac);
+  box-shadow: 0 0 12px var(--lilac), 0 0 24px rgba(167,139,250,.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .5; transform: scale(.8); }
+}
+
+.hero-headline {
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  line-height: 1.1; letter-spacing: -.03em;
+  max-width: 18ch; margin-bottom: 16px;
+}
+.hero-headline .risk-word {
+  background: linear-gradient(135deg, var(--lilac) 0%, var(--danger) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: 1.12rem; color: var(--text-2); max-width: 48ch;
+  line-height: 1.7; margin-bottom: 40px;
+}
+
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 440px);
+  gap: 34px;
+  align-items: start;
+}
+.hero-right { position: relative; }
+.hero-stack {
+  position: relative;
+  border: 1px solid var(--border-2);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(30,27,35,.92), rgba(23,20,30,.92));
+  padding: 18px;
+  min-height: 430px;
+  overflow: hidden;
+}
+.hero-stack::before {
+  content: '';
+  position: absolute;
+  inset: -120px -120px auto auto;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(167,139,250,.16), transparent 60%);
+  pointer-events: none;
+}
+.hero-mini-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+.hero-stage-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.hero-pill {
+  border: 1px solid var(--border-2);
+  background: rgba(232,228,223,.02);
+  color: var(--text-2);
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.hero-preview {
+  border: 1px solid var(--border-2);
+  border-radius: 12px;
+  background: rgba(20,18,24,.45);
+  padding: 12px;
+}
+.hero-preview img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  background: #f4f1ec;
+}
+.hero-preview-caption {
+  margin-top: 10px;
+  font-size: .82rem;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.hero-card-grid {
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+.hero-card {
+  display: block;
+  border: 1px solid var(--border-2);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: rgba(20,18,24,.55);
+  transition: border-color .2s, transform .2s, background .2s;
+}
+.hero-card:hover {
+  border-color: var(--lilac);
+  background: rgba(20,18,24,.8);
+  transform: translateY(-1px);
+}
+.hero-card-title {
+  font-size: .86rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.hero-card-sub {
+  margin-top: 3px;
+  font-size: .76rem;
+  color: var(--text-3);
+}
+.hero-card-arrow {
+  margin-top: 8px;
+  font-size: .76rem;
+  color: var(--lilac-bright);
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 32px; border-radius: 12px;
+  font-weight: 600; font-size: .92rem;
+  background: var(--lilac); color: var(--bg);
+  border: none; cursor: pointer;
+  transition: all .25s; letter-spacing: .01em;
+  box-shadow: 0 0 40px rgba(167,139,250,.15), 0 4px 16px rgba(167,139,250,.1);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(167,139,250,.25), 0 8px 24px rgba(167,139,250,.15); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 15px 28px; border-radius: 12px;
+  font-weight: 600; font-size: .88rem;
+  border: 1px solid var(--border-3); background: transparent;
+  color: var(--text-2); cursor: pointer; transition: all .25s;
+}
+.btn-ghost:hover { border-color: var(--lilac); color: var(--lilac-bright); }
+
+.scroll-hint {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: var(--text-4); font-size: .72rem; font-family: var(--mono);
+  letter-spacing: .1em; text-transform: uppercase;
+}
+.scroll-hint .arrow {
+  width: 1px; height: 32px;
+  background: linear-gradient(to bottom, var(--lilac), transparent);
+  animation: scrollArrow 2s ease-in-out infinite;
+}
+@keyframes scrollArrow {
+  0%, 100% { opacity: .4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.3); }
+}
+
+/* ═══ SLIDE 2: THE EVIDENCE ═══ */
+.slide-evidence { background: var(--bg); min-height: 100vh; }
+.slide-evidence::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 600px 400px at 50% 50%, rgba(167,139,250,.05) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.big-stat {
+  text-align: center; margin-bottom: 48px;
+}
+.big-stat .number {
+  font-family: var(--mono); font-weight: 700;
+  font-size: clamp(5rem, 14vw, 10rem);
+  line-height: 1; letter-spacing: -.04em;
+  background: linear-gradient(180deg, var(--lilac-bright) 0%, var(--lilac) 40%, rgba(167,139,250,.4) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0; transform: scale(.9);
+  transition: opacity .8s, transform .8s cubic-bezier(.25,.46,.45,.94);
+}
+.big-stat .number.visible { opacity: 1; transform: scale(1); }
+.big-stat .unit {
+  font-family: var(--mono); font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700; color: var(--lilac);
+  opacity: 0; transition: opacity .6s .3s;
+}
+.big-stat .unit.visible { opacity: .6; }
+.big-stat .context {
+  font-size: 1.15rem; color: var(--text-2); margin-top: 16px;
+  max-width: 44ch; margin-left: auto; margin-right: auto; line-height: 1.6;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .6s .5s, transform .6s .5s;
+}
+.big-stat .context.visible { opacity: 1; transform: translateY(0); }
+
+.risk-gauges {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+  background: var(--border-2); border-radius: 16px; overflow: hidden;
+  max-width: 800px; margin: 0 auto;
+}
+.gauge {
+  background: var(--bg-card); padding: 28px 20px; text-align: center;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .5s, transform .5s;
+}
+.gauge.visible { opacity: 1; transform: translateY(0); }
+.gauge-label {
+  font-family: var(--mono); font-size: 9px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--text-3);
+  margin-bottom: 12px;
+}
+.gauge-value {
+  font-family: var(--mono); font-size: 1.6rem; font-weight: 700;
+  color: var(--lilac-bright); margin-bottom: 4px;
+}
+.gauge-bar {
+  height: 3px; background: var(--border-2); border-radius: 2px;
+  margin-top: 10px; overflow: hidden;
+}
+.gauge-bar-fill {
+  height: 100%; border-radius: 2px;
+  background: linear-gradient(90deg, var(--lilac), var(--safe));
+  width: 0; transition: width 1.2s cubic-bezier(.25,.46,.45,.94);
+}
+.gauge.visible .gauge-bar-fill { width: var(--fill); }
+
+@media(max-width:700px) {
+  .risk-gauges { grid-template-columns: repeat(3, 1fr); }
+  .risk-gauges .gauge:nth-child(4),
+  .risk-gauges .gauge:nth-child(5) { grid-column: span 1; }
+}
+@media(max-width:480px) {
+  .risk-gauges { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ═══ SLIDE 3: THE INSIGHT ═══ */
+.slide-insight { background: var(--bg-2); min-height: 90vh; }
+.slide-insight::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 700px 500px at 30% 50%, rgba(167,139,250,.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.insight-layout {
+  display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center;
+}
+@media(max-width:860px) { .insight-layout { grid-template-columns: 1fr; gap: 40px; } }
+
+.insight-text .kicker {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--lilac); margin-bottom: 20px;
+}
+.insight-text h2 {
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.15; letter-spacing: -.02em; margin-bottom: 20px;
+}
+.insight-text h2 .neq {
+  color: var(--lilac-bright);
+  text-shadow: 0 0 40px rgba(167,139,250,.3);
+}
+.insight-text p {
+  font-size: 1rem; color: var(--text-2); line-height: 1.75;
+  max-width: 42ch;
+}
+
+.proof-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-2);
+  border-radius: 20px; padding: 36px 32px;
+  position: relative; overflow: hidden;
+}
+.proof-box::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--lilac), var(--rose), var(--lilac));
+}
+
+.proof-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+}
+.proof-row:last-child { border-bottom: none; }
+.proof-label { font-size: .88rem; color: var(--text-2); }
+.proof-score {
+  font-family: var(--mono); font-size: .82rem; font-weight: 700;
+  padding: 4px 12px; border-radius: 6px;
+}
+.proof-score.high {
+  background: var(--lilac-dim); color: var(--lilac-bright);
+}
+.proof-score.fail {
+  background: var(--danger-dim); color: var(--danger);
+}
+
+.proof-divider {
+  text-align: center; padding: 16px 0;
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--text-4);
+}
+.proof-divider span {
+  display: inline-block; padding: 0 16px;
+  position: relative;
+}
+.proof-divider span::before,
+.proof-divider span::after {
+  content: ''; position: absolute; top: 50%;
+  width: 60px; height: 1px; background: var(--border-2);
+}
+.proof-divider span::before { right: 100%; }
+.proof-divider span::after { left: 100%; }
+
+.proof-conclusion {
+  text-align: center; margin-top: 16px;
+  font-family: var(--serif); font-weight: 600; font-size: 1.1rem;
+  color: var(--lilac-bright);
+  text-shadow: 0 0 30px rgba(167,139,250,.2);
+}
+
+/* ═══ SLIDE 4: THE PROOF ═══ */
+.slide-proof { background: var(--bg); }
+.slide-proof .slide-content { padding: 96px 0; }
+
+.proof-header {
+  text-align: center; margin-bottom: 56px;
+}
+.proof-header .kicker {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--lilac); margin-bottom: 16px;
+}
+.proof-header h2 {
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.2; letter-spacing: -.02em;
+}
+
+.proof-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--border-2);
+  border-radius: 20px; overflow: hidden;
+}
+@media(max-width:700px) { .proof-cards { grid-template-columns: 1fr; } }
+
+.proof-card {
+  background: var(--bg-card); padding: 40px 32px;
+  transition: background .3s;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .6s, transform .6s, background .3s;
+}
+.proof-card.visible { opacity: 1; transform: translateY(0); }
+.proof-card:hover { background: var(--bg-hover); }
+.proof-card .stat {
+  font-family: var(--mono); font-weight: 700;
+  font-size: 2.2rem; line-height: 1;
+  color: var(--lilac-bright); margin-bottom: 12px;
+}
+.proof-card h3 {
+  font-family: var(--serif); font-weight: 600;
+  font-size: 1.05rem; margin-bottom: 10px; letter-spacing: -.01em;
+}
+.proof-card p {
+  font-size: .86rem; color: var(--text-2); line-height: 1.6; margin-bottom: 20px;
+}
+.proof-card .card-link {
+  font-size: .82rem; font-weight: 600; color: var(--lilac);
+  border-bottom: 1px solid rgba(167,139,250,.3);
+  padding-bottom: 1px; transition: border-color .2s;
+}
+.proof-card .card-link:hover { border-color: var(--lilac); }
+
+.proof-visual {
+  margin-top: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-2);
+  border-radius: 20px;
+  padding: 22px;
+}
+.proof-visual-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+.proof-visual img {
+  display: block;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  border-radius: 12px;
+  background: #f4f1ec;
+}
+.proof-visual-meta {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.proof-visual-caption { font-size: .86rem; color: var(--text-2); }
+.proof-visual-link { font-size: .84rem; font-weight: 600; color: var(--lilac-bright); }
+
+/* ═══ TIERS ═══ */
+.tiers-strip {
+  padding: 80px 0; background: var(--bg-2);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.tiers-strip .slide-content { max-width: 1060px; margin: 0 auto; padding: 0 32px; }
+
+.tiers-header {
+  text-align: center; margin-bottom: 40px;
+}
+.tiers-header .kicker {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--lilac); margin-bottom: 12px;
+}
+.tiers-header h2 {
+  font-family: var(--serif); font-weight: 600; font-size: 1.5rem;
+  letter-spacing: -.01em;
+}
+
+.tiers-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--border-2);
+  border-radius: 16px; overflow: hidden;
+}
+@media(max-width:700px) { .tiers-grid { grid-template-columns: 1fr; } }
+
+.tier {
+  background: var(--bg-card); padding: 32px 28px;
+  transition: background .3s;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .5s, transform .5s, background .3s;
+}
+.tier.visible { opacity: 1; transform: translateY(0); }
+.tier:hover { background: var(--bg-hover); }
+.tier-price {
+  font-family: var(--mono); font-weight: 700; font-size: 1.4rem;
+  color: var(--lilac-bright); margin-bottom: 8px;
+}
+.tier-name {
+  font-family: var(--serif); font-weight: 600; font-size: 1.05rem;
+  margin-bottom: 8px; letter-spacing: -.01em;
+}
+.tier-desc { font-size: .84rem; color: var(--text-3); line-height: 1.55; margin-bottom: 16px; }
+.tier-link {
+  font-size: .82rem; font-weight: 600; color: var(--lilac);
+  border-bottom: 1px solid rgba(167,139,250,.3); padding-bottom: 1px;
+  transition: border-color .2s;
+}
+.tier-link:hover { border-color: var(--lilac); }
+
+/* ═══ SLIDE 5: THE ASK ═══ */
+.slide-cta {
+  min-height: 60vh; background: var(--bg);
+  position: relative;
+}
+.slide-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 600px 400px at 50% 60%, rgba(167,139,250,.07) 0%, transparent 55%),
+    radial-gradient(ellipse 400px 300px at 30% 40%, rgba(196,166,154,.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+.cta-content {
+  text-align: center;
+}
+.cta-content h2 {
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.3; letter-spacing: -.02em;
+  max-width: 30ch; margin: 0 auto 32px;
+}
+.cta-content .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ═══ FOOTER ═══ */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 56px 0 48px; background: var(--bg-2);
+}
+.footer-inner { max-width: 1060px; margin: 0 auto; padding: 0 32px; }
+.footer-grid {
+  display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 32px;
+}
+.footer-brand { display: flex; align-items: center; gap: 8px; font-family: var(--serif); font-weight: 600; font-size: .95rem; margin-bottom: 10px; }
+.footer-brand img { width: 24px; height: 24px; border-radius: 50%; }
+.footer-tagline { font-size: .84rem; color: var(--text-3); max-width: 28ch; line-height: 1.6; }
+.footer-copy { font-size: .78rem; color: var(--text-3); margin-top: 16px; }
+.footer-col-title { font-weight: 700; font-size: .8rem; margin-bottom: 12px; color: var(--text-2); letter-spacing: .02em; }
+.footer-col a { display: block; font-size: .84rem; color: var(--text-3); padding: 3px 0; transition: color .2s; }
+.footer-col a:hover { color: var(--text); }
+.footer-cite {
+  grid-column: 1/-1; padding-top: 24px; margin-top: 8px;
+  border-top: 1px solid var(--border);
+  font-size: .76rem; color: var(--text-3); font-style: italic;
+}
+@media(max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:480px) { .footer-grid { grid-template-columns: 1fr; } }
+
+/* ═══ SCROLL REVEAL ═══ */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s, transform .7s cubic-bezier(.25,.46,.45,.94); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: .1s; }
+.reveal-d2 { transition-delay: .2s; }
+.reveal-d3 { transition-delay: .3s; }
+.reveal-d4 { transition-delay: .4s; }
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:860px) {
+  .slide { padding: 100px 24px 64px; }
+  .insight-layout { grid-template-columns: 1fr; gap: 32px; }
+  .hero-layout { grid-template-columns: 1fr; }
+  .hero-stack { min-height: 0; }
+}
+@media(max-width:480px) {
+  .slide { padding: 88px 20px 56px; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost { width: 100%; justify-content: center; }
+}
+</style>
+<script defer data-domain="ikwe.ai" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+    <div class="nav-links">
+      <a href="/research">Research</a>
+      <a href="/audit">Audit</a>
+      <a href="/proof">Proof</a>
+      <a href="/about">About</a>
+      <a class="nav-cta" href="/inquiry">Request an Audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- SLIDE 1: THE PROVOCATION -->
+<section class="slide slide-hero">
+  <div class="slide-content">
+    <div class="hero-layout">
+      <div class="hero-left">
+        <div class="hero-badge reveal">
+          <span class="pulse"></span>
+          AI Risk Infrastructure
+        </div>
+        <h1 class="hero-headline reveal reveal-d1">
+          You're willing to scale AI fast. Are you willing to scale <span class="risk-word">risk</span> just as fast?
+        </h1>
+        <p class="hero-sub reveal reveal-d2">
+          Ikwe is behavioral risk infrastructure for AI - an audit + mitigation layer that turns model behavior into measurable risk, evidence, and implementation steps.
+          Applying Ikwe means we run your system through scenario libraries, score failure modes, produce an evidence trail, then validate risk deltas after mitigations.
+        </p>
+        <div class="hero-actions reveal reveal-d3">
+          <a class="btn-primary" href="/inquiry">Request an Audit</a>
+          <a class="btn-ghost" href="/proof">See a real audit →</a>
+        </div>
+      </div>
+      <div class="hero-right reveal reveal-d2">
+        <div class="hero-stack">
+          <div class="hero-mini-kicker">Interactive Sample Rail</div>
+          <div class="hero-stage-pills">
+            <span class="hero-pill">Preview</span>
+            <span class="hero-pill">Audit</span>
+            <span class="hero-pill">Inquiry</span>
+          </div>
+          <a class="hero-preview" href="/proof">
+            <img src="/assets/ikwe-scorecard-visual.svg" alt="Ikwe scorecard sample visual">
+            <p class="hero-preview-caption">Baseline vs post-mitigation in one board-ready view. Click to open proof artifacts.</p>
+          </a>
+          <div class="hero-card-grid">
+            <a class="hero-card" href="/downloads/ikwe_board_brief.pdf" data-title="Board Brief Sample">
+              <div class="hero-card-title">Board Brief Sample</div>
+              <div class="hero-card-sub">3-page executive snapshot</div>
+              <div class="hero-card-arrow">Open sample →</div>
+            </a>
+            <a class="hero-card" href="/audit">
+              <div class="hero-card-title">Audit Page Deck</div>
+              <div class="hero-card-sub">Tiered paths and outcomes</div>
+              <div class="hero-card-arrow">Preview flow →</div>
+            </a>
+            <a class="hero-card" href="/inquiry">
+              <div class="hero-card-title">Request Audit Intake</div>
+              <div class="hero-card-sub">Done-for-you implementation path</div>
+              <div class="hero-card-arrow">Start intake →</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<!-- SLIDE 2: THE EVIDENCE -->
+<section class="slide slide-evidence">
+  <div class="slide-content">
+    <div class="big-stat">
+      <div class="number" id="big-number">54.7</div>
+      <div class="unit" id="big-unit">%</div>
+      <p class="context" id="big-context">
+        of baseline AI responses introduce emotional risk — not through malice, but through patterns the industry hasn't learned to measure yet.
+      </p>
+      <p class="context" style="font-size:.82rem;color:var(--text-3);margin-top:8px;">Risk reduction measured on Ikwe's own production AI systems before external audit was offered. EQ Safety Benchmark v0.1.</p>
+    </div>
+
+    <div class="risk-gauges">
+      <div class="gauge" style="transition-delay:.1s">
+        <div class="gauge-label">Escalation</div>
+        <div class="gauge-value">−50%</div>
+        <div class="gauge-bar"><div class="gauge-bar-fill" style="--fill:50%"></div></div>
+      </div>
+      <div class="gauge" style="transition-delay:.2s">
+        <div class="gauge-label">Dependency</div>
+        <div class="gauge-value">−58%</div>
+        <div class="gauge-bar"><div class="gauge-bar-fill" style="--fill:58%"></div></div>
+      </div>
+      <div class="gauge" style="transition-delay:.3s">
+        <div class="gauge-label">Authority</div>
+        <div class="gauge-value">−50%</div>
+        <div class="gauge-bar"><div class="gauge-bar-fill" style="--fill:50%"></div></div>
+      </div>
+      <div class="gauge" style="transition-delay:.4s">
+        <div class="gauge-label">Scale</div>
+        <div class="gauge-value">−42%</div>
+        <div class="gauge-bar"><div class="gauge-bar-fill" style="--fill:42%"></div></div>
+      </div>
+      <div class="gauge" style="transition-delay:.5s">
+        <div class="gauge-label">Governance</div>
+        <div class="gauge-value">−67%</div>
+        <div class="gauge-bar"><div class="gauge-bar-fill" style="--fill:67%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3: THE INSIGHT -->
+<section class="slide slide-insight">
+  <div class="slide-content">
+    <div class="insight-layout">
+      <div class="insight-text reveal">
+        <div class="kicker">The Core Finding</div>
+        <h2>Recognition <span class="neq">≠</span> Safety</h2>
+        <p>Models that score highest on emotional articulation often produce the most unsafe behavioral patterns. Understanding someone's pain is not the same as knowing what to do about it.</p>
+      </div>
+      <div class="proof-box reveal reveal-d2">
+        <div class="proof-row">
+          <span class="proof-label">Emotion Recognition</span>
+          <span class="proof-score high">High</span>
+        </div>
+        <div class="proof-row">
+          <span class="proof-label">Empathy Articulation</span>
+          <span class="proof-score high">High</span>
+        </div>
+        <div class="proof-row">
+          <span class="proof-label">Tone Matching</span>
+          <span class="proof-score high">High</span>
+        </div>
+        <div class="proof-divider"><span>yet</span></div>
+        <div class="proof-row">
+          <span class="proof-label">Escalation Prevention</span>
+          <span class="proof-score fail">FAIL</span>
+        </div>
+        <div class="proof-row">
+          <span class="proof-label">Dependency Avoidance</span>
+          <span class="proof-score fail">FAIL</span>
+        </div>
+        <div class="proof-row">
+          <span class="proof-label">Authority Boundaries</span>
+          <span class="proof-score fail">FAIL</span>
+        </div>
+        <div class="proof-conclusion">Recognition ≠ Safety</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 4: THE PROOF -->
+<section class="slide slide-proof">
+  <div class="slide-content">
+    <div class="proof-header reveal">
+      <div class="kicker">Applied Research</div>
+      <h2>Built from real audits, real failures, and real systems.</h2>
+    </div>
+    <div class="proof-cards">
+      <div class="proof-card" style="transition-delay:.1s">
+        <div class="stat">79</div>
+        <h3>Scenarios Tested</h3>
+        <p>Across crisis, vulnerability, escalation, boundary, and authority domains — the most comprehensive emotional safety evaluation published.</p>
+        <a class="card-link" href="/research">View methodology →</a>
+      </div>
+      <div class="proof-card" style="transition-delay:.25s">
+        <div class="stat">42–67%</div>
+        <h3>Risk Reduction</h3>
+        <p>Measured improvement across five risk dimensions after applying Ikwe's mitigation layer to production AI systems.</p>
+        <a class="card-link" href="/proof">See the evidence →</a>
+      </div>
+      <div class="proof-card" style="transition-delay:.4s">
+        <div class="stat">Board<br>Ready</div>
+        <h3>Deliverable Output</h3>
+        <p>Risk scorecards, failure mode maps, and governance infrastructure — formatted for investors, regulators, and executive teams.</p>
+        <a class="card-link" href="/downloads/ikwe_public_preview.pdf" data-title="Public Preview">Download sample →</a>
+      </div>
+    </div>
+    <div class="proof-visual">
+      <div class="proof-visual-kicker">Executive Risk Snapshot</div>
+      <img src="/assets/ikwe-scorecard-visual.svg" alt="Ikwe scorecard visual showing baseline and post-mitigation risk posture.">
+      <div class="proof-visual-meta">
+        <p class="proof-visual-caption">Baseline shows pre-governance risk posture. Post-mitigation shows projected reduction after controls.</p>
+        <a class="proof-visual-link" href="/downloads/ikwe_scorecard_sample.pdf" data-title="Risk Scorecard Sample">View sample PDF →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="tiers-strip">
+  <div class="slide-content">
+    <div class="tiers-header reveal">
+      <div class="kicker">Start Where You Are</div>
+      <h2>Choose your depth</h2>
+    </div>
+    <div class="tiers-grid">
+      <div class="tier" style="transition-delay:.1s">
+        <div class="tier-price">$2,500</div>
+        <div class="tier-name">System Blueprint</div>
+        <div class="tier-desc">Risk surface map + scoring rubric. Builder pack for teams who want the framework.</div>
+        <a class="tier-link" href="/preview">Learn more →</a>
+      </div>
+      <div class="tier" style="transition-delay:.2s">
+        <div class="tier-price">$5,000</div>
+        <div class="tier-name">DIY Playbook</div>
+        <div class="tier-desc">Implementation guide with templates. For teams preparing for investors, regulators, or public deployment.</div>
+        <a class="tier-link" href="/playbook">Learn more →</a>
+      </div>
+      <div class="tier" style="transition-delay:.3s">
+        <div class="tier-price">$25,000+</div>
+        <div class="tier-name">Managed Audit</div>
+        <div class="tier-desc">Full production audit with board-ready report, delivered in 2–4 weeks. Done for you.</div>
+        <a class="tier-link" href="/enterprise">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 5: THE ASK -->
+<section class="slide slide-cta">
+  <div class="slide-content">
+    <div class="cta-content reveal">
+      <h2>If your AI interacts with people, you're carrying risk. Find out what kind.</h2>
+      <div class="cta-actions">
+        <a class="btn-primary" href="/inquiry">Request an Audit</a>
+        <a class="btn-ghost" href="/downloads/ikwe_public_preview.pdf" data-title="Public Preview">Download Preview →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</div>
+        <p class="footer-tagline">Behavioral emotional safety infrastructure for AI.</p>
+        <p class="footer-copy">© 2026 Visible Healing Inc.<br>Des Moines, Iowa</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Research</div>
+        <a href="/research">Methodology</a>
+        <a href="/research#writings">Writings</a>
+        <a href="/research/before-the-violation/">Before the Violation</a>
+        <a href="/downloads/ikwe_full_research_report.pdf">Full Report</a>
+        <a href="/proof">Case Studies</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="/about">About</a>
+        <a href="/audit">Audit</a>
+        <a href="/proof">Proof</a>
+        <a href="/press">Press Kit</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Connect</div>
+        <a href="/inquiry">Request an Audit</a>
+        <a href="/enterprise">Enterprise</a>
+        <a href="/cdn-cgi/l/email-protection#4f3c3b2a3f272e21262a0f2624382a612e26"><span class="__cf_email__" data-cfemail="a2d1d6c7d2cac3cccbc7e2cbc9d5c78cc3cb">[email&#160;protected]</span></a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+      <div class="footer-cite">
+        Ikwe.ai (2026). <em>Behavioral Emotional Safety in Conversational AI: A Scenario-Based Evaluation.</em> Visible Healing Inc. <a href="https://ikwe.ai" style="color:var(--lilac)">ikwe.ai</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Intersection Observer for scroll reveals
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+// Observe all revealable elements
+document.querySelectorAll('.reveal, .gauge, .proof-card, .tier').forEach(el => observer.observe(el));
+
+// Animated counter for 54.7%
+const bigNumber = document.getElementById('big-number');
+const bigUnit = document.getElementById('big-unit');
+const bigContext = document.getElementById('big-context');
+let counted = false;
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !counted) {
+      counted = true;
+      bigNumber.classList.add('visible');
+      bigUnit.classList.add('visible');
+      bigContext.classList.add('visible');
+
+      // Animate from 0 to 54.7
+      const target = 54.7;
+      const duration = 2000;
+      const start = performance.now();
+
+      function animate(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // Cubic ease out
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = (target * eased).toFixed(1);
+        bigNumber.textContent = current;
+        if (progress < 1) requestAnimationFrame(anima
