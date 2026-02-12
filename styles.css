@@ -78,6 +78,23 @@ img {
     display: block;
 }
 
+/* === FIGURE RENDER FIX (prevents crop/zoom) === */
+.figure-media,
+.figure-media picture,
+.figure-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.figure-media img {
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* If you have a fixed height anywhere, neutralize it */
+.figure-media { max-height: none !important; }
+
 /* Container */
 .container {
     max-width: var(--max-width);
