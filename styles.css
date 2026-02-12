@@ -1127,3 +1127,26 @@ body.theme-legal footer {
     .theme-legal .footer-content { flex-direction: column; gap: 16px; text-align: center; }
     .theme-legal .footer-links a { margin: 0 12px; }
 }
+
+/* Research figure styling */
+.research-figure {
+  margin: 72px auto;
+  max-width: 1100px;
+  text-align: center;
+}
+
+.research-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.research-figure figcaption {
+  margin-top: 20px;
+  color: var(--text2);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
