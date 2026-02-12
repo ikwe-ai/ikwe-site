@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Before the Violation | Ikwe.ai Research</title>
+<meta content="Why AI safety needs harm floors, not perfection. A research note from Ikwe.ai with figures on drift, intervention windows, and harm floor architecture." name="description"/>
+<link href="https://ikwe.ai/research/before-the-violation/" rel="canonical"/>
+<style>
+    :root{
+      --bg:#0b0d10;
+      --bg2:#07090c;
+      --panel:#0f141a;
+      --text:#e9eef5;
+      --muted:#a7b0bd;
+      --muted2:#7f8a98;
+      --border:#1b2330;
+      --accent:#7dd3fc;
+      --accent2:#a78bfa;
+      --warm:#f59e0b; /* tasteful amber */
+      --shadow: 0 14px 40px rgba(0,0,0,.45);
+      --radius:18px;
+      --max: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(125,211,252,.10), transparent 60%),
+        radial-gradient(900px 700px at 90% 0%, rgba(245,158,11,.08), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    header{
+      position:sticky; top:0; z-index:10;
+      background:rgba(11,13,16,.72);
+      backdrop-filter:saturate(120%) blur(10px);
+      border-bottom:1px solid rgba(27,35,48,.8);
+    }
+    .nav{
+      height:66px; display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand{display:flex; gap:12px; align-items:center; font-weight:650; text-decoration:none}
+    .logo{
+      width:26px; height:26px; border-radius:9px;
+      background: conic-gradient(from 210deg, var(--accent), rgba(125,211,252,.2), var(--accent2), rgba(167,139,250,.18), var(--accent));
+      box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset;
+    }
+    .nav a.btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid rgba(27,35,48,.95);
+      background:rgba(15,20,26,.8);
+      box-shadow: 0 1px 0 rgba(255,255,255,.06) inset;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .nav a.btn.primary{
+      border-color:rgba(125,211,252,.35);
+      background: linear-gradient(135deg, rgba(125,211,252,.18), rgba(245,158,11,.10));
+    }
+
+    main{padding:44px 0 70px}
+    .kicker{
+      font-family:var(--mono);
+      font-size:12px;
+      color:var(--muted2);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(30px, 4.2vw, 48px);
+      line-height:1.1;
+      letter-spacing:-.8px;
+    }
+    .sub{
+      color:var(--muted);
+      font-size:18px;
+      margin:0 0 22px;
+    }
+
+    .panel{
+      background:rgba(15,20,26,.70);
+      border:1px solid rgba(27,35,48,.95);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+    }
+
+    h2{margin:32px 0 10px; font-size:24px; letter-spacing:-.3px}
+    p{margin:0 0 14px; color:var(--muted)}
+    ul{margin:10px 0 18px 18px; color:var(--muted)}
+    li{margin:7px 0}
+
+    figure{
+      margin:22px 0;
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid rgba(27,35,48,.95);
+      background:rgba(15,20,26,.55);
+      box-shadow: var(--shadow);
+    }
+    figure img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+    figcaption{
+      padding:12px 16px 16px;
+      color:rgba(167,176,189,.90);
+      font-size:13px;
+    }
+    .captionTitle{
+      font-family:var(--mono);
+      color:rgba(233,238,245,.92);
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+
+    .refs{
+      margin-top:18px;
+      padding-top:14px;
+      border-top:1px dashed rgba(255,255,255,.10);
+      color:rgba(167,176,189,.92);
+      font-size:13px;
+    }
+    .refs ol{margin:10px 0 0 18px}
+    .refs li{margin:10px 0}
+    code, .mono{font-family:var(--mono)}
+    .note{
+      margin-top:18px;
+      color:rgba(167,176,189,.75);
+      font-size:12px;
+    }
+  </style>
+</head>
+<body>
+<header>
+<div class="wrap nav">
+<a class="brand" href="https://ikwe.ai/" rel="noreferrer" target="_blank">
+<span aria-hidden="true" class="logo"></span>
+<span>Ikwe.ai</span>
+</a>
+<a class="btn primary" href="https://ikwe.ai/request" rel="noreferrer" target="_blank">Request Pre-Incident Replay</a>
+</div>
+</header>
+<main class="wrap">
+<div class="kicker">Research Note</div>
+<h1>Before the Violation: Why AI Safety Needs Harm Floors, Not Perfection</h1>
+<p class="sub">A trajectory-first framing for interaction risk. Capability governance is necessary. Trajectory governance is inevitable.</p>
+<div class="panel">
+<h2>Introduction</h2>
+<p>
+        AI safety discussions increasingly focus on catastrophic capability. Can a model design biological weapons,
+        orchestrate cyber attacks, or manipulate social systems at scale? These are legitimate concerns.
+        Frameworks such as Anthropic's Responsible Scaling Policy and AI Safety Level methods represent meaningful progress.
+      </p>
+<p>
+        However, most real-world harm from widely deployed AI systems does not begin with catastrophic capability.
+        It begins inside ordinary interactions, where dependence, authority drift, reinforcement loops, and escalation dynamics accumulate across turns.
+      </p>
+<h2>Harm is a process</h2>
+<p>Before a visible violation there is drift. Systems that detect only the final spike miss the governance moment that matters.</p>
+<ul>
+<li>Dependency language increases</li>
+<li>External grounding decreases</li>
+<li>Authority inflation appears in sensitive contexts</li>
+<li>Reinforcement loops tighten across turns</li>
+<li>Escalation mirroring amplifies volatility</li>
+</ul>
+<figure>
+<picture>
+<source srcset="/assets/research/ikwe_svg_fig1_risk_drift.svg" type="image/svg+xml"/>
+<img alt="Figure 1: Risk drift over time. Baseline safety stack stays flat until a policy violation spike. Instrumented harm floor stack rises earlier, showing an intervention window before the spike." src="/assets/research/ikwe_svg_fig1_risk_drift_MEDIUM_2400w.png"/>
+</picture>
+<figcaption>
+<div class="captionTitle">Figure 1. Risk drift over time</div>
+          Most safety systems react at the spike. Harm floors detect the slope and surface an intervention window before violation.
+        </figcaption>
+</figure>
+<h2>The intervention window</h2>
+<p>
+        An intervention window is the measurable period between early drift and explicit violation. This is where stabilizing constraints,
+        grounding, and authority de-escalation can reduce risk before the conversation becomes high stakes.
+      </p>
+<figure>
+<picture>
+<source srcset="/assets/research/ikwe_svg_fig2_intervention_window.svg" type="image/svg+xml"/>
+<img alt="Figure 2: Intervention window timeline. Phases: Normal use, Early drift signals, Escalation pattern forms, Violation or crisis. Intervention window covers the middle phases." src="/assets/research/ikwe_svg_fig2_intervention_window_MEDIUM_2400w.png"/>
+</picture>
+<figcaption>
+<div class="captionTitle">Figure 2. The intervention window timeline</div>
+          The key governance moment is before the violation, not after it.
+        </figcaption>
+</figure>
+<p>
+This aligns with NIST's AI Risk Management Framework emphasis on continuous monitoring and post-deployment controls, and with the EU AI Act's requirement for ongoing risk management beyond initial deployment.
+Current industry practice primarily monitors outputs and violations. Trajectory instrumentation monitors the interaction itself.
+</p>
+
+<h2>Capability Governance and Trajectory Governance</h2>
+<p>
+Anthropic's ASL-4 framework governs model capability thresholds. It defines containment procedures when models cross specific catastrophic risk criteria.
+</p>
+<p>
+Ikwe governs interaction trajectory. It measures whether a live exchange is drifting toward known cognitive failure classes before explicit violation occurs.
+</p>
+<ul>
+<li><strong>ASL-4 asks:</strong> What can the model do?</li>
+<li><strong>Ikwe asks:</strong> What is this interaction becoming?</li>
+</ul>
+<p>
+Capability governance manages systemic exposure. Trajectory governance manages live interaction risk.
+</p>
+<p>
+Both are necessary. Only one operates before the violation.
+</p>
+
+<h2>Harm floors</h2>
+<p>
+        A harm floor is a minimum enforceable level of cognitive safety inside interaction systems.
+        It does not guarantee ideal responses. It prevents known failure classes from scaling unnoticed.
+      </p>
+<p class="mono">Core components:</p>
+<ul>
+<li>Failure class taxonomy</li>
+<li>Trajectory modeling across turns</li>
+<li>Drift threshold detection</li>
+<li>Intervention triggers</li>
+<li>Constraint application and audit logging</li>
+</ul>
+<figure>
+<picture>
+<source srcset="/assets/research/ikwe_svg_fig3_architecture.svg" type="image/svg+xml"/>
+<img alt="Figure 3: Harm floor architecture. User and Response with an Ikwe harm floor layer between, including trajectory monitor, failure class detection, intervention trigger, and audit reporting." src="/assets/research/ikwe_svg_fig3_architecture_MEDIUM_2400w.png"/>
+</picture>
+<figcaption>
+<div class="captionTitle">Figure 3. Harm floor architecture</div>
+          Harm floors do not replace the model. They instrument interaction trajectories and apply stabilizing constraints.
+        </figcaption>
+</figure>
+<h2>References</h2>
+<div class="refs">
+<ol>
+<li>Anthropic. Responsible Scaling Policy (RSP). (2024). <span class="mono">assets.anthropic.com</span></li>
+<li>NIST. AI Risk Management Framework (AI RMF 1.0). (2023). <span class="mono">nvlpubs.nist.gov</span></li>
+<li>European Commission. EU AI Act Service Desk, Article 9 Risk Management. (2024). <span class="mono">ai-act-service-desk.ec.europa.eu</span></li>
+<li>Cheng et al. Sycophantic AI decreases prosocial intentions and promotes dependence. (2025). <span class="mono">arxiv.org</span></li>
+<li>Klingbeil et al. Trust and reliance on AI: costs of overreliance. (2024). <span class="mono">sciencedirect.com</span></li>
+<li>OECD AI Principles. (Updated 2024). <span class="mono">oecd.org</span></li>
+</ol>
+<div class="note">Note: This page is configured to load SVG figures from <code>/assets/research/</code> with local PNG fallbacks for staging.</div>
+</div>
+
+<h2>Conclusion</h2>
+<p>
+The future of AI safety will not be defined solely by capability thresholds.
+It will be defined by whether interaction systems are instrumented to detect drift before harm.
+</p>
+<p>
+Perfection is not enforceable. Minimum safety thresholds are.
+</p>
+<p>
+Ikwe is not a model. It is an implementation layer.
+</p>
+<p>
+Most safety systems react at the spike. Ikwe instruments the slope.
+</p>
+</div>
+</main>
+</body>
+</html>
