@@ -181,7 +181,15 @@ h1{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:16px;line-height:1.15}
   .author-links{justify-content:center}
   .cta-buttons{flex-direction:column}
 }
-  </style>
+  
+
+/* === FIGURE HARDENING (CENTER + NO OVERFLOW) === */
+.figure-section{max-width:980px;margin:56px auto 44px;}
+.figure-section .figure-frame{display:flex;justify-content:center;align-items:center;overflow:hidden;}
+.figure-section .figure-media{display:block;width:100%;max-width:980px;height:auto;object-fit:contain;}
+/* === END FIGURE HARDENING === */
+
+</style>
 
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-Zs0nNW5srMjkLGUV711fI.js"></script>
@@ -295,7 +303,8 @@ h1{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:16px;line-height:1.15}
         </div>
       </section>
 
-      <h2><figure class="research-figure">
+      <h2>Figure 3 — Harm Floor Architecture</h2>
+<figure class="research-figure">
   <img 
     src="/assets/research/ikwe_fig3_harm_floor_timeline_2400w.png"
     alt="Harm Floor Architecture diagram showing trajectory monitor, failure class detection, intervention trigger, constraint engine, and audit reporting layer."
