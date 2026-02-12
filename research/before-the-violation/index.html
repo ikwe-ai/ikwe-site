@@ -87,52 +87,42 @@ h1{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:16px;line-height:1.15}
 .article-content .captionTitle,.article-content .figure-title{font-weight:700;color:var(--text);margin-bottom:4px}
 .article-content .figure-note{color:var(--text3)}
 
-/* === IKWE FIGURE: ALWAYS-FIT + CENTER (no crop, no overlap) === */
-.figure {
-  margin: 28px 0 40px;
-}
-
-.figure-frame {
-  width: 100%;
+/* === FIGURE SYSTEM (CLEAN + CENTERED) === */
+.figure-section {
+  margin: 64px auto;
   max-width: 980px;
-  margin: 0 auto;
-  padding: 18px;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: radial-gradient(1200px 500px at 50% 0%, rgba(183,148,246,.10), transparent 60%),
-              radial-gradient(900px 400px at 75% 20%, rgba(246,161,146,.08), transparent 55%),
-              rgba(15,17,23,.72);
-  overflow: hidden; /* prevents any stray bleed */
+  padding: 0 24px;
+  text-align: center;
 }
 
-.figure-media {
-  display: block;
+.figure-section .figure-frame {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.figure-section .figure-media {
   width: 100%;
   height: auto;
-  max-height: none;           /* full height; contain keeps aspect, no crop */
-  object-fit: contain;         /* IMPORTANT: never crop */
-  object-position: center;     /* center inside frame */
-  margin: 0 auto;
-}
-
-.figure-caption {
-  max-width: 980px;
-  margin: 12px auto 0;
-  color: rgba(233,238,252,.72);
-  font-size: .95rem;
-  line-height: 1.55;
-}
-
-.figure-title {
+  max-width: 900px;
   display: block;
-  margin-top: 6px;
-  color: rgba(233,238,252,.92);
-  font-weight: 700;
+  border-radius: 12px;
 }
 
-/* Mobile tightening */
-@media (max-width: 640px) {
-  .figure-frame { padding: 12px; border-radius: 14px; }
+.figure-section .figure-caption {
+  margin-top: 18px;
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .figure-section .figure-frame { padding: 16px; }
+  .figure-section .figure-media { max-width: 100%; }
 }
 
 /* INLINE UTILS USED IN THIS NOTE */
@@ -288,25 +278,22 @@ h1{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:16px;line-height:1.15}
 
       <p>Ikwe’s instrumentation is designed as a layer that sits alongside existing safety stacks, not a replacement for them. It observes, scores, and triggers interventions on interaction trajectories.</p>
 
-      <figure class="figure" id="fig-3">
+      <section class="figure-section">
         <div class="figure-frame">
-          <picture>
-            <source srcset="/assets/research/ikwe_svg_fig3_architecture.svg" type="image/svg+xml">
-            <img
-              class="figure-media"
-              src="/assets/research/ikwe_svg_fig3_architecture_MEDIUM_2400w.png"
-              alt="Figure 3. Harm floor architecture. Harm floors instrument interaction trajectories and generate measurable evidence of risk timing and intervention."
-              loading="lazy"
-              decoding="async"
-            >
-          </picture>
+          <img
+            src="/assets/research/ikwe_svg_fig3_architecture_MEDIUM_2400w.png"
+            alt="Harm Floor Architecture diagram showing intervention window before violation"
+            class="figure-media"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
 
-        <figcaption class="figure-caption">
-          <span class="figure-title">Figure 3. Harm floor architecture.</span>
-          Harm floors instrument interaction trajectories and generate measurable evidence of risk timing and intervention.
-        </figcaption>
-      </figure>
+        <div class="figure-caption">
+          <strong>Figure 3 — Harm Floor Architecture</strong><br>
+          Harm floors govern trajectories, not only policy violations.
+        </div>
+      </section>
 
       <h2>What a Pre-Incident Replay produces</h2>
 

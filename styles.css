@@ -92,6 +92,50 @@ img {
     object-fit: contain;
 }
 
+/* === FIGURE SYSTEM (CLEAN + CENTERED) === */
+
+.figure-section {
+    margin: 64px auto;
+    max-width: 980px;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.figure-frame {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.figure-section .figure-media {
+    width: 100%;
+    height: auto;
+    max-width: 900px;
+    display: block;
+    border-radius: 12px;
+}
+
+.figure-section .figure-caption {
+    margin-top: 18px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+    .figure-frame {
+        padding: 16px;
+    }
+
+    .figure-section .figure-media {
+        max-width: 100%;
+    }
+}
+
 /* Container */
 .container {
     max-width: var(--max-width);
