@@ -4,7 +4,10 @@
   "description": "Ikwe.ai - Emotional Safety Evaluation for Conversational AI",
   "private": true,
   "scripts": {
-    "render:samples": "node scripts/render_samples.mjs"
+    "render:samples": "node scripts/render_samples.mjs",
+    "release:gate": "bash scripts/release_gate.sh",
+    "metrics:recompute": "python3 research/analysis/reproduce_headline_metrics.py",
+    "metrics:consistency": "python3 research/analysis/consistency_check.py"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.0",

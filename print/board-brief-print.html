@@ -21,7 +21,7 @@
     .label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);}    
     h1{font-family:'Fraunces',serif;font-size:32px;letter-spacing:-.01em;margin:18px 0 10px;}
     .lead{color:var(--slate);font-size:15px;line-height:1.65;margin-bottom:18px;}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:22px 0 26px;}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:22px 0 26px;}
     .card{border:1px solid var(--line);border-radius:12px;padding:16px;}
     .card h3{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--slate);margin-bottom:8px;}
     .metric{font-size:22px;font-weight:700;margin-bottom:6px;}
@@ -53,6 +53,11 @@
         <h3>After Mitigation</h3>
         <div class="metric">42–67% post-control reduction range</div>
         <div class="caption">Observed across scored risk dimensions.</div>
+      </div>
+      <div class="card">
+        <h3>Repair Gap</h3>
+        <div class="metric">43% no-repair-after-harm rate</div>
+        <div class="caption">Baseline share of harmful responses with no repair action.</div>
       </div>
     </div>
 
