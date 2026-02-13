@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Appendix A: Compliance Alignment | Ikwe Research</title>
+  <meta name="description" content="Informational EU AI Act and NIST AI RMF alignment mapping for the Ikwe.ai Governance Model behavioral instrumentation layer.">
+  <link rel="canonical" href="https://ikwe.ai/research/appendices/compliance-alignment/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="copyright" content="Visible Healing Inc. (dba Ikwe.ai). All rights reserved.">
+  <meta property="og:site_name" content="ikwe.ai">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Appendix A: Compliance Alignment">
+  <meta property="og:description" content="EU AI Act and NIST AI RMF informational mapping for behavioral governance instrumentation.">
+  <meta property="og:url" content="https://ikwe.ai/research/appendices/compliance-alignment/">
+  <meta property="og:image" content="https://ikwe.ai/og/ikwe-research.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Appendix A: Compliance Alignment">
+  <meta name="twitter:description" content="Informational governance mapping for Ikwe behavioral instrumentation.">
+  <meta name="twitter:image" content="https://ikwe.ai/og/ikwe-research.png">
+  <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#0f1219;
+  --bg2:#171c28;
+  --text:#e9eefc;
+  --text2:rgba(233,238,252,.76);
+  --text3:rgba(233,238,252,.57);
+  --border:rgba(255,255,255,.11);
+  --border2:rgba(255,255,255,.17);
+  --lilac:#b794f6;
+  --teal:#55d7bf;
+  --amber:#f6d992;
+  --rose:#c4a69a;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'Space Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:var(--sans);
+  color:var(--text);
+  background:radial-gradient(ellipse at top,rgba(183,148,246,.09),transparent 44%),var(--bg);
+  line-height:1.66;
+}
+a{color:inherit;text-decoration:none}
+.nav{
+  position:sticky;
+  top:0;
+  z-index:80;
+  background:rgba(15,18,25,.92);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  max-width:1140px;
+  margin:0 auto;
+  padding:0 26px;
+  height:68px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:1.03rem;
+}
+.brand img{width:32px;height:32px;border-radius:50%}
+.nav-links{display:flex;align-items:center;gap:14px}
+.nav-links a{
+  color:var(--text3);
+  font-size:.88rem;
+  padding:8px 10px;
+  border-radius:8px;
+}
+.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.nav-links a.active{color:var(--text);background:rgba(183,148,246,.16);border:1px solid rgba(183,148,246,.3)}
+.page{
+  max-width:980px;
+  margin:0 auto;
+  padding:58px 24px 84px;
+}
+.kicker{
+  font-family:var(--mono);
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--rose);
+  font-size:.74rem;
+  margin-bottom:12px;
+}
+h1{
+  font-family:var(--serif);
+  font-size:clamp(2rem,4.4vw,2.9rem);
+  line-height:1.1;
+}
+.subtitle{margin-top:12px;color:var(--text2);max-width:760px}
+.notice{
+  margin-top:16px;
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:12px 14px;
+  background:rgba(255,255,255,.03);
+  color:var(--text2);
+  font-size:.9rem;
+}
+.section{
+  margin-top:30px;
+  border-top:1px solid var(--border);
+  padding-top:22px;
+}
+.section h2{
+  font-family:var(--serif);
+  font-size:1.36rem;
+  margin-bottom:10px;
+}
+.section p{color:var(--text2);margin-bottom:10px}
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
+th,td{
+  text-align:left;
+  vertical-align:top;
+  padding:12px 11px;
+  border-bottom:1px solid var(--border);
+  font-size:.92rem;
+}
+th{
+  font-family:var(--mono);
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:var(--teal);
+  background:rgba(255,255,255,.03);
+  font-size:.73rem;
+}
+tr:last-child td{border-bottom:none}
+ul{padding-left:20px;color:var(--text2)}
+li{margin-bottom:7px}
+.footer{
+  margin-top:34px;
+  border-top:1px solid var(--border);
+  padding-top:20px;
+  color:var(--text3);
+  font-size:.84rem;
+}
+@media (max-width:860px){
+  .nav-links{display:none}
+}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+      <div class="nav-links">
+        <a href="/research">Research</a>
+        <a href="/research/canon/ai-governance-compliance/">Canon</a>
+        <a href="/research/reports/behavioral-emotional-safety-2026/">Report</a>
+        <a href="/research/appendices/compliance-alignment/" class="active">Appendix A</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="kicker">Appendix A</div>
+    <h1>Compliance Alignment</h1>
+    <p class="subtitle">Informational mapping for the Ikwe.ai Governance Model and behavioral instrumentation layer. US-based in Iowa, operating globally.</p>
+    <div class="notice">Informational analysis, not legal advice. Results are illustrative of structured test conditions and are not certification.</div>
+
+    <section class="section">
+      <h2>EU AI Act Mapping (Informational)</h2>
+      <p>This appendix provides a non-exhaustive mapping between selected EU AI Act requirements and Ikwe behavioral governance capabilities.</p>
+      <table aria-label="EU AI Act alignment table">
+        <thead>
+          <tr>
+            <th>EU AI Act</th>
+            <th>Requirement Focus</th>
+            <th>Ikwe Alignment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Article 9</td>
+            <td>Risk management system</td>
+            <td>Behavioral influence risk taxonomy, threshold definitions, and pre-incident risk signal monitoring.</td>
+          </tr>
+          <tr>
+            <td>Article 10</td>
+            <td>Data and data governance</td>
+            <td>Structured scenario sets, vulnerability-state coverage, and repeatable evaluation protocol controls.</td>
+          </tr>
+          <tr>
+            <td>Article 12</td>
+            <td>Record-keeping and logs</td>
+            <td>Trajectory-level logging, intervention flags, and evidentiary traceability for oversight review.</td>
+          </tr>
+          <tr>
+            <td>Article 13</td>
+            <td>Transparency and user information</td>
+            <td>Disclosure language patterns for model role boundaries and escalation expectations.</td>
+          </tr>
+          <tr>
+            <td>Article 14</td>
+            <td>Human oversight</td>
+            <td>Escalation handoff criteria and human-review triggers for high-risk behavioral trajectories.</td>
+          </tr>
+          <tr>
+            <td>Article 15</td>
+            <td>Accuracy, robustness, cybersecurity</td>
+            <td>Behavioral robustness checks under emotional load and instrumentation for drift detection.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>NIST AI RMF Mapping (Informational)</h2>
+      <table aria-label="NIST AI RMF alignment table">
+        <thead>
+          <tr>
+            <th>NIST Function</th>
+            <th>Intent</th>
+            <th>Ikwe Alignment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Govern</td>
+            <td>Policies, accountability, governance structures</td>
+            <td>Documented governance controls for behavioral influence and role-based escalation accountability.</td>
+          </tr>
+          <tr>
+            <td>Map</td>
+            <td>Context, impact, and risk framing</td>
+            <td>Scenario-based mapping of vulnerable states, authority signals, and dependency trajectories.</td>
+          </tr>
+          <tr>
+            <td>Measure</td>
+            <td>Testing, analysis, and monitoring</td>
+            <td>Two-stage behavioral scoring, longitudinal drift indicators, and comparative evaluation metrics.</td>
+          </tr>
+          <tr>
+            <td>Manage</td>
+            <td>Risk response and continuous improvement</td>
+            <td>Mitigation prioritization, threshold updates, and evidence-ready reporting for risk committees.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Scope Clarifications</h2>
+      <ul>
+        <li>Ikwe is governance infrastructure and instrumentation, not therapy or crisis care.</li>
+        <li>Ikwe does not provide legal certification, legal determinations, or legally binding adjudication about individuals.</li>
+        <li>Ikwe assessments support organizational governance decision-making and evidence preparation.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Research Independence</h2>
+      <ul>
+        <li>Independent research conducted by Visible Healing Inc. (dba Ikwe.ai).</li>
+        <li>No compensation from evaluated model providers.</li>
+        <li>Founder-funded internal research program.</li>
+        <li>Methodology review materials available upon institutional request.</li>
+      </ul>
+      <p>Contact: <a href="mailto:research@ikwe.ai" style="color:var(--amber);text-decoration:underline;text-underline-offset:2px;">research@ikwe.ai</a></p>
+    </section>
+
+    <div class="footer">
+      Appendix A is maintained by Visible Healing Inc. (dba Ikwe.ai). This document is intended for governance and research context only.
+    </div>
+  </main>
+</body>
+</html>
