@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Ikwe Governance Architecture | Ikwe.ai</title>
+  <meta name="description" content="US-based, globally deployed governance infrastructure for frontier AI systems. The Ikwe Governance Architecture instruments behavioral influence dynamics for audit-ready oversight.">
+  <meta name="copyright" content="Visible Healing Inc. (dba Ikwe.ai). All rights reserved.">
+  <link rel="canonical" href="https://ikwe.ai/technology/architecture/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <meta property="og:site_name" content="ikwe.ai">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Ikwe Governance Architecture">
+  <meta property="og:description" content="Behavioral instrumentation for frontier AI systems. Ikwe operates as a governance layer alongside foundation models.">
+  <meta property="og:url" content="https://ikwe.ai/technology/architecture/">
+  <meta property="og:image" content="https://ikwe.ai/og/ikwe-research.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Ikwe Governance Architecture">
+  <meta name="twitter:description" content="Governance infrastructure for behavioral risk instrumentation in conversational AI.">
+  <meta name="twitter:image" content="https://ikwe.ai/og/ikwe-research.png">
+
+  <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+:root{
+  --bg:#0f1219;
+  --bg2:#171b25;
+  --bg3:#1f2432;
+  --text:#e9eefc;
+  --text2:rgba(233,238,252,.78);
+  --text3:rgba(233,238,252,.57);
+  --border:rgba(255,255,255,.1);
+  --border2:rgba(255,255,255,.15);
+  --lilac:#b794f6;
+  --teal:#55d7bf;
+  --amber:#f6d992;
+  --rose:#c4a69a;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'Space Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:var(--sans);
+  color:var(--text);
+  background:radial-gradient(ellipse at top,rgba(183,148,246,.09),transparent 40%),var(--bg);
+  line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.nav{
+  position:sticky;
+  top:0;
+  z-index:80;
+  background:rgba(15,18,25,.92);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  max-width:1160px;
+  margin:0 auto;
+  padding:0 28px;
+  height:68px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--serif);
+  font-size:1.04rem;
+  font-weight:700;
+}
+.brand img{width:32px;height:32px;border-radius:50%}
+.nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.nav-links a{
+  color:var(--text3);
+  font-size:.88rem;
+  padding:8px 10px;
+  border-radius:8px;
+  transition:all .16s;
+}
+.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.nav-links a.active{color:var(--text);background:rgba(183,148,246,.16);border:1px solid rgba(183,148,246,.3)}
+.page{
+  max-width:980px;
+  margin:0 auto;
+  padding:58px 24px 88px;
+}
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--mono);
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-size:.74rem;
+  color:var(--rose);
+  margin-bottom:14px;
+}
+h1{
+  font-family:var(--serif);
+  font-size:clamp(2.1rem,4.5vw,3rem);
+  line-height:1.08;
+  letter-spacing:-.01em;
+}
+.subtitle{
+  margin-top:13px;
+  max-width:760px;
+  color:var(--text2);
+  font-size:1.06rem;
+}
+.hero-note{
+  margin-top:14px;
+  padding:12px 14px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:rgba(255,255,255,.03);
+  color:var(--text2);
+  font-size:.9rem;
+}
+.section{
+  margin-top:32px;
+  padding-top:22px;
+  border-top:1px solid var(--border);
+}
+.section h2{
+  font-family:var(--serif);
+  font-size:1.38rem;
+  margin-bottom:12px;
+}
+.section p{
+  color:var(--text2);
+  margin-bottom:10px;
+}
+.layers{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+  margin-top:12px;
+}
+.layer{
+  border:1px solid var(--border);
+  background:linear-gradient(120deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+  border-radius:12px;
+  padding:14px;
+}
+.layer h3{
+  font-size:1rem;
+  margin-bottom:4px;
+  color:var(--teal);
+}
+.layer p{margin:0;color:var(--text2);font-size:.93rem}
+.two-col{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+.card{
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.02);
+  border-radius:12px;
+  padding:14px;
+}
+.card h3{
+  font-size:1rem;
+  color:var(--amber);
+  margin-bottom:8px;
+}
+ul{
+  padding-left:20px;
+  color:var(--text2);
+}
+li{margin-bottom:7px}
+.footer{
+  margin-top:40px;
+  border-top:1px solid var(--border);
+  padding-top:22px;
+  color:var(--text3);
+  font-size:.85rem;
+}
+.footer a{
+  color:var(--amber);
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+@media (max-width:880px){
+  .nav-links{display:none}
+  .two-col{grid-template-columns:1fr}
+}
+  </style>
+  <script defer data-domain="ikwe.ai" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+      <div class="nav-links">
+        <a href="/research">Research</a>
+        <a href="/technology/architecture/" class="active">Technology</a>
+        <a href="/audit">Audit</a>
+        <a href="/proof">Proof</a>
+        <a href="/about">About</a>
+        <a href="/inquiry">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="kicker">Technology Architecture</div>
+    <h1>The Ikwe Governance Architecture</h1>
+    <p class="subtitle">Behavioral Instrumentation for Frontier AI Systems</p>
+    <p class="hero-note">Ikwe.ai provides a behavioral governance layer that instruments influence dynamics in emotionally interactive AI systems. It operates alongside foundation models to generate audit-ready safety signals before policy violations occur. Ikwe does not replace foundation models; it instruments them. US-based in Iowa, operating globally.</p>
+
+    <section class="section">
+      <h2>1. Architecture Overview</h2>
+      <div class="layers">
+        <div class="layer">
+          <h3>Layer 1 — Foundation Model Layer</h3>
+          <p>Third-party conversational AI systems (for example, large language models).</p>
+        </div>
+        <div class="layer">
+          <h3>Layer 2 — Interaction Context Layer</h3>
+          <p>User prompt and model response exchange context.</p>
+        </div>
+        <div class="layer">
+          <h3>Layer 3 — Behavioral Signal Engine (Ikwe Layer)</h3>
+          <p>Instrumentation for authority reinforcement signals, escalation boundary adherence, dependency formation indicators, emotional overextension risk, and overreliance trajectory patterns.</p>
+        </div>
+        <div class="layer">
+          <h3>Layer 4 — Governance Output Layer</h3>
+          <p>Safety Gate threshold events, Regulation Quality scores, escalation trigger flags, audit-ready influence logs, and governance dashboards.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>2. Instrumentation Model</h2>
+      <div class="two-col">
+        <div class="card">
+          <h3>Stage 1 — Safety Gate Evaluation</h3>
+          <p>Binary risk threshold detection to flag critical boundary failures and escalation triggers.</p>
+        </div>
+        <div class="card">
+          <h3>Stage 2 — Regulation Quality Assessment</h3>
+          <p>Graded measurement of boundary clarity, de-escalation quality, and behavioral restraint under emotional load.</p>
+        </div>
+      </div>
+      <p style="margin-top:12px;">Outputs are configurable to enterprise risk tolerance thresholds.</p>
+    </section>
+
+    <section class="section">
+      <h2>3. Integration Model</h2>
+      <p>Ikwe is designed for API-based integration, middleware instrumentation, model-agnostic deployment, enterprise logging pipelines, and configurable governance thresholds.</p>
+      <p>Deployment models include cloud-based instrumentation and enterprise-managed deployment. Hybrid deployment remains on the forward roadmap.</p>
+    </section>
+
+    <section class="section">
+      <h2>4. Governance Objectives</h2>
+      <ul>
+        <li>Document influence drift</li>
+        <li>Define escalation triggers</li>
+        <li>Measure emotional authority boundaries</li>
+        <li>Generate pre-incident governance evidence</li>
+        <li>Support compliance documentation workflows</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>5. What Ikwe Is Not</h2>
+      <ul>
+        <li>Ikwe does not replace human oversight.</li>
+        <li>Ikwe does not deliver therapeutic services.</li>
+        <li>Ikwe does not provide legal compliance certification.</li>
+        <li>Ikwe does not modify foundation model weights.</li>
+        <li>Ikwe does not guarantee harm prevention.</li>
+      </ul>
+      <p>Ikwe enhances behavioral visibility within governance systems.</p>
+    </section>
+
+    <section class="section">
+      <h2>6. Regulatory Alignment</h2>
+      <p>Ikwe architecture aligns with EU AI Act risk-management documentation principles, the NIST AI RMF functions (Govern, Map, Measure, Manage), and enterprise AI governance lifecycle models.</p>
+      <p>See <a href="/research/appendices/compliance-alignment/">Appendix A: Compliance Alignment</a> for the detailed mapping.</p>
+      <p style="margin-top:10px;font-size:.9rem;color:var(--text3);">Informational analysis, not legal advice. Results are illustrative and not certification.</p>
+    </section>
+
+    <div class="footer">
+      Visible Healing Inc. (dba Ikwe.ai) · US-based in Iowa · Operating worldwide<br>
+      Founder: Stephanie Stranko · Institutional review: <a href="mailto:research@ikwe.ai">research@ikwe.ai</a>
+    </div>
+  </main>
+</body>
+</html>
