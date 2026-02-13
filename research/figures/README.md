@@ -9,20 +9,28 @@ This directory stores publishable figure exports for Study II benchmark reportin
 - `Figure1B_Delta_HarmRate.pdf`
 - `Figure2_Repair_ByCondition.png`
 - `Figure2_Repair_ByCondition.pdf`
+- `Figure2_HarmTrajectory_ByTurn.png`
+- `Figure2_HarmTrajectory_ByTurn.pdf`
+- `Figure3_FirstHarmTurn_Distribution.png`
+- `Figure3_FirstHarmTurn_Distribution.pdf`
+- `Figure4_Repair_ByCondition.png`
+- `Figure4_Repair_ByCondition.pdf`
 
 ## Inputs
 Place canonical grouped CSVs at:
 - `research/data/study_ii/harm_rate_condition_comparison.csv`
-- `research/data/study_ii/repair_mean_by_group.csv`
+- `research/data/study_ii/harm_curve_by_turn.csv` (for Figure 2)
+- `research/data/study_ii/first_harm_turn_by_run.csv` (for Figure 3)
+- `research/data/study_ii/repair_mean_by_group.csv` (for Figure 4)
 
 ## Generate
 ```bash
-python research/analysis/generate_study_ii_figures.py
+python3 research/analysis/generate_study_ii_figures.py
 ```
 
 Or with explicit paths:
 ```bash
-python research/analysis/generate_study_ii_figures.py \
+python3 research/analysis/generate_study_ii_figures.py \
   --harm-csv /path/to/harm_rate_condition_comparison.csv \
   --repair-csv /path/to/repair_mean_by_group.csv \
   --outdir research/figures
@@ -33,7 +41,11 @@ Figure 1: Harm rate by condition across Study II scenarios. Bars show the propor
 
 Figure 1B: Change in harm rate under Ikwe condition (Delta = Ikwe - Baseline). Positive values indicate higher flagged harm rate under Ikwe; negative values indicate reduction.
 
-Figure 2: Mean repair score by condition across Study II scenarios. Bars show group means from `Repair_Level` coding and should be interpreted with rubric mapping and N/A handling disclosures.
+Figure 2: Harm trajectory across turns by condition. Higher values reflect higher detection frequency (`Harm_Indicator = YES`) and do not independently imply harm creation.
+
+Figure 3: First harm turn distribution by condition. Curves show cumulative proportion of runs reaching first harm by each turn index.
+
+Figure 4: Mean repair score by condition across Study II scenarios. Bars show group means from `Repair_Level` coding and should be interpreted with rubric mapping and N/A handling disclosures.
 
 ## Guardrails
 - Harm rate definition: proportion of turns with `Harm_Indicator = YES`.

@@ -4,7 +4,9 @@
 Outputs:
 - Figure1_HarmRate_ByCondition.{png,pdf}
 - Figure1B_Delta_HarmRate.{png,pdf}
-- Figure2_Repair_ByCondition.{png,pdf}
+- Figure2_HarmTrajectory_ByTurn.{png,pdf}
+- Figure3_FirstHarmTurn_Distribution.{png,pdf}
+- Figure4_Repair_ByCondition.{png,pdf}
 """
 
 from __future__ import annotations
@@ -13,15 +15,26 @@ import argparse
 import sys
 from pathlib import Path
 
-try:
-    import matplotlib.pyplot as plt
-    import numpy as np
-    import pandas as pd
-except ModuleNotFoundError as exc:
-    missing = exc.name or "unknown"
-    print(f"missing dependency: {missing}")
-    print("install with: pip install -r research/environment/requirements.txt")
-    sys.exit(1)
+plt = None
+np = None
+pd = None
+
+
+def load_deps() -> None:
+    global plt, np, pd  # noqa: PLW0603
+    try:
+        import matplotlib.pyplot as _plt
+        import numpy as _np
+        import pandas as _pd
+    except ModuleNotFoundError as exc:
+        missing = exc.name or "unknown"
+        print(f"missing dependency: {missing}")
+        print("install with: python3 -m pip install -r research/environment/requirements.txt")
+        sys.exit(1)
+
+    plt = _plt
+    np = _np
+    pd = _pd
 
 
 def parse_args() -> argparse.Namespace:
@@ -35,6 +48,16 @@ def parse_args() -> argparse.Namespace:
         "--repair-csv",
         default="research/data/study_ii/repair_mean_by_group.csv",
         help="CSV with repair means by scenario and condition",
+    )
+    parser.add_argument(
+        "--curve-csv",
+        default="research/data/study_ii/harm_curve_by_turn.csv",
+        help="CSV with turn-level harm trajectory by scenario and condition",
+    )
+    parser.add_argument(
+        "--first-harm-csv",
+        default="research/data/study_ii/first_harm_turn_by_run.csv",
+        help="CSV with first-harm turn per run",
     )
     parser.add_argument(
         "--outdir",
@@ -143,6 +166,42 @@ def prepare_repair(repair_df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
+def prepare_curve(curve_df: pd.DataFrame) -> pd.DataFrame:
+    condition_col = find_col(curve_df, ["Condition", "condition"], "condition")
+    turn_col = find_col(curve_df, ["Turn_Index", "turn_index", "turn", "Turn"], "turn index")
+    rate_col = find_col(
+        curve_df,
+        ["harm_rate", "Harm_Rate", "mean_harm", "harm_rate_turn_level", "rate"],
+        "harm rate",
+    )
+    out = curve_df[[condition_col, turn_col, rate_col]].copy()
+    out.columns = ["condition", "turn_index", "harm_rate"]
+    out["condition"] = normalize_condition(out["condition"])
+    out["turn_index"] = pd.to_numeric(out["turn_index"], errors="coerce")
+    out["harm_rate"] = pd.to_numeric(out["harm_rate"], errors="coerce")
+    out = out.dropna(subset=["turn_index", "harm_rate"])
+    return (
+        out.groupby(["condition", "turn_index"], as_index=False)["harm_rate"]
+        .mean()
+        .sort_values(["condition", "turn_index"])
+    )
+
+
+def prepare_first_harm(first_harm_df: pd.DataFrame) -> pd.DataFrame:
+    condition_col = find_col(first_harm_df, ["Condition", "condition"], "condition")
+    turn_col = find_col(
+        first_harm_df,
+        ["first_harm_turn", "First_Harm_Turn", "first_turn", "First_Turn"],
+        "first harm turn",
+    )
+    out = first_harm_df[[condition_col, turn_col]].copy()
+    out.columns = ["condition", "first_harm_turn"]
+    out["condition"] = normalize_condition(out["condition"])
+    out["first_harm_turn"] = pd.to_numeric(out["first_harm_turn"], errors="coerce")
+    out = out.dropna(subset=["first_harm_turn"])
+    return out
+
+
 def grouped_bar(
     df: pd.DataFrame,
     value_col: str,
@@ -193,10 +252,59 @@ def delta_bar(harm_df: pd.DataFrame) -> plt.Figure:
     return fig
 
 
+def trajectory_line(curve_df: pd.DataFrame) -> plt.Figure:
+    fig, ax = plt.subplots(figsize=(7.8, 5.0))
+    colors = {"baseline": "#607196", "ikwe": "#2a9d8f"}
+
+    for condition in sorted(curve_df["condition"].unique()):
+        subset = curve_df[curve_df["condition"] == condition].sort_values("turn_index")
+        ax.plot(
+            subset["turn_index"],
+            subset["harm_rate"],
+            marker="o",
+            linewidth=2.0,
+            label=condition,
+            color=colors.get(condition, "#444444"),
+        )
+
+    ax.set_xlabel("Turn Index")
+    ax.set_ylabel("Mean Harm Rate (Proportion Flagged)")
+    ax.set_title("Figure 2. Harm Trajectory Across Turns by Condition", pad=8)
+    ax.set_ylim(0.0, 1.05)
+    ax.set_axisbelow(True)
+    ax.legend(frameon=False, loc="upper left")
+    return fig
+
+
+def first_harm_distribution(first_harm_df: pd.DataFrame) -> plt.Figure:
+    max_turn = int(first_harm_df["first_harm_turn"].max())
+    x = np.arange(1, max_turn + 1)
+    fig, ax = plt.subplots(figsize=(7.8, 5.0))
+    colors = {"baseline": "#607196", "ikwe": "#2a9d8f"}
+
+    for condition in sorted(first_harm_df["condition"].unique()):
+        subset = first_harm_df[first_harm_df["condition"] == condition]["first_harm_turn"].to_numpy()
+        y = np.array([(subset <= t).mean() for t in x], dtype=float)
+        ax.step(x, y, where="post", linewidth=2.0, label=condition, color=colors.get(condition, "#444444"))
+        ax.plot(x, y, marker="o", linewidth=0, color=colors.get(condition, "#444444"))
+
+    ax.set_xlabel("Turn Index")
+    ax.set_ylabel("Cumulative Proportion of Runs With First Harm")
+    ax.set_title("Figure 3. First Harm Turn Distribution by Condition", pad=8)
+    ax.set_ylim(0.0, 1.05)
+    ax.set_xticks(x)
+    ax.set_axisbelow(True)
+    ax.legend(frameon=False, loc="lower right")
+    return fig
+
+
 def main() -> int:
     args = parse_args()
+    load_deps()
     harm_path = Path(args.harm_csv)
     repair_path = Path(args.repair_csv)
+    curve_path = Path(args.curve_csv)
+    first_harm_path = Path(args.first_harm_csv)
     outdir = Path(args.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
 
@@ -207,16 +315,8 @@ def main() -> int:
         print("add harm_rate_condition_comparison.csv and rerun")
         return 1
 
-    if not repair_path.exists():
-        print(f"missing repair input: {repair_path}")
-        print("add repair_mean_by_group.csv and rerun")
-        return 1
-
     harm_df = pd.read_csv(harm_path)
-    repair_df = pd.read_csv(repair_path)
-
     harm = prepare_harm(harm_df)
-    repair = prepare_repair(repair_df)
 
     fig1 = grouped_bar(
         harm,
@@ -233,16 +333,39 @@ def main() -> int:
     save_fig(fig1b, outdir, "Figure1B_Delta_HarmRate")
     plt.close(fig1b)
 
-    fig2 = grouped_bar(
-        repair,
-        value_col="repair_mean",
-        ylabel="Mean Repair Level (Raw Coding Scale)",
-        title="Figure 2. Repair Mean by Condition Across Scenarios",
-        baseline_color="#607196",
-        ikwe_color="#2a9d8f",
-    )
-    save_fig(fig2, outdir, "Figure2_Repair_ByCondition")
-    plt.close(fig2)
+    if curve_path.exists():
+        curve_df = pd.read_csv(curve_path)
+        curve = prepare_curve(curve_df)
+        fig2 = trajectory_line(curve)
+        save_fig(fig2, outdir, "Figure2_HarmTrajectory_ByTurn")
+        plt.close(fig2)
+    else:
+        print(f"skipped Figure 2 (missing input): {curve_path}")
+
+    if first_harm_path.exists():
+        first_harm_df = pd.read_csv(first_harm_path)
+        first_harm = prepare_first_harm(first_harm_df)
+        fig3 = first_harm_distribution(first_harm)
+        save_fig(fig3, outdir, "Figure3_FirstHarmTurn_Distribution")
+        plt.close(fig3)
+    else:
+        print(f"skipped Figure 3 (missing input): {first_harm_path}")
+
+    if repair_path.exists():
+        repair_df = pd.read_csv(repair_path)
+        repair = prepare_repair(repair_df)
+        fig4 = grouped_bar(
+            repair,
+            value_col="repair_mean",
+            ylabel="Mean Repair Level (Raw Coding Scale)",
+            title="Figure 4. Repair Mean by Condition Across Scenarios",
+            baseline_color="#607196",
+            ikwe_color="#2a9d8f",
+        )
+        save_fig(fig4, outdir, "Figure4_Repair_ByCondition")
+        plt.close(fig4)
+    else:
+        print(f"skipped Figure 4 (missing input): {repair_path}")
 
     print("figure generation complete")
     return 0
