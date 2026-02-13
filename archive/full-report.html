@@ -594,6 +594,51 @@ a { color: inherit; text-decoration: none; }
 .report-table .center {
   text-align: center;
 }
+.table-caption {
+  margin-top: 8px;
+  margin-bottom: 6px;
+  font-family: var(--mono);
+  font-size: .74rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+.table-footnote {
+  margin-top: 10px;
+  font-size: .82rem;
+  color: var(--text3);
+  line-height: 1.6;
+}
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 22px 0 8px;
+}
+.mini-chart {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg2);
+  padding: 14px 14px 10px;
+}
+.mini-chart .chart-title {
+  margin: 0 0 10px;
+  font-size: .82rem;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.mini-chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.download-version-note {
+  margin-top: 12px;
+  color: var(--text3);
+  font-size: .84rem;
+  line-height: 1.55;
+}
 
 /* DIVIDER */
 .divider {
@@ -702,11 +747,22 @@ a { color: inherit; text-decoration: none; }
   .quote-block p { font-size: 1.15rem; }
   .toc { padding: 20px 24px; }
   .stat-block { padding: 24px; }
+  .viz-grid { grid-template-columns: 1fr; }
 }
 
 /* NAV MOBILE */
 @media (max-width: 768px) {
   .nav-links { display: none; }
+}
+@media print {
+  .nav,
+  .under-review-banner,
+  .next-step,
+  footer.footer,
+  .report-hero .btn {
+    display: none !important;
+  }
+  body { background: #fff; }
 }
   .footer{padding:48px 0 64px;border-top:1px solid var(--border);font-size:.85rem;color:var(--text3)}
 .footer-grid{display:grid;grid-template-columns:1.8fr repeat(4,1fr);gap:32px}
@@ -813,7 +869,7 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
 </nav>
 
 <!-- UNDER REVIEW BANNER -->
-<div style="background: linear-gradient(135deg, rgba(251,146,60,0.15), rgba(251,146,60,0.08)); border-bottom: 2px solid rgba(251,146,60,0.3); padding: 16px 24px; text-align: center;">
+<div class="under-review-banner" style="background: linear-gradient(135deg, rgba(251,146,60,0.15), rgba(251,146,60,0.08)); border-bottom: 2px solid rgba(251,146,60,0.3); padding: 16px 24px; text-align: center;">
   <div style="max-width: 1080px; margin: 0 auto; color: rgba(234,234,240,0.95); font-family: 'DM Sans', system-ui, sans-serif;">
     <strong style="color: #fb923c; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">⚠️ Under Review</strong>
     <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.6;">This page contains research data currently under accuracy review. Updated findings will be published soon. For current information, see <a href="/" style="color: #a78bfa; text-decoration: underline;">homepage</a> or <a href="/audit" style="color: #a78bfa; text-decoration: underline;">audit page</a>.</p>
@@ -829,12 +885,13 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
     <p class="subtitle">A Scenario-Based Evaluation</p>
     <p class="subtitle">Ikwe builds behavioral emotional safety infrastructure for AI — the EQ that allows IQ to scale without breaking trust.</p>
     <p class="doc-type">Full Research Report</p>
-    <p class="meta">Version 2.1 · January 2026 · <a href="https://ikwe.ai">ikwe.ai</a></p>
+    <p class="meta">Version 1.0 · January 2026 · <a href="https://ikwe.ai">ikwe.ai</a></p>
     <div style="margin-top: 24px;">
       <a href="/Ikwe_Full_Report.pdf" onclick="if(typeof window.plausible==='function'){try{window.plausible('Report_Download',{props:{file:'Ikwe_Full_Report.pdf'}});}catch(e){}}" download class="btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--purple); color: #000; border-radius: 8px; font-weight: 600; font-size: .9rem; text-decoration: none;">
         <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
         Download Print Version (PDF)
       </a>
+      <p class="download-version-note">Version 1.0 · January 2026<br>Updated versions will be noted here.<br>For institutional review inquiries: <a href="mailto:research@ikwe.ai">research@ikwe.ai</a></p>
     </div>
   </header>
 
@@ -848,9 +905,10 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
       <li><a href="#methodology"><span class="toc-num">04</span> Methodology</a></li>
       <li><a href="#findings"><span class="toc-num">05</span> Findings</a></li>
       <li><a href="#implications"><span class="toc-num">06</span> Implications</a></li>
-      <li><a href="#limitations"><span class="toc-num">07</span> Limitations</a></li>
-      <li><a href="#conclusion"><span class="toc-num">08</span> Conclusion</a></li>
-      <li><a href="#citation"><span class="toc-num">09</span> Citation</a></li>
+      <li><a href="#integrity"><span class="toc-num">07</span> Research Integrity & Transparency</a></li>
+      <li><a href="#limitations"><span class="toc-num">08</span> Limitations</a></li>
+      <li><a href="#conclusion"><span class="toc-num">09</span> Conclusion</a></li>
+      <li><a href="#citation"><span class="toc-num">10</span> Citation</a></li>
     </ul>
   </nav>
 
@@ -905,6 +963,7 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
     <p>Ikwe.ai developed this benchmark after observing repeated safety failures during applied system testing. Systems that appeared emotionally fluent at first contact frequently introduced risk over time — reinforcing distress, accelerating rumination, or failing to maintain appropriate conversational boundaries.</p>
     
     <p>The Ikwe.ai model was evaluated as a reference implementation, demonstrating lower behavioral variance and greater stability after passing a baseline emotional safety gate.</p>
+    <p>In controlled test conditions, higher emotional articulation did not consistently correlate with safer behavioral outcomes.</p>
     
     <div class="divider short"></div>
     
@@ -1009,6 +1068,7 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
   <section id="findings" class="report-section">
     <div class="section-kicker">Findings</div>
     <h2>Model Comparison</h2>
+    <p class="table-caption">Table 1. Comparative Performance Under Controlled Emotional Load Conditions</p>
     
     <table class="report-table">
       <thead>
@@ -1021,34 +1081,76 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
       </thead>
       <tbody>
         <tr class="highlight">
-          <td>Ikwe.ai model</td>
+          <td>Ikwe EI Prototype (internal reference model)</td>
           <td class="center">74.0</td>
           <td class="center">84.6%</td>
           <td class="center">4.05 / 5</td>
         </tr>
         <tr>
-          <td>Claude 3.5 Sonnet</td>
-          <td class="center">52.7</td>
-          <td class="center">56.4%</td>
-          <td class="center">2.03 / 5</td>
-        </tr>
-        <tr>
           <td>GPT-4o</td>
           <td class="center">51.6</td>
           <td class="center">59.0%</td>
-          <td class="center">1.69 / 5</td>
+          <td class="center">2.95 / 5</td>
+        </tr>
+        <tr>
+          <td>Claude 3.5 Sonnet</td>
+          <td class="center">52.7</td>
+          <td class="center">56.4%</td>
+          <td class="center">2.82 / 5</td>
         </tr>
         <tr>
           <td>Grok</td>
           <td class="center">40.5</td>
           <td class="center">20.5%</td>
-          <td class="center">1.40 / 5</td>
+          <td class="center">1.02 / 5</td>
         </tr>
       </tbody>
     </table>
     
     <div class="disclaimer">
       Scores reflect observed response behavior under controlled test conditions. Avg Score and Regulation are <strong>conditional</strong> — they only reflect responses that passed the Safety Gate.
+    </div>
+    <p class="table-footnote"><strong>Model versions evaluated January 2026 under standardized prompt conditions.</strong> Evaluation conducted via publicly accessible interfaces. Results reflect test conditions only and are not affiliated with or endorsed by respective model providers. Provider-exposed labels at test time: GPT-4o, Claude 3.5 Sonnet, and Grok (exact provider internal build identifiers were not exposed in all interfaces).</p>
+
+    <div class="viz-grid">
+      <figure class="mini-chart">
+        <figcaption class="chart-title">Figure 1. Safety Gate Pass Rate (%)</figcaption>
+        <svg viewBox="0 0 420 240" role="img" aria-label="Bar chart showing Safety Gate pass rates across Ikwe EI Prototype, GPT-4o, Claude 3.5 Sonnet, and Grok.">
+          <line x1="44" y1="20" x2="44" y2="196" stroke="#575f71" stroke-width="1.5"/>
+          <line x1="44" y1="196" x2="398" y2="196" stroke="#575f71" stroke-width="1.5"/>
+          <rect x="66" y="36" width="56" height="160" fill="#22c55e"/>
+          <rect x="148" y="84" width="56" height="112" fill="#a78bfa"/>
+          <rect x="230" y="90" width="56" height="106" fill="#fb923c"/>
+          <rect x="312" y="157" width="56" height="39" fill="#f87171"/>
+          <text x="94" y="30" font-size="12" text-anchor="middle" fill="#eaeaf0">84.6</text>
+          <text x="176" y="78" font-size="12" text-anchor="middle" fill="#eaeaf0">59.0</text>
+          <text x="258" y="84" font-size="12" text-anchor="middle" fill="#eaeaf0">56.4</text>
+          <text x="340" y="151" font-size="12" text-anchor="middle" fill="#eaeaf0">20.5</text>
+          <text x="94" y="214" font-size="11" text-anchor="middle" fill="#aeb5c6">Ikwe</text>
+          <text x="176" y="214" font-size="11" text-anchor="middle" fill="#aeb5c6">GPT-4o</text>
+          <text x="258" y="214" font-size="11" text-anchor="middle" fill="#aeb5c6">Claude</text>
+          <text x="340" y="214" font-size="11" text-anchor="middle" fill="#aeb5c6">Grok</text>
+        </svg>
+      </figure>
+      <figure class="mini-chart">
+        <figcaption class="chart-title">Figure 2. Stage 2 Regulation Score (0–5)</figcaption>
+        <svg viewBox="0 0 420 240" role="img" aria-label="Bar chart showing Stage 2 regulation scores for Ikwe EI Prototype, GPT-4o, Claude 3.5 Sonnet, and Grok.">
+          <line x1="44" y1="20" x2="44" y2="196" stroke="#575f71" stroke-width="1.5"/>
+          <line x1="44" y1="196" x2="398" y2="196" stroke="#575f71" stroke-width="1.5"/>
+          <rect x="66" y="54" width="56" height="142" fill="#22c55e"/>
+          <rect x="148" y="93" width="56" height="103" fill="#a78bfa"/>
+          <rect x="230" y="97" width="56" height="99" fill="#fb923c"/>
+          <rect x="312" y="160" width="56" height="36" fill="#f87171"/>
+          <text x="94" y="48" font-size="12" text-anchor="middle" fill="#eaeaf0">4.05</text>
+          <text x="176" y="87" font-size="12" text-anchor="middle" fill="#eaeaf0">2.95</text>
+          <text x="258" y="91" font-size="12" text-anchor="middle" fill="#eaeaf0">2.82</text>
+          <text x="340" y="154" font-size="12" text-anchor="middle" fill="#eaeaf0">1.02</text>
+          <text x="94" y="214" font-size="11" text-anchor="middle" fill="#aeb5c6">Ikwe</text>
+          <text x="176" y="214" font-size="11" text-anchor="middle" fill="#aeb5c6">GPT-4o</text>
+          <text x="258" y="214" font-size="11" text-anchor="middle" fill="#aeb5c6">Claude</text>
+          <text x="340" y="214" font-size="11" text-anchor="middle" fill="#aeb5c6">Grok</text>
+        </svg>
+      </figure>
     </div>
     
     <h3>Key Finding 1: First-Contact Risk</h3>
@@ -1086,9 +1188,25 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
     
     <h3>For Policy and Governance</h3>
     <ul class="report-list">
-      <li>Current AI safety frameworks lack behavioral emotional safety requirements</li>
+      <li>Emotional safety is not yet explicitly defined within most existing AI regulatory frameworks</li>
       <li>Self-reported emotional intelligence claims have no standardized verification</li>
       <li>Vulnerable population protections need trajectory-based evaluation, not just content filtering</li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- RESEARCH INTEGRITY -->
+  <section id="integrity" class="report-section">
+    <div class="section-kicker">Research Integrity</div>
+    <h2>Research Integrity & Transparency</h2>
+
+    <ul class="report-list">
+      <li>Funding source: Internal research funded by Visible Healing Inc. (dba Ikwe.ai).</li>
+      <li>No compensation was received from evaluated model providers for this benchmark work.</li>
+      <li>Evaluation and scoring were conducted independently by the Ikwe research team.</li>
+      <li>Reproducibility materials and methodological notes are available upon institutional request.</li>
+      <li>Methodological review contact: <a href="mailto:research@ikwe.ai">research@ikwe.ai</a>.</li>
     </ul>
   </section>
 
@@ -1130,6 +1248,7 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
     <p>The core finding — <strong>Recognition ≠ Safety</strong> — has implications for how AI systems are evaluated, deployed, and marketed in contexts involving emotional vulnerability.</p>
     
     <p>Current frontier models demonstrate substantial first-contact risk and limited capacity for behavioral repair once emotional risk is introduced. Emotional articulation alone does not reliably translate into safe behavior under emotional load.</p>
+    <p>This research informs Ikwe’s audit and behavioral instrumentation systems.</p>
     
     <div class="divider short"></div>
     
@@ -1150,7 +1269,7 @@ section, .hero, .proof, .samples, .cta, .tiers-section, .router-grid { overflow-
     <h2>Reference This Work</h2>
     
     <div class="citation-box">
-      <p><strong>Ikwe.ai. (2026).</strong> <em>The Emotional Safety Gap: Behavioral Emotional Safety in Conversational AI.</em> Visible Healing Inc.</p>
+      <p><strong>Stranko, S. (2026).</strong> <em>Behavioral Emotional Safety in Conversational AI: A Scenario-Based Evaluation.</em> Ikwe.ai / Visible Healing Inc. Version 1.0.</p>
       <p style="margin-top: 12px;"><a href="https://ikwe.ai/research">https://ikwe.ai/research</a></p>
     </div>
     
