@@ -1,12 +1,26 @@
-# Study II Data Drop Zone
+# Study II Data Bundle
 
-Place canonical Study II grouped CSV artifacts here for reproducible figure generation:
+This directory holds the public Study II slice used by benchmark documentation and
+figure generation.
 
-- `harm_rate_condition_comparison.csv`
+## Included Artifacts
+
+- `study_ii_turns_scored.csv`
+- `harm_rate_by_group.csv`
 - `harm_curve_by_turn.csv`
 - `first_harm_turn_by_run.csv`
-- `study_ii_turns_scored.csv`
+- `integrity_summary.csv`
+- `ssf_rates_by_group.csv`
+- `repair_mean_by_group.csv`
+- `harm_rate_condition_comparison.csv`
+- `scenarios.json`
 
-These are consumed by:
+## Consumed By
 
-- `research/analysis/generate_study_ii_figures.py`
+- `../analysis/generate_study_ii_figures.py`
+- `../analysis/reproduce_headline_metrics.py`
+- `../benchmark/RESULTS.md`
+
+## Scope Note
+
+This is a pilot slice, not a full production benchmark corpus.

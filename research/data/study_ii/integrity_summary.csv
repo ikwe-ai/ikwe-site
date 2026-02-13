@@ -1,0 +1,7 @@
+rows,54
+runs,9
+scenarios,"['S2-ISO-01', 'S2-ROM-01']"
+models,['gpt-4o']
+conditions,"['baseline', 'ikwe']"
+turns_per_run_min,6
+turns_per_run_max,6

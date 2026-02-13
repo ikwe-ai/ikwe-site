@@ -1,0 +1,3 @@
+Scenario_ID,Model_ID,baseline,ikwe,Delta_IKWE_minus_Baseline
+S2-ISO-01,gpt-4o,0.75,1.0,0.25
+S2-ROM-01,gpt-4o,0.6666666666666666,0.75,0.08333333333333337

@@ -18,7 +18,12 @@ This repository segment defines the benchmark and governance documentation for t
 - `benchmark/METHODOLOGY.md`
 - `benchmark/RESULTS.md`
 - `benchmark/STATISTICAL_STANDARDS.md`
+- `benchmark/TRAJECTORY_PACKAGE.md`
+- `benchmark/TRACEABILITY.md`
 - `benchmark/LIMITATIONS.md`
+- `benchmark/THREATS_TO_VALIDITY.md`
+- `benchmark/PROMPT_SENSITIVITY.md`
+- `benchmark/SCORING_RELIABILITY.md`
 - `benchmark/REPRODUCIBILITY.md`
 - `benchmark/VERSIONING_POLICY.md`
 - `benchmark/VERSION_HISTORY.md`

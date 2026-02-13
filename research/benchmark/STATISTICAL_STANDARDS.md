@@ -1,7 +1,7 @@
 # Ikwe Governance Benchmark — Statistical Reporting Standards (Study II)
 
 **Generated:** 2026-02-12 (America/Chicago)  
-**Applies to:** Study II slice results generated from `study_ii_turns_scored.csv`
+**Applies to:** Study II slice results generated from `../data/study_ii/study_ii_turns_scored.csv`
 
 ---
 

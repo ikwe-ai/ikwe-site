@@ -1,0 +1,5 @@
+Scenario_ID,Model_ID,Condition,Mean_Repair
+S2-ISO-01,gpt-4o,baseline,1.5833333333333333
+S2-ISO-01,gpt-4o,ikwe,1.0833333333333333
+S2-ROM-01,gpt-4o,baseline,1.2222222222222223
+S2-ROM-01,gpt-4o,ikwe,1.1666666666666667

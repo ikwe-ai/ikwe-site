@@ -335,6 +335,11 @@ def trajectory_line(curve_df: pd.DataFrame) -> plt.Figure:
     return fig
 
 
+def harm_curve(curve_df: pd.DataFrame) -> plt.Figure:
+    """Canonical Figure 2 renderer for traceability references."""
+    return trajectory_line(curve_df)
+
+
 def first_harm_survival(first_harm_df: pd.DataFrame) -> plt.Figure:
     if first_harm_df.empty:
         raise ValueError("first_harm_turn_by_run.csv has no numeric first-harm rows")
@@ -359,6 +364,11 @@ def first_harm_survival(first_harm_df: pd.DataFrame) -> plt.Figure:
     return fig
 
 
+def km_survival(first_harm_df: pd.DataFrame) -> plt.Figure:
+    """Canonical Figure 4 renderer for traceability references."""
+    return first_harm_survival(first_harm_df)
+
+
 def aggregate_turn_metric(turns_df: pd.DataFrame, value_col: str, harm_only: bool = False) -> pd.DataFrame:
     frame = turns_df.copy()
     if harm_only:
@@ -379,6 +389,23 @@ def aggregate_turn_metric(turns_df: pd.DataFrame, value_col: str, harm_only: boo
     merged = grid.merge(grouped, on=["condition", "turn_index"], how="left")
     merged[value_col] = merged[value_col].fillna(0.0)
     return merged
+
+
+def repair_trajectory(turns_df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Return Figure 3A (adequacy) and 3B (mean score) trajectories."""
+    adequacy = aggregate_turn_metric(
+        turns_df.assign(repair_adequacy=turns_df["is_ra"].astype(float)),
+        "repair_adequacy",
+        harm_only=True,
+    )
+    mean_score = aggregate_turn_metric(turns_df, "repair_score", harm_only=True)
+    return adequacy, mean_score
+
+
+def unresolved_curve(turns_df: pd.DataFrame) -> pd.DataFrame:
+    """Return Figure 5 unresolved-harm trajectory."""
+    unresolved = turns_df.assign(unresolved=((turns_df["harm"]) & (~turns_df["is_ra"])).astype(float))
+    return aggregate_turn_metric(unresolved, "unresolved", harm_only=False)
 
 
 def two_line_trajectory(df: pd.DataFrame, value_col: str, title: str, ylabel: str, stem: str, outdir: Path) -> None:
@@ -437,7 +464,7 @@ def main() -> int:
     if curve_path.exists():
         curve_df = pd.read_csv(curve_path)
         curve = prepare_curve(curve_df)
-        fig2 = trajectory_line(curve)
+        fig2 = harm_curve(curve)
         save_fig(fig2, outdir, "Figure2_HarmTrajectory_ByTurn")
         plt.close(fig2)
     else:
@@ -446,7 +473,7 @@ def main() -> int:
     if first_harm_path.exists():
         first_harm_df = pd.read_csv(first_harm_path)
         first_harm = prepare_first_harm(first_harm_df)
-        fig4 = first_harm_survival(first_harm)
+        fig4 = km_survival(first_harm)
         save_fig(fig4, outdir, "Figure4_FirstHarm_SurvivalCurve")
         plt.close(fig4)
     else:
@@ -456,7 +483,7 @@ def main() -> int:
         turns_df = pd.read_csv(turns_path)
         turns = prepare_turns(turns_df, args)
 
-        harm_turns_adequacy = aggregate_turn_metric(turns.assign(repair_adequacy=turns["is_ra"].astype(float)), "repair_adequacy", harm_only=True)
+        harm_turns_adequacy, harm_turns_repair = repair_trajectory(turns)
         two_line_trajectory(
             harm_turns_adequacy,
             value_col="repair_adequacy",
@@ -466,7 +493,6 @@ def main() -> int:
             outdir=outdir,
         )
 
-        harm_turns_repair = aggregate_turn_metric(turns, "repair_score", harm_only=True)
         two_line_trajectory(
             harm_turns_repair,
             value_col="repair_score",
@@ -476,8 +502,7 @@ def main() -> int:
             outdir=outdir,
         )
 
-        unresolved = turns.assign(unresolved=((turns["harm"]) & (~turns["is_ra"])).astype(float))
-        unresolved_turn = aggregate_turn_metric(unresolved, "unresolved", harm_only=False)
+        unresolved_turn = unresolved_curve(turns)
         two_line_trajectory(
             unresolved_turn,
             value_col="unresolved",

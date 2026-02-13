@@ -11,6 +11,8 @@
 | Artifact Manifest | Yes | Yes | Active |
 
 ## Reproduction Instructions
+Run commands from the `ikwe-site` repository root.
+
 1. Regenerate PDFs: `bash scripts/render_pdfs.sh`
 2. Regenerate PNGs: `node scripts/render_samples.mjs`
 3. Generate Study II figures: `python3 research/analysis/generate_study_ii_figures.py` (Figure 1/1B required; Figures 2/3A/3B/4/5 when optional CSVs are present)

@@ -12,22 +12,22 @@ The results in this document were recomputed from the following artifacts:
 
 | File | SHA-256 |
 |---|---|
-| `study_ii_turns_scored.csv` | `4dad4b35a857baa7294c8fc68dbbffdf28f93b110ed91bd272bde49fc2fa5b0a` |
-| `harm_rate_by_group.csv` | `ff4b4b9d7a29af54efb6c7e7aee63046aa0b1ec72473a27f97d80f9e0c1fcb32` |
-| `harm_curve_by_turn.csv` | `90c87424af1257b27704dbe0e2991dfb9505ba54e9db578cf4772110dd7d5bc8` |
-| `first_harm_turn_by_run.csv` | `474ecff6a16d9adc5f7070ccdca8b86df3fdd84d1329066b387aa77195ad5a42` |
-| `integrity_summary.csv` | `d2b4a670450534432f52608a01866d4c7ddcf988426ac0588fc00d14ab33d2ed` |
-| `ssf_rates_by_group.csv` | `fbdbffbb5fb5dd2319b1be3e51aded06d87499ef4956dfce7450fd103ed19a5f` |
-| `repair_mean_by_group.csv` | `ff350883b53f552e18a8991fac9d0e70a3cee6732b1b656aea5e2ccbc7f5eae3` |
-| `harm_rate_condition_comparison.csv` | `c2a26637b6aa89d5926c86173080021cff50745fd49c14a2af8a703ea56067a2` |
+| `../data/study_ii/study_ii_turns_scored.csv` | `4dad4b35a857baa7294c8fc68dbbffdf28f93b110ed91bd272bde49fc2fa5b0a` |
+| `../data/study_ii/harm_rate_by_group.csv` | `ff4b4b9d7a29af54efb6c7e7aee63046aa0b1ec72473a27f97d80f9e0c1fcb32` |
+| `../data/study_ii/harm_curve_by_turn.csv` | `90c87424af1257b27704dbe0e2991dfb9505ba54e9db578cf4772110dd7d5bc8` |
+| `../data/study_ii/first_harm_turn_by_run.csv` | `474ecff6a16d9adc5f7070ccdca8b86df3fdd84d1329066b387aa77195ad5a42` |
+| `../data/study_ii/integrity_summary.csv` | `d2b4a670450534432f52608a01866d4c7ddcf988426ac0588fc00d14ab33d2ed` |
+| `../data/study_ii/ssf_rates_by_group.csv` | `fbdbffbb5fb5dd2319b1be3e51aded06d87499ef4956dfce7450fd103ed19a5f` |
+| `../data/study_ii/repair_mean_by_group.csv` | `ff350883b53f552e18a8991fac9d0e70a3cee6732b1b656aea5e2ccbc7f5eae3` |
+| `../data/study_ii/harm_rate_condition_comparison.csv` | `c2a26637b6aa89d5926c86173080021cff50745fd49c14a2af8a703ea56067a2` |
 
-> **Recompute anchor:** `study_ii_turns_scored.csv` is treated as the canonical scored-turn dataset for all tables below.
+> **Recompute anchor:** `../data/study_ii/study_ii_turns_scored.csv` is treated as the canonical scored-turn dataset for all tables below.
 
 ---
 
 ## 1. Sample Overview
 
-From `integrity_summary.csv`:
+From `../data/study_ii/integrity_summary.csv`:
 
 - **Runs:** 9
 - **Scenarios:** 2 (S2-ISO-01, S2-ROM-01)
@@ -166,13 +166,13 @@ This mapping is an explicit analysis assumption for this draft and must be pinne
 
 ## 7. Reproducibility Check (Internal Consistency)
 
-The following aggregation files match exact recomputation from `study_ii_turns_scored.csv` using the `.1` columns:
+The following aggregation files match exact recomputation from `../data/study_ii/study_ii_turns_scored.csv` using the `.1` columns:
 
-- `harm_rate_by_group.csv`
-- `harm_curve_by_turn.csv`
-- `first_harm_turn_by_run.csv`
-- `ssf_rates_by_group.csv`
-- `repair_mean_by_group.csv`
+- `../data/study_ii/harm_rate_by_group.csv`
+- `../data/study_ii/harm_curve_by_turn.csv`
+- `../data/study_ii/first_harm_turn_by_run.csv`
+- `../data/study_ii/ssf_rates_by_group.csv`
+- `../data/study_ii/repair_mean_by_group.csv`
 
 ---
 
