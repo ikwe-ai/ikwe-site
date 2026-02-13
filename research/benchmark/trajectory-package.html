@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study II Trajectory Package | Ikwe Research</title>
+  <meta name="description" content="Canonical Study II trajectory package with figure definitions, coding disclosure, and interpretation rules.">
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --ink: #0f2138;
+      --muted: #50637a;
+      --line: #d9e2ee;
+      --accent: #1c4675;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Avenir Next", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      padding: 28px 16px 46px;
+    }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 16px 38px rgba(12, 25, 43, 0.08);
+      overflow: hidden;
+    }
+    .head {
+      background: linear-gradient(135deg, #103057 0%, #1f4f7f 100%);
+      color: #f2f6fd;
+      padding: 22px;
+    }
+    h1 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 6px; }
+    .sub { color: #cdd9ea; font-size: 0.95rem; }
+    .body { padding: 22px; }
+    h2 { font-size: 1.1rem; margin: 18px 0 8px; }
+    p { color: var(--muted); margin-bottom: 10px; }
+    ul { margin: 8px 0 10px 20px; color: var(--muted); }
+    li { margin-bottom: 6px; }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.87em;
+      background: #eef3f9;
+      border: 1px solid #dde6f1;
+      border-radius: 5px;
+      padding: 1px 6px;
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    a.btn {
+      text-decoration: none;
+      border: 1px solid #2f5f93;
+      background: #1c4675;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 0.88rem;
+      font-weight: 650;
+    }
+    a.btn.secondary {
+      background: #ffffff;
+      color: var(--accent);
+      border-color: #b8c8dc;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <article class="card">
+      <header class="head">
+        <h1>Study II Trajectory Package (Figures 2-5)</h1>
+        <p class="sub">Canonical public index for trajectory safety interpretation and reproducibility references.</p>
+      </header>
+      <section class="body">
+        <p>This package operationalizes interaction trajectory safety as a time-series problem.</p>
+
+        <h2>Figure Definitions</h2>
+        <ul>
+          <li>Fig 2: Harm trajectory by turn (mean harm rate vs turn index)</li>
+          <li>Fig 3A: Repair adequacy trajectory (<code>P(R-A | Harm=YES)</code>) by turn</li>
+          <li>Fig 3B: Mean repair score trajectory (numeric coding) by turn</li>
+          <li>Fig 4: First-harm survival curve (Kaplan-Meier style)</li>
+          <li>Fig 5: Unresolved harm curve (<code>Harm=YES and Repair!=R-A</code>) by turn</li>
+        </ul>
+
+        <h2>Interpretation Rule</h2>
+        <p>Harm rate measures rubric flag frequency, not harm creation. Trajectory safety is evaluated by detection timing (Fig 4) and control response (Fig 3A/3B), with unresolved harm accumulation (Fig 5) as the primary safety risk proxy in this slice.</p>
+
+        <h2>Coding Disclosure</h2>
+        <p>Repair coding is numeric in exports and mapped as: <code>2 -> R-A</code>, <code>1 -> R-I</code>, <code>0 -> R-0</code> on harm turns with non-harm <code>N/A</code> fallback policy disclosed.</p>
+
+        <h2>Reproduction</h2>
+        <p>Run <code>python3 ../analysis/generate_study_ii_figures.py</code> to regenerate figure assets.</p>
+
+        <div class="links">
+          <a class="btn" href="/research/figures/Figure2_HarmTrajectory_ByTurn.pdf">Figure 2 PDF</a>
+          <a class="btn" href="/research/figures/Figure3A_RepairAdequacy_Trajectory.pdf">Figure 3A PDF</a>
+          <a class="btn" href="/research/figures/Figure3B_MeanRepairScore_Trajectory.pdf">Figure 3B PDF</a>
+          <a class="btn" href="/research/figures/Figure4_FirstHarm_SurvivalCurve.pdf">Figure 4 PDF</a>
+          <a class="btn" href="/research/figures/Figure5_UnresolvedHarm_Curve.pdf">Figure 5 PDF</a>
+          <a class="btn secondary" href="/research">Back to Research Lab</a>
+        </div>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

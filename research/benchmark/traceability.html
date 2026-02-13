@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study II Traceability Spine | Ikwe Research</title>
+  <meta name="description" content="Study II claim-to-figure-to-data-to-code traceability table for audit and peer review.">
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --ink: #13253d;
+      --muted: #51667f;
+      --line: #d7e1ee;
+      --accent: #1c4675;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Avenir Next", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+      padding: 28px 16px 46px;
+    }
+    .wrap { max-width: 980px; margin: 0 auto; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 16px 38px rgba(12, 25, 43, 0.08);
+      overflow: hidden;
+    }
+    .head {
+      background: linear-gradient(135deg, #103057 0%, #1f4f7f 100%);
+      color: #f1f6fe;
+      padding: 22px;
+    }
+    h1 { font-size: clamp(1.45rem, 3vw, 1.95rem); margin-bottom: 6px; }
+    .sub { color: #ced9ea; font-size: 0.95rem; }
+    .body { padding: 22px; }
+    p { color: var(--muted); margin-bottom: 12px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--line);
+      font-size: 0.9rem;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th:last-child, td:last-child { border-right: none; }
+    th {
+      background: #edf3fa;
+      color: #193b62;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    tr:last-child td { border-bottom: none; }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.86em;
+      background: #edf3fa;
+      border: 1px solid #d9e5f3;
+      border-radius: 5px;
+      padding: 1px 5px;
+    }
+    .notes {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    a.btn {
+      text-decoration: none;
+      border: 1px solid #2f5f93;
+      background: #1c4675;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 0.88rem;
+      font-weight: 650;
+    }
+    a.btn.secondary {
+      background: #ffffff;
+      color: var(--accent);
+      border-color: #b8c8dc;
+    }
+    @media (max-width: 920px) {
+      .scroll { overflow-x: auto; }
+      table { min-width: 900px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <article class="card">
+      <header class="head">
+        <h1>Study II Traceability Spine</h1>
+        <p class="sub">Claim -> Figure -> Data -> Code mapping for peer review and audit verification.</p>
+      </header>
+      <section class="body">
+        <p>This table covers the trajectory figure package claims and their explicit evidence chain.</p>
+
+        <div class="scroll">
+          <table aria-label="Study II traceability table">
+            <thead>
+              <tr>
+                <th>Claim ID</th>
+                <th>Claim</th>
+                <th>Evidence</th>
+                <th>Data Source</th>
+                <th>Script / Function</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>C-02</td>
+                <td>Trajectory correction is inconsistently applied once harm is present.</td>
+                <td>Fig 3A, Fig 3B</td>
+                <td><code>research/data/study_ii/study_ii_turns_scored.csv</code></td>
+                <td><code>generate_study_ii_figures.py:repair_trajectory</code></td>
+                <td>Verified</td>
+              </tr>
+              <tr>
+                <td>C-04</td>
+                <td>First harm occurs early in interaction trajectories.</td>
+                <td>Fig 4</td>
+                <td><code>research/data/study_ii/first_harm_turn_by_run.csv</code></td>
+                <td><code>generate_study_ii_figures.py:km_survival</code></td>
+                <td>Verified</td>
+              </tr>
+              <tr>
+                <td>C-05</td>
+                <td>Unresolved harm accumulates over turns.</td>
+                <td>Fig 5</td>
+                <td><code>research/data/study_ii/study_ii_turns_scored.csv</code></td>
+                <td><code>generate_study_ii_figures.py:unresolved_curve</code></td>
+                <td>Verified</td>
+              </tr>
+              <tr>
+                <td>C-06</td>
+                <td>Harm trajectory differs by condition over turns.</td>
+                <td>Fig 2</td>
+                <td><code>research/data/study_ii/harm_curve_by_turn.csv</code></td>
+                <td><code>generate_study_ii_figures.py:harm_curve</code></td>
+                <td>Verified</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="notes">Broader claim traceability remains documented in the canonical Study II traceability set. If upstream files change, figures and status markers must be regenerated before release.</p>
+
+        <div class="links">
+          <a class="btn" href="/research/benchmark/trajectory-package.html">Open Trajectory Package</a>
+          <a class="btn secondary" href="/research">Back to Research Lab</a>
+        </div>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

@@ -32,5 +32,9 @@
 /ikwe_research_summary_branded.pdf        /downloads/ikwe_research_summary.pdf      301
 /ikwe_full_research_report_branded.pdf    /downloads/ikwe_full_research_report.pdf  301
 
+# ── Benchmark docs: raw markdown → public HTML views ──
+/research/benchmark/TRAJECTORY_PACKAGE.md  /research/benchmark/trajectory-package.html  301!
+/research/benchmark/TRACEABILITY.md        /research/benchmark/traceability.html        301!
+
 # ── 404 fallback ──
 /*  /404.html  404
