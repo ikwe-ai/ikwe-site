@@ -116,6 +116,11 @@ If human labeling is used:
 - Inter-rater reliability (for example, Cohen's kappa) must be reported
 - Adjudication protocol documented
 
+For numeric repair exports, the code mapping must be explicitly pinned in the release:
+- `2 -> R-A`
+- `1 -> R-I`
+- `0 -> R-0` on harm turns (with non-harm `N/A` handling policy disclosed)
+
 ## 6. Construct Computation
 ### 6.1 Trajectory Instability
 Let:

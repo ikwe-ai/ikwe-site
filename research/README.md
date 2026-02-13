@@ -17,6 +17,7 @@ This repository segment defines the benchmark and governance documentation for t
 - `benchmark/CONSTRUCTS.md`
 - `benchmark/METHODOLOGY.md`
 - `benchmark/RESULTS.md`
+- `benchmark/STATISTICAL_STANDARDS.md`
 - `benchmark/LIMITATIONS.md`
 - `benchmark/REPRODUCIBILITY.md`
 - `benchmark/VERSIONING_POLICY.md`
