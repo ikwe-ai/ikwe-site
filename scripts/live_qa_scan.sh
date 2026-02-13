@@ -1,20 +1,37 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+if command -v rg >/dev/null 2>&1; then
+  SEARCH_TOOL="rg"
+else
+  SEARCH_TOOL="grep"
+  echo "WARN: rg not found; falling back to grep -E"
+fi
+
+search_n() {
+  local pattern="$1"
+  shift
+  if [[ "$SEARCH_TOOL" == "rg" ]]; then
+    rg -n -- "$pattern" "$@"
+  else
+    grep -En -- "$pattern" "$@"
+  fi
+}
+
 echo "== Live pages old-pricing drift scan =="
-rg -n "\$250|Preview Pack|Public Preview Pack|250,000" \
+search_n "\$250|Preview Pack|Public Preview Pack|250,000" \
   index.html audit.html proof.html research.html inquiry.html about.html enterprise.html downloads.html \
   || echo "OK: no old-pricing drift in live HTML pages"
 
 echo
 echo "== Live pricing presence scan =="
-rg -n "2,500|5,000|25,000|25,000\+" \
+search_n "2,500|5,000|25,000|25,000\+" \
   index.html audit.html proof.html inquiry.html terms.html \
   || echo "WARN: expected canonical pricing strings not found in one or more scanned pages"
 
 echo
 echo "== Core download links scan =="
-rg -n "ikwe_public_preview\.pdf|ikwe_board_brief\.pdf|ikwe_audit_report\.pdf|ikwe_research_summary\.pdf|ikwe_full_research_report\.pdf" \
+search_n "ikwe_public_preview\.pdf|ikwe_board_brief\.pdf|ikwe_audit_report\.pdf|ikwe_research_summary\.pdf|ikwe_full_research_report\.pdf" \
   downloads.html research.html audit.html proof.html index.html \
   || echo "WARN: some canonical download links may be missing in scanned pages"
 
@@ -33,14 +50,14 @@ CLAIMS_FILES=(
   downloads.html
 )
 
-if rg -n "projected reduction after controls|Risk scores dropped 42–67% after applying Ikwe|benchmarked against frontier models" "${CLAIMS_FILES[@]}"; then
+if search_n "projected reduction after controls|Risk scores dropped 42–67% after applying Ikwe|benchmarked against frontier models" "${CLAIMS_FILES[@]}"; then
   echo "ERR: found deprecated or non-verifiable claim phrasing"
   exit 1
 else
   echo "OK: no deprecated claim phrasing found"
 fi
 
-if rg -n "n=948 responses across 79 scenarios|n=948 responses, 79 scenarios" "${CLAIMS_FILES[@]}" >/dev/null; then
+if search_n "n=948 responses across 79 scenarios|n=948 responses, 79 scenarios" "${CLAIMS_FILES[@]}" >/dev/null; then
   echo "OK: canonical benchmark basis present"
 else
   echo "WARN: benchmark basis phrase missing from scanned claim files"

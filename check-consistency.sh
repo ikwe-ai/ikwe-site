@@ -6,6 +6,33 @@ set -euo pipefail
 
 cd "$(dirname "$0")"
 
+if command -v rg >/dev/null 2>&1; then
+  SEARCH_TOOL="rg"
+else
+  SEARCH_TOOL="grep"
+  echo "WARN: rg not found; falling back to grep -E"
+fi
+
+search_q() {
+  local pattern="$1"
+  shift
+  if [[ "$SEARCH_TOOL" == "rg" ]]; then
+    rg -q -- "$pattern" "$@"
+  else
+    grep -Eq -- "$pattern" "$@"
+  fi
+}
+
+search_o() {
+  local pattern="$1"
+  shift
+  if [[ "$SEARCH_TOOL" == "rg" ]]; then
+    rg -o -- "$pattern" "$@"
+  else
+    grep -Eo -- "$pattern" "$@"
+  fi
+}
+
 LIVE_PAGES=(
   "index.html"
   "audit.html"
@@ -63,13 +90,13 @@ echo "--------------------"
 for file in "${LIVE_PAGES[@]}"; do
   [[ -f "$file" ]] || continue
 
-  if ! rg -q '</html>' "$file"; then
+  if ! search_q '</html>' "$file"; then
     echo "  ERR $file missing </html>"
     ERRORS=$((ERRORS + 1))
     continue
   fi
 
-  if ! rg -q '</body>' "$file"; then
+  if ! search_q '</body>' "$file"; then
     echo "  ERR $file missing </body>"
     ERRORS=$((ERRORS + 1))
     continue
@@ -84,7 +111,7 @@ echo "-------------------------------------------"
 for file in "${LIVE_PAGES[@]}"; do
   [[ -f "$file" ]] || continue
 
-  if rg -q '/cdn-cgi/l/email-protection|/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' "$file"; then
+  if search_q '/cdn-cgi/l/email-protection|/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' "$file"; then
     echo "  ERR $file contains Cloudflare-only email link/script"
     ERRORS=$((ERRORS + 1))
   else
@@ -98,7 +125,7 @@ echo "-------------------------------------------"
 for file in "${ANALYTICS_PAGES[@]}"; do
   [[ -f "$file" ]] || continue
 
-  if rg -q 'plausible\.io/js/script\.js|window\.plausible' "$file"; then
+  if search_q 'plausible\.io/js/script\.js|window\.plausible' "$file"; then
     echo "  OK  $file"
   else
     echo "  WARN $file missing plausible analytics snippet"
@@ -112,19 +139,19 @@ echo "--------------------------"
 for file in "${LIVE_PAGES[@]}"; do
   [[ -f "$file" ]] || continue
 
-  if ! rg -q 'Research Access Terms' "$file"; then
+  if ! search_q 'Research Access Terms' "$file"; then
     echo "  ERR $file missing Research Access Terms reference"
     ERRORS=$((ERRORS + 1))
     continue
   fi
 
-  if ! rg -q 'All rights reserved' "$file"; then
+  if ! search_q 'All rights reserved' "$file"; then
     echo "  ERR $file missing all-rights-reserved language"
     ERRORS=$((ERRORS + 1))
     continue
   fi
 
-  if ! rg -q 'do not constitute legal, medical, or clinical advice' "$file"; then
+  if ! search_q 'do not constitute legal, medical, or clinical advice' "$file"; then
     echo "  ERR $file missing legal/medical/clinical disclaimer"
     ERRORS=$((ERRORS + 1))
     continue
@@ -155,7 +182,7 @@ for file in "${LIVE_PAGES[@]}"; do
       target=".${route_path}index.html"
       alt=".${route_path%/}.html"
 
-      if [[ ! -e "$target" && ! -e "$alt" ]] && ! rg -q "^${route_path%/}[[:space:]]" _redirects; then
+      if [[ ! -e "$target" && ! -e "$alt" ]] && ! search_q "^${route_path%/}[[:space:]]" _redirects; then
         echo "  ERR $file -> missing route $route_path"
         ERRORS=$((ERRORS + 1))
       fi
@@ -163,12 +190,12 @@ for file in "${LIVE_PAGES[@]}"; do
       target=".${route_path}"
       alt=".${route_path}.html"
 
-      if [[ ! -e "$target" && ! -e "$alt" ]] && ! rg -q "^${route_path}[[:space:]]" _redirects; then
+      if [[ ! -e "$target" && ! -e "$alt" ]] && ! search_q "^${route_path}[[:space:]]" _redirects; then
         echo "  ERR $file -> missing path $route_path"
         ERRORS=$((ERRORS + 1))
       fi
     fi
-  done < <(rg -o 'href="[^"]+"|src="[^"]+"' "$file" | sed -E 's/^[^"]+"([^"]+)"$/\1/' | sort -u)
+  done < <(search_o 'href="[^"]+"|src="[^"]+"' "$file" 2>/dev/null | sed -E 's/^[^"]+"([^"]+)"$/\1/' | sort -u || true)
 done
 echo
 

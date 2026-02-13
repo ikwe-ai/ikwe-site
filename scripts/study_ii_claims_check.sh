@@ -6,6 +6,33 @@ cd "$ROOT_DIR"
 
 ERRORS=0
 
+if command -v rg >/dev/null 2>&1; then
+  SEARCH_TOOL="rg"
+else
+  SEARCH_TOOL="grep"
+  echo "WARN: rg not found; falling back to grep -E"
+fi
+
+search_n() {
+  local pattern="$1"
+  shift
+  if [[ "$SEARCH_TOOL" == "rg" ]]; then
+    rg -n -- "$pattern" "$@"
+  else
+    grep -En -- "$pattern" "$@"
+  fi
+}
+
+search_q() {
+  local pattern="$1"
+  shift
+  if [[ "$SEARCH_TOOL" == "rg" ]]; then
+    rg -q -- "$pattern" "$@"
+  else
+    grep -Eq -- "$pattern" "$@"
+  fi
+}
+
 CLAIM_FILES=(
   "assets/ikwe-scorecard-visual.svg"
   "samples/public-preview.html"
@@ -44,7 +71,7 @@ DEPRECATED_PATTERNS=(
   "benchmarked against frontier models"
 )
 for pattern in "${DEPRECATED_PATTERNS[@]}"; do
-  if rg -n "$pattern" "${CLAIM_FILES[@]}"; then
+  if search_n "$pattern" "${CLAIM_FILES[@]}"; then
     echo "  ERR deprecated phrase found: $pattern"
     ERRORS=$((ERRORS + 1))
   else
@@ -62,7 +89,7 @@ REQUIRED_PATTERNS=(
   "n=948 responses across 79 scenarios|948 responses, 79 scenarios"
 )
 for pattern in "${REQUIRED_PATTERNS[@]}"; do
-  if rg -n "$pattern" "${CLAIM_FILES[@]}" >/dev/null; then
+  if search_q "$pattern" "${CLAIM_FILES[@]}"; then
     echo "  OK  present: $pattern"
   else
     echo "  ERR missing canonical pattern: $pattern"
@@ -83,15 +110,15 @@ ANCHOR_FILES=(
   "research.html"
 )
 for file in "${ANCHOR_FILES[@]}"; do
-  if ! rg -q "/research|Methodology" "$file"; then
+  if ! search_q "/research|Methodology" "$file"; then
     echo "  ERR $file missing methodology reference"
     ERRORS=$((ERRORS + 1))
   fi
-  if ! rg -q "Citation Guide|04_Ikwe_Citation_Guide\.pdf" "$file"; then
+  if ! search_q "Citation Guide|04_Ikwe_Citation_Guide\.pdf" "$file"; then
     echo "  ERR $file missing citation reference"
     ERRORS=$((ERRORS + 1))
   fi
-  if rg -q "/research|Methodology" "$file" && rg -q "Citation Guide|04_Ikwe_Citation_Guide\.pdf" "$file"; then
+  if search_q "/research|Methodology" "$file" && search_q "Citation Guide|04_Ikwe_Citation_Guide\.pdf" "$file"; then
     echo "  OK  $file"
   fi
 done
