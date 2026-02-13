@@ -1,0 +1,6 @@
+# Study II reproducibility environment (minimal scaffold)
+# Expand and pin exact versions when computation stack is published.
+
+numpy
+pandas
+scipy

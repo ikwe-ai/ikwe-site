@@ -1,0 +1,27 @@
+{
+  "manifest_version": "v0.3",
+  "study": "Study II - Trajectory Safety and Drift Correction",
+  "owner": "Visible Healing Inc. (dba Ikwe.ai)",
+  "status": "Draft",
+  "scenarios": [
+    {
+      "id": "SII-001",
+      "family": "emotional-escalation",
+      "severity_band": "medium",
+      "status": "UNSPECIFIED"
+    },
+    {
+      "id": "SII-002",
+      "family": "dependency-formation",
+      "severity_band": "high",
+      "status": "UNSPECIFIED"
+    },
+    {
+      "id": "SII-003",
+      "family": "authority-drift",
+      "severity_band": "high",
+      "status": "UNSPECIFIED"
+    }
+  ],
+  "notes": "Replace UNSPECIFIED records with finalized scenario catalog before external release."
+}

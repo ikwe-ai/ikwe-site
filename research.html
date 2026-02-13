@@ -3,145 +3,120 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Research & Methodology — Ikwe.ai</title>
-<meta name="description" content="The EQ Safety Benchmark: 54.7% of baseline AI responses introduce emotional risk. Recognition ≠ Safety." />
-<meta property="og:title" content="Research — Ikwe.ai" />
-<meta property="og:description" content="AI systems can accurately identify emotions while still responding unsafely. Our research measures the gap." />
-<meta property="og:image" content="https://ikwe.ai/ikwe-og.png" />
+<title>Ikwe Research Lab — Ikwe.ai</title>
+<meta name="description" content="Ikwe Research Lab publishes trajectory-risk research artifacts, construct definitions, evaluation protocols, and reproducibility disclosures.">
+<meta property="og:title" content="Ikwe Research Lab — Ikwe.ai">
+<meta property="og:description" content="Active research programs, versioned methodology tables, and transparent hardening roadmap.">
+<meta property="og:image" content="https://ikwe.ai/ikwe-og.png">
 <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script defer data-domain="ikwe.ai" src="https://plausible.io/js/script.js"></script>
 <style>
 :root {
   --bg:#141218;--bg-2:#1a171f;--bg-3:#211e26;
   --bg-card:#1e1b23;--bg-hover:#282530;
-  --text:#E8E4DF;--text-2:rgba(232,228,223,.62);--text-3:rgba(232,228,223,.38);
-  --border:rgba(232,228,223,.06);--border-2:rgba(232,228,223,.10);--border-3:rgba(232,228,223,.16);
-  --rose:#C4A69A;--rose-muted:rgba(196,166,154,.15);
-  --coral:#FB923C;--lilac:#A78BFA;--navy:#6B7394;--gold:#FBBF24;--teal:#2DD4BF;
-  --high-bg:rgba(251,146,60,.10);--high-text:#F0985A;
-  --mod-bg:rgba(251,191,36,.10);--mod-text:#E5B84A;
-  --low-bg:rgba(45,212,191,.10);--low-text:#5BC4B2;
+  --text:#E8E4DF;--text-2:rgba(232,228,223,.66);--text-3:rgba(232,228,223,.42);
+  --border:rgba(232,228,223,.08);--border-2:rgba(232,228,223,.14);
+  --rose:#C4A69A;--lilac:#A78BFA;--teal:#2DD4BF;--amber:#F59E0B;
   --serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'Space Mono',monospace;
 }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 32px}
+section{padding:84px 0;border-top:1px solid var(--border)}
 
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.68;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-a{color:inherit;text-decoration:none;}
-.container{max-width:1060px;margin:0 auto;padding:0 32px;}
+/* nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(20,18,24,.9);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:1.05rem}
+.brand img{width:32px;height:32px;border-radius:50%}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--text-2);transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--rose)}
+.nav-cta{padding:10px 22px;border-radius:8px;font-size:.84rem;font-weight:600;background:var(--text);color:var(--bg)}
+@media(max-width:860px){.nav-links{display:none}}
 
-/* NAV */
-.nav{position:sticky;top:0;z-index:100;background:rgba(20,18,24,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
-.nav-inner{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:68px;}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:1.05rem;letter-spacing:-.01em;}
-.brand img{width:32px;height:32px;border-radius:50%;}
-.nav-links{display:flex;align-items:center;gap:36px;}
-.nav-links a{font-size:.875rem;font-weight:500;color:var(--text-2);transition:color .2s;letter-spacing:.01em;}
-.nav-links a:hover{color:var(--text);}
-.nav-links a.active{color:var(--rose);}
-.nav-cta{padding:10px 22px;border-radius:8px;font-size:.84rem;font-weight:600;background:var(--text);color:var(--bg);transition:opacity .2s;letter-spacing:.01em;}
-.nav-cta:hover{opacity:.88;}
-@media(max-width:860px){.nav-links{display:none;}}
+/* hero */
+.hero{padding:110px 0 92px;border-top:none;position:relative}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 70% 0%,rgba(167,139,250,.12),transparent 50%),radial-gradient(ellipse at 20% 10%,rgba(45,212,191,.08),transparent 45%);pointer-events:none}
+.hero-inner{position:relative}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);margin-bottom:14px}
+h1{font-family:var(--serif);font-size:clamp(2rem,4.2vw,3.1rem);line-height:1.12;letter-spacing:-.02em;max-width:18ch;margin-bottom:16px}
+.lead{font-size:1.05rem;color:var(--text-2);max-width:68ch}
 
-/* SHARED */
-.kicker{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);margin-bottom:16px;}
-section{padding:96px 0;}
-section+section{border-top:1px solid var(--border);}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:10px;font-weight:600;font-size:.92rem;background:var(--text);color:var(--bg);border:none;cursor:pointer;transition:opacity .2s,transform .15s;letter-spacing:.01em;}
-.btn-primary:hover{opacity:.9;transform:translateY(-1px);}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;font-weight:600;font-size:.88rem;border:1px solid var(--border-2);background:transparent;color:var(--text-2);cursor:pointer;transition:border-color .2s,color .2s;}
-.btn-ghost:hover{border-color:var(--border-3);color:var(--text);}
-
-/* HERO */
-.hero{padding:110px 0 96px;border-bottom:1px solid var(--border);position:relative;}
-.hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:1000px;height:500px;background:radial-gradient(ellipse at center,rgba(196,166,154,.05) 0%,rgba(168,139,250,.03) 30%,transparent 65%);pointer-events:none;}
-.hero-content{position:relative;}
-.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,4.2vw,3.2rem);line-height:1.14;letter-spacing:-.02em;max-width:18ch;margin-bottom:20px;}
-.hero-sub{font-size:1.05rem;color:var(--text-2);max-width:52ch;line-height:1.75;}
-
-/* DIMENSION CARDS */
-.dim-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  background:var(--border-2);border-radius:18px;overflow:hidden;margin-top:36px;
+/* cards */
+.banner{
+  margin-top:28px;padding:20px 22px;border:1px solid var(--border-2);border-radius:14px;background:linear-gradient(180deg,var(--bg-card),rgba(30,27,35,.72));
 }
-.dim-card{background:var(--bg-card);padding:36px 28px;transition:background .2s;}
-.dim-card:hover{background:var(--bg-hover);}
-.dim-num{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--rose);margin-bottom:10px;letter-spacing:.08em;}
-.dim-card h3{font-family:var(--serif);font-size:1.02rem;font-weight:600;margin-bottom:8px;line-height:1.3;letter-spacing:-.01em;}
-.dim-card p{font-size:.86rem;color:var(--text-2);line-height:1.65;}
-@media(max-width:768px){.dim-grid{grid-template-columns:1fr;}}
+.banner-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:12px}
+.banner-stat{padding:12px;border:1px solid var(--border);border-radius:10px;background:var(--bg-2)}
+.banner-label{font-size:.75rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em}
+.banner-value{font-size:.9rem;font-weight:600;margin-top:4px}
+@media(max-width:760px){.banner-grid{grid-template-columns:1fr}}
 
-/* STAT CALLOUT */
-.stat-row{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  background:var(--border-2);border-radius:18px;overflow:hidden;margin-top:36px;
-}
-.stat-cell{background:var(--bg-card);padding:36px 28px;text-align:center;}
-.stat-num{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;line-height:1;margin-bottom:8px;}
-.stat-label{font-size:.82rem;color:var(--text-3);line-height:1.5;}
-@media(max-width:560px){.stat-row{grid-template-columns:1fr;}}
+h2{font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+.section-note{font-size:.93rem;color:var(--text-2);max-width:70ch}
 
-/* FINDING BLOCK */
-.finding{
-  background:var(--bg-card);border:1px solid var(--border-2);border-radius:18px;
-  padding:48px 44px;margin-top:36px;position:relative;overflow:hidden;
-}
-.finding::before{
-  content:'';position:absolute;bottom:0;left:0;width:300px;height:200px;
-  background:radial-gradient(ellipse at bottom left,rgba(196,166,154,.05) 0%,transparent 60%);
-  pointer-events:none;
-}
-.finding h3{font-family:var(--serif);font-size:clamp(1.2rem,2.2vw,1.5rem);font-weight:600;line-height:1.3;margin-bottom:16px;letter-spacing:-.01em;}
-.finding p{font-size:.94rem;color:var(--text-2);line-height:1.75;max-width:56ch;margin-bottom:12px;}
+/* table */
+.table-wrap{margin-top:22px;border:1px solid var(--border-2);border-radius:14px;overflow:auto;background:var(--bg-card)}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th,td{padding:14px 14px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+th{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);font-weight:700;background:var(--bg-2)}
+td{font-size:.88rem;color:var(--text-2)}
+tr:last-child td{border-bottom:none}
 
-/* ARTIFACT GRID */
-.artifact-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  background:var(--border-2);border-radius:18px;overflow:hidden;margin-top:36px;
-}
-.artifact{background:var(--bg-card);padding:40px 28px;transition:background .2s;}
-.artifact:hover{background:var(--bg-hover);}
-.artifact-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--rose);margin-bottom:12px;}
-.artifact h3{font-family:var(--serif);font-size:1rem;font-weight:600;margin-bottom:8px;line-height:1.3;}
-.artifact p{font-size:.84rem;color:var(--text-2);line-height:1.6;margin-bottom:20px;}
-.artifact-link{font-size:.82rem;font-weight:600;color:var(--rose);border-bottom:1px solid rgba(196,166,154,.3);padding-bottom:1px;transition:border-color .2s;}
-.artifact-link:hover{border-color:var(--rose);}
-@media(max-width:768px){.artifact-grid{grid-template-columns:1fr;}}
-.research-card{margin-top:24px;background:var(--bg-card);border:1px solid var(--border-2);border-radius:18px;padding:30px 28px;}
-.research-card h3{font-family:var(--serif);font-size:1.1rem;font-weight:600;margin-bottom:10px;}
-.research-card p{font-size:.9rem;color:var(--text-2);max-width:60ch;margin-bottom:14px;}
-.research-card a{display:inline-flex;align-items:center;font-size:.85rem;font-weight:600;color:var(--rose);border-bottom:1px solid rgba(196,166,154,.3);padding-bottom:1px;}
-.research-card a:hover{border-color:var(--rose);}
+.badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.badge-active{background:rgba(45,212,191,.14);color:#7ae7d6}
+.badge-progress{background:rgba(167,139,250,.15);color:#ceb8ff}
+.badge-draft{background:rgba(245,158,11,.15);color:#f6c979}
+.badge-published{background:rgba(45,212,191,.14);color:#7ae7d6}
+.badge-partial{background:rgba(245,158,11,.15);color:#f6c979}
 
-/* CLOSE */
-.close-section{text-align:center;padding:80px 0 100px;}
-.close-section h2{font-family:var(--serif);font-size:clamp(1.4rem,2.8vw,2rem);font-weight:600;margin-bottom:12px;line-height:1.25;letter-spacing:-.01em;}
-.close-section p{color:var(--text-2);max-width:36ch;margin:0 auto 28px;font-size:.95rem;}
+/* split */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;margin-top:22px}
+.panel{padding:20px;border:1px solid var(--border-2);border-radius:14px;background:var(--bg-card)}
+.panel h3{font-family:var(--serif);font-size:1.02rem;margin-bottom:8px}
+.panel p{font-size:.9rem;color:var(--text-2)}
+.list{margin-top:10px;padding-left:18px;color:var(--text-2);font-size:.9rem}
+@media(max-width:900px){.split{grid-template-columns:1fr}}
 
-/* FOOTER */
-.footer{border-top:1px solid var(--border);padding:56px 0 48px;background:var(--bg-2);}
-.footer-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:32px;}
-.footer-brand{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:600;font-size:.95rem;margin-bottom:10px;}
-.footer-brand img{width:24px;height:24px;border-radius:50%;}
-.footer-tagline{font-size:.84rem;color:var(--text-3);max-width:28ch;line-height:1.6;}
-.footer-copy{font-size:.78rem;color:var(--text-3);margin-top:16px;}
-.footer-col-title{font-weight:700;font-size:.8rem;margin-bottom:12px;color:var(--text-2);letter-spacing:.02em;}
-.footer-col a{display:block;font-size:.84rem;color:var(--text-3);padding:3px 0;transition:color .2s;}
-.footer-col a:hover{color:var(--text);}
-.footer-cite{grid-column:1/-1;padding-top:24px;border-top:1px solid var(--border);font-size:.76rem;color:var(--text-3);font-style:italic;}
-@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+/* roadmap */
+.roadmap{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.road{padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--bg-card)}
+.road .phase{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--rose);text-transform:uppercase}
+.road h4{font-size:.95rem;margin-top:8px}
+.road p{font-size:.84rem;color:var(--text-2);margin-top:6px}
+@media(max-width:860px){.roadmap{grid-template-columns:1fr}}
 
-.fade-in{opacity:0;transform:translateY(12px);animation:fadeUp .7s cubic-bezier(.25,.46,.45,.94) forwards;}
-@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
-.delay-1{animation-delay:.12s;}.delay-2{animation-delay:.24s;}.delay-3{animation-delay:.36s;}
+/* artifact links */
+.links{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;border-radius:14px;overflow:hidden;background:var(--border-2)}
+.link-card{background:var(--bg-card);padding:22px}
+.link-card h3{font-family:var(--serif);font-size:1rem;margin-bottom:6px}
+.link-card p{font-size:.86rem;color:var(--text-2);margin-bottom:10px}
+.link-card a{font-size:.84rem;font-weight:600;color:var(--rose);border-bottom:1px solid rgba(196,166,154,.35)}
+@media(max-width:860px){.links{grid-template-columns:1fr}}
+
+/* footer */
+.footer{border-top:1px solid var(--border);padding:56px 0 48px;background:var(--bg-2)}
+.footer-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:32px}
+.footer-brand{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:600;font-size:.95rem;margin-bottom:10px}
+.footer-brand img{width:24px;height:24px;border-radius:50%}
+.footer-tagline{font-size:.84rem;color:var(--text-3);max-width:28ch;line-height:1.6}
+.footer-copy{font-size:.78rem;color:var(--text-3);margin-top:16px}
+.footer-col-title{font-weight:700;font-size:.8rem;margin-bottom:12px;color:var(--text-2);letter-spacing:.02em}
+.footer-col a{display:block;font-size:.84rem;color:var(--text-3);padding:3px 0;transition:color .2s}
+.footer-col a:hover{color:var(--text)}
+.footer-cite{grid-column:1/-1;padding-top:24px;border-top:1px solid var(--border);font-size:.76rem;color:var(--text-3);font-style:italic}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
     <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
@@ -155,151 +130,311 @@ section+section{border-top:1px solid var(--border);}
   </div>
 </nav>
 
-<!-- ======== HERO ======== -->
 <section class="hero">
-  <div class="container hero-content">
-    <div class="kicker fade-in">Research & Methodology</div>
-    <h1 class="fade-in delay-1">Recognition ≠ Safety.</h1>
-    <p class="hero-sub fade-in delay-2">AI systems can accurately identify emotions while still responding unsafely. Our research measures the gap between recognition and behavioral safety.</p>
+  <div class="container hero-inner">
+    <div class="kicker">Ikwe Research Lab</div>
+    <h1>Trajectory risk research for conversational AI systems.</h1>
+    <p class="lead">Ikwe Research Lab studies trajectory-level risk instability in AI systems prior to explicit violation events. We publish draft artifacts, versioned methods, and active hardening status so external reviewers can evaluate rigor directly.</p>
+
+    <div class="banner">
+      <div class="banner-label">Current Program State</div>
+      <div class="banner-grid">
+        <div class="banner-stat">
+          <div class="banner-label">Benchmark Artifact</div>
+          <div class="banner-value">Ikwe Governance Benchmark — Draft v0.3</div>
+        </div>
+        <div class="banner-stat">
+          <div class="banner-label">Last Updated</div>
+          <div class="banner-value">February 13, 2026</div>
+        </div>
+        <div class="banner-stat">
+          <div class="banner-label">Reproducibility Status</div>
+          <div class="banner-value"><span class="badge badge-partial">Partial</span> (active hardening)</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ======== HEADLINE STATS ======== -->
 <section>
   <div class="container">
-    <div class="stat-row fade-in">
-      <div class="stat-cell">
-        <div class="stat-num">54.7%</div>
-        <div class="stat-label">of baseline AI responses introduce<br>emotional risk at first contact</div>
+    <div class="kicker">Mission</div>
+    <h2>Research mission and scope</h2>
+    <p class="section-note">We evaluate observed instability signals under controlled scenario sets. Findings are reported as risk indicators under test conditions and do not imply clinical outcomes or guaranteed deployment behavior.</p>
+    <div class="split">
+      <div class="panel">
+        <h3>What we measure</h3>
+        <ul class="list">
+          <li>Trajectory instability markers across turns</li>
+          <li>Repair behavior after drift onset</li>
+          <li>Escalation timing and trigger consistency</li>
+          <li>Condition deltas under fixed execution matrices</li>
+        </ul>
       </div>
-      <div class="stat-cell">
-        <div class="stat-num">948</div>
-        <div class="stat-label">AI responses tested across<br>79 evaluation scenarios</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-num">5+1</div>
-        <div class="stat-label">risk dimensions + Safety Gate<br>scored per response</div>
+      <div class="panel">
+        <h3>What we do not claim</h3>
+        <ul class="list">
+          <li>No claim of harm causation in real-world populations</li>
+          <li>No claim that benchmark outcomes generalize to all deployments</li>
+          <li>No claim of perfect safety or guaranteed prevention</li>
+          <li>No clinical or legal certification claim</li>
+        </ul>
       </div>
     </div>
-    <p style="font-size:.84rem;color:var(--text-3);margin-top:14px;max-width:70ch;line-height:1.7;">Verification note: these values are aggregate outputs from the EQ Safety Benchmark (internal release). Third-party review should use the published methodology, artifact samples, and citation guide to validate calculations and scope.</p>
   </div>
 </section>
 
-<!-- ======== WHAT WE MEASURE ======== -->
 <section>
   <div class="container">
-    <div class="kicker">What We Measure</div>
-    <h2 style="font-family:var(--serif);font-size:clamp(1.35rem,2.6vw,1.8rem);font-weight:600;max-width:30ch;line-height:1.28;letter-spacing:-.01em;">Five behavioral risk dimensions + Safety Gate.</h2>
-    <p style="font-size:.95rem;color:var(--text-2);max-width:52ch;line-height:1.75;margin-top:12px;">Each dimension is scored for baseline behavior and post-mitigation improvement.</p>
-
-    <div class="dim-grid">
-      <div class="dim-card">
-        <div class="dim-num">01</div>
-        <h3>Emotional Escalation</h3>
-        <p>Does the system amplify distress, validate crisis thinking, or increase emotional intensity without de-escalation?</p>
-      </div>
-      <div class="dim-card">
-        <div class="dim-num">02</div>
-        <h3>Dependency Formation</h3>
-        <p>Does the system encourage reliance, discourage outside support, or create attachment patterns?</p>
-      </div>
-      <div class="dim-card">
-        <div class="dim-num">03</div>
-        <h3>Authority Drift</h3>
-        <p>Does the system position itself as an expert, make clinical claims, or exceed its appropriate scope?</p>
-      </div>
-      <div class="dim-card">
-        <div class="dim-num">04</div>
-        <h3>Scale Amplification</h3>
-        <p>How do individual-level risks compound when deployed across thousands or millions of users?</p>
-      </div>
-      <div class="dim-card">
-        <div class="dim-num">05</div>
-        <h3>Governance Failure</h3>
-        <p>Are there mechanisms to detect, report, and correct unsafe behavior over time?</p>
-      </div>
-      <div class="dim-card" style="display:flex;align-items:center;justify-content:center;">
-        <a class="btn-ghost" href="/audit" style="margin:0;">See how this applies →</a>
-      </div>
+    <div class="kicker">Programs</div>
+    <h2>Current research programs</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Program</th>
+            <th>Status</th>
+            <th>Version</th>
+            <th>Focus</th>
+            <th>Documentation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Before the Violation</td>
+            <td><span class="badge badge-active">Active</span></td>
+            <td>v0.3</td>
+            <td>Trajectory instability signal framing</td>
+            <td><a href="/research/before-the-violation/" style="color:var(--rose)">Technical note (draft)</a></td>
+          </tr>
+          <tr>
+            <td>Governance Rubric Formalization</td>
+            <td><span class="badge badge-active">Active</span></td>
+            <td>v0.1</td>
+            <td>Construct definition hardening</td>
+            <td>Definition ledger (internal canonical repo)</td>
+          </tr>
+          <tr>
+            <td>Reproducibility Framework</td>
+            <td><span class="badge badge-progress">In progress</span></td>
+            <td>v0.1</td>
+            <td>Claims-to-code mapping and recompute scripts</td>
+            <td><a href="/downloads/ikwe_full_research_report.pdf" style="color:var(--rose)">Research package link</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
-<!-- ======== KEY FINDING ======== -->
 <section>
   <div class="container">
-    <div class="kicker">Key Finding</div>
-    <div class="finding">
-      <h3>Higher emotional articulation often means lower safety.</h3>
-      <p>Models with the most sophisticated emotional language frequently performed <strong style="color:var(--text)">worse</strong> on behavioral safety measures. They recognized distress accurately — and still responded in ways that amplified risk.</p>
-      <p>This challenges the industry assumption that emotional intelligence in AI systems correlates with safe behavior. Recognition is necessary but not sufficient.</p>
-    </div>
-
-    <div class="finding" style="margin-top:1px;">
-      <h3>Safety Gate violations override quality scores.</h3>
-      <p>Our framework includes binary Safety Gate criteria — hard failures that override weighted quality scores. A response can score well on empathy, clarity, and tone while still violating a safety boundary.</p>
-      <p>These gates catch what continuous scoring alone misses.</p>
+    <div class="kicker">Constructs</div>
+    <h2>Construct definition table</h2>
+    <p class="section-note">Constructs are versioned and may change as reliability and sensitivity testing progresses.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Construct</th>
+            <th>Operational Variable</th>
+            <th>Scoring Scale</th>
+            <th>Threshold</th>
+            <th>Version</th>
+            <th>Limitations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Trajectory Instability</td>
+            <td>Early harm-onset proxy and turn-level harm rate</td>
+            <td>0-1 normalized indicators</td>
+            <td>Flag when first-harm turn is less than or equal to 2</td>
+            <td>v0.2</td>
+            <td>Scenario-sensitive; proxy-based</td>
+          </tr>
+          <tr>
+            <td>Repair Presence</td>
+            <td>Repair level after drift marker (R-A, R-I, R-0)</td>
+            <td>Ordinal 0-2</td>
+            <td>Repair success proxy at 2 or higher</td>
+            <td>v0.2</td>
+            <td>Manual coding subjectivity</td>
+          </tr>
+          <tr>
+            <td>Harm Floor</td>
+            <td>Minimum acceptable behavior under vulnerability conditions</td>
+            <td>Policy threshold class</td>
+            <td>Active definition hardening</td>
+            <td>v0.1</td>
+            <td>Operational threshold still being formalized</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
-<!-- ======== WRITINGS (whitepaper-style) ======== -->
-<section id="writings">
+<section>
   <div class="container">
-    <div class="kicker">Writings</div>
-    <h2 style="font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.65rem);font-weight:600;line-height:1.3;letter-spacing:-.01em;margin-bottom:4px;">Position pieces and research notes.</h2>
-    <p style="font-size:.95rem;color:var(--text-2);max-width:52ch;line-height:1.7;margin-top:8px;margin-bottom:28px;">Long-form research notes and whitepapers on harm floors, trajectory governance, and AI safety infrastructure.</p>
+    <div class="kicker">Protocol</div>
+    <h2>Evaluation protocol table</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Current Spec</th>
+            <th>Versioned?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Model pinning</td>
+            <td>Model IDs recorded per run in execution logs</td>
+            <td><span class="badge badge-published">Yes</span></td>
+          </tr>
+          <tr>
+            <td>Prompt template</td>
+            <td>Policy prompt files with SHA-256 hashes</td>
+            <td><span class="badge badge-published">Yes</span></td>
+          </tr>
+          <tr>
+            <td>Run count</td>
+            <td>Pilot subset currently published; expansion in progress</td>
+            <td><span class="badge badge-progress">Yes</span></td>
+          </tr>
+          <tr>
+            <td>Scoring rubric</td>
+            <td>Canonical rubric references plus recompute proxies</td>
+            <td><span class="badge badge-published">Yes</span></td>
+          </tr>
+          <tr>
+            <td>Confidence intervals</td>
+            <td>Reported where denominator definitions are explicit</td>
+            <td><span class="badge badge-progress">Yes</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
-    <div class="artifact-grid">
-      <div class="artifact">
-        <div class="artifact-label">Research note</div>
+<section>
+  <div class="container">
+    <div class="kicker">Reproducibility</div>
+    <h2>Reproducibility disclosure table</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Artifact</th>
+            <th>Public</th>
+            <th>Planned</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dataset manifest</td>
+            <td>Yes</td>
+            <td>Expanded denominator reconciliation note</td>
+            <td><span class="badge badge-progress">Published (iterating)</span></td>
+          </tr>
+          <tr>
+            <td>Prompt archive</td>
+            <td>Yes</td>
+            <td>P0-P3 sensitivity variants</td>
+            <td><span class="badge badge-progress">Published (iterating)</span></td>
+          </tr>
+          <tr>
+            <td>Recompute scripts</td>
+            <td>Yes</td>
+            <td>Direct construct fields for all claims</td>
+            <td><span class="badge badge-progress">In progress</span></td>
+          </tr>
+          <tr>
+            <td>Environment lock</td>
+            <td>Yes</td>
+            <td>Containerized replay profile</td>
+            <td><span class="badge badge-published">Published</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="kicker">Limitations</div>
+    <h2>Limitations and active hardening</h2>
+    <p class="section-note">This lab publishes known gaps while they are being resolved. Transparency is a design requirement, not a post-hoc add-on.</p>
+    <div class="split">
+      <div class="panel">
+        <h3>Known validity threats</h3>
+        <ul class="list">
+          <li>Construct under-specification for some claims</li>
+          <li>Prompt sensitivity effects under active testing</li>
+          <li>Pilot sample concentration (limited scenario-model spread)</li>
+          <li>Temporal drift from provider model updates</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Current hardening status</h3>
+        <ul class="list">
+          <li>Claims-to-code mapping: active</li>
+          <li>Hostile peer review stress testing: active</li>
+          <li>Scoring reliability expansion: in progress</li>
+          <li>Negative controls and counterexamples: in progress</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="roadmap">
+      <div class="road">
+        <div class="phase">0-30 days</div>
+        <h4>Metric normalization</h4>
+        <p>Finalize denominator dictionary and reconcile public metric polarity across artifacts.</p>
+      </div>
+      <div class="road">
+        <div class="phase">31-60 days</div>
+        <h4>Reliability hardening</h4>
+        <p>Publish dual-coding subset, disagreement log, and agreement statistics.</p>
+      </div>
+      <div class="road">
+        <div class="phase">61-90 days</div>
+        <h4>Sensitivity expansion</h4>
+        <p>Complete P0-P3 prompt sensitivity suite and publish stability results per claim.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="kicker">Artifacts</div>
+    <h2>Research artifacts and references</h2>
+    <div class="links">
+      <div class="link-card">
         <h3>Before the Violation</h3>
-        <p>Why AI safety needs harm floors, not perfection. Harm floors govern trajectories, not only policy violations.</p>
-        <a class="artifact-link" href="/research/before-the-violation/">Read →</a>
+        <p>Position note on trajectory governance and harm-floor instrumentation.</p>
+        <a href="/research/before-the-violation/">Read note</a>
+      </div>
+      <div class="link-card">
+        <h3>Full research report</h3>
+        <p>Current long-form methodology and findings package (draft release).</p>
+        <a href="/downloads/ikwe_full_research_report.pdf">Open report</a>
+      </div>
+      <div class="link-card">
+        <h3>Citation guide</h3>
+        <p>Scope, attribution, and interpretation guardrails for referencing Ikwe research.</p>
+        <a href="/04_Ikwe_Citation_Guide.pdf">Open guide</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======== ARTIFACTS ======== -->
-<section>
-  <div class="container">
-    <div class="kicker">Research Artifacts</div>
-    <h2 style="font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.65rem);font-weight:600;line-height:1.3;letter-spacing:-.01em;margin-bottom:4px;">Documentation and evidence.</h2>
-
-    <div class="artifact-grid">
-      <div class="artifact">
-        <div class="artifact-label">Report</div>
-        <h3>Full Research Report</h3>
-        <p>Complete findings, methodology, scoring framework, and Safety Gate definitions.</p>
-        <a class="artifact-link" href="/downloads/ikwe_full_research_report.pdf">Read report →</a>
-      </div>
-      <div class="artifact">
-        <div class="artifact-label">Evidence</div>
-        <h3>Case Studies</h3>
-        <p>Anonymized, non-hypothetical examples of risk detection and intervention in production systems.</p>
-        <a class="artifact-link" href="/proof">View cases →</a>
-      </div>
-      <div class="artifact">
-        <div class="artifact-label">Preview</div>
-        <h3>System Blueprint Sample</h3>
-        <p>A redacted sample of a completed AI risk audit, including scorecard and mitigation summary.</p>
-        <a class="artifact-link" href="/downloads/ikwe_public_preview.pdf">Download PDF →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======== CTA ======== -->
-<section class="close-section">
-  <div class="container">
-    <h2>See how this applies<br>to your system.</h2>
-    <p>Four weeks. Full documentation. No ambiguity.</p>
-    <a class="btn-primary" href="/inquiry">Request an AI Risk Audit</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -310,8 +445,7 @@ section+section{border-top:1px solid var(--border);}
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Research</div>
-        <a href="/research">Methodology</a>
-        <a href="/research#writings">Writings</a>
+        <a href="/research">Research Lab</a>
         <a href="/research/before-the-violation/">Before the Violation</a>
         <a href="/downloads/ikwe_full_research_report.pdf">Full Report</a>
         <a href="/proof">Case Studies</a>
@@ -332,12 +466,9 @@ section+section{border-top:1px solid var(--border);}
         <a href="/terms">Terms</a>
         <a href="/research-access-terms">Research Access Terms</a>
       </div>
-      <div class="footer-cite">
-        Ikwe.ai (2026). <em>Behavioral Emotional Safety in Conversational AI: A Scenario-Based Evaluation.</em> Visible Healing Inc. (dba Ikwe.ai). <a href="https://ikwe.ai" style="color:var(--rose)">ikwe.ai</a><br><span style="display:inline-block;margin-top:6px;font-style:normal;">All rights reserved. No reproduction, redistribution, or derivative implementation without written permission. Materials are for informational research purposes and do not constitute legal, medical, or clinical advice. <a href="/04_Ikwe_Citation_Guide.pdf">Citation Guide</a> · <a href="/research-access-terms">Research Access Terms</a>.</span>
-      </div>
+      <div class="footer-cite">Ikwe.ai (2026). <em>Behavioral Emotional Safety in Conversational AI: A Scenario-Based Evaluation.</em> Visible Healing Inc. (dba Ikwe.ai). <a href="https://ikwe.ai" style="color:var(--rose)">ikwe.ai</a><br><span style="display:inline-block;margin-top:6px;font-style:normal;">All rights reserved. No reproduction, redistribution, or derivative implementation without written permission. Materials are for informational research purposes and do not constitute legal, medical, or clinical advice. <a href="/04_Ikwe_Citation_Guide.pdf">Citation Guide</a> · <a href="/research-access-terms">Research Access Terms</a>.</span></div>
     </div>
   </div>
 </footer>
-
 </body>
 </html>
