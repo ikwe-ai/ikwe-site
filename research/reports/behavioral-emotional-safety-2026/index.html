@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Behavioral Emotional Safety in Conversational AI (2026) | Ikwe Research Reports</title>
+  <meta name="description" content="Institutional report evaluating recognition versus regulation in conversational AI under emotionally vulnerable user conditions.">
+  <link rel="canonical" href="https://ikwe.ai/research/reports/behavioral-emotional-safety-2026/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="copyright" content="Visible Healing Inc. (dba Ikwe.ai). All rights reserved.">
+
+  <meta property="og:site_name" content="ikwe.ai">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Behavioral Emotional Safety in Conversational AI">
+  <meta property="og:description" content="A scenario-based evaluation of recognition versus regulation across conversational AI systems.">
+  <meta property="og:url" content="https://ikwe.ai/research/reports/behavioral-emotional-safety-2026/">
+  <meta property="og:image" content="https://ikwe.ai/og/ikwe-research.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="article:published_time" content="2026-01-31T00:00:00Z">
+  <meta property="article:author" content="Stephanie Stranko">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Behavioral Emotional Safety in Conversational AI">
+  <meta name="twitter:description" content="Scenario-based evaluation of recognition versus regulation in conversational AI.">
+  <meta name="twitter:image" content="https://ikwe.ai/og/ikwe-research.png">
+
+  <link rel="icon" type="image/png" href="/ikwe_logo_dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+:root {
+  --bg:#101218;
+  --bg2:#171b24;
+  --bg3:#1d2230;
+  --text:#e9eefc;
+  --text2:rgba(233,238,252,.76);
+  --text3:rgba(233,238,252,.56);
+  --border:rgba(255,255,255,.1);
+  --border2:rgba(255,255,255,.16);
+  --rose:#c4a69a;
+  --lilac:#b794f6;
+  --teal:#55d7bf;
+  --amber:#f6d992;
+  --green:#89c7a2;
+  --red:#e88f8f;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'Space Mono',monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--text);
+  background: radial-gradient(ellipse at top, rgba(183,148,246,.1), transparent 45%), var(--bg);
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(16,18,24,.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 28px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--serif);
+  font-size: 1.04rem;
+  font-weight: 700;
+}
+.brand img { width: 32px; height: 32px; border-radius: 50%; }
+.nav-links { display: flex; gap: 16px; align-items: center; }
+.nav-links a {
+  color: var(--text3);
+  font-size: .88rem;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: all .16s;
+}
+.nav-links a:hover { color: var(--text); background: rgba(255,255,255,.06); }
+.nav-links a.active { color: var(--text); background: rgba(183,148,246,.16); border: 1px solid rgba(183,148,246,.3); }
+.nav-cta {
+  background: rgba(255,255,255,.08);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 60px 24px 90px;
+}
+.kicker {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 14px;
+}
+.cover {
+  padding: 8px 0 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 26px;
+}
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4.8vw, 3rem);
+  line-height: 1.12;
+  margin-bottom: 12px;
+  letter-spacing: -.02em;
+}
+.subtitle {
+  font-size: 1.14rem;
+  color: var(--text2);
+  margin-bottom: 18px;
+}
+.meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 20px;
+  color: var(--text2);
+  font-size: .93rem;
+  margin: 20px 0 6px;
+}
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  border: 1px solid var(--border2);
+  padding: 11px 16px;
+  font-size: .9rem;
+  font-weight: 600;
+}
+.btn.primary { background: var(--lilac); border-color: var(--lilac); color: #12151e; }
+.btn.secondary { background: rgba(255,255,255,.04); color: var(--text2); }
+.download-meta {
+  width: 100%;
+  color: var(--text3);
+  font-size: .84rem;
+  line-height: 1.55;
+}
+.download-meta a { color: var(--amber); text-decoration: underline; text-underline-offset: 2px; }
+
+.section {
+  margin-top: 34px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.section h2 {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+.section h3 {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  margin: 18px 0 10px;
+}
+.section p { margin-bottom: 12px; color: var(--text2); }
+.section strong { color: var(--text); }
+.section ul { padding-left: 20px; color: var(--text2); }
+.section li { margin-bottom: 8px; }
+
+.toc {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 20px;
+  margin-top: 6px;
+}
+.toc a { color: var(--text2); font-size: .92rem; }
+.toc a:hover { color: var(--text); }
+
+.table-wrap {
+  margin-top: 16px;
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg2);
+}
+.table-caption {
+  font-family: var(--mono);
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 8px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 14px;
+  text-align: left;
+  font-size: .9rem;
+}
+th {
+  background: var(--bg3);
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  font-size: .78rem;
+}
+tr:last-child td { border-bottom: none; }
+td strong { color: var(--text); }
+.table-notes {
+  margin-top: 10px;
+  color: var(--text3);
+  font-size: .84rem;
+  line-height: 1.6;
+}
+.table-footnote {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255,255,255,.03);
+  color: var(--text2);
+  font-size: .84rem;
+}
+
+.figure-grid {
+  margin-top: 14px;
+  display: grid;
+  gap: 16px;
+}
+.research-figure img {
+  width: 100%;
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  background: var(--bg2);
+}
+.research-figure figcaption {
+  margin-top: 8px;
+  font-size: .86rem;
+  color: var(--text3);
+}
+
+.refs ol { padding-left: 20px; }
+.refs li { color: var(--text2); margin-bottom: 8px; }
+.refs a { color: var(--amber); text-decoration: underline; text-underline-offset: 2px; }
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 44px 0 56px;
+}
+.footer-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.footer-text {
+  color: var(--text3);
+  font-size: .82rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .meta { grid-template-columns: 1fr; }
+  .toc { grid-template-columns: 1fr; }
+}
+
+@media print {
+  .nav,
+  .footer,
+  .actions .btn.secondary {
+    display: none !important;
+  }
+  body {
+    background: #ffffff;
+    color: #101114;
+  }
+  .page {
+    max-width: 100%;
+    padding: 0;
+  }
+  .cover,
+  .section {
+    border-color: #d9dce3;
+  }
+  .section p,
+  .section li,
+  .table-notes,
+  .download-meta {
+    color: #22262f;
+  }
+  .table-wrap,
+  .table-footnote,
+  .research-figure img {
+    border-color: #cfd4df;
+    background: #fff;
+  }
+  .table-caption,
+  .research-figure figcaption {
+    color: #4a5568;
+  }
+  .cover,
+  #comparative-results,
+  #key-findings,
+  #regulatory-relevance,
+  #governance-implications,
+  #references {
+    break-inside: avoid-page;
+  }
+}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/"><img src="/ikwe_logo_dark.png" alt="ikwe.ai">ikwe.ai</a>
+      <div class="nav-links">
+        <a href="/research" class="active">Research</a>
+        <a href="/research/canon/ai-governance-compliance/">Canon</a>
+        <a href="/audit">Audit</a>
+        <a href="/proof">Proof</a>
+        <a href="/about">About</a>
+        <a class="nav-cta" href="/inquiry">Request an Audit</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page">
+    <header class="cover" id="cover-page">
+      <span class="kicker">Ikwe Research Report</span>
+      <h1>Behavioral Emotional Safety in Conversational AI</h1>
+      <p class="subtitle">A Scenario-Based Evaluation of Recognition vs. Regulation</p>
+      <div class="meta">
+        <div><strong>Author:</strong> Stephanie Stranko</div>
+        <div><strong>Organization:</strong> Ikwe.ai</div>
+        <div><strong>Version:</strong> 1.1</div>
+        <div><strong>Date:</strong> January 2026</div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="/downloads/ikwe_full_research_report.pdf" download>Download Full Report (PDF)</a>
+        <a class="btn secondary" href="/research/reports/behavioral-governance-executive-briefing-2026/">Open Executive Briefing</a>
+        <p class="download-meta">Version 1.1 · January 2026<br>Updated versions will be noted here.<br>For institutional review inquiries: <a href="mailto:research@ikwe.ai">research@ikwe.ai</a></p>
+      </div>
+    </header>
+
+    <section class="section" id="abstract">
+      <h2>Abstract</h2>
+      <p>This study evaluates whether emotional recognition capacity in conversational AI correlates with safe behavioral regulation under vulnerable user conditions. Controlled scenario testing demonstrates that emotional fluency does not consistently produce boundary enforcement or escalation safeguards. The report introduces the Ikwe.ai Governance Model as a behavioral instrumentation framework designed to generate audit-ready safety signals.</p>
+    </section>
+
+    <section class="section" id="table-of-contents">
+      <h2>Table of Contents</h2>
+      <nav class="toc">
+        <a href="#background-context">1. Background &amp; Context</a>
+        <a href="#research-question">2. Research Question</a>
+        <a href="#methodology">3. Methodology</a>
+        <a href="#comparative-results">4. Comparative Results</a>
+        <a href="#key-findings">5. Key Findings</a>
+        <a href="#regulatory-relevance">6. Regulatory Relevance</a>
+        <a href="#limitations">7. Limitations</a>
+        <a href="#research-integrity">8. Research Integrity</a>
+        <a href="#governance-implications">9. Governance Implications</a>
+        <a href="#citation">10. Citation</a>
+        <a href="#references">11. References</a>
+      </nav>
+    </section>
+
+    <section class="section" id="background-context">
+      <h2>Background &amp; Context</h2>
+      <p>This report presents a structured evaluation of emotional recognition and behavioral regulation performance across major conversational AI systems. The study examines whether high emotional fluency correlates with safe behavioral governance under emotionally vulnerable user conditions.</p>
+      <p>Findings indicate that emotional articulation and validation alone do not reliably produce proportional safety controls. In controlled testing conditions, behavioral boundary enforcement and escalation safeguards varied significantly across systems.</p>
+      <p>This report introduces the <strong>Ikwe.ai Governance Model</strong>, a behavioral instrumentation framework designed to measure influence dynamics and produce audit-ready safety signals before policy violations occur.</p>
+      <p>This publication is informational and does not constitute legal advice.</p>
+    </section>
+
+    <section class="section" id="research-question">
+      <h2>Research Question</h2>
+      <p>Does emotional recognition capability in conversational AI systems correlate with safe behavioral regulation under emotionally vulnerable conditions?</p>
+    </section>
+
+    <section class="section" id="methodology">
+      <h2>Methodology</h2>
+      <p>A scenario-based evaluation framework was designed to simulate emotionally vulnerable user states, including emotional distress, authority delegation, attachment vulnerability, escalation ambiguity, and dependency-seeking patterns.</p>
+      <p>The Ikwe.ai Governance Model is a behavioral instrumentation framework designed to regulate emotional influence dynamics and produce audit-ready safety signals under vulnerable user conditions.</p>
+      <p>Each system was evaluated under standardized prompt conditions using a two-stage scoring structure.</p>
+
+      <h3>Stage 1 — Safety Gate Pass Rate</h3>
+      <ul>
+        <li>Escalation prompts</li>
+        <li>Authority boundary reinforcement</li>
+        <li>Dependency mitigation signals</li>
+        <li>Risk acknowledgment</li>
+      </ul>
+
+      <h3>Stage 2 — Regulation Quality Score</h3>
+      <p>Qualitative scoring on a 1-5 scale evaluated de-escalation effectiveness, boundary clarity, avoidance of emotional overreach, and balanced validation versus restraint. Composite weighted scores were calculated for comparative analysis.</p>
+    </section>
+
+    <section class="section" id="comparative-results">
+      <h2>Comparative Results</h2>
+      <p class="table-caption">Table 1. Comparative Performance Under Controlled Emotional Load Conditions</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Safety Gate Pass Rate</th>
+              <th>Regulation Quality Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Ikwe.ai Governance Model</strong></td>
+              <td>84.6%</td>
+              <td>4.05 / 5</td>
+            </tr>
+            <tr>
+              <td>GPT-4o</td>
+              <td>59.0%</td>
+              <td>2.95 / 5</td>
+            </tr>
+            <tr>
+              <td>Claude 3.5 Sonnet</td>
+              <td>56.4%</td>
+              <td>2.82 / 5</td>
+            </tr>
+            <tr>
+              <td>Grok</td>
+              <td>20.5%</td>
+              <td>1.02 / 5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-notes">Evaluation Date: January 2026<br>Model versions: Publicly available at time of testing<br>Access method: Standard user interfaces</p>
+      <p class="table-notes">Results reflect controlled testing conditions and are not affiliated with or endorsed by respective model providers.</p>
+      <p class="table-footnote">The Ikwe.ai Governance Model represents a behavioral instrumentation framework evaluated under the same structured scenario conditions as comparative systems.</p>
+
+      <div class="figure-grid">
+        <figure class="research-figure">
+          <picture>
+            <source srcset="/research/figures/ikwe-figure-1-governance-window.svg" type="image/svg+xml">
+            <img src="/research/figures/ikwe-figure-1-governance-window.png" alt="Figure 1 — The Governance Window" loading="lazy">
+          </picture>
+          <figcaption>Figure 1 — The Governance Window</figcaption>
+        </figure>
+        <figure class="research-figure">
+          <picture>
+            <source srcset="/research/figures/ikwe-figure-2-trust-layer-stack.svg" type="image/svg+xml">
+            <img src="/research/figures/ikwe-figure-2-trust-layer-stack.png" alt="Figure 2 — The Trust Layer Stack" loading="lazy">
+          </picture>
+          <figcaption>Figure 2 — The Trust Layer Stack</figcaption>
+        </figure>
+        <figure class="research-figure">
+          <picture>
+            <source srcset="/research/figures/ikwe-figure-3-confidence-deference-curve.svg" type="image/svg+xml">
+            <img src="/research/figures/ikwe-figure-3-confidence-deference-curve.png" alt="Figure 3 — Confidence vs. Critical Evaluation Curve" loading="lazy">
+          </picture>
+          <figcaption>Figure 3 — Confidence vs. Critical Evaluation Curve</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="key-findings">
+      <h2>Key Findings</h2>
+      <ul>
+        <li>Emotional fluency does not consistently predict behavioral safety.</li>
+        <li>High articulation can increase perceived authority if not instrumented.</li>
+        <li>Overreliance risk emerges gradually, not only at policy breach points.</li>
+        <li>Governance evidence must exist prior to enforcement events.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="regulatory-relevance">
+      <h2>Regulatory Relevance</h2>
+      <p>Current AI governance frameworks emphasize risk classification, monitoring, documentation, transparency, and human oversight.</p>
+      <p>Behavioral influence dynamics are not yet explicitly defined as measurable governance classes within most regulatory structures. This research proposes behavioral instrumentation as a complementary governance layer.</p>
+    </section>
+
+    <section class="section" id="limitations">
+      <h2>Limitations</h2>
+      <ul>
+        <li>Results reflect controlled scenario conditions and may not generalize to all production deployments.</li>
+        <li>Public-interface model access limited visibility into provider-internal version identifiers.</li>
+        <li>Findings do not constitute clinical, legal, or regulatory determinations.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="research-integrity">
+      <h2>Research Integrity &amp; Transparency</h2>
+      <ul>
+        <li>Independent research conducted by Ikwe.ai.</li>
+        <li>No compensation from evaluated model providers.</li>
+        <li>Publicly accessible interfaces used for testing.</li>
+        <li>Methodology documentation available upon institutional request.</li>
+        <li>Founder-funded internal research.</li>
+      </ul>
+      <p>Contact: <a href="mailto:research@ikwe.ai" style="color:var(--amber);text-decoration:underline;text-underline-offset:2px;">research@ikwe.ai</a></p>
+    </section>
+
+    <section class="section" id="governance-implications">
+      <h2>Governance Implications</h2>
+      <p>Organizations deploying emotionally interactive AI systems may need defined behavioral thresholds, escalation documentation, influence moderation controls, and pre-incident governance evidence.</p>
+      <p>Governance must measure influence dynamics, not just output categories.</p>
+    </section>
+
+    <section class="section" id="citation">
+      <h2>Citation</h2>
+      <p>Stranko, S. (2026). <em>Behavioral Emotional Safety in Conversational AI: A Scenario-Based Evaluation of Recognition vs. Regulation.</em> Ikwe.ai. Version 1.1.</p>
+    </section>
+
+    <section class="section refs" id="references">
+      <h2>References</h2>
+      <ol>
+        <li>European Parliament and Council. (2024). <em>Regulation (EU) 2024/1689 (Artificial Intelligence Act)</em>. <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng" target="_blank" rel="noopener">EUR-Lex</a>.</li>
+        <li>National Institute of Standards and Technology. (2023). <em>Artificial Intelligence Risk Management Framework (AI RMF 1.0)</em>. <a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf" target="_blank" rel="noopener">PDF</a>.</li>
+        <li>National Institute of Standards and Technology. (2024). <em>Generative AI Profile (NIST AI 600-1)</em>. <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" target="_blank" rel="noopener">NIST</a>.</li>
+        <li>OECD. (2019; updated 2024). <em>OECD AI Principles</em>. <a href="https://oecd.ai/en/ai-principles" target="_blank" rel="noopener">OECD</a>.</li>
+        <li>Federal Trade Commission et al. (2023). <em>Joint Statement on Enforcement Efforts Against Discrimination and Bias in Automated Systems</em>. <a href="https://www.ftc.gov/system/files/ftc_gov/pdf/EEOC-CRT-FTC-CFPB-AI-Joint-Statement%28final%29.pdf" target="_blank" rel="noopener">PDF</a>.</li>
+      </ol>
+      <p style="margin-top:14px;">Contact: <a href="mailto:research@ikwe.ai" style="color:var(--amber);text-decoration:underline;text-underline-offset:2px;">research@ikwe.ai</a> · <a href="https://ikwe.ai" style="color:var(--amber);text-decoration:underline;text-underline-offset:2px;">https://ikwe.ai</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-text">Ikwe.ai (2026). Behavioral emotional safety governance research. Visible Healing Inc. (dba Ikwe.ai). All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
