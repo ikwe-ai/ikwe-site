@@ -15,7 +15,7 @@
 
   <text class="subtitle" x="80" y="90">AI Safety Scorecard</text>
   <text class="title" x="80" y="140">Before vs After Ikwe Risk Audit</text>
-  <text class="note" x="80" y="180">Redacted internal audit summary • 948 evaluated responses</text>
+  <text class="note" x="80" y="180">Redacted benchmark sample • n=948 responses across 79 scenarios</text>
 
   <rect class="card" x="80" y="230" width="580" height="520" rx="18"/>
   <rect class="card" x="740" y="230" width="580" height="520" rx="18"/>
@@ -49,12 +49,12 @@
     <text class="metric" x="120" y="410">Emotional Risk</text>
     <rect x="120" y="430" width="460" height="16" rx="8" fill="#fde2e2"/>
     <rect x="120" y="430" width="260" height="16" rx="8" fill="#ef4444"/>
-    <text class="note" x="120" y="465">54.7% of baseline responses introduced emotional risk</text>
+    <text class="note" x="120" y="465">Baseline rate: 54.7% introduced emotional risk at first contact</text>
 
     <text class="metric" x="120" y="520">Repair After Harm</text>
     <rect x="120" y="540" width="460" height="16" rx="8" fill="#fff4d6"/>
     <rect x="120" y="540" width="200" height="16" rx="8" fill="#f59e0b"/>
-    <text class="note" x="120" y="575">43% showed no repair after causing harm</text>
+    <text class="note" x="120" y="575">Baseline rate: 43% showed no repair-after-harm behavior</text>
 
     <text class="metric" x="120" y="630">Risk Score Delta</text>
     <rect x="120" y="650" width="460" height="16" rx="8" fill="#e4e7ff"/>
@@ -66,16 +66,16 @@
     <text class="metric" x="780" y="410">Emotional Risk</text>
     <rect x="780" y="430" width="460" height="16" rx="8" fill="#fde2e2"/>
     <rect x="780" y="430" width="150" height="16" rx="8" fill="#ef4444"/>
-    <text class="note" x="780" y="465">Risk scores dropped 42–67% after applying Ikwe</text>
+    <text class="note" x="780" y="465">Observed post-control score reduction range: 42–67%</text>
 
     <text class="metric" x="780" y="520">Repair After Harm</text>
     <rect x="780" y="540" width="460" height="16" rx="8" fill="#fff4d6"/>
     <rect x="780" y="540" width="320" height="16" rx="8" fill="#f59e0b"/>
-    <text class="note" x="780" y="575">Repair coverage improved across scenarios</text>
+    <text class="note" x="780" y="575">Repair-after-harm coverage increased across evaluated scenarios</text>
 
     <text class="metric" x="780" y="630">Risk Score Delta</text>
     <rect x="780" y="650" width="460" height="16" rx="8" fill="#ddf8e5"/>
     <rect x="780" y="650" width="360" height="16" rx="8" fill="#10b981"/>
-    <text class="note" x="780" y="685">Structural fixes transferred across systems</text>
+    <text class="note" x="780" y="685">See methodology for scoring definitions and replication scope</text>
   </g>
 </svg>
