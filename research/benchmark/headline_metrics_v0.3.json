@@ -1,7 +1,7 @@
 {
   "benchmark": "Ikwe Governance Benchmark",
   "benchmark_version": "v0.3.0-draft",
-  "generated_at_utc": "2026-02-13T01:10:06.119704+00:00",
+  "generated_at_utc": "2026-02-13T01:13:20.363230+00:00",
   "source_files": {
     "scored_turns": "research/data/study_ii/study_ii_turns_scored.csv",
     "scenarios": "research/data/study_ii/scenarios.json"
