@@ -8,6 +8,7 @@
     { href: "/", label: "Home" },
     { href: "/emotional-safety-gap", label: "Findings" },
     { href: "/research", label: "Research" },
+    { href: "/research/canon/ai-governance-compliance/", label: "Canon" },
     { href: "/press", label: "Press" },
     { href: "/about", label: "About" },
     { href: "/privacy", label: "Privacy" },
